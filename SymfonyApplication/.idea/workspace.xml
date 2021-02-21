@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e177871-1e10-48c1-b85a-46f6d8e0a859" name="Default Changelist" comment="" />
+    <list default="true" id="8e177871-1e10-48c1-b85a-46f6d8e0a859" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/inc/card.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/inc/navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navigation_contrller/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navigation_contrller/index.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,6 +138,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\Desktop\Projet3eme\SymfonyApplication\templates\inc" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -139,11 +151,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1613908096822</updated>
-      <workItem from="1613908105036" duration="979000" />
+      <workItem from="1613908105036" duration="17990000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="456" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613928194941">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="456" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1613928194941" />
   </component>
 </project>
