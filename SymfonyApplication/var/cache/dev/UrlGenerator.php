@@ -15,5 +15,11 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
+    'admin' => [[], ['_controller' => 'App\\Controller\\AdminController::index'], [], [['text', '/admin']], [], []],
+    'aide' => [[], ['_controller' => 'App\\Controller\\AideController::index'], [], [['text', '/aide']], [], []],
+    'categorieAide' => [[], ['_controller' => 'App\\Controller\\CategorieAideController::index'], [], [['text', '/categorieAide']], [], []],
+    'categorie' => [[], ['_controller' => 'App\\Controller\\CategorieController::index'], [], [['text', '/categorie']], [], []],
+    'comptes' => [[], ['_controller' => 'App\\Controller\\ComptesController::index'], [], [['text', '/comptes']], [], []],
+    'demande' => [[], ['_controller' => 'App\\Controller\\DemandeController::index'], [], [['text', '/demande']], [], []],
     'welcome' => [[], ['_controller' => 'App\\Controller\\NavigationContrllerController::index'], [], [['text', '/HolidayHiatus']], [], []],
 ];
