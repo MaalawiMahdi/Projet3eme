@@ -41,15 +41,22 @@ class __TwigTemplate_64d69e4ba7bbd0cf3d3aa86f60f2863e62992cd2c69f00b5819db03c877
 
         // line 1
         echo "
-";
+    ";
         // line 2
         $this->loadTemplate("temp1.html.twig", "admin/index.html.twig", 2)->display($context);
         // line 3
         echo "
+        <img style=\"margin-left: 20%; margin-top: 10%; width: 60%; hight=60%\" src= \"";
+        // line 4
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
+        echo "\" class=\"img-circle\">
 
+    ";
+        // line 6
+        $this->loadTemplate("temp2.html.twig", "admin/index.html.twig", 6)->display($context);
+        // line 7
+        echo "
 ";
-        // line 5
-        $this->loadTemplate("temp2.html.twig", "admin/index.html.twig", 5)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -70,15 +77,18 @@ class __TwigTemplate_64d69e4ba7bbd0cf3d3aa86f60f2863e62992cd2c69f00b5819db03c877
 
     public function getDebugInfo()
     {
-        return array (  52 => 5,  48 => 3,  46 => 2,  43 => 1,);
+        return array (  58 => 7,  56 => 6,  51 => 4,  48 => 3,  46 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("
-{% include 'temp1.html.twig' %}
+    {% include 'temp1.html.twig' %}
 
+        <img style=\"margin-left: 20%; margin-top: 10%; width: 60%; hight=60%\" src= \"{{ asset('bundles/dist/img/Logo.jpeg')}}\" class=\"img-circle\">
 
-{% include 'temp2.html.twig' %}", "admin/index.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\admin\\index.html.twig");
+    {% include 'temp2.html.twig' %}
+
+", "admin/index.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\admin\\index.html.twig");
     }
 }

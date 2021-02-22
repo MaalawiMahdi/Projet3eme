@@ -42,7 +42,9 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
         // line 1
         echo "<!DOCTYPE html>
 <html>
+
 <head>
+
     <meta charset=\"utf-8\">
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <title>AdminPanel| Dashboard</title>
@@ -50,53 +52,53 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <meta content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\" name=\"viewport\">
     <!-- Bootstrap 3.3.7 -->
     <link rel=\"stylesheet\" href=\"";
-        // line 10
+        // line 12
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/bower_components/bootstrap/dist/css/bootstrap.min.css"), "html", null, true);
         echo "\">
     <!-- Font Awesome -->
     <link rel=\"stylesheet\" href=\"";
-        // line 12
+        // line 14
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/bower_components/font-awesome/css/font-awesome.min.css"), "html", null, true);
         echo "\">
     <!-- Ionicons -->
     <link rel=\"stylesheet\" href=\"";
-        // line 14
+        // line 16
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/bower_components/Ionicons/css/ionicons.min.css"), "html", null, true);
         echo "\">
     <!-- Theme style -->
     <link rel=\"stylesheet\" href=\"";
-        // line 16
+        // line 18
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/css/AdminLTE.min.css"), "html", null, true);
         echo "\">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel=\"stylesheet\" href=\"";
-        // line 19
+        // line 21
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/css/skins/_all-skins.min.css"), "html", null, true);
         echo "\">
     <!-- Morris chart -->
     <link rel=\"stylesheet\" href=\"";
-        // line 21
+        // line 23
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/bower_components/morris.js/morris.css"), "html", null, true);
         echo "\">
     <!-- jvectormap -->
     <link rel=\"stylesheet\" href=\"";
-        // line 23
+        // line 25
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/bower_components/jvectormap/jquery-jvectormap.css"), "html", null, true);
         echo "\">
     <!-- Date Picker -->
     <link rel=\"stylesheet\" href=\"";
-        // line 25
+        // line 27
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css"), "html", null, true);
         echo "\">
     <!-- Daterange picker -->
     <link rel=\"stylesheet\" href=\"";
-        // line 27
+        // line 29
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/bower_components/bootstrap-daterangepicker/daterangepicker.css"), "html", null, true);
         echo "\">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel=\"stylesheet\" href=\"";
-        // line 29
+        // line 31
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"), "html", null, true);
         echo "\">
 
@@ -113,20 +115,27 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 <body class=\"hold-transition skin-blue sidebar-mini\">
 <div class=\"wrapper\">
 
-    <header class=\"main-header\">
+    <header class=\"main-header\" >
+
         <!-- Logo -->
-        <a href=\"index2.html\" class=\"logo\">
+
+        <a href=\"/admin\" class=\"logo\" style=\"background-color: #d11414;\">
+
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>A</b>LT</span>
+
             <!-- logo for regular state and mobile devices -->
             <span class=\"logo-lg\"><b>Admin</b>Panel</span>
+
         </a>
+
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class=\"navbar navbar-static-top\" >
+        <nav class=\"navbar navbar-static-top\" style=\"background-color: #d11414;\" >
             <!-- Sidebar toggle button-->
             <a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
                 <span class=\"sr-only\">Toggle navigation</span>
             </a>
+
 
             <div class=\"navbar-custom-menu\">
                 <ul class=\"nav navbar-nav\">
@@ -137,38 +146,23 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                     <li class=\"dropdown user user-menu\">
                         <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
                             <img src=\"";
-        // line 67
+        // line 76
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"user-image\" alt=\"User Image\">
-                            <span class=\"hidden-xs\">Alexander Pierce</span>
+                            <span class=\"hidden-xs\">Mohamed Marwen Maalawi</span>
                         </a>
                         <ul class=\"dropdown-menu\">
                             <!-- User image -->
-                            <li class=\"user-header\">
+                            <li class=\"user-header\" style=\"background-color: #d11414;\">
                                 <img src=\"";
-        // line 73
+        // line 82
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
 
                                 <p>
-                                    Alexander Pierce - Web Developer
+                                    Mohamed Marwen Maalawi - admin/Web Developer
                                     <small>Member since Nov. 2012</small>
                                 </p>
-                            </li>
-                            <!-- Menu Body -->
-                            <li class=\"user-body\">
-                                <div class=\"row\">
-                                    <div class=\"col-xs-4 text-center\">
-                                        <a href=\"#\">Followers</a>
-                                    </div>
-                                    <div class=\"col-xs-4 text-center\">
-                                        <a href=\"#\">Sales</a>
-                                    </div>
-                                    <div class=\"col-xs-4 text-center\">
-                                        <a href=\"#\">Friends</a>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
                             </li>
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
@@ -188,35 +182,33 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class=\"main-sidebar\">
+    <aside class=\"main-sidebar\" style=\"background-color: #d11414; color:white\">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class=\"sidebar\">
             <!-- Sidebar user panel -->
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
                     <img src=\"";
-        // line 119
+        // line 113
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
                 </div>
                 <div class=\"pull-left info\">
-                    <p>Alexander Pierce</p>
+                    <p>MohamedMarwenMaalawi</p>
                     <a href=\"#\"><i class=\"fa fa-circle text-success\"></i> Online</a>
                 </div>
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class=\"sidebar-menu\" data-widget=\"tree\">
-                <li class=\"active treeview\">
+                <li class=\"treeview\">
                     <a href=\"#\">
                         <i class=\"fa fa-dashboard\"></i> <span>Gestion des comptes</span>
-                        <span class=\"pull-right-container\">
-              <i class=\"fa fa-angle-left pull-right\"></i>
-            </span>
-                    </a>
+                        <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
                     <ul class=\"treeview-menu\">
                         <li class=\"active\"><a href=\"/comptes\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
                         <li><a href=\"/demande\"><i class=\"fa fa-circle-o\"></i> Gestion des sociétés</a></li>
                     </ul>
+                </li>
 
 
 
@@ -253,14 +245,16 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
     public function getDebugInfo()
     {
-        return array (  199 => 119,  150 => 73,  141 => 67,  100 => 29,  95 => 27,  90 => 25,  85 => 23,  80 => 21,  75 => 19,  69 => 16,  64 => 14,  59 => 12,  54 => 10,  43 => 1,);
+        return array (  193 => 113,  159 => 82,  150 => 76,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("<!DOCTYPE html>
 <html>
+
 <head>
+
     <meta charset=\"utf-8\">
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <title>AdminPanel| Dashboard</title>
@@ -301,20 +295,27 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 <body class=\"hold-transition skin-blue sidebar-mini\">
 <div class=\"wrapper\">
 
-    <header class=\"main-header\">
+    <header class=\"main-header\" >
+
         <!-- Logo -->
-        <a href=\"index2.html\" class=\"logo\">
+
+        <a href=\"/admin\" class=\"logo\" style=\"background-color: #d11414;\">
+
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>A</b>LT</span>
+
             <!-- logo for regular state and mobile devices -->
             <span class=\"logo-lg\"><b>Admin</b>Panel</span>
+
         </a>
+
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class=\"navbar navbar-static-top\" >
+        <nav class=\"navbar navbar-static-top\" style=\"background-color: #d11414;\" >
             <!-- Sidebar toggle button-->
             <a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
                 <span class=\"sr-only\">Toggle navigation</span>
             </a>
+
 
             <div class=\"navbar-custom-menu\">
                 <ul class=\"nav navbar-nav\">
@@ -325,32 +326,17 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                     <li class=\"dropdown user user-menu\">
                         <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
                             <img src=\"{{ asset('bundles/dist/img/user2-160x160.jpg')}}\" class=\"user-image\" alt=\"User Image\">
-                            <span class=\"hidden-xs\">Alexander Pierce</span>
+                            <span class=\"hidden-xs\">Mohamed Marwen Maalawi</span>
                         </a>
                         <ul class=\"dropdown-menu\">
                             <!-- User image -->
-                            <li class=\"user-header\">
+                            <li class=\"user-header\" style=\"background-color: #d11414;\">
                                 <img src=\"{{ asset('bundles/dist/img/user2-160x160.jpg')}}\" class=\"img-circle\" alt=\"User Image\">
 
                                 <p>
-                                    Alexander Pierce - Web Developer
+                                    Mohamed Marwen Maalawi - admin/Web Developer
                                     <small>Member since Nov. 2012</small>
                                 </p>
-                            </li>
-                            <!-- Menu Body -->
-                            <li class=\"user-body\">
-                                <div class=\"row\">
-                                    <div class=\"col-xs-4 text-center\">
-                                        <a href=\"#\">Followers</a>
-                                    </div>
-                                    <div class=\"col-xs-4 text-center\">
-                                        <a href=\"#\">Sales</a>
-                                    </div>
-                                    <div class=\"col-xs-4 text-center\">
-                                        <a href=\"#\">Friends</a>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
                             </li>
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
@@ -370,7 +356,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class=\"main-sidebar\">
+    <aside class=\"main-sidebar\" style=\"background-color: #d11414; color:white\">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class=\"sidebar\">
             <!-- Sidebar user panel -->
@@ -379,23 +365,21 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                     <img src=\"{{ asset('bundles/dist/img/user2-160x160.jpg')}}\" class=\"img-circle\" alt=\"User Image\">
                 </div>
                 <div class=\"pull-left info\">
-                    <p>Alexander Pierce</p>
+                    <p>MohamedMarwenMaalawi</p>
                     <a href=\"#\"><i class=\"fa fa-circle text-success\"></i> Online</a>
                 </div>
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class=\"sidebar-menu\" data-widget=\"tree\">
-                <li class=\"active treeview\">
+                <li class=\"treeview\">
                     <a href=\"#\">
                         <i class=\"fa fa-dashboard\"></i> <span>Gestion des comptes</span>
-                        <span class=\"pull-right-container\">
-              <i class=\"fa fa-angle-left pull-right\"></i>
-            </span>
-                    </a>
+                        <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
                     <ul class=\"treeview-menu\">
                         <li class=\"active\"><a href=\"/comptes\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
                         <li><a href=\"/demande\"><i class=\"fa fa-circle-o\"></i> Gestion des sociétés</a></li>
                     </ul>
+                </li>
 
 
 
