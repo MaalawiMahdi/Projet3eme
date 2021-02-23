@@ -14,11 +14,11 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 class SujetController extends AbstractController
 {
     /**
-     * @Route("/sujet", name="sujet")
+     * @Route("/main", name="main")
      */
     public function index(): Response
     {
-        return $this->render('sujet/index.html.twig', [
+        return $this->render('main.html.twig', [
             'controller_name' => 'SujetController',
         ]);
     }
@@ -39,7 +39,7 @@ class SujetController extends AbstractController
     {     $Sujet = new Sujet();
         $form= $this->createForm(SujetType::class,$Sujet);
 
-        return $this->render('main.html.twig', [
+        return $this->render('template.html.twig', [
             'form' => $form->createView(),
         ]);
 

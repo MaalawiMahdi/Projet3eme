@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerJqbmoRN/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerLx49V5w/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -39,7 +39,11 @@ $classes[] = 'App\Controller\CategorieAideController';
 $classes[] = 'App\Controller\CategorieController';
 $classes[] = 'App\Controller\ComptesController';
 $classes[] = 'App\Controller\DemandeController';
+$classes[] = 'App\Controller\IndexController';
 $classes[] = 'App\Controller\NavigationContrllerController';
+$classes[] = 'App\Controller\SujetController';
+$classes[] = 'App\Form\SujetType';
+$classes[] = 'App\Repository\SujetRepository';
 $classes[] = 'Doctrine\DBAL\Tools\Console\Command\RunSqlCommand';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController';

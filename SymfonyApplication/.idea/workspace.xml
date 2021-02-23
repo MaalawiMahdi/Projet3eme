@@ -3,13 +3,82 @@
   <component name="ChangeListManager">
     <list default="true" id="8e177871-1e10-48c1-b85a-46f6d8e0a859" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SujetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SujetController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/afficher.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/afficher.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/template.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerGc41Ri5.legacy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerGc41Ri5/removed-ids.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/ContainerGc41Ri5/srcApp_KernelDevDebugContainer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/annotations.map" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/annotations.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/03/03f3412f646bb6e757b0f2722dbf54c231423863f09fb4da517daa51ccebd474.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/03/03f3412f646bb6e757b0f2722dbf54c231423863f09fb4da517daa51ccebd474.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/0d/0d20e2adb8bf9e5577e35f77fb1e2db03d2792455184d756eaab2822b8370243.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/0d/0d20e2adb8bf9e5577e35f77fb1e2db03d2792455184d756eaab2822b8370243.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/10/105d567f902b81b4aa3377f6743c16fd740784314061c629d9d534d9efedcb04.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/10/105d567f902b81b4aa3377f6743c16fd740784314061c629d9d534d9efedcb04.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/10/108a6dd257b85510277fe36c2d6f0f69f25f9a31f3fb2c9255c281100d73cb4e.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/10/108a6dd257b85510277fe36c2d6f0f69f25f9a31f3fb2c9255c281100d73cb4e.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/10/10942c5d717ea26f0e088c4639901a42326c5629dfed95d0a77ecdb15c95c9d1.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/10/10942c5d717ea26f0e088c4639901a42326c5629dfed95d0a77ecdb15c95c9d1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/11/111196e0b9b3faf6d0553a3bb3c3f57f079beabec6c543b0af5236717876f3ed.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/11/111196e0b9b3faf6d0553a3bb3c3f57f079beabec6c543b0af5236717876f3ed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/12/1266d7e0044c18449e55b22e5c46e5d01afbfa5cd34db6357286edc9edec9494.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/12/1266d7e0044c18449e55b22e5c46e5d01afbfa5cd34db6357286edc9edec9494.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/13/13389ca4ba5b047e6e21f83342ce2bccb882562b627ad51e8fe0c49902b436ac.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/13/13389ca4ba5b047e6e21f83342ce2bccb882562b627ad51e8fe0c49902b436ac.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/14/14b06b4614430ebd3a508389b2ca8b619840d9beb338028f429a19974fe3ef06.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/14/14b06b4614430ebd3a508389b2ca8b619840d9beb338028f429a19974fe3ef06.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/15/1567dbea3b1fc866d22d2db15ce5034951967fbc8fcea882c8de0e8d6c6b7752.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/15/1567dbea3b1fc866d22d2db15ce5034951967fbc8fcea882c8de0e8d6c6b7752.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/1c/1cb3b8a699a8ddf4b83b8686b35f3cf5891d33d840023c90aea0beaf2750c24c.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/1c/1cb3b8a699a8ddf4b83b8686b35f3cf5891d33d840023c90aea0beaf2750c24c.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/1d/1d7e9acc566b6db852dbe80e324a1f173eec9fb7bfa0d4a826c0f0cc09af3003.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/1d/1d7e9acc566b6db852dbe80e324a1f173eec9fb7bfa0d4a826c0f0cc09af3003.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/2c/2cf4e15eff9a282807d9452388f81cc1e5db65fd7400eb189e9a15c62bd8ef5a.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/2c/2cf4e15eff9a282807d9452388f81cc1e5db65fd7400eb189e9a15c62bd8ef5a.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/30/3010e5cfd033416b8a37138ab999b40f85a0c294d9ac55ed1144a92fa1abc847.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/30/3010e5cfd033416b8a37138ab999b40f85a0c294d9ac55ed1144a92fa1abc847.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/30/3030128dccc3e3e93ba679aee6f659bd2d68a02954b7a805e6e2925233e8c8b7.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/30/3030128dccc3e3e93ba679aee6f659bd2d68a02954b7a805e6e2925233e8c8b7.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/38/38fcfc814db1587519d6a093b877109ed7a0a7cfe04932dbac80630beff18995.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/38/38fcfc814db1587519d6a093b877109ed7a0a7cfe04932dbac80630beff18995.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/3a/3a5468d078c3414b76a6d9ce9b0b5d26bd08095f42e5b86944364040158c061b.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/3a/3a5468d078c3414b76a6d9ce9b0b5d26bd08095f42e5b86944364040158c061b.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/3b/3b1682a02592aa2f03f36ca43e7e42e655a5d4424ab3e50214a988ccccdf11d4.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/3b/3b1682a02592aa2f03f36ca43e7e42e655a5d4424ab3e50214a988ccccdf11d4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/3b/3b4848d1b620d4cea87cd514456c32e42bf4437e4de7c43b38350bbf1563d9cb.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/3b/3b4848d1b620d4cea87cd514456c32e42bf4437e4de7c43b38350bbf1563d9cb.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/46/4629108a0753810964d7bd7b02f26f969f2186c25a67514ec8a72d81057f7f0d.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/46/4629108a0753810964d7bd7b02f26f969f2186c25a67514ec8a72d81057f7f0d.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/48/487b2be0d1c05a239bb78498ec2b8c1e5fd0c59160aa9c5a90c0ee0d83f0008e.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/48/487b2be0d1c05a239bb78498ec2b8c1e5fd0c59160aa9c5a90c0ee0d83f0008e.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/56/5624a664e153fa41e38c5d1d9f3efcf9e58e3e981f0cab4b552bb44c027dfe37.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/56/5624a664e153fa41e38c5d1d9f3efcf9e58e3e981f0cab4b552bb44c027dfe37.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/5d/5d73b909d36cf70f327628f9953231908060709697b4bb1bc88a8c8fc6a3d766.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/5d/5d73b909d36cf70f327628f9953231908060709697b4bb1bc88a8c8fc6a3d766.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/60/608b49fdf82643195e3fe01e3cc9369a51b5da426ea79b874e4db3a1fe7f4ebd.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/60/608b49fdf82643195e3fe01e3cc9369a51b5da426ea79b874e4db3a1fe7f4ebd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/6e/6eec9c047707c8b2ce38a25f30bb03cb167bada4331f003ce7a2ca36cd786aac.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/6e/6eec9c047707c8b2ce38a25f30bb03cb167bada4331f003ce7a2ca36cd786aac.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/71/71192ee8e3510fd34a0268f053e49dcfb50f5d08388cc249c4311576cf2302dd.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/71/71192ee8e3510fd34a0268f053e49dcfb50f5d08388cc249c4311576cf2302dd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/73/73a44e0230486de76302199f9d1965421152c085f5a8649037f574ce96f05b35.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/73/73a44e0230486de76302199f9d1965421152c085f5a8649037f574ce96f05b35.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/7b/7bd77679ea23b735499d8f1230f0af90ac103d49bcb6e5a154513703492303f2.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/7b/7bd77679ea23b735499d8f1230f0af90ac103d49bcb6e5a154513703492303f2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/81/8106a350b5f69ee6bbd74a47346d8991a3ddcc3e1cb70a864a47167acaa4ca00.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/81/8106a350b5f69ee6bbd74a47346d8991a3ddcc3e1cb70a864a47167acaa4ca00.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/85/85844aef0bbb7eaf7abc94b83c8d625dcb7e8e28844f61af5f5f6528e46167af.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/85/85844aef0bbb7eaf7abc94b83c8d625dcb7e8e28844f61af5f5f6528e46167af.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/9b/9b23329b779ff3e3d7bf405401e7d61928591fdd4a2efd2cbc21210b3909e92b.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/9b/9b23329b779ff3e3d7bf405401e7d61928591fdd4a2efd2cbc21210b3909e92b.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/a4/a4473803ead4aa01f51e5c1db7d3275b5bdff6a06721020e79e69dd923bd18a1.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/a4/a4473803ead4aa01f51e5c1db7d3275b5bdff6a06721020e79e69dd923bd18a1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/a5/a5fd2a9edab06b2e3ad2fc34ac9a0a159edcaa243c84a1704fe7f0ea5736c138.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/a5/a5fd2a9edab06b2e3ad2fc34ac9a0a159edcaa243c84a1704fe7f0ea5736c138.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/a7/a792e624cb236a4b0a26af05812a307db05a961584c626a814e6fa618ef565c7.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/a7/a792e624cb236a4b0a26af05812a307db05a961584c626a814e6fa618ef565c7.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/ac/ac0cf52d800d567ccc747a3dbeedaa091ceeb9460d0b7db116dc35fc5e8e6410.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/ac/ac0cf52d800d567ccc747a3dbeedaa091ceeb9460d0b7db116dc35fc5e8e6410.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/ad/ad04928254654540450ca99c35140b981ecee894337bcccb52b4030f483ceede.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/ad/ad04928254654540450ca99c35140b981ecee894337bcccb52b4030f483ceede.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/ad/ade6cc4c8a8cd7e26aa6c88da59352d86ccabc0c0f305524661b43b3c5538aa7.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/ad/ade6cc4c8a8cd7e26aa6c88da59352d86ccabc0c0f305524661b43b3c5538aa7.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/b3/b3bf68db2973491b1c8a617537855df18313b6ecec5d6f555da22d1eb5a8c942.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/b3/b3bf68db2973491b1c8a617537855df18313b6ecec5d6f555da22d1eb5a8c942.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/b7/b74bfdae7c869782bea19c48998d6057d5f7545a1955bab2cfe7521a54d0c215.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/b7/b74bfdae7c869782bea19c48998d6057d5f7545a1955bab2cfe7521a54d0c215.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/bd/bd6e2aa269b7772cd2b04f9737a33b83a68e096f062f1db1a087938f41810a1e.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/bd/bd6e2aa269b7772cd2b04f9737a33b83a68e096f062f1db1a087938f41810a1e.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/bf/bf2d26b20123dc023a1414bbadae9e540d5aa45e9f22597bac8519ec9b63b247.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/bf/bf2d26b20123dc023a1414bbadae9e540d5aa45e9f22597bac8519ec9b63b247.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/c2/c23df8b8e5090f3302c6e97fd02f6dee30f84cd5e738a05de7cd2430176f069d.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/c2/c23df8b8e5090f3302c6e97fd02f6dee30f84cd5e738a05de7cd2430176f069d.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/ca/cad2198021ecce5390c654bf4c04c68b2963755429ae42cdd0ea136c8ea30653.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/ca/cad2198021ecce5390c654bf4c04c68b2963755429ae42cdd0ea136c8ea30653.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/cd/cd9604a470537a2cd155c67a63a93513fdbf57799291a58f178d9053207417e9.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/cd/cd9604a470537a2cd155c67a63a93513fdbf57799291a58f178d9053207417e9.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/d4/d4364e889a57022316cdafd718688814644cbcbf8b05303f9ef8c54939c60fcb.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/d4/d4364e889a57022316cdafd718688814644cbcbf8b05303f9ef8c54939c60fcb.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/e8/e82a2edd335ab1a37e70b76462bf395530a4131e1bba95b119859d40049b8880.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/e8/e82a2edd335ab1a37e70b76462bf395530a4131e1bba95b119859d40049b8880.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/e9/e9fdfec5b086584f85c7d76cd8dd7007971ac19da2a86165ba363fd86a09b719.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/e9/e9fdfec5b086584f85c7d76cd8dd7007971ac19da2a86165ba363fd86a09b719.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/ec/ecebc40ad14494dea6ed8c021c5d36b673739856e75cb9adb63865c1aed6b037.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/ec/ecebc40ad14494dea6ed8c021c5d36b673739856e75cb9adb63865c1aed6b037.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/f4/f48322984f3ec08a09e2307e20fdb9eab54e3fd787b45f999e5066db40131375.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/f4/f48322984f3ec08a09e2307e20fdb9eab54e3fd787b45f999e5066db40131375.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -130,6 +199,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -147,6 +217,8 @@
       <option name="presentableId" value="Default" />
       <updated>1613908096822</updated>
       <workItem from="1613908105036" duration="19685000" />
+      <workItem from="1614085604025" duration="1396000" />
+      <workItem from="1614088051151" duration="1035000" />
     </task>
     <servers />
   </component>
