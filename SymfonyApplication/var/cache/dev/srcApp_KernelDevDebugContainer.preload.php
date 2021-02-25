@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerJqbmoRN/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/Container2xn6BjX/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -40,6 +40,20 @@ $classes[] = 'App\Controller\CategorieController';
 $classes[] = 'App\Controller\ComptesController';
 $classes[] = 'App\Controller\DemandeController';
 $classes[] = 'App\Controller\NavigationContrllerController';
+$classes[] = 'App\Repository\AideRepository';
+$classes[] = 'App\Repository\BoardRepository';
+$classes[] = 'App\Repository\CategorieAideRepository';
+$classes[] = 'App\Repository\CategorieBoardRepository';
+$classes[] = 'App\Repository\CategorieProduitServiceRepository';
+$classes[] = 'App\Repository\CommandeRepository';
+$classes[] = 'App\Repository\CommentaireRepository';
+$classes[] = 'App\Repository\LivraisonRepository';
+$classes[] = 'App\Repository\ModeratorRepository';
+$classes[] = 'App\Repository\PanierRepository';
+$classes[] = 'App\Repository\ProduitServiceRepository';
+$classes[] = 'App\Repository\SocieteRepository';
+$classes[] = 'App\Repository\SujetRepository';
+$classes[] = 'App\Repository\UserRepository';
 $classes[] = 'Doctrine\DBAL\Tools\Console\Command\RunSqlCommand';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController';
