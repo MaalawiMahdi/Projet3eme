@@ -1289,6 +1289,10 @@ $context["voter_detail"], "vote", [], "array", false, false, false, 353), twig_c
         </table>
     {% endif %}
 {% endblock %}
+<<<<<<< HEAD
 ", "@Security/Collector/security.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\security.html.twig");
+=======
+", "@Security/Collector/security.html.twig", "D:\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\security-bundle\\Resources\\views\\Collector\\security.html.twig");
+>>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
     }
 }

@@ -3,8 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\SujetRepository;
+<<<<<<< HEAD
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+=======
+>>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,16 +23,25 @@ class Sujet
     private $id;
 
     /**
+<<<<<<< HEAD
      * @ORM\Column(type="string", length=20)
+=======
+     * @ORM\Column(type="string", length=255, nullable=true)
+>>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
      */
     private $titre;
 
     /**
+<<<<<<< HEAD
      * @ORM\Column(type="string", length=500, nullable=true)
+=======
+     * @ORM\Column(type="string", length=255, nullable=true)
+>>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
      */
     private $description;
 
     /**
+<<<<<<< HEAD
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $lien_image;
@@ -49,6 +61,11 @@ class Sujet
     {
         $this->commentaires = new ArrayCollection();
     }
+=======
+     * @ORM\Column(type="integer")
+     */
+    private $IDD;
+>>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
 
     public function getId(): ?int
     {
@@ -60,7 +77,11 @@ class Sujet
         return $this->titre;
     }
 
+<<<<<<< HEAD
     public function setTitre(string $titre): self
+=======
+    public function setTitre(?string $titre): self
+>>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
     {
         $this->titre = $titre;
 
@@ -79,6 +100,7 @@ class Sujet
         return $this;
     }
 
+<<<<<<< HEAD
     public function getLienImage(): ?string
     {
         return $this->lien_image;
@@ -129,6 +151,16 @@ class Sujet
                 $commentaire->setSujet(null);
             }
         }
+=======
+    public function getIDD(): ?int
+    {
+        return $this->IDD;
+    }
+
+    public function setIDD(int $IDD): self
+    {
+        $this->IDD = $IDD;
+>>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
 
         return $this;
     }

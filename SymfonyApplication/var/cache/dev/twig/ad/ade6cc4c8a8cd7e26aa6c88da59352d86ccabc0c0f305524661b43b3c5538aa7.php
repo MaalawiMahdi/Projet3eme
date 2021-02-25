@@ -89,6 +89,10 @@ class __TwigTemplate_64d69e4ba7bbd0cf3d3aa86f60f2863e62992cd2c69f00b5819db03c877
 
     {% include 'temp2.html.twig' %}
 
+<<<<<<< HEAD
 ", "admin/index.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\admin\\index.html.twig");
+=======
+", "admin/index.html.twig", "D:\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\admin\\index.html.twig");
+>>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
     }
 }

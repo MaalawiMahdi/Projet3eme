@@ -1,0 +1,22 @@
+{% extends 'main.html.twig' %}
+{% block afficher %}
+<h1> Liste Des Sujet </h1>
+<table border = "1" class="table">
+    <tr>
+        <td >ID</td>
+        <td>Titre</td>
+        <td>Description</td>
+
+    </tr>
+
+    <tr>
+        <td>85455</td>
+        <td>Qui Somme nous</td>
+        <td>Reprsentation des membre de l'equipe et leur tache</td>
+
+    </tr>
+</table>
+<form method="get" action="/AjouterSujet">
+    <button value="Ajouter" type="submit" > Ajouter</button>
+</form>
+{% endblock %}
