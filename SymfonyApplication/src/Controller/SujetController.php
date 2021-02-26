@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Board;
 use App\Entity\Sujet;
 use App\Form\SujetType;
-use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
