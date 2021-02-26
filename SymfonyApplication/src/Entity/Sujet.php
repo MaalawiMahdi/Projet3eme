@@ -128,4 +128,5 @@ class Sujet
                 $commentaire->setSujet(null);
             }
         }
+    }
 }
