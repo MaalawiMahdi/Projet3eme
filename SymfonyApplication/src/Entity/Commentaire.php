@@ -29,10 +29,10 @@ class Commentaire
     private $User;
 
     /**
-     * @ORM\ManyToOne(targetEntity=sujet::class, inversedBy="commentaires")
+     * @ORM\ManyToOne(targetEntity=Sujet::class, inversedBy="commentaires")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $sujet;
+    private $Sujet;
 
     public function getId(): ?int
     {
@@ -63,14 +63,14 @@ class Commentaire
         return $this;
     }
 
-    public function getSujet(): ?sujet
+    public function getSujet(): ?Sujet
     {
-        return $this->sujet;
+        return $this->Sujet;
     }
 
-    public function setSujet(?sujet $sujet): self
+    public function setSujet(?Sujet $Sujet): self
     {
-        $this->sujet = $sujet;
+        $this->Sujet = $Sujet;
 
         return $this;
     }

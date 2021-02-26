@@ -35,7 +35,7 @@ class User
     private $mail;
 
     /**
-     * @ORM\OneToOne(targetEntity=Societe::class, mappedBy="useraccount", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Societe::class, mappedBy="Useraccount", cascade={"persist", "remove"})
      */
     private $societe;
 
