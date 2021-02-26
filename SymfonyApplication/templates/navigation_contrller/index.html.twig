@@ -5,18 +5,6 @@
 
 
 {% block body %}
-    <center><img src="{{ asset('logo.png') }}"></center>
-    <div class="container" style="margin-top: 15px; " >
+    {% include('Bootstraptemplates/index.html.twig') %}
 
-        <div class="row">
-    {%  include('inc/card.html.twig')with {'title': 'El Theatro Studio','image': '/El-Teatro-30-ans-déjà.jpg'} %}
-    </div>
-        <div class="row">
-            {%  include('inc/card.html.twig')with {'title': 'Cinéma ABC' , 'image': '/elharba.jpg'} %}
-        </div> <div class="row">
-            {%  include('inc/card.html.twig')with {'title': 'Iberostar Selection Royal El Mansour' ,'image': '/Elmansour.jpg'} %}
-        </div> <div class="row">
-            {%  include('inc/card.html.twig')with {'title': 'Cinéma pathé','image': '/Pathé_Logo.svg.png'} %}
-        </div>
-    </div>
 {% endblock %}

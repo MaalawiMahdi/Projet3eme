@@ -803,10 +803,6 @@ class __TwigTemplate_1708372271ee6d501e7e26610e391190d339d9ebdbd257b273c1c2c7062
         </table>
     {% endif %}
 {% endblock %}
-<<<<<<< HEAD
 ", "@WebProfiler/Collector/config.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
-=======
-", "@WebProfiler/Collector/config.html.twig", "D:\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
->>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
     }
 }

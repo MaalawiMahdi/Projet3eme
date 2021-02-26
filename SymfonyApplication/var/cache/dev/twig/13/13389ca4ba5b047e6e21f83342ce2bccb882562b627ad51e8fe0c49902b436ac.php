@@ -184,10 +184,6 @@ class __TwigTemplate_a5d7f9467ddf3954004d9c8848e43a0d1edcb3919249a03d40f836270e7
 </div>
 {% include 'temp2.html.twig' %}
 
-<<<<<<< HEAD
 ", "categorie/index.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\categorie\\index.html.twig");
-=======
-", "categorie/index.html.twig", "D:\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\categorie\\index.html.twig");
->>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
     }
 }

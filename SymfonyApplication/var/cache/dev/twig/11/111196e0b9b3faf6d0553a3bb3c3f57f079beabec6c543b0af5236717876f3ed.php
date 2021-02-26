@@ -44,55 +44,184 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "base.html.twig"));
 
         // line 1
-        echo "<style>
-    .navbar a{
-        color:white;
-        font-size:18px;
-    }
-
-    .navbar a:hover{
-        color:white;
-        opacity: 0.8;
-    }
-</style>
+        echo "
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset=\"UTF-8\">
+    <meta charset=\"utf-8\">
+    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
     <title>";
-        // line 16
+        // line 8
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
-    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\"
-          integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
-    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>
-    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js\"></script>
-    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\"></script>
-    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">
-    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>
-    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>
+    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700\">  <!-- Google web font \"Open Sans\" -->
+    <link rel=\"stylesheet\" href=\"font-awesome-4.7.0/css/font-awesome.min.css\">                <!-- Font Awesome -->
+    <link rel=\"stylesheet\" href=\"css/bootstrap.min.css\">                                      <!-- Bootstrap style -->
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"slick/slick.css\"/>
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"slick/slick-theme.css\"/>
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"css/datepicker.css\"/>
+    <link rel=\"stylesheet\" href=\"css/tooplate-style.css\">
+
     ";
-        // line 25
+        // line 17
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 26
-        echo "</head>
-<body>
-";
-        // line 28
-        echo twig_include($this->env, $context, "inc/navbar.html.twig");
+        // line 18
         echo "
-<div class=\"container\">";
-        // line 29
-        $this->displayBlock('body', $context, $blocks);
-        // line 30
-        echo "</div>
-<script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
-<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
-<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
+</head>
+<body>
+
 ";
-        // line 34
+        // line 22
+        $this->displayBlock('body', $context, $blocks);
+        // line 23
+        echo "<script src=\"js/jquery-1.11.3.min.js\"></script>             <!-- jQuery (https://jquery.com/download/) -->
+<script src=\"js/popper.min.js\"></script>                    <!-- https://popper.js.org/ -->
+<script src=\"js/bootstrap.min.js\"></script>                 <!-- https://getbootstrap.com/ -->
+<script src=\"js/datepicker.min.js\"></script>                <!-- https://github.com/qodesmith/datepicker -->
+<script src=\"js/jquery.singlePageNav.min.js\"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
+<script src=\"slick/slick.min.js\"></script>
+<script>
+
+    /* Google map
+    ------------------------------------------------*/
+    var map = '';
+    var center;
+
+    function initialize() {
+        var mapOptions = {
+            zoom: 16,
+            center: new google.maps.LatLng(13.7567928,100.5653741),
+            scrollwheel: false
+        };
+
+        map = new google.maps.Map(document.getElementById('google-map'),  mapOptions);
+
+        google.maps.event.addDomListener(map, 'idle', function() {
+            calculateCenter();
+        });
+
+        google.maps.event.addDomListener(window, 'resize', function() {
+            map.setCenter(center);
+        });
+    }
+
+    function calculateCenter() {
+        center = map.getCenter();
+    }
+
+    function loadGoogleMap(){
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDVWt4rJfibfsEDvcuaChUaZRS5NXey1Cs&v=3.exp&sensor=false&' + 'callback=initialize';
+        document.body.appendChild(script);
+    }
+
+    function setCarousel() {
+
+        if (\$('.tm-article-carousel').hasClass('slick-initialized')) {
+            \$('.tm-article-carousel').slick('destroy');
+        }
+
+        if(\$(window).width() < 438){
+            // Slick carousel
+            \$('.tm-article-carousel').slick({
+                infinite: false,
+                dots: true,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        }
+        else {
+            \$('.tm-article-carousel').slick({
+                infinite: false,
+                dots: true,
+                slidesToShow: 2,
+                slidesToScroll: 1
+            });
+        }
+    }
+
+    function setPageNav(){
+        if(\$(window).width() > 991) {
+            \$('#tm-top-bar').singlePageNav({
+                currentClass:'active',
+                offset: 79
+            });
+        }
+        else {
+            \$('#tm-top-bar').singlePageNav({
+                currentClass:'active',
+                offset: 65
+            });
+        }
+    }
+
+    function togglePlayPause() {
+        vid = \$('.tmVideo').get(0);
+
+        if(vid.paused) {
+            vid.play();
+            \$('.tm-btn-play').hide();
+            \$('.tm-btn-pause').show();
+        }
+        else {
+            vid.pause();
+            \$('.tm-btn-play').show();
+            \$('.tm-btn-pause').hide();
+        }
+    }
+
+    \$(document).ready(function(){
+
+        \$(window).on(\"scroll\", function() {
+            if(\$(window).scrollTop() > 100) {
+                \$(\".tm-top-bar\").addClass(\"active\");
+            } else {
+                //remove the background property so it comes transparent again (defined in your css)
+                \$(\".tm-top-bar\").removeClass(\"active\");
+            }
+        });
+
+        // Google Map
+        loadGoogleMap();
+
+        // Date Picker
+        const pickerCheckIn = datepicker('#inputCheckIn');
+        const pickerCheckOut = datepicker('#inputCheckOut');
+
+        // Slick carousel
+        setCarousel();
+        setPageNav();
+
+        \$(window).resize(function() {
+            setCarousel();
+            setPageNav();
+        });
+
+        // Close navbar after clicked
+        \$('.nav-link').click(function(){
+            \$('#mainNav').removeClass('show');
+        });
+
+        // Control video
+        \$('.tm-btn-play').click(function() {
+            togglePlayPause();
+        });
+
+        \$('.tm-btn-pause').click(function() {
+            togglePlayPause();
+        });
+
+        // Update the current year in copyright
+        \$('.tm-current-year').text(new Date().getFullYear());
+    });
+
+</script>
+";
+        // line 166
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 35
+        // line 167
         echo "</body>
 </html>";
         
@@ -103,7 +232,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     }
 
-    // line 16
+    // line 8
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -122,7 +251,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     }
 
-    // line 25
+    // line 17
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -140,7 +269,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     }
 
-    // line 29
+    // line 22
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -150,6 +279,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
+        echo " ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -158,7 +288,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     }
 
-    // line 34
+    // line 166
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -181,57 +311,180 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
         return "base.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  162 => 34,  144 => 29,  126 => 25,  107 => 16,  96 => 35,  94 => 34,  88 => 30,  86 => 29,  82 => 28,  78 => 26,  76 => 25,  64 => 16,  47 => 1,);
+        return array (  292 => 166,  273 => 22,  255 => 17,  236 => 8,  225 => 167,  223 => 166,  78 => 23,  76 => 22,  70 => 18,  68 => 17,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<style>
-    .navbar a{
-        color:white;
-        font-size:18px;
-    }
-
-    .navbar a:hover{
-        color:white;
-        opacity: 0.8;
-    }
-</style>
+        return new Source("
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset=\"UTF-8\">
+    <meta charset=\"utf-8\">
+    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
     <title>{% block title %}Welcome!{% endblock %}</title>
-    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\"
-          integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">
-    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>
-    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js\"></script>
-    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\"></script>
-    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">
-    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>
-    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>
+    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700\">  <!-- Google web font \"Open Sans\" -->
+    <link rel=\"stylesheet\" href=\"font-awesome-4.7.0/css/font-awesome.min.css\">                <!-- Font Awesome -->
+    <link rel=\"stylesheet\" href=\"css/bootstrap.min.css\">                                      <!-- Bootstrap style -->
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"slick/slick.css\"/>
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"slick/slick-theme.css\"/>
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"css/datepicker.css\"/>
+    <link rel=\"stylesheet\" href=\"css/tooplate-style.css\">
+
     {% block stylesheets %}{% endblock %}
+
 </head>
 <body>
-{{ include('inc/navbar.html.twig')}}
-<div class=\"container\">{% block body %}{% endblock %}
-</div>
-<script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
-<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
-<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
+
+{% block body %} {% endblock %}
+<script src=\"js/jquery-1.11.3.min.js\"></script>             <!-- jQuery (https://jquery.com/download/) -->
+<script src=\"js/popper.min.js\"></script>                    <!-- https://popper.js.org/ -->
+<script src=\"js/bootstrap.min.js\"></script>                 <!-- https://getbootstrap.com/ -->
+<script src=\"js/datepicker.min.js\"></script>                <!-- https://github.com/qodesmith/datepicker -->
+<script src=\"js/jquery.singlePageNav.min.js\"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
+<script src=\"slick/slick.min.js\"></script>
+<script>
+
+    /* Google map
+    ------------------------------------------------*/
+    var map = '';
+    var center;
+
+    function initialize() {
+        var mapOptions = {
+            zoom: 16,
+            center: new google.maps.LatLng(13.7567928,100.5653741),
+            scrollwheel: false
+        };
+
+        map = new google.maps.Map(document.getElementById('google-map'),  mapOptions);
+
+        google.maps.event.addDomListener(map, 'idle', function() {
+            calculateCenter();
+        });
+
+        google.maps.event.addDomListener(window, 'resize', function() {
+            map.setCenter(center);
+        });
+    }
+
+    function calculateCenter() {
+        center = map.getCenter();
+    }
+
+    function loadGoogleMap(){
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDVWt4rJfibfsEDvcuaChUaZRS5NXey1Cs&v=3.exp&sensor=false&' + 'callback=initialize';
+        document.body.appendChild(script);
+    }
+
+    function setCarousel() {
+
+        if (\$('.tm-article-carousel').hasClass('slick-initialized')) {
+            \$('.tm-article-carousel').slick('destroy');
+        }
+
+        if(\$(window).width() < 438){
+            // Slick carousel
+            \$('.tm-article-carousel').slick({
+                infinite: false,
+                dots: true,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+        }
+        else {
+            \$('.tm-article-carousel').slick({
+                infinite: false,
+                dots: true,
+                slidesToShow: 2,
+                slidesToScroll: 1
+            });
+        }
+    }
+
+    function setPageNav(){
+        if(\$(window).width() > 991) {
+            \$('#tm-top-bar').singlePageNav({
+                currentClass:'active',
+                offset: 79
+            });
+        }
+        else {
+            \$('#tm-top-bar').singlePageNav({
+                currentClass:'active',
+                offset: 65
+            });
+        }
+    }
+
+    function togglePlayPause() {
+        vid = \$('.tmVideo').get(0);
+
+        if(vid.paused) {
+            vid.play();
+            \$('.tm-btn-play').hide();
+            \$('.tm-btn-pause').show();
+        }
+        else {
+            vid.pause();
+            \$('.tm-btn-play').show();
+            \$('.tm-btn-pause').hide();
+        }
+    }
+
+    \$(document).ready(function(){
+
+        \$(window).on(\"scroll\", function() {
+            if(\$(window).scrollTop() > 100) {
+                \$(\".tm-top-bar\").addClass(\"active\");
+            } else {
+                //remove the background property so it comes transparent again (defined in your css)
+                \$(\".tm-top-bar\").removeClass(\"active\");
+            }
+        });
+
+        // Google Map
+        loadGoogleMap();
+
+        // Date Picker
+        const pickerCheckIn = datepicker('#inputCheckIn');
+        const pickerCheckOut = datepicker('#inputCheckOut');
+
+        // Slick carousel
+        setCarousel();
+        setPageNav();
+
+        \$(window).resize(function() {
+            setCarousel();
+            setPageNav();
+        });
+
+        // Close navbar after clicked
+        \$('.nav-link').click(function(){
+            \$('#mainNav').removeClass('show');
+        });
+
+        // Control video
+        \$('.tm-btn-play').click(function() {
+            togglePlayPause();
+        });
+
+        \$('.tm-btn-pause').click(function() {
+            togglePlayPause();
+        });
+
+        // Update the current year in copyright
+        \$('.tm-current-year').text(new Date().getFullYear());
+    });
+
+</script>
 {% block javascripts %}{% endblock %}
 </body>
-<<<<<<< HEAD
 </html>", "base.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\base.html.twig");
-=======
-</html>", "base.html.twig", "D:\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\base.html.twig");
->>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
     }
 }

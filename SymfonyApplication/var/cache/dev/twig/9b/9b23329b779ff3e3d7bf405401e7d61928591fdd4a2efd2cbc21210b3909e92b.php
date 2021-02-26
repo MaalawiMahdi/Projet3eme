@@ -1176,10 +1176,6 @@ div.sf-toolbar .sf-toolbar-block a:hover {
         display: none !important;
     }
 }
-<<<<<<< HEAD
 ", "@WebProfiler/Profiler/toolbar.css.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar.css.twig");
-=======
-", "@WebProfiler/Profiler/toolbar.css.twig", "D:\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\toolbar.css.twig");
->>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
     }
 }
