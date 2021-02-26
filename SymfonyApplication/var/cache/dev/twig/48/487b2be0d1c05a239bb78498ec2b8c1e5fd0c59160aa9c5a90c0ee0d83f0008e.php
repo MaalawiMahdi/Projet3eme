@@ -86,7 +86,7 @@ class __TwigTemplate_f1d1b9c93926f8cf7302408b99a140eda2da8431088f98512ae752f8ea5
 
         // line 8
         echo "    ";
-        $this->loadTemplate("Bootstraptemplates/index.html.twig", "navigation_contrller/index.html.twig", 8)->display($context);
+        $this->loadTemplate("Bootstraptemplates/inscription.html.twig", "navigation_contrller/index.html.twig", 8)->display($context);
         // line 9
         echo "
 ";
@@ -122,7 +122,7 @@ class __TwigTemplate_f1d1b9c93926f8cf7302408b99a140eda2da8431088f98512ae752f8ea5
 
 
 {% block body %}
-    {% include('Bootstraptemplates/index.html.twig') %}
+    {% include('Bootstraptemplates/inscription.html.twig') %}
 
 {% endblock %}
 ", "navigation_contrller/index.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\navigation_contrller\\index.html.twig");
