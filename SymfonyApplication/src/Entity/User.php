@@ -40,7 +40,7 @@ class User
     private $societe;
 
     /**
-     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="user", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="User", orphanRemoval=true)
      */
     private $commentaires;
 
