@@ -35,7 +35,7 @@ class Sujet
     private $lien_image;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Board::class, inversedBy="sujets")
+     * @ORM\ManyToOne(targetEntity=Board::class, inversedBy="Sujet")
      * @ORM\JoinColumn(nullable=false)
      */
     private $board;
