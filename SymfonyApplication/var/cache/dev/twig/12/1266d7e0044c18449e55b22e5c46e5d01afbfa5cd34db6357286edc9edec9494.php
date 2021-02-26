@@ -459,7 +459,7 @@ class __TwigTemplate_857d76e258e03725aca32901578f2d53cc838fd3efcc3789147765291ff
             $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "macro", "dump_request_data"));
 
             // line 156
-            $macros["__internal_d797fa27b311503614a95b42d626cd8a989f8bf8e6310717feb805c27b41ddbe"] = $this;
+            $macros["__internal_4d48ddacc547a960bb07e5b99971ae86befb590b701f3d9ba53190a3e4a67f83"] = $this;
             // line 157
             echo "{
     id: \"";
@@ -476,7 +476,7 @@ class __TwigTemplate_857d76e258e03725aca32901578f2d53cc838fd3efcc3789147765291ff
             echo "\",
     events: [ ";
             // line 161
-            echo twig_call_macro($macros["__internal_d797fa27b311503614a95b42d626cd8a989f8bf8e6310717feb805c27b41ddbe"], "macro_dump_events", [(isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 161, $this->source); })())], 161, $context, $this->getSourceContext());
+            echo twig_call_macro($macros["__internal_4d48ddacc547a960bb07e5b99971ae86befb590b701f3d9ba53190a3e4a67f83"], "macro_dump_events", [(isset($context["events"]) || array_key_exists("events", $context) ? $context["events"] : (function () { throw new RuntimeError('Variable "events" does not exist.', 161, $this->source); })())], 161, $context, $this->getSourceContext());
             echo " ],
 }
 ";
@@ -900,6 +900,10 @@ class __TwigTemplate_857d76e258e03725aca32901578f2d53cc838fd3efcc3789147765291ff
         {% endautoescape %}</script>
     </div>
 {% endmacro %}
-", "@WebProfiler/Collector/time.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\time.html.twig");
+<<<<<<< HEAD
+", "@WebProfiler/Collector/time.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\time.html.twig");
+=======
+", "@WebProfiler/Collector/time.html.twig", "D:\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\time.html.twig");
+>>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
     }
 }

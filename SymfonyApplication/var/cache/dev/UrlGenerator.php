@@ -21,5 +21,9 @@ return [
     'categorie' => [[], ['_controller' => 'App\\Controller\\CategorieController::index'], [], [['text', '/categorie']], [], []],
     'comptes' => [[], ['_controller' => 'App\\Controller\\ComptesController::index'], [], [['text', '/comptes']], [], []],
     'demande' => [[], ['_controller' => 'App\\Controller\\DemandeController::index'], [], [['text', '/demande']], [], []],
+    'index' => [[], ['_controller' => 'App\\Controller\\IndexController::index'], [], [['text', '/index']], [], []],
     'welcome' => [[], ['_controller' => 'App\\Controller\\NavigationContrllerController::index'], [], [['text', '/HolidayHiatus']], [], []],
+    'main' => [[], ['_controller' => 'App\\Controller\\SujetController::index'], [], [['text', '/main']], [], []],
+    'Afficher' => [[], ['_controller' => 'App\\Controller\\SujetController::afficher'], [], [['text', '/AfficherSujet']], [], []],
+    'AjouterSujet' => [[], ['_controller' => 'App\\Controller\\SujetController::AjouterSujet'], [], [['text', '/AjouterSujet']], [], []],
 ];

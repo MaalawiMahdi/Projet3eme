@@ -1,0 +1,10 @@
+{% extends 'main.html.twig' %}
+{% block ajout%}
+<h1> ajouter un Sujet </h1>
+
+{{ form(form)}}
+<button value="ajouter" type="submit" > Ajouter</button>
+<form method="get" action="/AfficherSujet">
+    <button value="Afficher" type="submit" > Afficher</button>
+</form>
+{% endblock %}

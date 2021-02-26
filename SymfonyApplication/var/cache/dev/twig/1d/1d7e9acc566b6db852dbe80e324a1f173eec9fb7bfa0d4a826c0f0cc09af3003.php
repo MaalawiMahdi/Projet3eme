@@ -118,6 +118,10 @@ class __TwigTemplate_11dbed11e198c140306b34606b8f13518a10e3acbf23380b088e96a9b89
             </tr>
         </table>
         </div>
-</div>", "inc/card.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\inc\\card.html.twig");
+<<<<<<< HEAD
+</div>", "inc/card.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\inc\\card.html.twig");
+=======
+</div>", "inc/card.html.twig", "D:\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\inc\\card.html.twig");
+>>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
     }
 }
