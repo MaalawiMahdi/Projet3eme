@@ -38,10 +38,10 @@ class Societe
     private $etat;
 
     /**
-     * @ORM\OneToOne(targetEntity=user::class, inversedBy="societe", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="societe", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $useraccount;
+    private $Useraccount;
 
     public function getId(): ?int
     {
@@ -96,14 +96,14 @@ class Societe
         return $this;
     }
 
-    public function getUseraccount(): ?user
+    public function getUseraccount(): ?User
     {
-        return $this->useraccount;
+        return $this->Useraccount;
     }
 
-    public function setUseraccount(user $useraccount): self
+    public function setUseraccount(User $Useraccount): self
     {
-        $this->useraccount = $useraccount;
+        $this->Useraccount = $Useraccount;
 
         return $this;
     }

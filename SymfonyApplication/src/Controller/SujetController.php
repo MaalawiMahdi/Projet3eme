@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Board;
 use App\Entity\Sujet;
 use App\Form\SujetType;
+use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,24 +24,37 @@ class SujetController extends AbstractController
             'controller_name' => 'SujetController',
         ]);
     }
+
     /**
-     * @Route("/AfficherSujet", name="Afficher")
+     * @Route("/AfficherSujet/{idboard}", name="Afficher")
      */
-    public function afficher(): Response
+    public function afficher($idboard): Response
     {
-        return $this->render('afficher.html.twig');
+        $list = $this->getDoctrine()->getRepository(Sujet::class)->findBy(array('board' => $idboard));
+        return $this->render('sujet/affichersujet.html.twig',['list'=>$list, 'board_id'=>$idboard]);
     }
 
 
 
     /**
-     * @Route("/AjouterSujet", name="AjouterSujet")
+     * @Route("/AjouterSujet/{idboard}", name="AjouterSujet")
      */
-    public function AjouterSujet()
-    {     $Sujet = new Sujet();
+    public function AjouterSujet(Request $request,$idboard)
+    {
+        $Sujet = new Sujet();
+        $board = $this->getDoctrine()->getRepository(Board::class)->find($idboard);
+        $Sujet->setBoard($board);
         $form= $this->createForm(SujetType::class,$Sujet);
-
-        return $this->render('template.html.twig', [
+        $form->add('Ajouter',SubmitType::class);
+        $form->handleRequest($request);
+            if($form->isSubmitted())
+            {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($Sujet);
+                $em->flush();
+                return $this->redirectToRoute('Afficher',['idboard'=> $idboard,]);
+            }
+        return $this->render('sujet/ajoutersujet.html.twig', [
             'form' => $form->createView(),
         ]);
 
