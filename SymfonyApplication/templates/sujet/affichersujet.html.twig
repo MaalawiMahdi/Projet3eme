@@ -1,0 +1,31 @@
+{% extends 'main.html.twig' %}
+{% block content %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Board</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in list %}
+
+        <tr>
+            <td>{{ i.id  }}</td>
+            <td>{{ i.titre  }}</td>
+            <td>{{ i.board.titre }}</td>
+            <td>
+                <a> Consulter</a>
+            </td>
+            <td>
+                <a> Supprimer</a>
+
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    <a href="/AjouterSujet/{{ board_id }}" >Ajouter un sujet</a>
+
+{% endblock %}

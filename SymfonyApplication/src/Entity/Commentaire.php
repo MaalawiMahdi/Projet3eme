@@ -23,10 +23,10 @@ class Commentaire
     private $com;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="commentaires")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaires")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
+    private $User;
 
     /**
      * @ORM\ManyToOne(targetEntity=sujet::class, inversedBy="commentaires")
@@ -51,14 +51,14 @@ class Commentaire
         return $this;
     }
 
-    public function getUser(): ?user
+    public function getUser(): ?User
     {
-        return $this->user;
+        return $this->User;
     }
 
-    public function setUser(?user $user): self
+    public function setUser(?User $User): self
     {
-        $this->user = $user;
+        $this->User = $User;
 
         return $this;
     }
