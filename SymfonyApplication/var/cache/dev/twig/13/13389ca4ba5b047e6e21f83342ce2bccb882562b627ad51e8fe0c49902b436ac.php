@@ -40,11 +40,8 @@ class __TwigTemplate_a5d7f9467ddf3954004d9c8848e43a0d1edcb3919249a03d40f836270e7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "categorie/index.html.twig"));
 
         // line 1
-        echo "
-";
+        $this->loadTemplate("temp1.html.twig", "categorie/index.html.twig", 1)->display($context);
         // line 2
-        $this->loadTemplate("temp1.html.twig", "categorie/index.html.twig", 2)->display($context);
-        // line 3
         echo "
 <div class=\"box\">
     <div class=\"box-header\">
@@ -98,9 +95,9 @@ class __TwigTemplate_a5d7f9467ddf3954004d9c8848e43a0d1edcb3919249a03d40f836270e7
     <!-- /.box-body -->
 </div>
 ";
+        // line 54
+        $this->loadTemplate("temp2.html.twig", "categorie/index.html.twig", 54)->display($context);
         // line 55
-        $this->loadTemplate("temp2.html.twig", "categorie/index.html.twig", 55)->display($context);
-        // line 56
         echo "
 ";
         
@@ -123,13 +120,12 @@ class __TwigTemplate_a5d7f9467ddf3954004d9c8848e43a0d1edcb3919249a03d40f836270e7
 
     public function getDebugInfo()
     {
-        return array (  104 => 56,  102 => 55,  48 => 3,  46 => 2,  43 => 1,);
+        return array (  101 => 55,  99 => 54,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("
-{% include 'temp1.html.twig' %}
+        return new Source("{% include 'temp1.html.twig' %}
 
 <div class=\"box\">
     <div class=\"box-header\">
@@ -184,10 +180,6 @@ class __TwigTemplate_a5d7f9467ddf3954004d9c8848e43a0d1edcb3919249a03d40f836270e7
 </div>
 {% include 'temp2.html.twig' %}
 
-<<<<<<< HEAD
-", "categorie/index.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\categorie\\index.html.twig");
-=======
-", "categorie/index.html.twig", "D:\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\categorie\\index.html.twig");
->>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
+", "categorie/index.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\categorie\\index.html.twig");
     }
 }

@@ -607,10 +607,6 @@ $context["key"], "hit_read_ratio"))) {
         </div>
     {% endif %}
 {% endblock %}
-<<<<<<< HEAD
-", "@WebProfiler/Collector/cache.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\cache.html.twig");
-=======
-", "@WebProfiler/Collector/cache.html.twig", "D:\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\cache.html.twig");
->>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
+", "@WebProfiler/Collector/cache.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\cache.html.twig");
     }
 }

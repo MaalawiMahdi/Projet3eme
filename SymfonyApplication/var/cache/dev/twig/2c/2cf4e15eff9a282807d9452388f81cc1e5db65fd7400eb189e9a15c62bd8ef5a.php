@@ -108,7 +108,24 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <script src=\"https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js\"></script>
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
     <![endif]-->
+    <style> .btn-primary {
+            background-color: #d11414;
+            border-color: #d11414;
+            border-radius: 6px;
 
+        }
+        .btn-primary:hover {
+            opacity: 0.8;
+            background-color: #d11414;
+            border-color: #d11414;
+            border-radius: 6px;
+        }
+        .btn-primary:active {
+            background-color: #d11414;
+            border-color: #d11414;
+            border-radius: 6px;
+        }
+    </style>
     <!-- Google Font -->
     <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic\">
 </head>
@@ -119,7 +136,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
         <!-- Logo -->
 
-        <a href=\"/admin\" class=\"logo\" style=\"background-color: #d11414;\">
+        <a href=\"/admin\" class=\"logo\" style=\"background-color: black;\">
 
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>A</b>LT</span>
@@ -146,7 +163,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                     <li class=\"dropdown user user-menu\">
                         <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
                             <img src=\"";
-        // line 76
+        // line 93
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"user-image\" alt=\"User Image\">
                             <span class=\"hidden-xs\">Mohamed Marwen Maalawi</span>
@@ -155,7 +172,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                             <!-- User image -->
                             <li class=\"user-header\" style=\"background-color: #d11414;\">
                                 <img src=\"";
-        // line 82
+        // line 99
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
 
@@ -189,7 +206,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
                     <img src=\"";
-        // line 113
+        // line 130
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
                 </div>
@@ -213,8 +230,8 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
 
                 <li><a href=\"/categorie\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories</span></a></li>
-                <li><a href=\"/categorieAide\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories aides</span></a></li>
-                <li><a href=\"/aide\"><i class=\"fa fa-book\"></i> <span>Gestion des aides</span></a></li>
+                <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories aides</span></a></li>
+                <li><a href=\"/AfficherAide\"><i class=\"fa fa-book\"></i> <span>Gestion des aides</span></a></li>
 
             </ul>
         </section>
@@ -245,7 +262,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
     public function getDebugInfo()
     {
-        return array (  193 => 113,  159 => 82,  150 => 76,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
+        return array (  210 => 130,  176 => 99,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -288,7 +305,24 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <script src=\"https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js\"></script>
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
     <![endif]-->
+    <style> .btn-primary {
+            background-color: #d11414;
+            border-color: #d11414;
+            border-radius: 6px;
 
+        }
+        .btn-primary:hover {
+            opacity: 0.8;
+            background-color: #d11414;
+            border-color: #d11414;
+            border-radius: 6px;
+        }
+        .btn-primary:active {
+            background-color: #d11414;
+            border-color: #d11414;
+            border-radius: 6px;
+        }
+    </style>
     <!-- Google Font -->
     <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic\">
 </head>
@@ -299,7 +333,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
         <!-- Logo -->
 
-        <a href=\"/admin\" class=\"logo\" style=\"background-color: #d11414;\">
+        <a href=\"/admin\" class=\"logo\" style=\"background-color: black;\">
 
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>A</b>LT</span>
@@ -384,8 +418,8 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
 
                 <li><a href=\"/categorie\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories</span></a></li>
-                <li><a href=\"/categorieAide\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories aides</span></a></li>
-                <li><a href=\"/aide\"><i class=\"fa fa-book\"></i> <span>Gestion des aides</span></a></li>
+                <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories aides</span></a></li>
+                <li><a href=\"/AfficherAide\"><i class=\"fa fa-book\"></i> <span>Gestion des aides</span></a></li>
 
             </ul>
         </section>
@@ -395,10 +429,6 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <!-- Content Wrapper. Contains page content -->
     <div class=\"content-wrapper\">
 
-<<<<<<< HEAD
-", "temp1.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\temp1.html.twig");
-=======
-", "temp1.html.twig", "D:\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\temp1.html.twig");
->>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
+", "temp1.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\temp1.html.twig");
     }
 }

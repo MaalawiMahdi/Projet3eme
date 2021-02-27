@@ -15,7 +15,12 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\AdminController::index'], null, null, null, false, false, null]],
         '/aide' => [[['_route' => 'aide', '_controller' => 'App\\Controller\\AideController::index'], null, null, null, false, false, null]],
-        '/categorieAide' => [[['_route' => 'categorieAide', '_controller' => 'App\\Controller\\CategorieAideController::index'], null, null, null, false, false, null]],
+        '/AfficherAide' => [[['_route' => 'AfficherAide', '_controller' => 'App\\Controller\\AideController::listAide'], null, null, null, false, false, null]],
+        '/ajouterAide' => [[['_route' => 'ajouterAide', '_controller' => 'App\\Controller\\AideController::ajouterAide'], null, null, null, false, false, null]],
+        '/admin/upload/test' => [[['_route' => 'upload_test', '_controller' => 'App\\Controller\\AideController::temporaryUploadAction'], null, null, null, false, false, null]],
+        '/categorie_aide' => [[['_route' => 'categorie_aide', '_controller' => 'App\\Controller\\CategorieAideController::index'], null, null, null, false, false, null]],
+        '/AfficherCategorieAide' => [[['_route' => 'AfficherCategorieAide', '_controller' => 'App\\Controller\\CategorieAideController::listCategoriesAide'], null, null, null, false, false, null]],
+        '/ajouterCategorieAide' => [[['_route' => 'ajouterCategorieAide', '_controller' => 'App\\Controller\\CategorieAideController::ajouterCategorieAide'], null, null, null, false, false, null]],
         '/categorie' => [[['_route' => 'categorie', '_controller' => 'App\\Controller\\CategorieController::index'], null, null, null, false, false, null]],
         '/comptes' => [[['_route' => 'comptes', '_controller' => 'App\\Controller\\ComptesController::index'], null, null, null, false, false, null]],
         '/demande' => [[['_route' => 'demande', '_controller' => 'App\\Controller\\DemandeController::index'], null, null, null, false, false, null]],
@@ -42,6 +47,14 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/supprimer(?'
+                    .'|Aide/([^/]++)(*:195)'
+                    .'|CategorieAide/([^/]++)(*:225)'
+                .')'
+                .'|/modifier(?'
+                    .'|Aide/([^/]++)(*:259)'
+                    .'|CategorieAide/([^/]++)(*:289)'
+                .')'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -51,8 +64,12 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        195 => [[['_route' => 'supprimerAide', '_controller' => 'App\\Controller\\AideController::SupprimerAide'], ['id'], null, null, false, true, null]],
+        225 => [[['_route' => 'supprimerCategorieAide', '_controller' => 'App\\Controller\\CategorieAideController::SupprimerCategorieAide'], ['id'], null, null, false, true, null]],
+        259 => [[['_route' => 'modifierAide', '_controller' => 'App\\Controller\\AideController::modifierAide'], ['id'], null, null, false, true, null]],
+        289 => [
+            [['_route' => 'modifierCategorieAide', '_controller' => 'App\\Controller\\CategorieAideController::modifierCategorieAide'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

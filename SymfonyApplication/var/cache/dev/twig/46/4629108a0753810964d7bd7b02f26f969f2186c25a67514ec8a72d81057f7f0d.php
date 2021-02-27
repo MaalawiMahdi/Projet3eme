@@ -482,10 +482,6 @@ class __TwigTemplate_ae3ac5e5a4cba939c61de49d0b8f4a709b998b3aafeeeacd17ba78076fa
         {% endfor %}
     </table>
 {% endmacro %}
-<<<<<<< HEAD
-", "@WebProfiler/Collector/events.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\events.html.twig");
-=======
-", "@WebProfiler/Collector/events.html.twig", "D:\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\events.html.twig");
->>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
+", "@WebProfiler/Collector/events.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\events.html.twig");
     }
 }

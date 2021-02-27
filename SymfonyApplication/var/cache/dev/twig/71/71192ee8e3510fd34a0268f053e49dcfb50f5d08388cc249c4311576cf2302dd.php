@@ -39,92 +39,6 @@ class __TwigTemplate_cf78b30f9d690285800a0fbc1ee8d8cb965477b9d5a686e4fd57f8fac77
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "categorie_aide/index.html.twig"));
 
-        // line 1
-        echo "
-";
-        // line 2
-        $this->loadTemplate("temp1.html.twig", "categorie_aide/index.html.twig", 2)->display($context);
-        // line 3
-        echo "
-<div class=\"box\">
-    <div class=\"box-header\">
-        <h3 class=\"box-title\">Gestion des categories aides</h3>
-    </div>
-    <!-- /.box-header -->
-    <div class=\"box-body\">
-        <table id=\"example1\" class=\"table table-bordered table-striped\">
-            <thead>
-            <tr>
-                <th>IdCategorieAide</th>
-                <th>Titre</th>
-                <th>Icone</th>
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-
-            </tr>
-
-
-
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.5</td>
-                <td>Win 95+ / OSX.1+</td>
-
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.6</td>
-                <td>Win 95+ / OSX.1+</td>
-
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.7</td>
-                <td>Win 98+ / OSX.1+</td>
-
-            </tr>
-
-            <tr>
-                <td>Webkit</td>
-                <td>Safari 2.0</td>
-                <td>OSX.4+</td>
-
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>Safari 3.0</td>
-                <td>OSX.4+</td>
-
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>OmniWeb 5.5</td>
-                <td>OSX.4+</td>
-
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>iPod Touch / iPhone</td>
-                <td>iPod</td>
-
-            </tr>
-
-
-            </tbody>
-
-        </table>
-    </div>
-    <!-- /.box-body -->
-</div>
-";
-        // line 80
-        $this->loadTemplate("temp2.html.twig", "categorie_aide/index.html.twig", 80)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -138,102 +52,13 @@ class __TwigTemplate_cf78b30f9d690285800a0fbc1ee8d8cb965477b9d5a686e4fd57f8fac77
         return "categorie_aide/index.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  127 => 80,  48 => 3,  46 => 2,  43 => 1,);
+        return array ();
     }
 
     public function getSourceContext()
     {
-        return new Source("
-{% include 'temp1.html.twig' %}
-
-<div class=\"box\">
-    <div class=\"box-header\">
-        <h3 class=\"box-title\">Gestion des categories aides</h3>
-    </div>
-    <!-- /.box-header -->
-    <div class=\"box-body\">
-        <table id=\"example1\" class=\"table table-bordered table-striped\">
-            <thead>
-            <tr>
-                <th>IdCategorieAide</th>
-                <th>Titre</th>
-                <th>Icone</th>
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-
-            </tr>
-
-
-
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.5</td>
-                <td>Win 95+ / OSX.1+</td>
-
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.6</td>
-                <td>Win 95+ / OSX.1+</td>
-
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.7</td>
-                <td>Win 98+ / OSX.1+</td>
-
-            </tr>
-
-            <tr>
-                <td>Webkit</td>
-                <td>Safari 2.0</td>
-                <td>OSX.4+</td>
-
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>Safari 3.0</td>
-                <td>OSX.4+</td>
-
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>OmniWeb 5.5</td>
-                <td>OSX.4+</td>
-
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>iPod Touch / iPhone</td>
-                <td>iPod</td>
-
-            </tr>
-
-
-            </tbody>
-
-        </table>
-    </div>
-    <!-- /.box-body -->
-</div>
-{% include 'temp2.html.twig' %}
-<<<<<<< HEAD
-", "categorie_aide/index.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\categorie_aide\\index.html.twig");
-=======
-", "categorie_aide/index.html.twig", "D:\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\categorie_aide\\index.html.twig");
->>>>>>> e906642b4420c02199eb6300b6d0ed4d4fdf7afa
+        return new Source("", "categorie_aide/index.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\categorie_aide\\index.html.twig");
     }
 }
