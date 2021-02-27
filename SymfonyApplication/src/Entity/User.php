@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -31,6 +31,7 @@ class User
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\Email(message = "The email '{{ value }}' is not a valid email.")
      */
     private $mail;
 

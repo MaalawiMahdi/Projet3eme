@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,6 +14,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
 {
+
+
+
     /**
      * @Route("/user/index", name="user_index", methods={"GET"})
      */
@@ -24,12 +28,14 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/HolidayHiatus/inscription", name="user_new", methods={"GET","POST"})
+     * @Route("/HolidayHiatus", name="user_inscription", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
         $user = new User();
+        $user->setType("client");
         $form = $this->createForm(UserType::class, $user);
+        $form=$form->add("S'inscrire",SubmitType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -40,7 +46,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute('user_index');
         }
 
-        return $this->render('user/new.html.twig', [
+        return $this->render('user/accueil.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
         ]);
