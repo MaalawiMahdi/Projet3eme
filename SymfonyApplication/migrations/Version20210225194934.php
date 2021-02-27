@@ -20,7 +20,7 @@ final class Version20210225194934 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE aide (id INT AUTO_INCREMENT NOT NULL, categorie_id INT NOT NULL, titre VARCHAR(30) NOT NULL, description VARCHAR(250) NOT NULL, adresse VARCHAR(50) DEFAULT NULL, num_tell VARCHAR(20) DEFAULT NULL, lien_image VARCHAR(50) DEFAULT NULL, INDEX IDX_D99184A1BCF5E72D (categorie_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+      //  $this->addSql('CREATE TABLE aide (id INT AUTO_INCREMENT NOT NULL, categorie_id INT NOT NULL, titre VARCHAR(30) NOT NULL, description VARCHAR(250) NOT NULL, adresse VARCHAR(50) DEFAULT NULL, num_tell VARCHAR(20) DEFAULT NULL, lien_image VARCHAR(50) DEFAULT NULL, INDEX IDX_D99184A1BCF5E72D (categorie_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE board (id INT AUTO_INCREMENT NOT NULL, categorie_id INT NOT NULL, titre VARCHAR(20) NOT NULL, INDEX IDX_58562B47BCF5E72D (categorie_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE categorie_aide (id INT AUTO_INCREMENT NOT NULL, titre VARCHAR(20) NOT NULL, lien_icon VARCHAR(50) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE categorie_board (id INT AUTO_INCREMENT NOT NULL, titre VARCHAR(20) NOT NULL, lien_icon VARCHAR(50) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');

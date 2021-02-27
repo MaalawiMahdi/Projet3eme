@@ -98,15 +98,8 @@ class __TwigTemplate_b2b459936d5ec5bf1805dcdde322f53035ed75a94badf5834eef4a44ce9
 
     This friendly message is coming from:
     <ul>
-        <li>Your controller at <code><a href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("C:/Users/AMINE/new/src/Controller/SujetController.php", 0), "html", null, true);
-        echo "\">src/Controller/SujetController.php</a></code></li>
-        <li>Your template at <code><a href=\"";
-        // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("C:/Users/AMINE/new/templates/sujet/index.html.twig", 0), "html", null, true);
-        echo "\">templates/sujet/index.html.twig</a></code></li>
-    </ul>
+
+           </ul>
 </div>
 ";
         
@@ -129,7 +122,7 @@ class __TwigTemplate_b2b459936d5ec5bf1805dcdde322f53035ed75a94badf5834eef4a44ce9
 
     public function getDebugInfo()
     {
-        return array (  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -149,9 +142,8 @@ class __TwigTemplate_b2b459936d5ec5bf1805dcdde322f53035ed75a94badf5834eef4a44ce9
 
     This friendly message is coming from:
     <ul>
-        <li>Your controller at <code><a href=\"{{ 'C:/Users/AMINE/new/src/Controller/SujetController.php'|file_link(0) }}\">src/Controller/SujetController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ 'C:/Users/AMINE/new/templates/sujet/index.html.twig'|file_link(0) }}\">templates/sujet/index.html.twig</a></code></li>
-    </ul>
+
+           </ul>
 </div>
 {% endblock %}
 ", "sujet/index.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\sujet\\index.html.twig");

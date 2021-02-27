@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Form\ConnexionUserType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use phpDocumentor\Reflection\Types\Null_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +24,7 @@ class UserController extends AbstractController
      */
     public function index(UserRepository $userRepository): Response
     {
-        return $this->render('user/index.html.twig', [
+        return $this->render('user/admin.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
     }
@@ -31,7 +32,7 @@ class UserController extends AbstractController
     /**
      * @Route("/HolidayHiatus", name="user_inscription", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request,UserRepository $userRepository): Response
     {
         $user = new User();
         $useronline=new User();
@@ -46,32 +47,30 @@ class UserController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-
             return $this->redirectToRoute('user_inscription');
         }else if($connexion->isSubmitted()&& $connexion->isValid()){
-            $entityManager = $this->getDoctrine()->getManager();
-            $verifuser=$entityManager->getRepository(UserRepository::class)->findBy(['id'=>$useronline->getId(),'password'=>$useronline->getPassword()]);
+            $verifuser=$userRepository->findOneBy(array('mail'=>$useronline->getMail(),'password'=>$useronline->getPassword()));
             if(is_null($verifuser)){
-                return $this->render('user/accueil.html.twig', [
-                    'user' => $user,
-                    'form' => $form->createView(),
-                    'connexion'=>$connexion->createView(),
-                ]);
-            }elseif ($verifuser->getType()=="client"){
-                return $this->redirectToRoute('user_index');
+                return $this->render('user/message.html.twig');
             }
-
+            else {
+                if($verifuser->getType()=="client") {
+                    return $this->redirectToRoute('user_profil', ['id' => $verifuser->getId()]);
+                }
+                elseif ($verifuser->getType()=="admin"){
+                   return $this->redirectToRoute('user_index');
+                }
+            }
         }
 
         return $this->render('user/accueil.html.twig', [
-            'user' => $user,
             'form' => $form->createView(),
             'connexion'=>$connexion->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="user_show", methods={"GET"})
+     * @Route("HolidayHiatus/profil/{id}", name="user_profil", methods={"GET"})
      */
     public function show(User $user): Response
     {

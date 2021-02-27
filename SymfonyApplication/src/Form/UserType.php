@@ -3,10 +3,13 @@
 namespace App\Form;
 
 use App\Entity\User;
+use phpDocumentor\Reflection\Types\String_;
+use Symfony\Component\Console\Input\Input;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 

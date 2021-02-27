@@ -27,7 +27,9 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
         $this->parent = false;
 
         $this->blocks = [
+            'path' => [$this, 'block_path'],
             'inscription' => [$this, 'block_inscription'],
+            'connexion' => [$this, 'block_connexion'],
         ];
     }
 
@@ -69,7 +71,10 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
                                 <a class=\"nav-link\" href=\"#tm-section-5\">best-seller</a>
                             </li>
                             <li class=\"nav-item\">
-                                <a class=\"nav-link\" href=\"#tm-section-6\">Se connecter</a>
+                                <a class=\"nav-link\" href=\"";
+        // line 29
+        $this->displayBlock('path', $context, $blocks);
+        echo " \"> Se connecter</a>
                             </li>
                         </ul>
                     </div>
@@ -350,29 +355,21 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
         <div class=\"container ie-h-align-center-fix\">
             <div class=\"row\">
                 <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-7\">
+                    <div class=\"tm-bg-white tm-p-4\">
                     ";
-        // line 310
-        $this->displayBlock('inscription', $context, $blocks);
         // line 311
-        echo "                </div>
+        $this->displayBlock('inscription', $context, $blocks);
+        // line 312
+        echo "                    </div>
+
+                </div>
                 <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-5 mt-3 mt-md-0\">
                     <div class=\"tm-bg-white tm-p-4\">
-                        <form action=\"index.html\" method=\"post\" class=\"contact-form\">
-                            <div class=\"form-group\">
-                                <input type=\"text\" id=\"contact_name\" name=\"contact_name\" class=\"form-control\" placeholder=\"Name\"  required/>
-                            </div>
-                            <div class=\"form-group\">
-                                <input type=\"email\" id=\"contact_email\" name=\"contact_email\" class=\"form-control\" placeholder=\"Email\"  required/>
-                            </div>
-                            <div class=\"form-group\">
-                                <input type=\"text\" id=\"contact_subject\" name=\"contact_subject\" class=\"form-control\" placeholder=\"Subject\"  required/>
-                            </div>
-                            <div class=\"form-group\">
-                                <textarea id=\"contact_message\" name=\"contact_message\" class=\"form-control\" rows=\"9\" placeholder=\"Message\" required></textarea>
-                            </div>
-                            <button type=\"submit\" class=\"btn btn-primary tm-btn-primary\">Send Message Now</button>
-                        </form>
-                    </div>
+                        ";
+        // line 317
+        $this->displayBlock('connexion', $context, $blocks);
+        // line 334
+        echo "                    </div>
                 </div>
             </div>
         </div>
@@ -397,7 +394,26 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
 
     }
 
-    // line 310
+    // line 29
+    public function block_path($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "path"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "path"));
+
+        echo " #tm-section-6 ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 311
     public function block_inscription($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -416,6 +432,41 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
 
     }
 
+    // line 317
+    public function block_connexion($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "connexion"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "connexion"));
+
+        // line 318
+        echo "                        <form action=\"index.html\" method=\"post\" class=\"contact-form\">
+                            <div class=\"form-group\">
+                                <input type=\"text\" id=\"contact_name\" name=\"contact_name\" class=\"form-control\" placeholder=\"Name\"  required/>
+                            </div>
+                            <div class=\"form-group\">
+                                <input type=\"email\" id=\"contact_email\" name=\"contact_email\" class=\"form-control\" placeholder=\"Email\"  required/>
+                            </div>
+                            <div class=\"form-group\">
+                                <input type=\"text\" id=\"contact_subject\" name=\"contact_subject\" class=\"form-control\" placeholder=\"Subject\"  required/>
+                            </div>
+                            <div class=\"form-group\">
+                                <textarea id=\"contact_message\" name=\"contact_message\" class=\"form-control\" rows=\"9\" placeholder=\"Message\" required></textarea>
+                            </div>
+                            <button type=\"submit\" class=\"btn btn-primary tm-btn-primary\">Send Message Now</button>
+                        </form>
+                        ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
     public function getTemplateName()
     {
         return "Bootstraptemplates/index.html.twig";
@@ -423,7 +474,7 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
 
     public function getDebugInfo()
     {
-        return array (  401 => 310,  357 => 311,  355 => 310,  44 => 1,);
+        return array (  446 => 318,  436 => 317,  417 => 311,  398 => 29,  372 => 334,  370 => 317,  363 => 312,  361 => 311,  76 => 29,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -456,7 +507,7 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
                                 <a class=\"nav-link\" href=\"#tm-section-5\">best-seller</a>
                             </li>
                             <li class=\"nav-item\">
-                                <a class=\"nav-link\" href=\"#tm-section-6\">Se connecter</a>
+                                <a class=\"nav-link\" href=\"{% block path %} #tm-section-6 {% endblock%} \"> Se connecter</a>
                             </li>
                         </ul>
                     </div>
@@ -737,10 +788,14 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
         <div class=\"container ie-h-align-center-fix\">
             <div class=\"row\">
                 <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-7\">
+                    <div class=\"tm-bg-white tm-p-4\">
                     {% block inscription %}<div id=\"google-map\"></div> {% endblock %}
+                    </div>
+
                 </div>
                 <div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-5 mt-3 mt-md-0\">
                     <div class=\"tm-bg-white tm-p-4\">
+                        {% block connexion %}
                         <form action=\"index.html\" method=\"post\" class=\"contact-form\">
                             <div class=\"form-group\">
                                 <input type=\"text\" id=\"contact_name\" name=\"contact_name\" class=\"form-control\" placeholder=\"Name\"  required/>
@@ -756,6 +811,7 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
                             </div>
                             <button type=\"submit\" class=\"btn btn-primary tm-btn-primary\">Send Message Now</button>
                         </form>
+                        {% endblock %}
                     </div>
                 </div>
             </div>

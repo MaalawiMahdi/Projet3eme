@@ -21,6 +21,13 @@ class User
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 16,
+     *      minMessage = "Your password must be at least {{ limit }} characters long",
+     *      maxMessage = "Your passowrd cannot be longer than {{ limit }} characters",
+     *      allowEmptyString = false
+     * )
      */
     private $password;
 
