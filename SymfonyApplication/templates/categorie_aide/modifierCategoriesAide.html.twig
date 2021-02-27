@@ -1,0 +1,26 @@
+
+
+
+
+
+
+
+{% include 'temp1.html.twig' %}
+<div style ="margin-left: 1%; padding-top: 5%">
+
+    {{ form_start(formModifierCategorieAide)}}
+
+    <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Modifier Categorie d'Aide  </h1>
+
+    {{ form_errors(formModifierCategorieAide.titre) }}
+    {{ form_label(formModifierCategorieAide.titre,"Titre") }}
+    {{ form_widget(formModifierCategorieAide.titre) }}
+
+    {{ form_errors(formModifierCategorieAide.lien_icon) }}
+    {{ form_label(formModifierCategorieAide.lien_icon,"Lien Icone") }}
+    {{ form_widget(formModifierCategorieAide.lien_icon)}}
+
+    {{ form_end(formModifierCategorieAide) }}
+</div>
+{% include 'temp2.html.twig' %}
+

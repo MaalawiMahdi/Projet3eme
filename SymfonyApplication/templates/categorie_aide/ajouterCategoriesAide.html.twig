@@ -1,0 +1,20 @@
+
+
+{% include 'temp1.html.twig' %}
+<div style ="margin-left: 1%; padding-top: 5%">
+
+    {{ form_start(formAjouterCategorieAide)}}
+
+    <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Ajouter Categorie d'Aide  </h1>
+
+    {{ form_errors(formAjouterCategorieAide.titre) }}
+    {{ form_label(formAjouterCategorieAide.titre,"Titre") }}
+    {{ form_widget(formAjouterCategorieAide.titre) }}
+
+    {{ form_errors(formAjouterCategorieAide.lien_icon) }}
+    {{ form_label(formAjouterCategorieAide.lien_icon,"Lien Icone") }}
+    {{ form_widget(formAjouterCategorieAide.lien_icon)}}
+
+  {{ form_end(formAjouterCategorieAide) }}
+</div>
+{% include 'temp2.html.twig' %}
