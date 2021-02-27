@@ -2,3 +2,6 @@
 {% block inscription %}
     {{ include('user/_form.html.twig') }}
 {% endblock %}
+{% block connexion %}
+    {% include('user/_form.html.twig') with {'form':coonexion}   %}
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\ConnexionUserType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,22 +34,39 @@ class UserController extends AbstractController
     public function new(Request $request): Response
     {
         $user = new User();
+        $useronline=new User();
         $user->setType("client");
+        $connexion = $this->createForm(ConnexionUserType::class,$useronline);
+        $connexion=$connexion->add('Se connecter',SubmitType::class);
         $form = $this->createForm(UserType::class, $user);
         $form=$form->add("S'inscrire",SubmitType::class);
         $form->handleRequest($request);
-
+        $connexion->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('user_inscription');
+        }else if($connexion->isSubmitted()&& $connexion->isValid()){
+            $entityManager = $this->getDoctrine()->getManager();
+            $verifuser=$entityManager->getRepository(UserRepository::class)->findBy(['id'=>$useronline->getId(),'password'=>$useronline->getPassword()]);
+            if(is_null($verifuser)){
+                return $this->render('user/accueil.html.twig', [
+                    'user' => $user,
+                    'form' => $form->createView(),
+                    'connexion'=>$connexion->createView(),
+                ]);
+            }elseif ($verifuser->getType()=="client"){
+                return $this->redirectToRoute('user_index');
+            }
+
         }
 
         return $this->render('user/accueil.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
+            'connexion'=>$connexion->createView(),
         ]);
     }
 
