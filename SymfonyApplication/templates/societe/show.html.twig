@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Societe{% endblock %}
+
+{% block body %}
+    <h1>Societe</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ societe.id }}</td>
+            </tr>
+            <tr>
+                <th>Numregistre</th>
+                <td>{{ societe.numregistre }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ societe.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ societe.type }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ societe.etat ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('societe_index') }}">back to list</a>
+
+    <a href="{{ path('societe_edit', {'id': societe.id}) }}">edit</a>
+
+    {{ include('societe/_delete_form.html.twig') }}
+{% endblock %}

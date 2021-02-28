@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Societe{% endblock %}
+
+{% block body %}
+<div class="tm-main-content" id="top">
+    <div class="tm-top-bar-bg"></div>
+    <div class="tm-top-bar" id="tm-top-bar">
+        <!-- Top Navbar -->
+        <div class="container">
+            <div class="row">
+    {%  include('Bootstraptemplates/navbarfront.html.twig')  with { 'iduser': user.id }  %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tm-section tm-section-pad tm-bg-img tm-position-relative" id="tm-section-6">
+    <div class="container ie-h-align-center-fix">
+        <div class="row">
+
+                <div class="tm-bg-white tm-p-4">
+    <h1>DÉMARRER AVEC UN COMPTE BUSINESS</h1>
+
+    {{ include('societe/_form.html.twig') }}
+
+    <a href="{{ '/HolidayHiatus/acceuil/'~ user.id }}">retour</a>
+            </div>
+    </div>
+    </div>
+</div>
+{% endblock %}

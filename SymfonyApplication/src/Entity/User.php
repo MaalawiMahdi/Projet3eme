@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -21,6 +21,13 @@ class User
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 16,
+     *      minMessage = "Your password must be at least {{ limit }} characters long",
+     *      maxMessage = "Your passowrd cannot be longer than {{ limit }} characters",
+     *      allowEmptyString = false
+     * )
      */
     private $password;
 
@@ -31,11 +38,12 @@ class User
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\Email(message = "The email '{{ value }}' is not a valid email.")
      */
     private $mail;
 
     /**
-     * @ORM\OneToOne(targetEntity=Societe::class, mappedBy="useraccount", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Societe::class, mappedBy="Useraccount", cascade={"persist", "remove"})
      */
     private $societe;
 

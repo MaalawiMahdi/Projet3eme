@@ -7,7 +7,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
+ * @ORM\Entity(repositoryClass=SujetRepository::class)
  * @ORM\Entity(repositoryClass=SujetRepository::class)
  */
 class Sujet
@@ -41,7 +43,7 @@ class Sujet
     private $board;
 
     /**
-     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="sujet", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="Sujet", orphanRemoval=true)
      */
     private $commentaires;
 
