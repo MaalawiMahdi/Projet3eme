@@ -32,6 +32,17 @@ class CategorieAideController extends AbstractController
         $categoriesAide = $this->getDoctrine()->getRepository(CategorieAide::class)->findAll();
         return $this->render('categorie_aide/listCategoriesAide.html.twig', ['listCategorieAide' => $categoriesAide,]);
     }
+
+    /**
+     * @return Response
+     * @Route("/AfficherCategorieAides/{iduser}", name="AfficherCategorieAides")
+     */
+    public function listCategoriesAides($iduser): Response
+    {
+        $categoriesAide = $this->getDoctrine()->getRepository(CategorieAide::class)->findAll();
+        return $this->render('categorie_aide/listCategoriesAides.html.twig', ['listCategorieAides' => $categoriesAide,'iduser'=>$iduser,]);
+    }
+
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response

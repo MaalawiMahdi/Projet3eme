@@ -30,6 +30,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
             'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
             'body' => [$this, 'block_body'],
+            'js' => [$this, 'block_js'],
             'javascripts' => [$this, 'block_javascripts'],
         ];
     }
@@ -179,23 +180,11 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
             });
         }
     }
-
-    function setPageNav(){
-        if(\$(window).width() > 991) {
-            \$('#tm-top-bar').singlePageNav({
-                currentClass:'active',
-                offset: 79
-            });
-        }
-        else {
-            \$('#tm-top-bar').singlePageNav({
-                currentClass:'active',
-                offset: 65
-            });
-        }
-    }
-
-    function togglePlayPause() {
+    ";
+        // line 89
+        $this->displayBlock('js', $context, $blocks);
+        // line 105
+        echo "    function togglePlayPause() {
         vid = \$('.tmVideo').get(0);
 
         if(vid.paused) {
@@ -326,6 +315,40 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     }
 
+    // line 89
+    public function block_js($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "js"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "js"));
+
+        // line 90
+        echo "    function setPageNav(){
+        if(\$(window).width() > 991) {
+            \$('#tm-top-bar').singlePageNav({
+                currentClass:'active',
+                offset: 79
+            });
+        }
+        else {
+            \$('#tm-top-bar').singlePageNav({
+                currentClass:'active',
+                offset: 65
+            });
+        }
+    }
+    ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
     // line 166
     public function block_javascripts($context, array $blocks = [])
     {
@@ -356,7 +379,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     public function getDebugInfo()
     {
-        return array (  330 => 166,  311 => 22,  293 => 17,  274 => 8,  263 => 167,  261 => 166,  120 => 28,  116 => 27,  112 => 26,  108 => 25,  104 => 24,  99 => 23,  97 => 22,  91 => 18,  89 => 17,  84 => 15,  80 => 14,  76 => 13,  72 => 12,  68 => 11,  64 => 10,  60 => 9,  56 => 8,  47 => 1,);
+        return array (  353 => 166,  329 => 90,  319 => 89,  300 => 22,  282 => 17,  263 => 8,  252 => 167,  250 => 166,  187 => 105,  185 => 89,  121 => 28,  117 => 27,  113 => 26,  109 => 25,  105 => 24,  100 => 23,  98 => 22,  92 => 18,  90 => 17,  85 => 15,  81 => 14,  77 => 13,  73 => 12,  69 => 11,  65 => 10,  61 => 9,  57 => 8,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -449,7 +472,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
             });
         }
     }
-
+    {% block js %}
     function setPageNav(){
         if(\$(window).width() > 991) {
             \$('#tm-top-bar').singlePageNav({
@@ -464,7 +487,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
             });
         }
     }
-
+    {% endblock %}
     function togglePlayPause() {
         vid = \$('.tmVideo').get(0);
 

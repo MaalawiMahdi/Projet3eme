@@ -109,20 +109,20 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
     <![endif]-->
     <style> .btn-primary {
-            background-color: #d11414 !important;
-            border-color: #d11414 !important;
+            background-color: #ee5057 !important;
+            border-color: #ee5057 !important;
             border-radius: 6px !important;
 
         }
         .btn-primary:hover {
             opacity: 0.8!important;
-            background-color: #d11414!important;
-            border-color: #d11414!important;
+            background-color: #ee5057!important;
+            border-color: #ee5057!important;
             border-radius: 6px!important;
         }
         .btn-primary:active {
-            background-color: #d11414 !important;
-            border-color: #d11414!important;
+            background-color: #ee5057 !important;
+            border-color: #ee5057!important;
             border-radius: 6px!important;
         }
     </style>
@@ -136,7 +136,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
         <!-- Logo -->
 
-        <a href=\"/admin\" class=\"logo\" style=\"background-color: black;\">
+        <a href=\"/admin\" class=\"logo\" style=\"background-color: gray;\">
 
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>A</b>LT</span>
@@ -147,7 +147,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class=\"navbar navbar-static-top\" style=\"background-color: #d11414;\" >
+        <nav class=\"navbar navbar-static-top\" style=\"background-color: #ee5057;\" >
             <!-- Sidebar toggle button-->
             <a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
                 <span class=\"sr-only\">Toggle navigation</span>
@@ -171,7 +171,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                         </a>
                         <ul class=\"dropdown-menu\">
                             <!-- User image -->
-                            <li class=\"user-header\" style=\"background-color: #d11414;\">
+                            <li class=\"user-header\" style=\"background-color: #ee5057;\">
                                 <img src=\"";
         // line 100
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
@@ -200,7 +200,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class=\"main-sidebar\" style=\"background-color: #d11414; color:white\">
+    <aside class=\"main-sidebar\" style=\"background-color: #ee5057; color:white\">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class=\"sidebar\">
             <!-- Sidebar user panel -->
@@ -223,10 +223,12 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                         <i class=\"fa fa-dashboard\"></i> <span>Gestion des comptes</span>
                         <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
                     <ul class=\"treeview-menu\">
-                        <li class=\"active\"><a href=\"/comptes\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
+                        <li class=\"active\"><a href=\"//user/index\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
                         <li><a href=\"/demande\"><i class=\"fa fa-circle-o\"></i> Gestion des sociétés</a></li>
                     </ul>
                 </li>
+
+
 
 
 
@@ -314,20 +316,20 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
     <![endif]-->
     <style> .btn-primary {
-            background-color: #d11414 !important;
-            border-color: #d11414 !important;
+            background-color: #ee5057 !important;
+            border-color: #ee5057 !important;
             border-radius: 6px !important;
 
         }
         .btn-primary:hover {
             opacity: 0.8!important;
-            background-color: #d11414!important;
-            border-color: #d11414!important;
+            background-color: #ee5057!important;
+            border-color: #ee5057!important;
             border-radius: 6px!important;
         }
         .btn-primary:active {
-            background-color: #d11414 !important;
-            border-color: #d11414!important;
+            background-color: #ee5057 !important;
+            border-color: #ee5057!important;
             border-radius: 6px!important;
         }
     </style>
@@ -341,7 +343,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
         <!-- Logo -->
 
-        <a href=\"/admin\" class=\"logo\" style=\"background-color: black;\">
+        <a href=\"/admin\" class=\"logo\" style=\"background-color: gray;\">
 
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>A</b>LT</span>
@@ -352,7 +354,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class=\"navbar navbar-static-top\" style=\"background-color: #d11414;\" >
+        <nav class=\"navbar navbar-static-top\" style=\"background-color: #ee5057;\" >
             <!-- Sidebar toggle button-->
             <a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
                 <span class=\"sr-only\">Toggle navigation</span>
@@ -373,7 +375,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                         </a>
                         <ul class=\"dropdown-menu\">
                             <!-- User image -->
-                            <li class=\"user-header\" style=\"background-color: #d11414;\">
+                            <li class=\"user-header\" style=\"background-color: #ee5057;\">
                                 <img src=\"{{ asset('bundles/dist/img/user2-160x160.jpg')}}\" class=\"img-circle\" alt=\"User Image\">
 
                                 <p>
@@ -399,7 +401,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class=\"main-sidebar\" style=\"background-color: #d11414; color:white\">
+    <aside class=\"main-sidebar\" style=\"background-color: #ee5057; color:white\">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class=\"sidebar\">
             <!-- Sidebar user panel -->
@@ -419,10 +421,12 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                         <i class=\"fa fa-dashboard\"></i> <span>Gestion des comptes</span>
                         <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
                     <ul class=\"treeview-menu\">
-                        <li class=\"active\"><a href=\"/comptes\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
+                        <li class=\"active\"><a href=\"//user/index\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
                         <li><a href=\"/demande\"><i class=\"fa fa-circle-o\"></i> Gestion des sociétés</a></li>
                     </ul>
                 </li>
+
+
 
 
 
@@ -445,6 +449,6 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <!-- Content Wrapper. Contains page content -->
     <div class=\"content-wrapper\">
 
-", "temp1.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\temp1.html.twig");
+", "temp1.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\temp1.html.twig");
     }
 }

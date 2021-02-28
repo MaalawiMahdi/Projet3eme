@@ -24,19 +24,19 @@ class Aide
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="le champs Titre est obligatoire *"))
      */
     private $titre;
 
     /**
-     * @ORM\Column(type="string", length=250)
+     * @ORM\Column(type="string", length=500)
      * @Assert\NotBlank(message="le champs Description est obligatoire * "))
      */
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
+     * @ORM\Column(type="string", length=100, nullable=true)
      * @Assert\NotBlank(message="le champs adresse est obligatoire * "))
      */
     private $adresse;

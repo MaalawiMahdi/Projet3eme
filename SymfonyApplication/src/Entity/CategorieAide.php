@@ -21,7 +21,7 @@ class CategorieAide
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="le champs Titre obligatoire *"))
      */
     private $titre;

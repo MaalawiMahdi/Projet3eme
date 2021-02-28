@@ -33,7 +33,15 @@ class AideController extends AbstractController
     public function listAide(): Response
     {
         $Aide = $this->getDoctrine()->getRepository(Aide::class)->findAll();
-        return $this->render('aide/listAides.html.twig', ['listAide' => $Aide,]);
+        return $this->render('aide/listAide.html.twig', ['listAide' => $Aide,]);
+    }
+    /**
+     * @return Response
+     * @Route("/AfficherAides/{id}/{iduser}", name="AfficherAides")
+     */
+    public function listAides($iduser,$id): Response
+    {   $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->findBy(array('categorie'=>$id));
+        return $this->render('aide/listAides.html.twig', ['listAides' => $Aidefind,'iduser'=>$iduser,]);
     }
     /**
      * @param Request $request

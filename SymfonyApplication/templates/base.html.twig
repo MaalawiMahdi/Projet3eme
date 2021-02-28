@@ -86,7 +86,7 @@
             });
         }
     }
-
+    {% block js %}
     function setPageNav(){
         if($(window).width() > 991) {
             $('#tm-top-bar').singlePageNav({
@@ -101,7 +101,7 @@
             });
         }
     }
-
+    {% endblock %}
     function togglePlayPause() {
         vid = $('.tmVideo').get(0);
 
