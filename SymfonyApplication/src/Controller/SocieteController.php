@@ -21,27 +21,39 @@ class SocieteController extends AbstractController
      */
     public function new(Request $request,$iduser): Response
     {   $user=$this->getDoctrine()->getRepository(User::class)->find($iduser);
+        $existe=$user->getSociete();
         $societe = new Societe();
-        $societe->setEtat(false);
-        $societe->setUseraccount($user);
+        if(is_null($existe)) {
+            $societe->setEtat(false);
+            $societe->setUseraccount($user);
 
-        $form = $this->createForm(SocieteType::class, $societe);
-        $form->add("Passer une candidature en tant que societe",SubmitType::class);
-        $form->handleRequest($request);
+            $form = $this->createForm(SocieteType::class, $societe);
+            $form->add("Passer une candidature en tant que societe", SubmitType::class);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($societe);
-            $entityManager->flush();
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($societe);
+                $entityManager->flush();
 
-            return $this->redirectToRoute('societe_index');
+                return $this->redirectToRoute('societe_index', array('iduser' => $user->getId()));
+            }
+
+            return $this->render('societe/new.html.twig', [
+                'societe' => $societe,
+                'form' => $form->createView(),
+                'user' => $user
+            ]);
+        }else if($existe->getEtat()==false){
+            return $this->render('societe/message.html.twig', [
+                'message' => "votre demande est en cours de traitement",'user'=>$user
+            ]);
+        }else{
+            return $this->render('societe/message.html.twig', [
+                'message' => "Vous pouvez maintenant creer votre board",'user'=>$user
+            ]);
         }
 
-        return $this->render('societe/new.html.twig', [
-            'societe' => $societe,
-            'form' => $form->createView(),
-            'user'=>$user
-        ]);
     }
 
     /**
@@ -86,15 +98,6 @@ class SocieteController extends AbstractController
         }
 
         return $this->redirectToRoute('societe_index');
-    }
-    /**
-     * @Route("/societe", name="societe_index", methods={"GET"})
-     */
-    public function index(SocieteRepository $societeRepository): Response
-    {
-        return $this->render('societe/index.html.twig', [
-            'societes' => $societeRepository->findAll(),
-        ]);
     }
 
 }

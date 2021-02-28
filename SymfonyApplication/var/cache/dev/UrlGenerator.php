@@ -26,7 +26,6 @@ return [
     'societe_show' => [['id'], ['_controller' => 'App\\Controller\\SocieteController::show'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/societe']], [], []],
     'societe_edit' => [['id'], ['_controller' => 'App\\Controller\\SocieteController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id'], ['text', '/societe']], [], []],
     'societe_delete' => [['id'], ['_controller' => 'App\\Controller\\SocieteController::delete'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/societe']], [], []],
-    'societe_index' => [[], ['_controller' => 'App\\Controller\\SocieteController::index'], [], [['text', '/societe']], [], []],
     'main' => [[], ['_controller' => 'App\\Controller\\SujetController::index'], [], [['text', '/main']], [], []],
     'Afficher' => [['idboard'], ['_controller' => 'App\\Controller\\SujetController::afficher'], [], [['variable', '/', '[^/]++', 'idboard'], ['text', '/AfficherSujet']], [], []],
     'AjouterSujet' => [['idboard'], ['_controller' => 'App\\Controller\\SujetController::AjouterSujet'], [], [['variable', '/', '[^/]++', 'idboard'], ['text', '/AjouterSujet']], [], []],
