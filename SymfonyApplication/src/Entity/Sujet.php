@@ -3,8 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\SujetRepository;
+<<<<<<< HEAD
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+
+=======
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+>>>>>>> 130d40d691abddc5e6951d1e9be714fd9f40c71f
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -23,10 +30,18 @@ class Sujet
 
     /**
      * @ORM\Column(type="string", length=20)
+<<<<<<< HEAD
+     * @ORM\Column(type="string", length=255, nullable=true)
+=======
+>>>>>>> 130d40d691abddc5e6951d1e9be714fd9f40c71f
      */
     private $titre;
 
     /**
+<<<<<<< HEAD
+     * @ORM\Column(type="string", length=500, nullable=true)
+=======
+>>>>>>> 130d40d691abddc5e6951d1e9be714fd9f40c71f
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $description;
@@ -51,6 +66,13 @@ class Sujet
     {
         $this->commentaires = new ArrayCollection();
     }
+<<<<<<< HEAD
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $IDD;
+=======
+>>>>>>> 130d40d691abddc5e6951d1e9be714fd9f40c71f
 
     public function getId(): ?int
     {
@@ -62,7 +84,12 @@ class Sujet
         return $this->titre;
     }
 
+<<<<<<< HEAD
+
+    public function setTitre(?string $titre): self
+=======
     public function setTitre(string $titre): self
+>>>>>>> 130d40d691abddc5e6951d1e9be714fd9f40c71f
     {
         $this->titre = $titre;
 
@@ -80,6 +107,10 @@ class Sujet
 
         return $this;
     }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 130d40d691abddc5e6951d1e9be714fd9f40c71f
     public function getLienImage(): ?string
     {
         return $this->lien_image;
@@ -124,11 +155,26 @@ class Sujet
 
     public function removeCommentaire(Commentaire $commentaire): self
     {
-        if ($this->commentaires->removeElement($commentaire)) {
+        if ($this->commentaires->removeElement($commentaire))
+        {
             // set the owning side to null (unless already changed)
             if ($commentaire->getSujet() === $this) {
                 $commentaire->setSujet(null);
             }
         }
+<<<<<<< HEAD
+    }
+    public function getIDD(): ?int
+    {
+        return $this->IDD;
+    }
+
+    public function setIDD(int $IDD): self
+    {
+        $this->IDD = $IDD;
+
+        return $this;
+=======
+>>>>>>> 130d40d691abddc5e6951d1e9be714fd9f40c71f
     }
 }

@@ -4,6 +4,12 @@ namespace App\Entity;
 
 use App\Repository\AideRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\MinLength;
+
 
 /**
  * @ORM\Entity(repositoryClass=AideRepository::class)
@@ -19,21 +25,26 @@ class Aide
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Assert\NotBlank(message="le champs Titre obligatoire *"))
      */
     private $titre;
 
     /**
      * @ORM\Column(type="string", length=250)
+     * @Assert\NotBlank(message="le champs Description obligatoire * "))
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Assert\NotBlank(message="le champs Description obligatoire * "))
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=20, nullable=true)
+     * @Assert\NotBlank(message="le champs Description obligatoire * "))
+     * @Assert\Length(min=8,minMessage="votre numero de telephne doit contenir au minimum {{ min }} caractères.",max=15,minMessage="votre numero de telephne ne doit depasser {{ max }} caractères."))
      */
     private $num_tell;
 
