@@ -27,7 +27,6 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
         $this->parent = false;
 
         $this->blocks = [
-            'path' => [$this, 'block_path'],
             'inscription' => [$this, 'block_inscription'],
             'connexion' => [$this, 'block_connexion'],
         ];
@@ -71,10 +70,7 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
                                 <a class=\"nav-link\" href=\"#tm-section-5\">best-seller</a>
                             </li>
                             <li class=\"nav-item\">
-                                <a class=\"nav-link\" href=\"";
-        // line 29
-        $this->displayBlock('path', $context, $blocks);
-        echo " \"> Se connecter</a>
+                                <a class=\"nav-link\" href=\"#tm-section-6 \"> Se connecter</a>
                             </li>
                         </ul>
                     </div>
@@ -394,25 +390,6 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
 
     }
 
-    // line 29
-    public function block_path($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "path"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "path"));
-
-        echo " #tm-section-6 ";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
     // line 311
     public function block_inscription($context, array $blocks = [])
     {
@@ -474,7 +451,7 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
 
     public function getDebugInfo()
     {
-        return array (  446 => 318,  436 => 317,  417 => 311,  398 => 29,  372 => 334,  370 => 317,  363 => 312,  361 => 311,  76 => 29,  46 => 1,);
+        return array (  423 => 318,  413 => 317,  394 => 311,  368 => 334,  366 => 317,  359 => 312,  357 => 311,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -507,7 +484,7 @@ class __TwigTemplate_1ace333db3703e9f38991f8da4ea91bb1bee6b9eb1707804796089f2f30
                                 <a class=\"nav-link\" href=\"#tm-section-5\">best-seller</a>
                             </li>
                             <li class=\"nav-item\">
-                                <a class=\"nav-link\" href=\"{% block path %} #tm-section-6 {% endblock%} \"> Se connecter</a>
+                                <a class=\"nav-link\" href=\"#tm-section-6 \"> Se connecter</a>
                             </li>
                         </ul>
                     </div>

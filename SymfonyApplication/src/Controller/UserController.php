@@ -70,11 +70,11 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("HolidayHiatus/profil/{id}", name="user_profil", methods={"GET"})
+     * @Route("HolidayHiatus/acceuil/{id}", name="user_profil", methods={"GET"})
      */
     public function show(User $user): Response
     {
-        return $this->render('user/show.html.twig', [
+        return $this->render('user/accueilonline.html.twig', [
             'user' => $user,
         ]);
     }

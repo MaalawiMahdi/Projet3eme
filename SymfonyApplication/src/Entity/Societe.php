@@ -18,16 +18,19 @@ class Societe
     private $id;
 
     /**
+     * @Assert\NotBlank(message="le champs Numero de registre est obligatoire * ")
      * @ORM\Column(type="string", length=50)
      */
     private $numregistre;
 
     /**
+     * @Assert\NotBlank(message="le champs adresse est obligatoire * ")
      * @ORM\Column(type="string", length=30)
      */
     private $adresse;
 
     /**
+     * @Assert\NotBlank(message="le champs adresse est obligatoire * ")
      * @ORM\Column(type="string", length=20)
      */
     private $type;
@@ -38,10 +41,15 @@ class Societe
     private $etat;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, inversedBy="societe", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="Societe", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $Useraccount;
+
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    private $nom;
 
     public function getId(): ?int
     {
@@ -104,6 +112,18 @@ class Societe
     public function setUseraccount(User $Useraccount): self
     {
         $this->Useraccount = $Useraccount;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
 
         return $this;
     }

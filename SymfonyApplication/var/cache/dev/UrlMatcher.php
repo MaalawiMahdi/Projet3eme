@@ -20,6 +20,7 @@ return [
         '/comptes' => [[['_route' => 'comptes', '_controller' => 'App\\Controller\\ComptesController::index'], null, null, null, false, false, null]],
         '/demande' => [[['_route' => 'demande', '_controller' => 'App\\Controller\\DemandeController::index'], null, null, null, false, false, null]],
         '/index' => [[['_route' => 'index', '_controller' => 'App\\Controller\\IndexController::index'], null, null, null, false, false, null]],
+        '/societe' => [[['_route' => 'societe_index', '_controller' => 'App\\Controller\\SocieteController::index'], null, ['GET' => 0], null, false, false, null]],
         '/main' => [[['_route' => 'main', '_controller' => 'App\\Controller\\SujetController::index'], null, null, null, false, false, null]],
         '/user/index' => [[['_route' => 'user_index', '_controller' => 'App\\Controller\\UserController::index'], null, ['GET' => 0], null, false, false, null]],
         '/HolidayHiatus' => [[['_route' => 'user_inscription', '_controller' => 'App\\Controller\\UserController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
@@ -41,14 +42,20 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/A(?'
-                    .'|fficherSujet/([^/]++)(*:195)'
-                    .'|jouterSujet/([^/]++)(*:223)'
+                .'|/societe/([^/]++)(?'
+                    .'|(*:189)'
+                    .'|(*:197)'
+                    .'|/edit(*:210)'
+                    .'|(*:218)'
                 .')'
-                .'|/HolidayHiatus/profil/([^/]++)(*:262)'
+                .'|/A(?'
+                    .'|fficherSujet/([^/]++)(*:253)'
+                    .'|jouterSujet/([^/]++)(*:281)'
+                .')'
+                .'|/HolidayHiatus/acceuil/([^/]++)(*:321)'
                 .'|/([^/]++)(?'
-                    .'|/edit(*:287)'
-                    .'|(*:295)'
+                    .'|/edit(*:346)'
+                    .'|(*:354)'
                 .')'
             .')/?$}sD',
     ],
@@ -60,11 +67,15 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        195 => [[['_route' => 'Afficher', '_controller' => 'App\\Controller\\SujetController::afficher'], ['idboard'], null, null, false, true, null]],
-        223 => [[['_route' => 'AjouterSujet', '_controller' => 'App\\Controller\\SujetController::AjouterSujet'], ['idboard'], null, null, false, true, null]],
-        262 => [[['_route' => 'user_profil', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        287 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        295 => [
+        189 => [[['_route' => 'societe_new', '_controller' => 'App\\Controller\\SocieteController::new'], ['iduser'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        197 => [[['_route' => 'societe_show', '_controller' => 'App\\Controller\\SocieteController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        210 => [[['_route' => 'societe_edit', '_controller' => 'App\\Controller\\SocieteController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        218 => [[['_route' => 'societe_delete', '_controller' => 'App\\Controller\\SocieteController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        253 => [[['_route' => 'Afficher', '_controller' => 'App\\Controller\\SujetController::afficher'], ['idboard'], null, null, false, true, null]],
+        281 => [[['_route' => 'AjouterSujet', '_controller' => 'App\\Controller\\SujetController::AjouterSujet'], ['idboard'], null, null, false, true, null]],
+        321 => [[['_route' => 'user_profil', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        346 => [[['_route' => 'user_edit', '_controller' => 'App\\Controller\\UserController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        354 => [
             [['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['DELETE' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
