@@ -42,10 +42,7 @@ class __TwigTemplate_6e872fab6ea69f48b122f41f225f146836b8448ac674313da194ac154cb
         // line 1
         echo "
 <nav class=\"navbar navbar-expand-xl\" style=\"background-color: #d11414; color:white;\" >
-    <a class=\"navbar-brand\" href=\"";
-        // line 3
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("welcome");
-        echo "\">
+    <a class=\"navbar-brand\" \">
         HolidayHiatus
     </a>
     <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExample06\" aria-controls=\"navbarsExample06\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -87,21 +84,16 @@ class __TwigTemplate_6e872fab6ea69f48b122f41f225f146836b8448ac674313da194ac154cb
         return "inc/navbar.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  47 => 3,  43 => 1,);
+        return array (  43 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("
 <nav class=\"navbar navbar-expand-xl\" style=\"background-color: #d11414; color:white;\" >
-    <a class=\"navbar-brand\" href=\"{{ path('welcome') }}\">
+    <a class=\"navbar-brand\" \">
         HolidayHiatus
     </a>
     <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExample06\" aria-controls=\"navbarsExample06\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -129,6 +121,6 @@ class __TwigTemplate_6e872fab6ea69f48b122f41f225f146836b8448ac674313da194ac154cb
             <li><a class=\"nav-link\" href=\"#\"><span class=\"glyphicon glyphicon-log-in\"></span> Se connecter</a></li>
         </ul>
     </div>
-</nav>", "inc/navbar.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\inc\\navbar.html.twig");
+</nav>", "inc/navbar.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\inc\\navbar.html.twig");
     }
 }

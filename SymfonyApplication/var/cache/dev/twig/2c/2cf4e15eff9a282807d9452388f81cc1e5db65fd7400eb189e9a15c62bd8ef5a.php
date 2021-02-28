@@ -167,12 +167,13 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"user-image\" alt=\"User Image\">
                             <span class=\"hidden-xs\">Mohamed Marwen Maalawi</span>
+
                         </a>
                         <ul class=\"dropdown-menu\">
                             <!-- User image -->
                             <li class=\"user-header\" style=\"background-color: #d11414;\">
                                 <img src=\"";
-        // line 99
+        // line 100
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
 
@@ -206,7 +207,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
                     <img src=\"";
-        // line 130
+        // line 131
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
                 </div>
@@ -262,7 +263,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
     public function getDebugInfo()
     {
-        return array (  210 => 130,  176 => 99,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
+        return array (  211 => 131,  177 => 100,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -361,6 +362,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                         <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
                             <img src=\"{{ asset('bundles/dist/img/user2-160x160.jpg')}}\" class=\"user-image\" alt=\"User Image\">
                             <span class=\"hidden-xs\">Mohamed Marwen Maalawi</span>
+
                         </a>
                         <ul class=\"dropdown-menu\">
                             <!-- User image -->
@@ -429,6 +431,6 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <!-- Content Wrapper. Contains page content -->
     <div class=\"content-wrapper\">
 
-", "temp1.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\temp1.html.twig");
+", "temp1.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\temp1.html.twig");
     }
 }
