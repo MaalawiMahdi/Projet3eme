@@ -1,23 +1,23 @@
 {% include 'temp1.html.twig' %}
 <style>
     button {
-        color: #FFFFFF;
-        background-color: #d11414;
-        border-color: #d11414;
-        border-radius: 6px;
+        color: #FFFFFF !important;
+        background-color: #d11414!important;
+        border-color: #d11414!important;
+        border-radius: 6px!important;
     }
     button:hover {
-        color: #FFFFFF;
-        opacity: 0.8;
-        background-color: #d11414;
-        border-color: #d11414;
-        border-radius: 6px;
+        color: #FFFFFF!important;
+        opacity: 0.8!important;
+        background-color: #d11414!important;
+        border-color: #d11414!important;
+        border-radius: 6px!important;
     }
     button:active {
-        color: #FFFFFF;
-        background-color: #d11414;
-        border-color: #d11414;
-        border-radius: 6px;
+        color: #FFFFFF!important;
+        background-color: #d11414!important;
+        border-color: #d11414!important;
+        border-radius: 6px!important;
     }
 
 </style>
@@ -33,12 +33,12 @@
             <thead>
             <tr>
                 <th> lien_image</th>
-                <th>IdAide</th>
+                {# <th>IdAide</th> #}
                 <th>Titre</th>
                 <th>description</th>
                 <th>adresse</th>
                 <th>num_tell</th>
-               <th>categorie</th>
+                <th>categorie</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
@@ -50,7 +50,7 @@
             {% for A in listAide %}
                 <tr>
                     <td><img style=" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;" src="{{ asset('uploads/' ~ A.getLienImage())}}"></td>
-                    <td>{{ A.id }}</td>
+                    {# <td>{{ A.id }}</td> #}
                     <td>{{ A.titre }}</td>
                     <td>{{ A.description}}</td>
                     <td>{{ A.adresse}}</td>

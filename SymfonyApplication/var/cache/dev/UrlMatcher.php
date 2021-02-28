@@ -27,8 +27,6 @@ return [
         '/index' => [[['_route' => 'index', '_controller' => 'App\\Controller\\IndexController::index'], null, null, null, false, false, null]],
         '/HolidayHiatus' => [[['_route' => 'welcome', '_controller' => 'App\\Controller\\NavigationContrllerController::index'], null, null, null, false, false, null]],
         '/main' => [[['_route' => 'main', '_controller' => 'App\\Controller\\SujetController::index'], null, null, null, false, false, null]],
-        '/AfficherSujet' => [[['_route' => 'Afficher', '_controller' => 'App\\Controller\\SujetController::afficher'], null, null, null, false, false, null]],
-        '/AjouterSujet' => [[['_route' => 'AjouterSujet', '_controller' => 'App\\Controller\\SujetController::AjouterSujet'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -55,6 +53,10 @@ return [
                     .'|Aide/([^/]++)(*:259)'
                     .'|CategorieAide/([^/]++)(*:289)'
                 .')'
+                .'|/A(?'
+                    .'|fficherSujet/([^/]++)(*:324)'
+                    .'|jouterSujet/([^/]++)(*:352)'
+                .')'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -68,8 +70,10 @@ return [
         195 => [[['_route' => 'supprimerAide', '_controller' => 'App\\Controller\\AideController::SupprimerAide'], ['id'], null, null, false, true, null]],
         225 => [[['_route' => 'supprimerCategorieAide', '_controller' => 'App\\Controller\\CategorieAideController::SupprimerCategorieAide'], ['id'], null, null, false, true, null]],
         259 => [[['_route' => 'modifierAide', '_controller' => 'App\\Controller\\AideController::modifierAide'], ['id'], null, null, false, true, null]],
-        289 => [
-            [['_route' => 'modifierCategorieAide', '_controller' => 'App\\Controller\\CategorieAideController::modifierCategorieAide'], ['id'], null, null, false, true, null],
+        289 => [[['_route' => 'modifierCategorieAide', '_controller' => 'App\\Controller\\CategorieAideController::modifierCategorieAide'], ['id'], null, null, false, true, null]],
+        324 => [[['_route' => 'Afficher', '_controller' => 'App\\Controller\\SujetController::afficher'], ['idboard'], null, null, false, true, null]],
+        352 => [
+            [['_route' => 'AjouterSujet', '_controller' => 'App\\Controller\\SujetController::AjouterSujet'], ['idboard'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

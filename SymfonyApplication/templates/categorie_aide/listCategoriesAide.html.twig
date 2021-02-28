@@ -35,7 +35,7 @@
             <thead>
             <tr>
                 <th>Icone</th>
-                <th>IdCategorieAide</th>
+                {# <th>IdCategorieAide</th> #}
                 <th>Titre</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
@@ -48,7 +48,7 @@
             {% for CA in listCategorieAide %}
                 <tr>
                     <td><img style=" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;" src="{{ asset('uploads/' ~ CA.getLienIcon())}}"></td>
-                    <td>{{ CA.id }}</td>
+                    {# <td>{{ CA.id }}</td> #}
                     <td>{{ CA.titre }}</td>
                     <td><form action="  {{path('modifierCategorieAide',{id:CA.id})}} "><button>Modifier</button></form></td>
                     <td><form action="  {{path('supprimerCategorieAide',{id:CA.id})}} "><button>Supprimer</button></form></td>

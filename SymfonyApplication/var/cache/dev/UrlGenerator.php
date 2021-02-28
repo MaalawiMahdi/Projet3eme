@@ -33,6 +33,6 @@ return [
     'index' => [[], ['_controller' => 'App\\Controller\\IndexController::index'], [], [['text', '/index']], [], []],
     'welcome' => [[], ['_controller' => 'App\\Controller\\NavigationContrllerController::index'], [], [['text', '/HolidayHiatus']], [], []],
     'main' => [[], ['_controller' => 'App\\Controller\\SujetController::index'], [], [['text', '/main']], [], []],
-    'Afficher' => [[], ['_controller' => 'App\\Controller\\SujetController::afficher'], [], [['text', '/AfficherSujet']], [], []],
-    'AjouterSujet' => [[], ['_controller' => 'App\\Controller\\SujetController::AjouterSujet'], [], [['text', '/AjouterSujet']], [], []],
+    'Afficher' => [['idboard'], ['_controller' => 'App\\Controller\\SujetController::afficher'], [], [['variable', '/', '[^/]++', 'idboard'], ['text', '/AfficherSujet']], [], []],
+    'AjouterSujet' => [['idboard'], ['_controller' => 'App\\Controller\\SujetController::AjouterSujet'], [], [['variable', '/', '[^/]++', 'idboard'], ['text', '/AjouterSujet']], [], []],
 ];

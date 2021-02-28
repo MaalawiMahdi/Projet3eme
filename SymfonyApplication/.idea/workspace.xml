@@ -2,8 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2aad0df-f1cc-4b7c-b003-50c835f07a81" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml~34a86c5e66ab1dd5df022a35590d653850e3600c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Aide.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Aide.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Sujet.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Sujet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/AideType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AideType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CategorieAideType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CategorieAideType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/aide/ajouterAide.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aide/ajouterAide.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/aide/listAides.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aide/listAides.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/aide/modifierAide.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aide/modifierAide.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/categorie/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categorie/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/categorie_aide/ajouterCategoriesAide.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categorie_aide/ajouterCategoriesAide.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/categorie_aide/listCategoriesAide.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categorie_aide/listCategoriesAide.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/categorie_aide/modifierCategoriesAide.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categorie_aide/modifierCategoriesAide.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/temp1.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.php.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/11/111196e0b9b3faf6d0553a3bb3c3f57f079beabec6c543b0af5236717876f3ed.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/11/111196e0b9b3faf6d0553a3bb3c3f57f079beabec6c543b0af5236717876f3ed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/13/13389ca4ba5b047e6e21f83342ce2bccb882562b627ad51e8fe0c49902b436ac.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/13/13389ca4ba5b047e6e21f83342ce2bccb882562b627ad51e8fe0c49902b436ac.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/2c/2cf4e15eff9a282807d9452388f81cc1e5db65fd7400eb189e9a15c62bd8ef5a.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/2c/2cf4e15eff9a282807d9452388f81cc1e5db65fd7400eb189e9a15c62bd8ef5a.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/48/487b2be0d1c05a239bb78498ec2b8c1e5fd0c59160aa9c5a90c0ee0d83f0008e.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/48/487b2be0d1c05a239bb78498ec2b8c1e5fd0c59160aa9c5a90c0ee0d83f0008e.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/ad/ade6cc4c8a8cd7e26aa6c88da59352d86ccabc0c0f305524661b43b3c5538aa7.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/ad/ade6cc4c8a8cd7e26aa6c88da59352d86ccabc0c0f305524661b43b3c5538aa7.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +154,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -144,6 +170,7 @@
       <updated>1614353359967</updated>
       <workItem from="1614353364151" duration="1659000" />
       <workItem from="1614366946202" duration="806000" />
+      <workItem from="1614452219632" duration="13226000" />
     </task>
     <servers />
   </component>
