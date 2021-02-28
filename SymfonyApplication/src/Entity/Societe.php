@@ -47,7 +47,7 @@ class Societe
      */
     private $Useraccount;
 
-    /**
+    /**@Assert\NotBlank(message="le champs nom est obligatoire * ")
      * @ORM\Column(type="string", length=20)
      */
     private $nom;

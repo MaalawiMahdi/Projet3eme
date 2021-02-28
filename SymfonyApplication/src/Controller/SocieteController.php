@@ -54,7 +54,7 @@ class SocieteController extends AbstractController
                 $entityManager->persist($societe);
                 $entityManager->flush();
 
-                return $this->redirectToRoute('societe_index', array('iduser' => $user->getId()));
+                return $this->redirectToRoute('societe_new', array('iduser' => $user->getId()));
             }
 
             return $this->render('societe/new.html.twig', [
