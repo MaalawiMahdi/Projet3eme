@@ -15,7 +15,25 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SocieteController extends AbstractController
 {
-
+    /**
+     * @Route("/societe_demandes", name="societe_demandes")
+     */
+    public function afficherdemande(): Response
+    {   $societe=$this->getDoctrine()->getRepository(Societe::class)->findBy(array('etat'=>true));
+        $liste_des_demandes=$this->getDoctrine()->getRepository(Societe::class)->findBy(array('etat'=>false));
+        return $this->render('societe/admin.html.twig', [
+            'societes' => $societe,'liste_des_demandes'=>$liste_des_demandes
+        ]);
+    }
+    /**
+     * @Route("/societe_demandes/{id}", name="societe_show", methods={"GET"})
+     */
+    public function show(Societe $societe): Response
+    {
+        return $this->render('societe/show.html.twig', [
+            'societe' => $societe,
+        ]);
+    }
     /**
      * @Route("/societe/{iduser}", name="societe_new", methods={"GET","POST"})
      */
@@ -56,34 +74,18 @@ class SocieteController extends AbstractController
 
     }
 
-    /**
-     * @Route("societe/{id}", name="societe_show", methods={"GET"})
-     */
-    public function show(Societe $societe): Response
-    {
-        return $this->render('societe/show.html.twig', [
-            'societe' => $societe,
-        ]);
-    }
+
 
     /**
-     * @Route("societe/{id}/edit", name="societe_edit", methods={"GET","POST"})
+     * @Route("/societe_demandes/confirmer/{id}", name="societe_confirmer", methods={"GET","POST"})
      */
     public function edit(Request $request, Societe $societe): Response
-    {
-        $form = $this->createForm(SocieteType::class, $societe);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
+    {   $societe->getUseraccount()->setType('societe');
+    $societe->setEtat(true);
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('societe_index');
-        }
+            return $this->redirectToRoute('societe_demandes');
 
-        return $this->render('societe/edit.html.twig', [
-            'societe' => $societe,
-            'form' => $form->createView(),
-        ]);
     }
 
     /**

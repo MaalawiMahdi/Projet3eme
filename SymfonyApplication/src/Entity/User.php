@@ -45,7 +45,7 @@ class User
     /**
      * @ORM\OneToOne(targetEntity=Societe::class, mappedBy="Useraccount", cascade={"persist", "remove"})
      */
-    private $societe;
+    private $Societe;
 
     /**
      * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="User", orphanRemoval=true)
@@ -106,17 +106,17 @@ class User
 
     public function getSociete(): ?Societe
     {
-        return $this->societe;
+        return $this->Societe;
     }
 
-    public function setSociete(Societe $societe): self
+    public function setSociete(Societe $Societe): self
     {
         // set the owning side of the relation if necessary
-        if ($societe->getUseraccount() !== $this) {
-            $societe->setUseraccount($this);
+        if ($Societe->getUseraccount() !== $this) {
+            $Societe->setUseraccount($this);
         }
 
-        $this->societe = $societe;
+        $this->Societe = $Societe;
 
         return $this;
     }

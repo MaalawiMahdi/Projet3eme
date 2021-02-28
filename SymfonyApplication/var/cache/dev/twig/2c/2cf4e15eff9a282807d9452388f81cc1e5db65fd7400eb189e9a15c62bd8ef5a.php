@@ -218,13 +218,13 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class=\"sidebar-menu\" data-widget=\"tree\">
-                <li class=\"treeview\">
+                <li class=\"treeview active\">
                     <a href=\"#\">
                         <i class=\"fa fa-dashboard\"></i> <span>Gestion des comptes</span>
                         <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
                     <ul class=\"treeview-menu\">
-                        <li class=\"active\"><a href=\"/comptes\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
-                        <li><a href=\"/demande\"><i class=\"fa fa-circle-o\"></i> Gestion des sociétés</a></li>
+                        <li class=\"active\"><a href=\"/user/index\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
+                        <li><a href=\"/societe_demandes\"><i class=\"fa fa-circle-o\"></i> Gestion des sociétés</a></li>
                     </ul>
                 </li>
 
@@ -241,6 +241,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
     <!-- Content Wrapper. Contains page content -->
     <div class=\"content-wrapper\">
+
 
 ";
         
@@ -407,13 +408,13 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class=\"sidebar-menu\" data-widget=\"tree\">
-                <li class=\"treeview\">
+                <li class=\"treeview active\">
                     <a href=\"#\">
                         <i class=\"fa fa-dashboard\"></i> <span>Gestion des comptes</span>
                         <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
                     <ul class=\"treeview-menu\">
-                        <li class=\"active\"><a href=\"/comptes\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
-                        <li><a href=\"/demande\"><i class=\"fa fa-circle-o\"></i> Gestion des sociétés</a></li>
+                        <li class=\"active\"><a href=\"/user/index\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
+                        <li><a href=\"/societe_demandes\"><i class=\"fa fa-circle-o\"></i> Gestion des sociétés</a></li>
                     </ul>
                 </li>
 
@@ -430,6 +431,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
     <!-- Content Wrapper. Contains page content -->
     <div class=\"content-wrapper\">
+
 
 ", "temp1.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\temp1.html.twig");
     }

@@ -54,7 +54,7 @@ class UserController extends AbstractController
                 return $this->render('user/message.html.twig');
             }
             else {
-                if($verifuser->getType()=="client") {
+                if($verifuser->getType()=="client"||$verifuser->getType()=="societe") {
                     return $this->redirectToRoute('user_profil', ['id' => $verifuser->getId()]);
                 }
                 elseif ($verifuser->getType()=="admin"){
@@ -85,11 +85,10 @@ class UserController extends AbstractController
     public function edit(Request $request, User $user): Response
     {
         $form = $this->createForm(UserType::class, $user);
+        $form=$form->add("Enregister",SubmitType::class);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('user_index');
         }
 
