@@ -14,7 +14,6 @@ class CategorieAideType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('lien_icon')
             ->add('imageFile', FileType::class, [
                 'mapped' => false,
                 'required' => false,

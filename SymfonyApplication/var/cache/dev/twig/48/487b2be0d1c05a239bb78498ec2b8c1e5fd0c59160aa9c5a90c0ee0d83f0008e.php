@@ -85,34 +85,10 @@ class __TwigTemplate_f1d1b9c93926f8cf7302408b99a140eda2da8431088f98512ae752f8ea5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "    <center><img src=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("logo.png"), "html", null, true);
-        echo "\"></center>
-    <div class=\"container\" style=\"margin-top: 15px; \" >
-
-        <div class=\"row\">
-    ";
-        // line 12
-        $this->loadTemplate("inc/card.html.twig", "navigation_contrller/index.html.twig", 12)->display(twig_array_merge($context, ["title" => "El Theatro Studio", "image" => "/El-Teatro-30-ans-déjà.jpg"]));
-        // line 13
-        echo "    </div>
-        <div class=\"row\">
-            ";
-        // line 15
-        $this->loadTemplate("inc/card.html.twig", "navigation_contrller/index.html.twig", 15)->display(twig_array_merge($context, ["title" => "Cinéma ABC", "image" => "/elharba.jpg"]));
-        // line 16
-        echo "        </div> <div class=\"row\">
-            ";
-        // line 17
-        $this->loadTemplate("inc/card.html.twig", "navigation_contrller/index.html.twig", 17)->display(twig_array_merge($context, ["title" => "Iberostar Selection Royal El Mansour", "image" => "/Elmansour.jpg"]));
-        // line 18
-        echo "        </div> <div class=\"row\">
-            ";
-        // line 19
-        $this->loadTemplate("inc/card.html.twig", "navigation_contrller/index.html.twig", 19)->display(twig_array_merge($context, ["title" => "Cinéma pathé", "image" => "/Pathé_Logo.svg.png"]));
-        // line 20
-        echo "        </div>
-    </div>
+        echo "    ";
+        $this->loadTemplate("Bootstraptemplates/inscription.html.twig", "navigation_contrller/index.html.twig", 8)->display($context);
+        // line 9
+        echo "
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -134,7 +110,7 @@ class __TwigTemplate_f1d1b9c93926f8cf7302408b99a140eda2da8431088f98512ae752f8ea5
 
     public function getDebugInfo()
     {
-        return array (  114 => 20,  112 => 19,  109 => 18,  107 => 17,  104 => 16,  102 => 15,  98 => 13,  96 => 12,  88 => 8,  78 => 7,  59 => 3,  36 => 1,);
+        return array (  91 => 9,  88 => 8,  78 => 7,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -146,20 +122,8 @@ class __TwigTemplate_f1d1b9c93926f8cf7302408b99a140eda2da8431088f98512ae752f8ea5
 
 
 {% block body %}
-    <center><img src=\"{{ asset('logo.png') }}\"></center>
-    <div class=\"container\" style=\"margin-top: 15px; \" >
+    {% include('Bootstraptemplates/inscription.html.twig') %}
 
-        <div class=\"row\">
-    {%  include('inc/card.html.twig')with {'title': 'El Theatro Studio','image': '/El-Teatro-30-ans-déjà.jpg'} %}
-    </div>
-        <div class=\"row\">
-            {%  include('inc/card.html.twig')with {'title': 'Cinéma ABC' , 'image': '/elharba.jpg'} %}
-        </div> <div class=\"row\">
-            {%  include('inc/card.html.twig')with {'title': 'Iberostar Selection Royal El Mansour' ,'image': '/Elmansour.jpg'} %}
-        </div> <div class=\"row\">
-            {%  include('inc/card.html.twig')with {'title': 'Cinéma pathé','image': '/Pathé_Logo.svg.png'} %}
-        </div>
-    </div>
 {% endblock %}
 ", "navigation_contrller/index.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\navigation_contrller\\index.html.twig");
     }

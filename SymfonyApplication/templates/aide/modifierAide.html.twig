@@ -3,32 +3,30 @@
 
 <div style ="margin-left: 1%; padding-top: 5%">
 
-{{ form_start(formModifierAide)}}
+{{ form_start(formModifierAide,{'attr': {'novalidate': 'novalidate'}} )}}
 
 <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Modifier Aide  </h1>
-{{ form_errors(formModifierAide.titre) }}
+{#  { form_errors(formModifierAide.titre) }#}
 {{ form_label(formModifierAide.titre,"Titre") }}
 {{ form_widget(formModifierAide.titre) }}
 
-{{ form_errors(formModifierAide.description) }}
+{#{ form_errors(formModifierAide.description) }#}
 {{ form_label(formModifierAide.description,"Description") }}
 {{ form_widget(formModifierAide.description)}}
 
-{{ form_errors(formModifierAide.adresse) }}
+{#{ form_errors(formModifierAide.adresse) }#}
 {{ form_label(formModifierAide.adresse,"Adresse") }}
 {{ form_widget(formModifierAide.adresse)}}
 
-{{ form_errors(formModifierAide.num_tell) }}
+{#{ form_errors(formModifierAide.num_tell) }#}
 {{ form_label(formModifierAide.num_tell,"Numero Telephone") }}
 {{ form_widget(formModifierAide.num_tell)}}
 
-{{ form_errors(formModifierAide.categorie) }}
+{#{ form_errors(formModifierAide.categorie) }#}
 {{ form_label(formModifierAide.categorie,"Categorie") }}
 {{ form_widget(formModifierAide.categorie)}}
 
-{{ form_errors(formModifierAide.lien_image) }}
-{{ form_label(formModifierAide.lien_image,"Lien_Image") }}
-{{ form_widget(formModifierAide.lien_image)}}
+
 
 
 

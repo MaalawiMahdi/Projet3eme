@@ -46,10 +46,10 @@ class __TwigTemplate_64d69e4ba7bbd0cf3d3aa86f60f2863e62992cd2c69f00b5819db03c877
         $this->loadTemplate("temp1.html.twig", "admin/index.html.twig", 2)->display($context);
         // line 3
         echo "
-        <img style=\"margin-left: 20%; margin-top: 10%; width: 60%; hight=60%\" src= \"";
+        <img style=\"margin-left: 38%; margin-top: 22%; width: 25%; hight=25%\" src= \"";
         // line 4
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
-        echo "\" class=\"img-circle\">
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.png"), "html", null, true);
+        echo "\" >
 
     ";
         // line 6
@@ -85,7 +85,7 @@ class __TwigTemplate_64d69e4ba7bbd0cf3d3aa86f60f2863e62992cd2c69f00b5819db03c877
         return new Source("
     {% include 'temp1.html.twig' %}
 
-        <img style=\"margin-left: 20%; margin-top: 10%; width: 60%; hight=60%\" src= \"{{ asset('bundles/dist/img/Logo.jpeg')}}\" class=\"img-circle\">
+        <img style=\"margin-left: 38%; margin-top: 22%; width: 25%; hight=25%\" src= \"{{ asset('bundles/dist/img/Logo.png')}}\" >
 
     {% include 'temp2.html.twig' %}
 

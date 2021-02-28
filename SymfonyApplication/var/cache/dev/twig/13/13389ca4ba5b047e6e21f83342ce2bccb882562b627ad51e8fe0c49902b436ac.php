@@ -45,7 +45,7 @@ class __TwigTemplate_a5d7f9467ddf3954004d9c8848e43a0d1edcb3919249a03d40f836270e7
         echo "
 <div class=\"box\">
     <div class=\"box-header\">
-        <h3 class=\"box-title\">Gestion des categories</h3>
+        <h3 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;\" class=\"box-title\" >Gestion des categories</h3>
     </div>
     <!-- /.box-header -->
     <div class=\"box-body\">
@@ -129,7 +129,7 @@ class __TwigTemplate_a5d7f9467ddf3954004d9c8848e43a0d1edcb3919249a03d40f836270e7
 
 <div class=\"box\">
     <div class=\"box-header\">
-        <h3 class=\"box-title\">Gestion des categories</h3>
+        <h3 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;\" class=\"box-title\" >Gestion des categories</h3>
     </div>
     <!-- /.box-header -->
     <div class=\"box-body\">

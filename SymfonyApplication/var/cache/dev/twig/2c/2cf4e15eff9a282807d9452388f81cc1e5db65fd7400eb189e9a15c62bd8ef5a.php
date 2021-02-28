@@ -109,21 +109,21 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
     <![endif]-->
     <style> .btn-primary {
-            background-color: #d11414;
-            border-color: #d11414;
-            border-radius: 6px;
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px !important;
 
         }
         .btn-primary:hover {
-            opacity: 0.8;
-            background-color: #d11414;
-            border-color: #d11414;
-            border-radius: 6px;
+            opacity: 0.8!important;
+            background-color: #d11414!important;
+            border-color: #d11414!important;
+            border-radius: 6px!important;
         }
         .btn-primary:active {
-            background-color: #d11414;
-            border-color: #d11414;
-            border-radius: 6px;
+            background-color: #d11414 !important;
+            border-color: #d11414!important;
+            border-radius: 6px!important;
         }
     </style>
     <!-- Google Font -->
@@ -231,8 +231,15 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
 
                 <li><a href=\"/categorie\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories</span></a></li>
-                <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories aides</span></a></li>
-                <li><a href=\"/AfficherAide\"><i class=\"fa fa-book\"></i> <span>Gestion des aides</span></a></li>
+                <li class=\"treeview\">
+                    <a href=\"#\">
+                        <i class=\"fa fa-dashboard\"></i> <span>Gestion des Aides</span>
+                        <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
+                    <ul class=\"treeview-menu\">
+                        <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-circle-o\"></i> Gestion des catégories aides</a></li>
+                        <li><a href=\"/AfficherAide\"><i class=\"fa fa-circle-o\"></i> Gestion des aides</a></li>
+                    </ul>
+                </li>
 
             </ul>
         </section>
@@ -307,21 +314,21 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
     <![endif]-->
     <style> .btn-primary {
-            background-color: #d11414;
-            border-color: #d11414;
-            border-radius: 6px;
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px !important;
 
         }
         .btn-primary:hover {
-            opacity: 0.8;
-            background-color: #d11414;
-            border-color: #d11414;
-            border-radius: 6px;
+            opacity: 0.8!important;
+            background-color: #d11414!important;
+            border-color: #d11414!important;
+            border-radius: 6px!important;
         }
         .btn-primary:active {
-            background-color: #d11414;
-            border-color: #d11414;
-            border-radius: 6px;
+            background-color: #d11414 !important;
+            border-color: #d11414!important;
+            border-radius: 6px!important;
         }
     </style>
     <!-- Google Font -->
@@ -420,8 +427,15 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
 
                 <li><a href=\"/categorie\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories</span></a></li>
-                <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories aides</span></a></li>
-                <li><a href=\"/AfficherAide\"><i class=\"fa fa-book\"></i> <span>Gestion des aides</span></a></li>
+                <li class=\"treeview\">
+                    <a href=\"#\">
+                        <i class=\"fa fa-dashboard\"></i> <span>Gestion des Aides</span>
+                        <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
+                    <ul class=\"treeview-menu\">
+                        <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-circle-o\"></i> Gestion des catégories aides</a></li>
+                        <li><a href=\"/AfficherAide\"><i class=\"fa fa-circle-o\"></i> Gestion des aides</a></li>
+                    </ul>
+                </li>
 
             </ul>
         </section>

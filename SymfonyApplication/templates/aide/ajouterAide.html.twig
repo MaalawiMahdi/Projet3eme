@@ -1,32 +1,30 @@
 {% include 'temp1.html.twig' %}
 <div style ="margin-left: 1%; padding-top: 5%">
 
-    {{ form_start(formAjouterAide)}}
+    {{ form_start(formAjouterAide,{'attr': {'novalidate': 'novalidate'}})}}
 
     <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Ajouter Aide  </h1>
-    {{ form_errors(formAjouterAide.titre) }}
+    {#{ form_errors(formAjouterAide.titre) }#}
     {{ form_label(formAjouterAide.titre,"Titre") }}
     {{ form_widget(formAjouterAide.titre) }}
 
-    {{ form_errors(formAjouterAide.description)}}
+    {#{ form_errors(formAjouterAide.description)}#}
     {{ form_label(formAjouterAide.description,"Description") }}
     {{ form_widget(formAjouterAide.description)}}
 
-    {{ form_errors(formAjouterAide.adresse)}}
+    {#{ form_errors(formAjouterAide.adresse)}#}
     {{ form_label(formAjouterAide.adresse,"Adresse") }}
     {{ form_widget(formAjouterAide.adresse)}}
 
-    {{ form_errors(formAjouterAide.num_tell)}}
+    {#{ form_errors(formAjouterAide.num_tell)}#}
     {{ form_label(formAjouterAide.num_tell,"Numero Telephone") }}
     {{ form_widget(formAjouterAide.num_tell)}}
 
-    {{ form_errors(formAjouterAide.categorie)}}
+    {#{ form_errors(formAjouterAide.categorie)}#}
     {{ form_label(formAjouterAide.categorie,"Categorie") }}
     {{ form_widget(formAjouterAide.categorie)}}
 
-    {{ form_errors(formAjouterAide.lien_image) }}
-    {{ form_label(formAjouterAide.lien_image,"Lien_Image") }}
-    {{ form_widget(formAjouterAide.lien_image)}}
+
 
 
 

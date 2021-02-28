@@ -17,7 +17,6 @@ class AideType extends AbstractType
             ->add('description')
             ->add('adresse')
             ->add('num_tell')
-            ->add('lien_image')
             ->add('categorie')
             ->add('imageFile', FileType::class, [
                 'mapped' => false,
