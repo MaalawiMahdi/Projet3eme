@@ -1,0 +1,42 @@
+{% extends 'main.html.twig' %}
+
+  {% block content %}
+
+{% block title%} Liste des Produits{% endblock %}
+{% block body %}
+    {% if ProduitService %}
+        <table id="ProduitService" class="table table-striped">
+            <thead>
+            <tr>
+                <th>titre</th>
+                <th>description</th>
+               <th>lien_image</th>
+                <th>type</th>
+                <th>prix_unitaire</th>
+
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for c in ProduitService %}
+                <tr>
+                    <td>{{ c.titre }}</td>
+                    <td>{{ c.description }}</td>
+                    <td><img src ="{{ asset('img/' ~ c.lien_image) }}"
+                    alt = "" style = "width:50px; height: 50px">
+                    </td>
+                    <td>{{ c.type }}</td>
+                    <td>{{ c.prixunitaire }}</td>
+
+                    <td><a href="{{ path("produit_service_delete", {'id' : c.id}) }}" >Supprimer</a> </td>
+                    <td><a href="{{ path("produit_service_update", {'id' : c.id}) }}" >Modifier</a> </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun produits</p>
+    {% endif %}
+{% endblock %}
+  {% endblock %}
