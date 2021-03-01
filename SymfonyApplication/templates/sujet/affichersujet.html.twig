@@ -1,26 +1,27 @@
 {% extends 'main.html.twig' %}
+{% block lienspages %}
+<li ><a href="/AfficherSujet/{{ board_id }}" style="background-color: #ffa9a9;color: red" ><i class="fa fa-circle-o" style="color: red"></i> Gestion Des Sujet</a></li>
+<li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Boutique</a></li>
+<li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Moderateur</a></li>
+{% endblock %}
 {% block content %}
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Titre</th>
-        <th scope="col">Board</th>
+        <th scope="col">Les sujets</th>
     </tr>
     </thead>
     <tbody>
     {% for i in list %}
 
         <tr>
-            <td>{{ i.id  }}</td>
-            <td>{{ i.titre  }}</td>
-            <td>{{ i.board.titre }}</td>
+            <td><a href="/ConsulterSujet/{{ i.board.id }}/{{ i.id }}">{{ i.titre  }}</a></td>
+
             <td>
-                <a> Consulter</a>
+                <a  href="/ModifierSujet/{{ i.board.id }}/{{ i.id }}"> Modifier</a>
             </td>
             <td>
-                <a> Supprimer</a>
-
+                <a  href="/SupprimerSujet/{{ i.board.id }}/{{ i.id }}"> Supprimer</a>
             </td>
         </tr>
     {% endfor %}

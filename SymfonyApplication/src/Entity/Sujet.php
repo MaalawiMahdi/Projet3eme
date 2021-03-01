@@ -6,6 +6,9 @@ use App\Repository\SujetRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+
 
 /**
  * @ORM\Entity(repositoryClass=SujetRepository::class)
@@ -21,11 +24,13 @@ class Sujet
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\NotBlank(message="Titre est obligatoire")
      */
     private $titre;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="Description est obligatoire")
      */
     private $description;
 
@@ -78,12 +83,13 @@ class Sujet
 
         return $this;
     }
-    public function getLienImage(): ?string
+
+    public function getLienImage()
     {
         return $this->lien_image;
     }
 
-    public function setLienImage(?string $lien_image): self
+    public function setLienImage($lien_image)
     {
         $this->lien_image = $lien_image;
 

@@ -1,0 +1,16 @@
+{% extends 'main.html.twig' %}
+{% block lienspages %}
+    <li ><a href="/AfficherSujet/{{ board_id }}" style="background-color: #ffa9a9;color: red" ><i class="fa fa-circle-o" style="color: red"></i> Gestion Des Sujet</a></li>
+    <li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Boutique</a></li>
+    <li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Moderateur</a></li>
+{% endblock %}
+{% block content %}
+<center>
+    <h3>{{ sujet.titre }}</h3>
+</center>
+    <h4>{{ sujet.description }}</h4>
+    <img src="{{ asset('im/' ~sujet.lienimage) }}">
+
+
+
+{% endblock %}

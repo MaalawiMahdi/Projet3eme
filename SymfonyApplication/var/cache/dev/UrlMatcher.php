@@ -17,6 +17,7 @@ return [
         '/aide' => [[['_route' => 'aide', '_controller' => 'App\\Controller\\AideController::index'], null, null, null, false, false, null]],
         '/categorieAide' => [[['_route' => 'categorieAide', '_controller' => 'App\\Controller\\CategorieAideController::index'], null, null, null, false, false, null]],
         '/categorie' => [[['_route' => 'categorie', '_controller' => 'App\\Controller\\CategorieController::index'], null, null, null, false, false, null]],
+        '/commentaire' => [[['_route' => 'commentaire', '_controller' => 'App\\Controller\\CommentaireController::index'], null, null, null, false, false, null]],
         '/comptes' => [[['_route' => 'comptes', '_controller' => 'App\\Controller\\ComptesController::index'], null, null, null, false, false, null]],
         '/demande' => [[['_route' => 'demande', '_controller' => 'App\\Controller\\DemandeController::index'], null, null, null, false, false, null]],
         '/index' => [[['_route' => 'index', '_controller' => 'App\\Controller\\IndexController::index'], null, null, null, false, false, null]],
@@ -40,9 +41,28 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/Supprimer(?'
+                    .'|Commentaire/([^/]++)/([^/]++)/([^/]++)(*:220)'
+                    .'|Sujet/([^/]++)/([^/]++)(*:251)'
+                .')'
+                .'|/Modifier(?'
+                    .'|Commentaire/([^/]++)/([^/]++)/([^/]++)(*:310)'
+                    .'|Sujet/([^/]++)/([^/]++)(*:341)'
+                    .'|Image/([^/]++)/([^/]++)(*:372)'
+                .')'
                 .'|/A(?'
-                    .'|fficherSujet/([^/]++)(*:195)'
-                    .'|jouterSujet/([^/]++)(*:223)'
+                    .'|fficherSujet(?'
+                        .'|/([^/]++)(*:410)'
+                        .'|Front/([^/]++)(*:432)'
+                    .')'
+                    .'|jouterSujet(?'
+                        .'|/([^/]++)(*:464)'
+                        .'|Front/([^/]++)(*:486)'
+                    .')'
+                .')'
+                .'|/ConsulterSujet(?'
+                    .'|/([^/]++)/([^/]++)(*:532)'
+                    .'|Front/([^/]++)/([^/]++)(*:563)'
                 .')'
             .')/?$}sD',
     ],
@@ -54,9 +74,18 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        195 => [[['_route' => 'Afficher', '_controller' => 'App\\Controller\\SujetController::afficher'], ['idboard'], null, null, false, true, null]],
-        223 => [
-            [['_route' => 'AjouterSujet', '_controller' => 'App\\Controller\\SujetController::AjouterSujet'], ['idboard'], null, null, false, true, null],
+        220 => [[['_route' => 'SupprimerCommentaire', '_controller' => 'App\\Controller\\CommentaireController::SupprimerCommentaire'], ['idboard', 'id', 'idcom'], null, null, false, true, null]],
+        251 => [[['_route' => 'SupprimerSujet', '_controller' => 'App\\Controller\\SujetController::SupprimerSujet'], ['idboard', 'id'], null, null, false, true, null]],
+        310 => [[['_route' => 'ModifierCommentaire', '_controller' => 'App\\Controller\\CommentaireController::ModifierCommentaire'], ['idboard', 'id', 'idcom'], null, null, false, true, null]],
+        341 => [[['_route' => 'ModifierSujet', '_controller' => 'App\\Controller\\SujetController::ModifiererSujet'], ['idboard', 'id'], null, null, false, true, null]],
+        372 => [[['_route' => 'ModifierImage', '_controller' => 'App\\Controller\\SujetController::ModifierImage'], ['idboard', 'id'], null, null, false, true, null]],
+        410 => [[['_route' => 'AfficherSujet', '_controller' => 'App\\Controller\\SujetController::afficher'], ['idboard'], null, null, false, true, null]],
+        432 => [[['_route' => 'AfficherSujetFront', '_controller' => 'App\\Controller\\SujetController::afficherFront'], ['idboard'], null, null, false, true, null]],
+        464 => [[['_route' => 'AjouterSujet', '_controller' => 'App\\Controller\\SujetController::AjouterSujet'], ['idboard'], null, null, false, true, null]],
+        486 => [[['_route' => 'AjouterSujetFront', '_controller' => 'App\\Controller\\SujetController::AjouterSujetFront'], ['idboard'], null, null, false, true, null]],
+        532 => [[['_route' => 'ConsulterSujet', '_controller' => 'App\\Controller\\SujetController::ConsulterSujet'], ['idboard', 'id'], null, null, false, true, null]],
+        563 => [
+            [['_route' => 'ConsulterSujetFront', '_controller' => 'App\\Controller\\SujetController::ConsulterSujetFront'], ['idboard', 'id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

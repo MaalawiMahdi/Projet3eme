@@ -27,6 +27,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         $this->parent = false;
 
         $this->blocks = [
+            'lienspages' => [$this, 'block_lienspages'],
             'content' => [$this, 'block_content'],
         ];
     }
@@ -80,16 +81,29 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         // line 21
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("dist/css/skins/_all-skins.min.css"), "html", null, true);
         echo "\">
-
+    <style> .btn-primary {
+            background-color: darkred;
+            border-color: darkred;
+        }
+        .btn-primary:hover {
+            opacity: 0.7;
+            background-color: darkred;
+            border-color: darkred;
+        }
+        .btn-primary:active {
+            background-color: darkred;
+            border-color: darkred;
+        }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src=\"";
-        // line 26
+        // line 39
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 27
+        // line 40
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://oss.maxcdn.com/respond/1.4.2/respond.min.js"), "html", null, true);
         echo "\"></script>
     <![endif]-->
@@ -97,7 +111,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
     <!-- Google Font -->
     <link rel=\"stylesheet\"
           href=\"";
-        // line 32
+        // line 45
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"), "html", null, true);
         echo "\">
 </head>
@@ -108,7 +122,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
 
         <!-- Logo -->
         <a href=\"";
-        // line 40
+        // line 53
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("index2.html"), "html", null, true);
         echo "\" class=\"logo\" style=\"background-color: #c60000\">
             <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -122,12 +136,12 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         <nav class=\"navbar navbar-static-top\" style=\"background-color: #c60000; height:60px\">
             <!-- Sidebar toggle button-->
             <a href=\"";
-        // line 51
+        // line 64
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("#"), "html", null, true);
         echo "\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
                 <span class=\"sr-only\">Toggle navigation</span>
             </a><img src=\"";
-        // line 53
+        // line 66
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("HH.png"), "html", null, true);
         echo "\" style=\"width:230px;height: 60px; margin-left: 300px \">
             <!-- Navbar Right Menu -->
@@ -146,7 +160,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
                     <img src=\"";
-        // line 69
+        // line 82
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("amine.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
                 </div>
@@ -167,11 +181,11 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
             </span>
                     </a>
                     <ul class=\"treeview-menu\">
-                        <li ><a href=\"#\" style=\"background-color: #ffa9a9;color: red\" ><i class=\"fa fa-circle-o\" style=\"color: red\"></i> Gestion Des Sujet</a></li>
-                        <li  style=\"background-color: white;\" ><a href=\"#\" style=\"color: red\"><i class=\"fa fa-circle-o\" style=\"color: red\"></i> Gestion de Boutique</a></li>
-                        <li  style=\"background-color: white;\" ><a href=\"#\" style=\"color: red\"><i class=\"fa fa-circle-o\" style=\"color: red\"></i> Gestion de Moderateur</a></li>
-
-                    </ul>
+                        ";
+        // line 101
+        $this->displayBlock('lienspages', $context, $blocks);
+        // line 106
+        echo "                    </ul>
                 </li>
             </ul>
         </section>
@@ -186,9 +200,9 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         <!-- Main content -->
         <section class=\"content\">
             ";
-        // line 106
+        // line 120
         $this->displayBlock('content', $context, $blocks);
-        // line 107
+        // line 121
         echo "        </section>
         <!-- /.content -->
     </div>
@@ -429,7 +443,30 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
 
     }
 
-    // line 106
+    // line 101
+    public function block_lienspages($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "lienspages"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "lienspages"));
+
+        // line 102
+        echo "                        <li ><a href=\"#\" style=\"background-color: #ffa9a9;color: red\" ><i class=\"fa fa-circle-o\" style=\"color: red\"></i> Gestion Des Sujet</a></li>
+                        <li  style=\"background-color: white;\" ><a href=\"#\" style=\"color: red\"><i class=\"fa fa-circle-o\" style=\"color: red\"></i> Gestion de Boutique</a></li>
+                        <li  style=\"background-color: white;\" ><a href=\"#\" style=\"color: red\"><i class=\"fa fa-circle-o\" style=\"color: red\"></i> Gestion de Moderateur</a></li>
+                        ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 120
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -459,7 +496,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
 
     public function getDebugInfo()
     {
-        return array (  433 => 106,  192 => 107,  190 => 106,  150 => 69,  131 => 53,  126 => 51,  112 => 40,  101 => 32,  93 => 27,  89 => 26,  81 => 21,  75 => 18,  70 => 16,  65 => 14,  60 => 12,  55 => 10,  44 => 1,);
+        return array (  470 => 120,  457 => 102,  447 => 101,  206 => 121,  204 => 120,  188 => 106,  186 => 101,  164 => 82,  145 => 66,  140 => 64,  126 => 53,  115 => 45,  107 => 40,  103 => 39,  82 => 21,  76 => 18,  71 => 16,  66 => 14,  61 => 12,  56 => 10,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -485,7 +522,20 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel=\"stylesheet\" href=\"{{ asset('dist/css/skins/_all-skins.min.css') }}\">
-
+    <style> .btn-primary {
+            background-color: darkred;
+            border-color: darkred;
+        }
+        .btn-primary:hover {
+            opacity: 0.7;
+            background-color: darkred;
+            border-color: darkred;
+        }
+        .btn-primary:active {
+            background-color: darkred;
+            border-color: darkred;
+        }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -551,10 +601,11 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
             </span>
                     </a>
                     <ul class=\"treeview-menu\">
+                        {% block lienspages %}
                         <li ><a href=\"#\" style=\"background-color: #ffa9a9;color: red\" ><i class=\"fa fa-circle-o\" style=\"color: red\"></i> Gestion Des Sujet</a></li>
                         <li  style=\"background-color: white;\" ><a href=\"#\" style=\"color: red\"><i class=\"fa fa-circle-o\" style=\"color: red\"></i> Gestion de Boutique</a></li>
                         <li  style=\"background-color: white;\" ><a href=\"#\" style=\"color: red\"><i class=\"fa fa-circle-o\" style=\"color: red\"></i> Gestion de Moderateur</a></li>
-
+                        {% endblock %}
                     </ul>
                 </li>
             </ul>

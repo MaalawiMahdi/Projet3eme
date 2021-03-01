@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include 'Bootstraptemplates/navbartemplate.html.twig' %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Les sujets</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in list %}
+
+            <tr>
+                <td><a href="/ConsulterSujetFront/{{ i.board.id }}/{{ i.id }}">{{ i.titre  }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

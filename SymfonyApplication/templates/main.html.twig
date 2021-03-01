@@ -19,7 +19,20 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">
-
+    <style> .btn-primary {
+            background-color: darkred;
+            border-color: darkred;
+        }
+        .btn-primary:hover {
+            opacity: 0.7;
+            background-color: darkred;
+            border-color: darkred;
+        }
+        .btn-primary:active {
+            background-color: darkred;
+            border-color: darkred;
+        }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -85,10 +98,11 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
+                        {% block lienspages %}
                         <li ><a href="#" style="background-color: #ffa9a9;color: red" ><i class="fa fa-circle-o" style="color: red"></i> Gestion Des Sujet</a></li>
                         <li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Boutique</a></li>
                         <li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Moderateur</a></li>
-
+                        {% endblock %}
                     </ul>
                 </li>
             </ul>

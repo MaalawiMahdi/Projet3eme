@@ -1,0 +1,12 @@
+{% extends 'main.html.twig' %}
+{% block lienspages %}
+    <li ><a href="/AfficherSujet/{{ board_id }}" style="background-color: #ffa9a9;color: red" ><i class="fa fa-circle-o" style="color: red"></i> Gestion Des Sujet</a></li>
+    <li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Boutique</a></li>
+    <li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Moderateur</a></li>
+{% endblock %}
+{% block content %}
+{{ form(form) }}
+
+
+
+{% endblock %}

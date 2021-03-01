@@ -1,0 +1,18 @@
+{% extends 'main.html.twig' %}
+{% block lienspages %}
+    <li ><a href="/AfficherSujet/{{ board_id }}" style="background-color: #ffa9a9;color: red" ><i class="fa fa-circle-o" style="color: red"></i> Gestion Des Sujet</a></li>
+    <li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Boutique</a></li>
+    <li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Moderateur</a></li>
+{% endblock %}
+{% block content %}
+    {% set lien_image ='im/'~sujet.lienimage~'.jpeg'%}
+    {{ form_start(form) }}
+    <h1> Modifier un Sujet </h1>
+    {{ form_label(form.titre,"Titre")  }}
+    {{ form_widget(form.titre) }}
+    {{ form_label(form.description,"Description") }}
+    {{ form_widget(form.description)}}
+    <img src="{{ asset('im/' ~sujet.lienimage) }}">
+
+    {{ form_end(form) }}
+{% endblock %}
