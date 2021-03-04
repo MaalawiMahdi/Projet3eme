@@ -180,4 +180,10 @@ class User
 
         return $this;
     }
+
+    public function __toString(): String
+    {
+return $this->id;
+    }
+
 }

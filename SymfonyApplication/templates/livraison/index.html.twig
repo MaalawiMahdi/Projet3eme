@@ -1,0 +1,39 @@
+{% extends 'main.html.twig' %}
+
+{% block title %}Livraison index{% endblock %}
+
+
+
+{% block content %}
+    <h1>Livraison index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Prix</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for livraison in livraisons %}
+            <tr>
+                <td>{{ livraison.id }}</td>
+                <td>{{ livraison.type }}</td>
+                <td>{{ livraison.prix }}</td>
+                <td>
+                    <a class="btn btn-warning" href="{{ path('livraison_show', {'id': livraison.id}) }}">show</a>
+                    <a class="btn btn-info" href="{{ path('livraison_edit', {'id': livraison.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('livraison_new') }}">Create new</a>
+{% endblock %}

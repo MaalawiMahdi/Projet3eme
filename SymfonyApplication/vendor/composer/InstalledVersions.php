@@ -30,8 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '00f998960c93adbc9804de6cffeba9936d487909',
-    'reference' => '8b9833c6449b637268e811f3a9bca72ec082f971',
+    'reference' => '72b485311f69a3044a70e9a70f22d558ec630bc6',
     'name' => '__root__',
   ),
   'versions' => 
@@ -43,10 +42,8 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '00f998960c93adbc9804de6cffeba9936d487909',
-
-      'reference' => '8b9833c6449b637268e811f3a9bca72ec082f971',
-     ),
+      'reference' => '72b485311f69a3044a70e9a70f22d558ec630bc6',
+    ),
     'composer/package-versions-deprecated' => 
     array (
       'pretty_version' => '1.11.99.1',
@@ -1023,12 +1020,12 @@ private static $installed = array (
     ),
     'symfony/validator' => 
     array (
-      'pretty_version' => 'v4.4.19',
-      'version' => '4.4.19.0',
+      'pretty_version' => 'v4.4.20',
+      'version' => '4.4.20.0',
       'aliases' => 
       array (
       ),
-      'reference' => '039479123c8d824f23efba9bb413b85dc3f42e43',
+      'reference' => '08c3add0462f22f00b856c0d0361cf51897d51aa',
     ),
     'symfony/var-dumper' => 
     array (
@@ -1348,7 +1345,6 @@ self::$canGetVendors = method_exists('Composer\Autoload\ClassLoader', 'getRegist
 $installed = array();
 
 if (self::$canGetVendors) {
-
 foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
 if (isset(self::$installedByVendor[$vendorDir])) {
 $installed[] = self::$installedByVendor[$vendorDir];

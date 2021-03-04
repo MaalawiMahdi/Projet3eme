@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/Container9Brrbwb/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/Container4Axxb16/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -37,15 +37,19 @@ $classes[] = 'App\Controller\AdminController';
 $classes[] = 'App\Controller\AideController';
 $classes[] = 'App\Controller\CategorieAideController';
 $classes[] = 'App\Controller\CategorieController';
+$classes[] = 'App\Controller\CommandeController';
 $classes[] = 'App\Controller\ComptesController';
 $classes[] = 'App\Controller\DemandeController';
 $classes[] = 'App\Controller\IndexController';
+$classes[] = 'App\Controller\LivraisonController';
 $classes[] = 'App\Controller\SocieteController';
 $classes[] = 'App\Controller\SujetController';
 $classes[] = 'App\Controller\UserController';
 $classes[] = 'App\Form\AideType';
 $classes[] = 'App\Form\CategorieAideType';
+$classes[] = 'App\Form\CommandeType';
 $classes[] = 'App\Form\ConnexionUserType';
+$classes[] = 'App\Form\LivraisonType';
 $classes[] = 'App\Form\SocieteType';
 $classes[] = 'App\Form\SujetType';
 $classes[] = 'App\Form\UserType';

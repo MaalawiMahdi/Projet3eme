@@ -38,13 +38,13 @@ class ProduitService
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Board::class, inversedBy="produitServices")
+     * @ORM\ManyToOne(targetEntity=Board::class, inversedBy="ProduitServices")
      * @ORM\JoinColumn(nullable=false)
      */
     private $board;
 
     /**
-     * @ORM\ManyToOne(targetEntity=CategorieProduitService::class, inversedBy="produitServices")
+     * @ORM\ManyToOne(targetEntity=CategorieProduitService::class, inversedBy="ProduitServices")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorie;

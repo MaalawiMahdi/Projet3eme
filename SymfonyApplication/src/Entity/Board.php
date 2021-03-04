@@ -33,7 +33,7 @@ class Board
     /**
      * @ORM\OneToMany(targetEntity=Sujet::class, mappedBy="board", orphanRemoval=true)
      */
-    private $sujets;
+    private $Sujets;
 
     /**
      * @ORM\OneToMany(targetEntity=ProduitService::class, mappedBy="board", orphanRemoval=true)
@@ -47,7 +47,7 @@ class Board
 
     public function __construct()
     {
-        $this->sujets = new ArrayCollection();
+        $this->Sujets = new ArrayCollection();
         $this->produitServices = new ArrayCollection();
         $this->moderators = new ArrayCollection();
     }
@@ -86,25 +86,25 @@ class Board
      */
     public function getSujets(): Collection
     {
-        return $this->sujets;
+        return $this->Sujets;
     }
 
-    public function addSujet(Sujet $sujet): self
+    public function addSujet(Sujet $Sujet): self
     {
-        if (!$this->sujets->contains($sujet)) {
-            $this->sujets[] = $sujet;
-            $sujet->setBoard($this);
+        if (!$this->Sujets->contains($Sujet)) {
+            $this->Sujets[] = $Sujet;
+            $Sujet->setBoard($this);
         }
 
         return $this;
     }
 
-    public function removeSujet(Sujet $sujet): self
+    public function removeSujet(Sujet $Sujet): self
     {
-        if ($this->sujets->removeElement($sujet)) {
+        if ($this->Sujets->removeElement($Sujet)) {
             // set the owning side to null (unless already changed)
-            if ($sujet->getBoard() === $this) {
-                $sujet->setBoard(null);
+            if ($Sujet->getBoard() === $this) {
+                $Sujet->setBoard(null);
             }
         }
 

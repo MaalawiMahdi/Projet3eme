@@ -6,21 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Welcome!{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">') }}  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="{{ asset('font-awesome-4.7.0/css/font-awesome.min.css') }}">                <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">                                      <!-- Bootstrap style -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('css/tooplate-style.css') }}">
 
-    {% block stylesheets %}{% endblock %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700') }}"><!-- Google web font "Open Sans" -->
+        <link rel="stylesheet" href="{{ asset('font-awesome-4.7.0/css/font-awesome.min.css') }}">                <!-- Font Awesome -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">                                      <!-- Bootstrap style -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('../css/tooplate-style.css') }}">{% endblock %}
 
 </head>
-<body>
 
+<body>
+{% block nav %}{% endblock %}
 {% block body %} {% endblock %}
-<script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>             <!-- jQuery (https://jquery.com/download/) -->
+{% block javascript %}
+<script src="{{ asset('js/jquery-1.11.3.min.js')}}"></script>             <!-- jQuery (https://jquery.com/download/) -->
 <script src="{{ asset('js/popper.min.js') }}"></script>                    <!-- https://popper.js.org/ -->
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>                 <!-- https://getbootstrap.com/ -->
 <script src="{{ asset('js/datepicker.min.js') }}"></script>                <!-- https://github.com/qodesmith/datepicker -->
@@ -163,6 +166,6 @@
     });
 
 </script>
-{% block javascripts %}{% endblock %}
+{% endblock %}
 </body>
 </html>

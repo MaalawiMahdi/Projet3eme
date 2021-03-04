@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\CommandeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=CommandeRepository::class)
@@ -17,14 +19,13 @@ class Commande
      */
     private $id;
 
-    /**
-     * @ORM\OneToOne(targetEntity=panier::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
-     */
-    private $panier;
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank
+     * @Assert\GreaterThan(
+     *     value = 0
+     * )
      */
     private $prix;
 
@@ -33,22 +34,18 @@ class Commande
      */
     private $livraison;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPanier(): ?panier
-    {
-        return $this->panier;
-    }
 
-    public function setPanier(panier $panier): self
-    {
-        $this->panier = $panier;
-
-        return $this;
-    }
 
     public function getPrix(): ?float
     {
@@ -70,6 +67,18 @@ class Commande
     public function setLivraison(?Livraison $livraison): self
     {
         $this->livraison = $livraison;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

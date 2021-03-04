@@ -6,6 +6,7 @@ use App\Repository\LivraisonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=LivraisonRepository::class)
@@ -20,23 +21,28 @@ class Livraison
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity=commande::class, mappedBy="livraison")
+     * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="livraison")
      */
-    private $commande;
+    private $Commande;
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\NotBlank
      */
     private $type;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\NotBlank
+     * @Assert\GreaterThan(
+     *     value = 0
+     * )
      */
     private $prix;
 
     public function __construct()
     {
-        $this->commande = new ArrayCollection();
+        $this->Commande = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -45,29 +51,29 @@ class Livraison
     }
 
     /**
-     * @return Collection|commande[]
+     * @return Collection|Commande[]
      */
     public function getCommande(): Collection
     {
-        return $this->commande;
+        return $this->Commande;
     }
 
-    public function addCommande(commande $commande): self
+    public function addCommande(Commande $Commande): self
     {
-        if (!$this->commande->contains($commande)) {
-            $this->commande[] = $commande;
-            $commande->setLivraison($this);
+        if (!$this->Commande->contains($Commande)) {
+            $this->Commande[] = $Commande;
+            $Commande->setLivraison($this);
         }
 
         return $this;
     }
 
-    public function removeCommande(commande $commande): self
+    public function removeCommande(Commande $Commande): self
     {
-        if ($this->commande->removeElement($commande)) {
+        if ($this->Commande->removeElement($Commande)) {
             // set the owning side to null (unless already changed)
-            if ($commande->getLivraison() === $this) {
-                $commande->setLivraison(null);
+            if ($Commande->getLivraison() === $this) {
+                $Commande->setLivraison(null);
             }
         }
 
