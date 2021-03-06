@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df10dd82-ce04-4cd8-9901-aacf1ef0f4c4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/aide/Captcha.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AideController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AideController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CategorieAideController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CategorieAideController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Aide.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Aide.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AideRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AideRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CategorieAideRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CategorieAideRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aide/ajouterAide.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aide/ajouterAide.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aide/listAide.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aide/listAide.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aide/listAides.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aide/listAides.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aide/modifierAide.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aide/modifierAide.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/categorie_aide/ajouterCategoriesAide.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categorie_aide/ajouterCategoriesAide.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/categorie_aide/listCategoriesAide.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categorie_aide/listCategoriesAide.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/categorie_aide/listCategoriesAides.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categorie_aide/listCategoriesAides.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/categorie_aide/modifierCategoriesAide.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categorie_aide/modifierCategoriesAide.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CaptchaType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CaptchaType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/aide/Captcha.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aide/Captcha.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +162,8 @@
       <workItem from="1614645363861" duration="2094000" />
       <workItem from="1614681347947" duration="9316000" />
       <workItem from="1614800666054" duration="3353000" />
-      <workItem from="1614884247117" duration="37559000" />
+      <workItem from="1614884247117" duration="51223000" />
+      <workItem from="1615039339943" duration="764000" />
     </task>
     <servers />
   </component>

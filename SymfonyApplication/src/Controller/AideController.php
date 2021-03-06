@@ -8,6 +8,7 @@ use mysql_xdevapi\Exception;
 use PhpParser\Node\Scalar\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DomCrawler\Field\TextareaFormField;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -57,8 +58,12 @@ class AideController extends AbstractController
             $data=$form->getData();
             $titre=$data['recherche'];
             $searchAidesfind=$this->getDoctrine()->getRepository(Aide::class)->search($titre);
-            $searchAidesfindtri=$this->getDoctrine()->getRepository(Aide::class)->searchtri($titre);
+            /*$searchAidesfindtri=$this->getDoctrine()->getRepository(Aide::class)->searchtri($titre);
+            if ($formtri->isSubmitted()) {
 
+                return $this->render('aide/listAide.html.twig', ['listAide' => $searchAidesfindtri,'formSearch'=>$form->createView(),
+                    'formtri' => $formtri->createView(),]);
+            }*/
             return $this->render('aide/listAide.html.twig', ['listAide' => $searchAidesfind,'formSearch'=>$form->createView(),
                 'formtri' => $formtri->createView(),]);
 
@@ -196,23 +201,28 @@ class AideController extends AbstractController
      * @Route ("/captcha", name="captcha")
      */
     public function captcha(Request $request)
-    {   $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find(mt_rand(1,21));
-
-        $lienImage=$Captcha->getLienImageCaptcha();
-        $value=$Captcha->getValue();
-
+    {
+        $x=random_int(1,21);
+        $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
         $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
         $formCaptcha->handleRequest($request);
+
         if ($formCaptcha->isSubmitted()) {
-
             $data=$formCaptcha->getData();
+            $findCaptcha=$this->getDoctrine()->getRepository(Captcha::class)->find($data['id']);
             $verif=$data['Captcha'];
-          if($value==$verif)
-          {return $this->redirectToRoute('admin');}
-
+            if($findCaptcha->getValue()==$verif)
+            {return $this->redirectToRoute('admin');}
         }
-        return $this->render('aide/Captcha.html.twig', ['captcha'=>$lienImage,'formCaptcha' =>$formCaptcha->createView()]);
+        $x=random_int(1,21);
+        $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
+        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
 
+        return $this->render('aide/Captcha.html.twig', ['captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView()]);
     }
+
+
 
 }
