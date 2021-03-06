@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerFPbFD5o/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerXngAKkY/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -44,13 +44,18 @@ $classes[] = 'App\Controller\SocieteController';
 $classes[] = 'App\Controller\SujetController';
 $classes[] = 'App\Controller\UserController';
 $classes[] = 'App\Form\AideType';
+$classes[] = 'App\Form\CaptchaType';
 $classes[] = 'App\Form\CategorieAideType';
 $classes[] = 'App\Form\ConnexionUserType';
+$classes[] = 'App\Form\SearchAidesType';
+$classes[] = 'App\Form\SearchCategorieAidesType';
 $classes[] = 'App\Form\SocieteType';
 $classes[] = 'App\Form\SujetType';
+$classes[] = 'App\Form\TriformType';
 $classes[] = 'App\Form\UserType';
 $classes[] = 'App\Repository\AideRepository';
 $classes[] = 'App\Repository\BoardRepository';
+$classes[] = 'App\Repository\CaptchaRepository';
 $classes[] = 'App\Repository\CategorieAideRepository';
 $classes[] = 'App\Repository\CategorieBoardRepository';
 $classes[] = 'App\Repository\CategorieProduitServiceRepository';

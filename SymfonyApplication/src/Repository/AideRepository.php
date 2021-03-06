@@ -47,4 +47,35 @@ class AideRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function search($titre){
+
+        return $this->createQueryBuilder('s')
+            ->where('s.titre LIKE :titre Or s.description LIKE :description Or s.adresse LIKE :adresse Or s.num_tell LIKE :num_tell OR s.categorie = :categorieid ')
+            ->setParameters(array('titre'=>'%'.$titre.'%','description'=>'%'.$titre.'%','adresse'=>'%'.$titre.'%','num_tell'=>'%'.$titre.'%','categorieid'=>$titre))
+            ->getQuery()
+            ->execute();
+    }
+    public function searchtri($titre){
+
+        return $this->createQueryBuilder('s')
+            ->where('s.titre LIKE :titre Or s.description LIKE :description Or s.adresse LIKE :adresse Or s.num_tell LIKE :num_tell OR s.categorie = :categorieid ')
+            ->setParameters(array('titre'=>'%'.$titre.'%','description'=>'%'.$titre.'%','adresse'=>'%'.$titre.'%','num_tell'=>'%'.$titre.'%','categorieid'=>$titre))
+            ->orderBy('s.titre', 'ASC')
+            ->getQuery()
+            ->execute();
+    }
+    public function searchs($titre,$idCategorie){
+
+        return $this->createQueryBuilder('s')
+            ->where('s.titre LIKE :titre Or s.description LIKE :description Or s.adresse LIKE :adresse Or s.num_tell LIKE :num_tell ')
+            ->andWhere('s.categorie = :categorieid')
+            ->setParameters(array('titre'=>'%'.$titre.'%','description'=>'%'.$titre.'%','adresse'=>'%'.$titre.'%','num_tell'=>'%'.$titre.'%','categorieid'=>$idCategorie))
+            ->getQuery()
+            ->execute();
+    }
+    public function findAlltri()
+    {
+        return $this->findBy(array(), array('titre' => 'ASC'));
+    }
+
 }

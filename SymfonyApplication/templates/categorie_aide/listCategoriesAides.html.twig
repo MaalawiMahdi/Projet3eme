@@ -32,8 +32,11 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="tm-section-down-arrow">
             <polygon fill="#ee5057" points="0,0  100,0  50,60"></polygon>
         </svg>
+
         <div class="container tm-pt-5 tm-pb-4">
+            {{ form(formSearch,{'attr': {'novalidate': 'novalidate'}}) }}
             <div class="row text-center">
+
                 {% for CA in listCategorieAides %}
                     <article class="col-sm-16 col-md-6 col-lg-6 col-xl-6 tm-article">
                         <i class="fa tm-fa-6x tm-color-primary tm-margin-b-20"><img style=" padding-right: 2px; padding-left: 2px; width:100px ; height: 100px ; " src="{{ asset('uploads/' ~ CA.getLienIcon())}}"></i>

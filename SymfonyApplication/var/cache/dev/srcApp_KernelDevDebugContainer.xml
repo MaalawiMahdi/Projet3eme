@@ -407,16 +407,28 @@
     <service id="App\Form\AideType" class="App\Form\AideType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\CategorieAideType" class="App\Form\CategorieAideType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ConnexionUserType" class="App\Form\ConnexionUserType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\SearchAidesType" class="App\Form\SearchAidesType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\SearchCategorieAidesType" class="App\Form\SearchCategorieAidesType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\SocieteType" class="App\Form\SocieteType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\SujetType" class="App\Form\SujetType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\TriformType" class="App\Form\TriformType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
@@ -427,6 +439,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\BoardRepository" class="App\Repository\BoardRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\CaptchaRepository" class="App\Repository\CaptchaRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -894,10 +910,14 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\AideType</argument>
+        <argument>App\Form\CaptchaType</argument>
         <argument>App\Form\CategorieAideType</argument>
         <argument>App\Form\ConnexionUserType</argument>
+        <argument>App\Form\SearchAidesType</argument>
+        <argument>App\Form\SearchCategorieAidesType</argument>
         <argument>App\Form\SocieteType</argument>
         <argument>App\Form\SujetType</argument>
+        <argument>App\Form\TriformType</argument>
         <argument>App\Form\UserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
@@ -1233,7 +1253,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.GLxer7Z"/>
+      <argument type="service" id=".service_locator.m3Z2KpF"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3977,7 +3997,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.FzD_bHk"/>
+      <argument type="service" id=".service_locator.R5Lq8iY"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4970,20 +4990,30 @@
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AideType" class="App\Form\AideType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AideType" class="App\Form\AideType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieAideType" class="App\Form\CategorieAideType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategorieAideType" class="App\Form\CategorieAideType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ConnexionUserType" class="App\Form\ConnexionUserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ConnexionUserType" class="App\Form\ConnexionUserType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SearchAidesType" class="App\Form\SearchAidesType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SearchAidesType" class="App\Form\SearchAidesType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SearchCategorieAidesType" class="App\Form\SearchCategorieAidesType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SearchCategorieAidesType" class="App\Form\SearchCategorieAidesType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SocieteType" class="App\Form\SocieteType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SocieteType" class="App\Form\SocieteType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SujetType" class="App\Form\SujetType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SujetType" class="App\Form\SujetType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TriformType" class="App\Form\TriformType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TriformType" class="App\Form\TriformType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AideRepository" class="App\Repository\AideRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\AideRepository" class="App\Repository\AideRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\BoardRepository" class="App\Repository\BoardRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\BoardRepository" class="App\Repository\BoardRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CaptchaRepository" class="App\Repository\CaptchaRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CaptchaRepository" class="App\Repository\CaptchaRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorieAideRepository" class="App\Repository\CategorieAideRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CategorieAideRepository" class="App\Repository\CategorieAideRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorieBoardRepository" class="App\Repository\CategorieBoardRepository" autowire="true" abstract="true"/>
@@ -5387,14 +5417,18 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.GLxer7Z" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.m3Z2KpF" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AideType" type="service" id="App\Form\AideType"/>
+        <argument key="App\Form\CaptchaType" type="service" id="App\Form\CaptchaType"/>
         <argument key="App\Form\CategorieAideType" type="service" id="App\Form\CategorieAideType"/>
         <argument key="App\Form\ConnexionUserType" type="service" id="App\Form\ConnexionUserType"/>
+        <argument key="App\Form\SearchAidesType" type="service" id="App\Form\SearchAidesType"/>
+        <argument key="App\Form\SearchCategorieAidesType" type="service" id="App\Form\SearchCategorieAidesType"/>
         <argument key="App\Form\SocieteType" type="service" id="App\Form\SocieteType"/>
         <argument key="App\Form\SujetType" type="service" id="App\Form\SujetType"/>
+        <argument key="App\Form\TriformType" type="service" id="App\Form\TriformType"/>
         <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
@@ -5561,11 +5595,12 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.FzD_bHk" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.R5Lq8iY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\AideRepository" type="service" id="App\Repository\AideRepository"/>
         <argument key="App\Repository\BoardRepository" type="service" id="App\Repository\BoardRepository"/>
+        <argument key="App\Repository\CaptchaRepository" type="service" id="App\Repository\CaptchaRepository"/>
         <argument key="App\Repository\CategorieAideRepository" type="service" id="App\Repository\CategorieAideRepository"/>
         <argument key="App\Repository\CategorieBoardRepository" type="service" id="App\Repository\CategorieBoardRepository"/>
         <argument key="App\Repository\CategorieProduitServiceRepository" type="service" id="App\Repository\CategorieProduitServiceRepository"/>

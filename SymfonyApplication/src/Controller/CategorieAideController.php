@@ -5,6 +5,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\CategorieAide;
 use App\Form\CategorieAideType;
+
+use App\Form\SearchCategorieAidesType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,23 +26,43 @@ class CategorieAideController extends AbstractController
     }
 
     /**
+     * @param Request $request
      * @return Response
      * @Route("/AfficherCategorieAide", name="AfficherCategorieAide")
      */
-    public function listCategoriesAide(): Response
+    public function listCategoriesAide(Request $request): Response
     {
         $categoriesAide = $this->getDoctrine()->getRepository(CategorieAide::class)->findAll();
-        return $this->render('categorie_aide/listCategoriesAide.html.twig', ['listCategorieAide' => $categoriesAide,]);
+        $form=$this->createForm(SearchCategorieAidesType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted())
+        {   $data=$form->getData();
+            $titre=$data['recherche'];
+            $categorieAidefind=$this->getDoctrine()->getRepository(CategorieAide::class)->search($titre);
+            return $this->render('categorie_aide/listCategoriesAide.html.twig', ['listCategorieAide' => $categorieAidefind,'formSearch'=>$form->createView(),]);
+        }
+        return $this->render('categorie_aide/listCategoriesAide.html.twig', ['listCategorieAide' => $categoriesAide,'formSearch'=>$form->createView(),]);
     }
 
     /**
+     * @param Request $request
      * @return Response
      * @Route("/AfficherCategorieAides/{iduser}", name="AfficherCategorieAides")
      */
-    public function listCategoriesAides($iduser): Response
+    public function listCategoriesAides($iduser,Request $request): Response
     {
         $categoriesAide = $this->getDoctrine()->getRepository(CategorieAide::class)->findAll();
-        return $this->render('categorie_aide/listCategoriesAides.html.twig', ['listCategorieAides' => $categoriesAide,'iduser'=>$iduser,]);
+        $form=$this->createForm(SearchCategorieAidesType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted())
+        {
+            $data=$form->getData();
+            $titre=$data['recherche'];
+            $categoriesAidefind=$this->getDoctrine()->getRepository(CategorieAide::class)->search($titre);
+            return $this->render('categorie_aide/listCategoriesAides.html.twig', ['listCategorieAides' => $categoriesAidefind,'iduser'=>$iduser,'formSearch'=>$form->createView(),]);
+
+        }
+        return $this->render('categorie_aide/listCategoriesAides.html.twig', ['listCategorieAides' => $categoriesAide,'iduser'=>$iduser,'formSearch'=>$form->createView(),]);
     }
 
     /**
@@ -127,4 +149,5 @@ class CategorieAideController extends AbstractController
         return $this->render('categorie_aide/modifierCategoriesAide.html.twig', ['formModifierCategorieAide' => $form->createView()]);
 
     }
+
 }

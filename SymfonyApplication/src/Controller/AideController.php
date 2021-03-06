@@ -3,12 +3,19 @@
 namespace App\Controller;
 
 use App\Form\AideType;
+use App\Form\SearchAidesType;
+use mysql_xdevapi\Exception;
+use PhpParser\Node\Scalar\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DomCrawler\Field\TextareaFormField;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Aide;
+use App\Form\TriformType;
+use App\Entity\Captcha;
+use App\Form\CaptchaType;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -16,6 +23,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class AideController extends AbstractController
 {
+    public $rand=1;
     /**
      * @Route("/aide", name="aide")
      */
@@ -27,21 +35,64 @@ class AideController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * @param Request $requests
      * @return Response
      * @Route("/AfficherAide", name="AfficherAide")
      */
-    public function listAide(): Response
+    public function listAide(Request $request): Response
     {
         $Aide = $this->getDoctrine()->getRepository(Aide::class)->findAll();
-        return $this->render('aide/listAide.html.twig', ['listAide' => $Aide,]);
+        $Aidetri = $this->getDoctrine()->getRepository(Aide::class)->findAlltri();
+        $formtri=$this->createForm(TriformType::class);
+        $formtri->handleRequest($request);
+        $form=$this->createForm(SearchAidesType::class);
+        $form->handleRequest($request);
+
+
+
+
+        if ($form->isSubmitted())
+        {
+            $data=$form->getData();
+            $titre=$data['recherche'];
+            $searchAidesfind=$this->getDoctrine()->getRepository(Aide::class)->search($titre);
+            $searchAidesfindtri=$this->getDoctrine()->getRepository(Aide::class)->searchtri($titre);
+
+            return $this->render('aide/listAide.html.twig', ['listAide' => $searchAidesfind,'formSearch'=>$form->createView(),
+                'formtri' => $formtri->createView(),]);
+
+        }
+        else if ($formtri->isSubmitted()) {
+
+            return $this->render('aide/listAide.html.twig', ['listAide' => $Aidetri,'formSearch'=>$form->createView(),
+                'formtri' => $formtri->createView(),]);
+        }
+        return $this->render('aide/listAide.html.twig', ['listAide' => $Aide,'formSearch'=>$form->createView(),
+            'formtri' => $formtri->createView(),]);
     }
+
     /**
+     * @param Request $request
      * @return Response
      * @Route("/AfficherAides/{id}/{iduser}", name="AfficherAides")
      */
-    public function listAides($iduser,$id): Response
+    public function listAides($iduser,$id,Request $request): Response
     {   $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->findBy(array('categorie'=>$id));
-        return $this->render('aide/listAides.html.twig', ['listAides' => $Aidefind,'iduser'=>$iduser,]);
+
+        $categorieid=$Aidefind[0]->getCategorie();
+        $form=$this->createForm(SearchAidesType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted())
+        {
+            $data=$form->getData();
+            $titre=$data['recherche'];
+            $searchAidesfind=$this->getDoctrine()->getRepository(Aide::class)->searchs($titre,$categorieid);
+            return $this->render('aide/listAides.html.twig', ['listAides' => $searchAidesfind,'iduser'=>$iduser,'formSearch'=>$form->createView(),]);
+
+        }
+        return $this->render('aide/listAides.html.twig', ['listAides' => $Aidefind,'iduser'=>$iduser,'formSearch'=>$form->createView(),]);
+
     }
     /**
      * @param Request $request
@@ -137,6 +188,31 @@ class AideController extends AbstractController
             $destination,
             $newFilename
         ));
+    }
+
+    /**
+     * @param Request $request
+     * @return mixed
+     * @Route ("/captcha", name="captcha")
+     */
+    public function captcha(Request $request)
+    {   $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find(mt_rand(1,21));
+
+        $lienImage=$Captcha->getLienImageCaptcha();
+        $value=$Captcha->getValue();
+
+        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha->handleRequest($request);
+        if ($formCaptcha->isSubmitted()) {
+
+            $data=$formCaptcha->getData();
+            $verif=$data['Captcha'];
+          if($value==$verif)
+          {return $this->redirectToRoute('admin');}
+
+        }
+        return $this->render('aide/Captcha.html.twig', ['captcha'=>$lienImage,'formCaptcha' =>$formCaptcha->createView()]);
+
     }
 
 }

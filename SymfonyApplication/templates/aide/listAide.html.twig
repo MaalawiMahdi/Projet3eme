@@ -19,13 +19,22 @@
         border-color: #ee5057!important;
         border-radius: 6px!important;
     }
+    .aParent div {
+        float: left;
+        clear: none;
+
+    }
 
 </style>
 <div class="box">
     <div class="box-header">
         <h1 style ="margin-bottom: 2%; text-align: center; color: #ee5057 ;  " > Gestion des Aides </h1>
 
-        <form action="  {{path('ajouterAide')}}  "><button>Ajouter</button></form>
+        <div class="aParent">
+            <div><form action="  {{path('ajouterAide')}}  "><button>Ajouter</button></form></div>
+            <div  style="margin-left: 90%">{{ form(formtri,{'attr': {'novalidate': 'novalidate'}}) }}</div>
+        </div>
+
     </div>
     <!-- /.box-header -->
     <div class="box-body">
@@ -46,11 +55,13 @@
             <tbody>
 
 
+            {{ form(formSearch,{'attr': {'novalidate': 'novalidate'}}) }}
+
 
             {% for A in listAide %}
                 <tr>
                     <td><img style=" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;" src="{{ asset('uploads/' ~ A.getLienImage())}}"></td>
-                    {# <td>{{ A.id }}</td> #}
+
                     <td>{{ A.titre }}</td>
                     <td>{{ A.description}}</td>
                     <td>{{ A.adresse}}</td>

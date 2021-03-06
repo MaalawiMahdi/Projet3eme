@@ -44,7 +44,7 @@ class Aide
     /**
      * @ORM\Column(type="string", length=20, nullable=true)
      * @Assert\NotBlank(message="le champs numero de telephone obligatoire * "))
-     * @Assert\Length(min=8,minMessage="votre numero de telephne doit contenir au minimum 8 caractères.",max=15,minMessage="votre numero de telephne ne doit depasser 15 caractères."))
+     * @Assert\Length(min=8,minMessage="votre numero de telephne doit contenir au minimum 8 caractères.",max=15,maxMessage="votre numero de telephne ne doit depasser 15 caractères."))
      */
     private $num_tell;
 
@@ -135,4 +135,5 @@ class Aide
 
         return $this;
     }
+
 }
