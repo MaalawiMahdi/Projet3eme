@@ -17,6 +17,11 @@ use App\Entity\Aide;
 use App\Form\TriformType;
 use App\Entity\Captcha;
 use App\Form\CaptchaType;
+use App\Form\NoteType;
+use App\Entity\Note;
+use App\Entity\User;
+
+
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -76,6 +81,77 @@ class AideController extends AbstractController
         return $this->render('aide/listAide.html.twig', ['listAide' => $Aide,'formSearch'=>$form->createView(),
             'formtri' => $formtri->createView(),]);
     }
+
+    /**
+     * @param $iduser
+     * @param $id
+     * @param Request $request
+     * @return Response
+     * @Route ("/Afficherdetailaide/{id}/{iduser}",name="Afficherdetailaide")
+     */
+    public function detailAide($iduser,$id,Request $request): Response
+    {   $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
+        $x=random_int(1,21);
+        $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
+        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
+        $formCaptcha->handleRequest($request);
+
+        if ($formCaptcha->isSubmitted()) {
+            $data=$formCaptcha->getData();
+            $findCaptcha=$this->getDoctrine()->getRepository(Captcha::class)->find($data['id']);
+            $verif=$data['Captcha'];
+            if($findCaptcha->getValue()==$verif)
+            {return $this->redirectToRoute('Afficherdetailaidenote',['DetailAides' => $Aidefind,'iduser'=>$iduser,'id'=>$id]);}
+        }
+        $x=random_int(1,21);
+        $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
+        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
+        return $this->render('aide/DetailAides.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView(),]);
+
+
+    }
+
+    /**
+     * @param $iduser
+     * @param $id
+     * @param Request $request
+     * @return Response
+     * @Route ("/Afficherdetailaidenote/{id}/{iduser}",name="Afficherdetailaidenote")
+     */
+    public function detailAidenote($iduser,$id,Request $request): Response
+    {
+        $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
+        $user=$this->getDoctrine()->getRepository(User::class)->find($iduser);
+        $Note = new Note();
+        $form = $this->createForm(NoteType::class, $Note);
+        $form->add('Noter', SubmitType::class);
+        $form->handleRequest($request);
+        $Notes=$this->getDoctrine()->getRepository(Note::class)->findBy(array('aide'=>$id));
+        $total=0;
+        $Moyenne=0;
+        for ($i =0; $i <= (count($Notes)-1); $i++)
+        {
+            $total=$total+($Notes[$i]->getValeur());
+        }
+        $Moyenne=$total/(count($Notes));
+        if ($form->isSubmitted() ) {
+            $Note->setUser($user);
+            $Note->setAide($Aidefind);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($Note);
+            $em->flush();
+
+            return $this->render('aide/DetailAidesnote.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'formAjouterNote' => $form->createView(),'moyenne'=>$Moyenne]);
+        }
+
+
+        return $this->render('aide/DetailAidesnote.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'formAjouterNote' => $form->createView(),'moyenne'=>$Moyenne]);
+
+
+    }
+
 
     /**
      * @param Request $request

@@ -25,6 +25,7 @@
             border-color: #ee5057;
             border-radius: 6px;
         }
+
     </style>
     {% block js %} {% endblock %}
     {% include 'Bootstraptemplates/bootstrapAide1.html.twig' with   { 'iduser': iduser }  %}
@@ -45,6 +46,7 @@
                         <p>{{ A.adresse}}</p>
                         <p>{{ A.getNumTell()}}</p>
                         <!--<a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Consulter</a>-->
+                        <form action="{{ path("Afficherdetailaide",{'id':A.id,'iduser':iduser} ) }}" class="text-uppercase tm-color-primary tm-font-semibold"><button>Consulter</button></form>
 
                     </article>
                 {% endfor %}
@@ -52,6 +54,8 @@
             </div>
         </div>
     </div>
+
+
     {% include 'Bootstraptemplates/bootstrapAide2.html.twig' %}
 
 {% endblock %}

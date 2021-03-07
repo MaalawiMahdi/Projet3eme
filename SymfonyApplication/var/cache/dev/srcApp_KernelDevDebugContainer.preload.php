@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerXngAKkY/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerY7HbY5N/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -40,6 +40,7 @@ $classes[] = 'App\Controller\CategorieController';
 $classes[] = 'App\Controller\ComptesController';
 $classes[] = 'App\Controller\DemandeController';
 $classes[] = 'App\Controller\IndexController';
+$classes[] = 'App\Controller\NoteController';
 $classes[] = 'App\Controller\SocieteController';
 $classes[] = 'App\Controller\SujetController';
 $classes[] = 'App\Controller\UserController';
@@ -47,6 +48,7 @@ $classes[] = 'App\Form\AideType';
 $classes[] = 'App\Form\CaptchaType';
 $classes[] = 'App\Form\CategorieAideType';
 $classes[] = 'App\Form\ConnexionUserType';
+$classes[] = 'App\Form\NoteType';
 $classes[] = 'App\Form\SearchAidesType';
 $classes[] = 'App\Form\SearchCategorieAidesType';
 $classes[] = 'App\Form\SocieteType';
@@ -63,6 +65,7 @@ $classes[] = 'App\Repository\CommandeRepository';
 $classes[] = 'App\Repository\CommentaireRepository';
 $classes[] = 'App\Repository\LivraisonRepository';
 $classes[] = 'App\Repository\ModeratorRepository';
+$classes[] = 'App\Repository\NoteRepository';
 $classes[] = 'App\Repository\PanierRepository';
 $classes[] = 'App\Repository\ProduitServiceRepository';
 $classes[] = 'App\Repository\SocieteRepository';
