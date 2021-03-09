@@ -12,11 +12,15 @@ class NoteType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
+         $builder
             ->add('valeur',choiceType::class, array(
-                'choices' => array('1' => 1, '2' => 2,'3' => 3, '4' => 4,'5' => 5),
-
-            ));
+                'choices' => array("1" => 1,
+                    '2' => 2,
+                    '3' => 3,
+                    '4' => 4,
+                    '5' => 5
+                ),
+    ));
 
 
         ;

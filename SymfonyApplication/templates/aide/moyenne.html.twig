@@ -1,0 +1,112 @@
+
+
+
+{% if  moyenne==0  %}
+{% endif %}
+{% if  moyenne<0.5  %}
+    <div>
+        <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+        <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+        <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+        <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+        <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+    </div>
+
+{% endif %}
+{% if (moyenne>=0.5) and (moyenne<1)   %}
+    <div>
+        <i class="fa fa-star-half-empty" style=" font-size:36px; color: orange;" ></i>
+        <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+        <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+        <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+        <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+    </div>
+
+{% endif %}
+{% if (moyenne>=1)and (moyenne<1.5)   %}
+   <div>
+       <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+       <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+       <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+       <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+       <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+
+   </div>
+
+{% endif %}
+{% if (moyenne>=1.5) and (moyenne<2)  %}
+  <div>
+      <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+      <i class="fa fa-star-half-empty" style=" font-size:36px; color: orange;" ></i>
+      <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+      <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+      <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+
+  </div>
+
+{% endif %}
+{% if (moyenne>=2) and (moyenne<2.5)  %}
+    <div>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+    <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+    <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+    </div>
+{% endif %}
+{% if (moyenne>=2.5) and (moyenne<3)  %}
+ <div>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star-half-empty" style=" font-size:36px; color: orange;" ></i>
+    <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+    <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+ </div>
+{% endif %}
+{% if (moyenne>=3) and (moyenne<3.5)  %}
+    <div>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+    <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+    </div>
+{% endif %}
+{% if (moyenne>=3.5) and (moyenne<4)  %}
+    <div>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star-half-empty" style=" font-size:36px; color: orange;" ></i>
+    <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+    </div>
+{% endif %}
+
+{% if (moyenne>=4) and (moyenne<4.5)  %}
+    <div>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star-o" style="font-size:36px;color:orange;"></i>
+    </div>
+{% endif %}
+
+{% if (moyenne>=4.5) and (moyenne<5)  %}
+    <div>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star-half-empty" style=" font-size:36px; color: orange;" ></i>
+    </div>
+{% endif %}
+{% if (moyenne==5)  %}
+    <div>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    <i class="fa fa-star checked" style="font-size:36px; color: orange;"></i>
+    </div>
+{% endif %}

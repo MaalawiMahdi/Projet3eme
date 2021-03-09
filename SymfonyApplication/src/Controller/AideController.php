@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 use App\Entity\Aide;
 use App\Form\TriformType;
 use App\Entity\Captcha;
@@ -102,7 +103,8 @@ class AideController extends AbstractController
             $findCaptcha=$this->getDoctrine()->getRepository(Captcha::class)->find($data['id']);
             $verif=$data['Captcha'];
             if($findCaptcha->getValue()==$verif)
-            {return $this->redirectToRoute('Afficherdetailaidenote',['DetailAides' => $Aidefind,'iduser'=>$iduser,'id'=>$id]);}
+            {
+                return $this->redirectToRoute('Afficherdetailaidenote',['DetailAides' => $Aidefind,'iduser'=>$iduser,'id'=>$id]);}
         }
         $x=random_int(1,21);
         $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
@@ -121,14 +123,10 @@ class AideController extends AbstractController
      * @Route ("/Afficherdetailaidenote/{id}/{iduser}",name="Afficherdetailaidenote")
      */
     public function detailAidenote($iduser,$id,Request $request): Response
-    {
+    {   $note=0;
         $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
-        $user=$this->getDoctrine()->getRepository(User::class)->find($iduser);
-        $Note = new Note();
-        $form = $this->createForm(NoteType::class, $Note);
-        $form->add('Noter', SubmitType::class);
-        $form->handleRequest($request);
         $Notes=$this->getDoctrine()->getRepository(Note::class)->findBy(array('aide'=>$id));
+        $x = $this->getDoctrine()->getRepository(Note::class)->findOneBy(array('aide'=>$Aidefind,'user'=>$iduser));
         $total=0;
         $Moyenne=0;
         for ($i =0; $i <= (count($Notes)-1); $i++)
@@ -136,21 +134,12 @@ class AideController extends AbstractController
             $total=$total+($Notes[$i]->getValeur());
         }
         $Moyenne=$total/(count($Notes));
-        if ($form->isSubmitted() ) {
-            $Note->setUser($user);
-            $Note->setAide($Aidefind);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($Note);
-            $em->flush();
+        $note=$x->getValeur();
+        $aviss=$x->getAvis();
 
-            return $this->render('aide/DetailAidesnote.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'formAjouterNote' => $form->createView(),'moyenne'=>$Moyenne]);
-        }
+            return $this->render('aide/DetailAidesnote.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'moyenne'=>$Moyenne,'note'=>$note,'aviss'=>$aviss,]);
 
-
-        return $this->render('aide/DetailAidesnote.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'formAjouterNote' => $form->createView(),'moyenne'=>$Moyenne]);
-
-
-    }
+      }
 
 
     /**

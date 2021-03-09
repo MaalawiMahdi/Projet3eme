@@ -24,6 +24,7 @@ class Note
      */
     private $valeur;
 
+
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="notes")
      */
@@ -33,6 +34,11 @@ class Note
      * @ORM\ManyToOne(targetEntity=Aide::class, inversedBy="notes")
      */
     private $aide;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $avis;
 
 
 
@@ -74,6 +80,18 @@ class Note
     public function setAide(?Aide $aide): self
     {
         $this->aide = $aide;
+
+        return $this;
+    }
+
+    public function getAvis(): ?string
+    {
+        return $this->avis;
+    }
+
+    public function setAvis(?string $avis): self
+    {
+        $this->avis = $avis;
 
         return $this;
     }

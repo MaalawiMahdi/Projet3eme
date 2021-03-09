@@ -4,14 +4,10 @@
     <list default="true" id="df10dd82-ce04-4cd8-9901-aacf1ef0f4c4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AideController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AideController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Aide.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Aide.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aide/listAides.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aide/listAides.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/NoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NoteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Note.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Note.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/NoteType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/NoteType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/aide/DetailAidesnote.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aide/DetailAidesnote.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +164,9 @@
       <workItem from="1614681347947" duration="9316000" />
       <workItem from="1614800666054" duration="3353000" />
       <workItem from="1614884247117" duration="51223000" />
-      <workItem from="1615039339943" duration="18934000" />
+      <workItem from="1615039339943" duration="20208000" />
+      <workItem from="1615118173551" duration="27278000" />
+      <workItem from="1615235110586" duration="2190000" />
     </task>
     <servers />
   </component>
