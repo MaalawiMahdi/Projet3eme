@@ -120,6 +120,10 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
         // line 28
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("slick/slick.min.js"), "html", null, true);
         echo "\"></script>
+<script src=\"";
+        // line 29
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/js/jquery.min.js"), "html", null, true);
+        echo "\"></script>
 <script>
 
     /* Google map
@@ -181,9 +185,9 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
         }
     }
     ";
-        // line 89
+        // line 90
         $this->displayBlock('js', $context, $blocks);
-        // line 105
+        // line 106
         echo "    function togglePlayPause() {
         vid = \$('.tmVideo').get(0);
 
@@ -246,9 +250,9 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
 </script>
 ";
-        // line 166
-        $this->displayBlock('javascripts', $context, $blocks);
         // line 167
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 168
         echo "</body>
 </html>";
         
@@ -315,7 +319,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     }
 
-    // line 89
+    // line 90
     public function block_js($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -325,7 +329,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "js"));
 
-        // line 90
+        // line 91
         echo "    function setPageNav(){
         if(\$(window).width() > 991) {
             \$('#tm-top-bar').singlePageNav({
@@ -349,7 +353,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     }
 
-    // line 166
+    // line 167
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -379,7 +383,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     public function getDebugInfo()
     {
-        return array (  353 => 166,  329 => 90,  319 => 89,  300 => 22,  282 => 17,  263 => 8,  252 => 167,  250 => 166,  187 => 105,  185 => 89,  121 => 28,  117 => 27,  113 => 26,  109 => 25,  105 => 24,  100 => 23,  98 => 22,  92 => 18,  90 => 17,  85 => 15,  81 => 14,  77 => 13,  73 => 12,  69 => 11,  65 => 10,  61 => 9,  57 => 8,  48 => 1,);
+        return array (  357 => 167,  333 => 91,  323 => 90,  304 => 22,  286 => 17,  267 => 8,  256 => 168,  254 => 167,  191 => 106,  189 => 90,  125 => 29,  121 => 28,  117 => 27,  113 => 26,  109 => 25,  105 => 24,  100 => 23,  98 => 22,  92 => 18,  90 => 17,  85 => 15,  81 => 14,  77 => 13,  73 => 12,  69 => 11,  65 => 10,  61 => 9,  57 => 8,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -412,6 +416,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 <script src=\"{{ asset('js/datepicker.min.js') }}\"></script>                <!-- https://github.com/qodesmith/datepicker -->
 <script src=\"{{ asset('js/jquery.singlePageNav.min.js') }}\"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
 <script src=\"{{ asset('slick/slick.min.js') }}\"></script>
+<script src=\"{{ asset('/js/jquery.min.js') }}\"></script>
 <script>
 
     /* Google map

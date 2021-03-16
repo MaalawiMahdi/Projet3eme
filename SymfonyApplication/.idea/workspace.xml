@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df10dd82-ce04-4cd8-9901-aacf1ef0f4c4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AideController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AideController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/NoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NoteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Note.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Note.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/NoteType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/NoteType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aide/DetailAidesnote.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aide/DetailAidesnote.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CategorieAideController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CategorieAideController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/AideRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AideRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/aide/listAides.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aide/listAides.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/categorie_aide/listCategoriesAides.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categorie_aide/listCategoriesAides.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/temp1.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/71/71192ee8e3510fd34a0268f053e49dcfb50f5d08388cc249c4311576cf2302dd.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/71/71192ee8e3510fd34a0268f053e49dcfb50f5d08388cc249c4311576cf2302dd.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +148,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Nouveau dossier (3)/Projet3eme/SymfonyApplication" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -166,7 +170,11 @@
       <workItem from="1614884247117" duration="51223000" />
       <workItem from="1615039339943" duration="20208000" />
       <workItem from="1615118173551" duration="27278000" />
-      <workItem from="1615235110586" duration="2190000" />
+      <workItem from="1615235110586" duration="3011000" />
+      <workItem from="1615255047205" duration="3356000" />
+      <workItem from="1615396699891" duration="129000" />
+      <workItem from="1615417086703" duration="7994000" />
+      <workItem from="1615804752134" duration="61839000" />
     </task>
     <servers />
   </component>
@@ -191,6 +199,11 @@
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/Controller/AideController.php</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/templates/categorie_aide/StatsCategorieAide.html.twig</url>
+          <line>25</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

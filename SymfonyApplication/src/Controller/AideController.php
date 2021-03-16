@@ -125,18 +125,22 @@ class AideController extends AbstractController
     public function detailAidenote($iduser,$id,Request $request): Response
     {   $note=0;
         $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
+
         $Notes=$this->getDoctrine()->getRepository(Note::class)->findBy(array('aide'=>$id));
         $x = $this->getDoctrine()->getRepository(Note::class)->findOneBy(array('aide'=>$Aidefind,'user'=>$iduser));
         $total=0;
         $Moyenne=0;
+        if (!(empty($Notes))){
         for ($i =0; $i <= (count($Notes)-1); $i++)
         {
             $total=$total+($Notes[$i]->getValeur());
         }
-        $Moyenne=$total/(count($Notes));
-        $note=$x->getValeur();
-        $aviss=$x->getAvis();
-
+        $Moyenne=$total/(count($Notes));}
+        if(!(empty($x)))
+        {
+            $note=$x->getValeur();
+            $aviss=$x->getAvis();
+        }
             return $this->render('aide/DetailAidesnote.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'moyenne'=>$Moyenne,'note'=>$note,'aviss'=>$aviss,]);
 
       }
@@ -286,6 +290,40 @@ class AideController extends AbstractController
         $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
 
         return $this->render('aide/Captcha.html.twig', ['captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView()]);
+    }
+
+    /**
+     * @return Response
+     * @Route ("/AfficherStatAide", name="AfficherStatAide")
+     */
+
+    public function AfficherStatAide()
+    {
+
+        $Aide = $this->getDoctrine()->getRepository(Aide::class)->findAll();
+         $Aides = [];
+        $Moyennes = [];
+        for ($j =0; $j <= (count($Aide)-1); $j++)
+        {
+            $Notes=$this->getDoctrine()->getRepository(Note::class)->findBy(array('aide'=>$Aide[$j]));
+            $Aides [$j] = $Aide[$j]->getTitre();
+            $total=0;
+            $Moyenne=0;
+            if (!(empty($Notes)))
+            {
+                for ($i =0; $i <= (count($Notes)-1); $i++)
+                {
+                    $total=$total+($Notes[$i]->getValeur());
+                }
+                $Moyenne=$total/(count($Notes));
+            }
+            $Moyennes[] = $Moyenne;
+
+        }
+        return $this->render('aide/statsAides.html.twig', [
+            'aides' => $Aides,
+            'moyennes' => $Moyennes
+        ]);
     }
 
 

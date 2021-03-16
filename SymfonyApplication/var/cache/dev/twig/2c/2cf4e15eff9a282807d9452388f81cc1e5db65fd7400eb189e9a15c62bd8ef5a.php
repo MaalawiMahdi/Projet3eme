@@ -107,6 +107,10 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <!--[if lt IE 9]>
     <script src=\"https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js\"></script>
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
+   <script src=\"";
+        // line 38
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/bundles/dist/jquery.min.js"), "html", null, true);
+        echo "\"></script>
     <![endif]-->
     <style> .btn-primary {
             background-color: #ee5057 !important;
@@ -163,7 +167,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                     <li class=\"dropdown user user-menu\">
                         <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
                             <img src=\"";
-        // line 93
+        // line 94
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"user-image\" alt=\"User Image\">
                             <span class=\"hidden-xs\">Mohamed Marwen Maalawi</span>
@@ -173,7 +177,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                             <!-- User image -->
                             <li class=\"user-header\" style=\"background-color: #ee5057;\">
                                 <img src=\"";
-        // line 100
+        // line 101
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
 
@@ -207,7 +211,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
                     <img src=\"";
-        // line 131
+        // line 132
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
                 </div>
@@ -238,8 +242,10 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                         <i class=\"fa fa-dashboard\"></i> <span>Gestion des Aides</span>
                         <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
                     <ul class=\"treeview-menu\">
-                        <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-circle-o\"></i> Gestion des catégories aides</a></li>
-                        <li><a href=\"/AfficherAide\"><i class=\"fa fa-circle-o\"></i> Gestion des aides</a></li>
+                        <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-circle-o\"></i> Gestion des Catégories Aides</a></li>
+                        <li><a href=\"/AfficherAide\"><i class=\"fa fa-circle-o\"></i> Gestion des Aides</a></li>
+                        <li><a href=\"/AfficherStatAide\"><i class=\"fa fa-circle-o\"></i> Statistiques des Aides</a></li>
+                        <li><a href=\"/AfficherStatCatAide\"><i class=\"fa fa-circle-o\"></i> Statistiques des Categorie Aides</a></li>
                     </ul>
                 </li>
 
@@ -272,7 +278,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
     public function getDebugInfo()
     {
-        return array (  211 => 131,  177 => 100,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
+        return array (  215 => 132,  181 => 101,  171 => 94,  112 => 38,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -314,6 +320,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <!--[if lt IE 9]>
     <script src=\"https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js\"></script>
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
+   <script src=\"{{ asset('/bundles/dist/jquery.min.js') }}\"></script>
     <![endif]-->
     <style> .btn-primary {
             background-color: #ee5057 !important;
@@ -436,8 +443,10 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                         <i class=\"fa fa-dashboard\"></i> <span>Gestion des Aides</span>
                         <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
                     <ul class=\"treeview-menu\">
-                        <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-circle-o\"></i> Gestion des catégories aides</a></li>
-                        <li><a href=\"/AfficherAide\"><i class=\"fa fa-circle-o\"></i> Gestion des aides</a></li>
+                        <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-circle-o\"></i> Gestion des Catégories Aides</a></li>
+                        <li><a href=\"/AfficherAide\"><i class=\"fa fa-circle-o\"></i> Gestion des Aides</a></li>
+                        <li><a href=\"/AfficherStatAide\"><i class=\"fa fa-circle-o\"></i> Statistiques des Aides</a></li>
+                        <li><a href=\"/AfficherStatCatAide\"><i class=\"fa fa-circle-o\"></i> Statistiques des Categorie Aides</a></li>
                     </ul>
                 </li>
 

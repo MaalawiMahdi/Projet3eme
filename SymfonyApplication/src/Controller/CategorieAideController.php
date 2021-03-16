@@ -150,4 +150,32 @@ class CategorieAideController extends AbstractController
 
     }
 
+    /**
+     * @return mixed
+     * @Route ("/AfficherStatCatAide", name="AfficherStatCatAide")
+     */
+    public function AfficherStatAide()
+    {
+
+        $CategorieAide = $this->getDoctrine()->getRepository(CategorieAide::class)->findAll();
+        $Aides = [];
+        $CatAides = [];
+        $total=0;
+        for ($j =0; $j <= (count($CategorieAide)-1); $j++)
+        {   $total=$total+count( $CategorieAide[$j]->getAides());
+        }
+        for ($j =0; $j <= (count($CategorieAide)-1); $j++)
+        {   $Aides[$j]=count( $CategorieAide[$j]->getAides());
+            $AidePourcentage=round(($Aides[$j]*100)/$total,2);
+
+            $CatAides [$j] = $CategorieAide[$j]->getTitre()." ".$AidePourcentage."%";
+
+        }
+
+        return $this->render('categorie_aide/StatsCategorieAide.html.twig', [
+            'aides' => $Aides,
+            'catAides' => $CatAides,
+        ]);
+    }
+
 }
