@@ -30,8 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '00f998960c93adbc9804de6cffeba9936d487909',
-    'reference' => '8b9833c6449b637268e811f3a9bca72ec082f971',
+    'reference' => '7a9dcc849c2e017be1b7c3b73c34c6b34dc16b99',
     'name' => '__root__',
   ),
   'versions' => 
@@ -43,10 +42,8 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '00f998960c93adbc9804de6cffeba9936d487909',
-
-      'reference' => '8b9833c6449b637268e811f3a9bca72ec082f971',
-     ),
+      'reference' => '7a9dcc849c2e017be1b7c3b73c34c6b34dc16b99',
+    ),
     'composer/package-versions-deprecated' => 
     array (
       'pretty_version' => '1.11.99.1',
@@ -200,6 +197,15 @@ private static $installed = array (
       ),
       'reference' => '0dbf5d78455d4d6a41d186da50adc1122ec066f4',
     ),
+    'fresh/sinch-bundle' => 
+    array (
+      'pretty_version' => '0.4.0',
+      'version' => '0.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'eefc59087947871779101672e7a1cfb8aae005ee',
+    ),
     'friendsofphp/proxy-manager-lts' => 
     array (
       'pretty_version' => 'v1.0.3',
@@ -208,6 +214,33 @@ private static $installed = array (
       array (
       ),
       'reference' => '121af47c9aee9c03031bdeca3fac0540f59aa5c3',
+    ),
+    'guzzlehttp/guzzle' => 
+    array (
+      'pretty_version' => '6.5.5',
+      'version' => '6.5.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9d4290de1cfd701f38099ef7e183b64b4b7b0c5e',
+    ),
+    'guzzlehttp/promises' => 
+    array (
+      'pretty_version' => '1.4.1',
+      'version' => '1.4.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8e7d04f1f6450fef59366c399cfad4b9383aa30d',
+    ),
+    'guzzlehttp/psr7' => 
+    array (
+      'pretty_version' => '1.7.0',
+      'version' => '1.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '53330f47520498c0ae1f61f7e2c90f55690c06a3',
     ),
     'laminas/laminas-code' => 
     array (
@@ -362,6 +395,22 @@ private static $installed = array (
         0 => '1.0',
       ),
     ),
+    'psr/http-message' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
+    ),
+    'psr/http-message-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
+    ),
     'psr/link' => 
     array (
       'pretty_version' => '1.0.0',
@@ -401,6 +450,15 @@ private static $installed = array (
       array (
         0 => '1.0',
       ),
+    ),
+    'ralouphie/getallheaders' => 
+    array (
+      'pretty_version' => '3.0.3',
+      'version' => '3.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '120b605dfeb996808c31b6477290a714d356e822',
     ),
     'sensio/framework-extra-bundle' => 
     array (
@@ -632,6 +690,15 @@ private static $installed = array (
       ),
       'reference' => '790f1db60deb1577eaf86f2025215b48c53f8e94',
     ),
+    'symfony/google-mailer' => 
+    array (
+      'pretty_version' => 'v4.4.20',
+      'version' => '4.4.20.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '441f147a329db99f7d7c351654c7c8e2f5585b1a',
+    ),
     'symfony/http-client' => 
     array (
       'pretty_version' => 'v4.4.19',
@@ -695,12 +762,12 @@ private static $installed = array (
     ),
     'symfony/mailer' => 
     array (
-      'pretty_version' => 'v4.4.19',
-      'version' => '4.4.19.0',
+      'pretty_version' => 'v4.4.20',
+      'version' => '4.4.20.0',
       'aliases' => 
       array (
       ),
-      'reference' => '38b6dcb4bb265fa4f003b0f42dd42fb91cbd877b',
+      'reference' => 'df3209aaa4008b9bb851410ab31be12d9b744773',
     ),
     'symfony/maker-bundle' => 
     array (

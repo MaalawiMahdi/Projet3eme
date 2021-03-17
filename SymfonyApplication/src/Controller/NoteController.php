@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Aide;
 use App\Entity\User;
 use App\Entity\Note;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 
 
@@ -29,7 +31,7 @@ class NoteController extends AbstractController
      * @return mixed
      * @Route("/ajouternote/{id}/{iduser}/{valeur}",name="ajouternote", methods="GET")
      */
-    public function ajouterNote(Request $request,$iduser,$id,$valeur)
+    public function ajouterNote(MailerInterface $mailer, Request $request,$iduser,$id,$valeur)
     {   $avis=$request->get('avis');
         $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
         $user=$this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -44,6 +46,14 @@ class NoteController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($Note);
             $em->flush();
+            $email = (new Email())
+                ->from('holidayhiatuspidev@gmail.com')
+                ->to("{$user->getMail()}")
+                ->subject('Holidays Hiatus!')
+                ->text("Votre note a été attribué avec succée merci   ! ❤️")
+                ->html("<h1>Votre note a été attribué avec succée merci   ! ❤ </h1>");
+            $mailer->send($email);
+
         }
         else
             {
@@ -51,6 +61,14 @@ class NoteController extends AbstractController
                 $x->setValeur($valeur);
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
+                $email = (new Email())
+                    ->from('holidayhiatuspidev@gmail.com')
+                    ->to("{$user->getMail()}")
+                    ->subject('Holidays Hiatus!')
+                    ->text("Votre note a été modifié avec succée merci   ! ❤️")
+                    ->html("<h1>Votre note a été modifié avec succée merci   ! ❤ </h1>");
+                $mailer->send($email);
+
             }
 
             if (!($avis==""))

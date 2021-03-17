@@ -121,6 +121,6 @@ class __TwigTemplate_6e872fab6ea69f48b122f41f225f146836b8448ac674313da194ac154cb
             <li><a class=\"nav-link\" href=\"#\"><span class=\"glyphicon glyphicon-log-in\"></span> Se connecter</a></li>
         </ul>
     </div>
-</nav>", "inc/navbar.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\inc\\navbar.html.twig");
+</nav>", "inc/navbar.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\inc\\navbar.html.twig");
     }
 }

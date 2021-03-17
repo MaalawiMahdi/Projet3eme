@@ -1,0 +1,45 @@
+{
+    "name": "fresh/sinch-bundle",
+    "description": "Provides integration with Sinch.com SMS API.",
+    "keywords": ["bundle", "symfony", "sinch", "api", "client", "sms", "verification"],
+    "homepage": "https://github.com/fre5h/SinchBundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Artem Henvald",
+            "email": "genvaldartem@gmail.com",
+            "role": "Creator"
+        }
+    ],
+    "support": {
+        "email": "genvaldartem@gmail.com",
+        "issues": "https://github.com/fre5h/SinchBundle/issues"
+    },
+    "require": {
+        "php": "^7.1.3",
+        "symfony/config": "^4.0",
+        "symfony/event-dispatcher": "^4.0",
+        "symfony/form": "^4.0",
+        "symfony/framework-bundle": "^4.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5",
+        "escapestudios/symfony2-coding-standard": "^3.0",
+        "matthiasnoback/symfony-config-test": "3.1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fresh\\SinchBundle\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Fresh\\SinchBundle\\Tests\\": "Tests/"
+        }
+    }
+}

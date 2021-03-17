@@ -25,7 +25,7 @@ class __TwigTemplate_1e0f10e50867cb5151ecd0487baef88f199d8747abf8b22ddf362b0b140
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'afficher' => [$this, 'block_afficher'],
+            'content' => [$this, 'block_content'],
         ];
     }
 
@@ -55,14 +55,14 @@ class __TwigTemplate_1e0f10e50867cb5151ecd0487baef88f199d8747abf8b22ddf362b0b140
     }
 
     // line 2
-    public function block_afficher($context, array $blocks = [])
+    public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "afficher"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "afficher"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
         // line 3
         echo "<h1> Liste Des Sujet </h1>
@@ -111,7 +111,7 @@ class __TwigTemplate_1e0f10e50867cb5151ecd0487baef88f199d8747abf8b22ddf362b0b140
     public function getSourceContext()
     {
         return new Source("{% extends 'main.html.twig' %}
-{% block afficher %}
+{% block content %}
 <h1> Liste Des Sujet </h1>
 <table border = \"1\" class=\"table\">
     <tr>
