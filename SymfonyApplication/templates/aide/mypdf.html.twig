@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table, td, th {
+            border: 1px solid black;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .titles{
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align: center; margin-bottom: 5%; color:#EE5057;">{{aide.titre }}</h1>
+<table>
+    <tr>
+        <th class="titles">Description</th>
+        <td>{{aide.description}}</td>
+    </tr>
+    <tr>
+        <th class="titles">Adresse</th>
+        <td>{{aide.adresse}}</td>
+    </tr>
+    <tr>
+        <th class="titles">Numéro de téléphone</th>
+        <td>{{aide.getNumTell()}}</td>
+    </tr>
+</table>
+
+</body>
+</html>

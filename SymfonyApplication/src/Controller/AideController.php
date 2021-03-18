@@ -22,7 +22,8 @@ use App\Form\NoteType;
 use App\Entity\Note;
 use App\Entity\User;
 
-
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -144,8 +145,41 @@ class AideController extends AbstractController
         }
             return $this->render('aide/DetailAidesnote.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'moyenne'=>$Moyenne,'note'=>$note,'aviss'=>$aviss,]);
 
-      }
 
+
+    }
+
+    /**
+     * @Route ("/impression/{id}/{iduser}",name="impression")
+     */
+    public function impression($iduser,$id)
+    {$Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
+
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('aide/mypdf.html.twig', [
+            'title' => "Welcome to our PDF Test",'aide'=>$Aidefind,
+        ]);
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => false
+        ]);
+    }
 
     /**
      * @param Request $request
