@@ -34,7 +34,8 @@
         </svg>
 
         <div class="container tm-pt-5 tm-pb-4">
-            <input id="search" class="form-control mr-sm-2" type="text" name="search" placeholder="Search ..." aria-label="Search"  >
+            {{ form(formSearch,{'attr': {'novalidate': 'novalidate'}}) }}
+            <!--input id="search" class="form-control mr-sm-2" type="text" name="search" placeholder="Search ..." aria-label="Search"-->
             <div class="row text-center" id="sa">
                 <script src="{{ asset('/js/jquery.min.js') }}"></script>
                 {% for CA in listCategorieAides %}
@@ -45,8 +46,9 @@
                         <form action="{{ path("AfficherAides",{'id':CA.id,'iduser':iduser} ) }}" class="text-uppercase tm-color-primary tm-font-semibold"><button>Consulter</button></form>
                     </article>
                 {% endfor %}
+                <div style="margin-left: 37.2%; margin-top: 5%;">{{ knp_pagination_render(listCategorieAides) }}</div>
 
-                <script>
+                <!--script>
                     $(document).ready(function(){
                         $('#search').keyup(function(){
                             search_table($(this).val());
@@ -73,7 +75,7 @@
                             });
                         }
                     });
-                </script>
+                </script-->
             </div>
         </div>
     </div>

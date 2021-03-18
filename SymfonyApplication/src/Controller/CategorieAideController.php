@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
+use Knp\Component\Pager\PaginatorInterface;
 
 class CategorieAideController extends AbstractController
 {
@@ -49,16 +49,19 @@ class CategorieAideController extends AbstractController
      * @return Response
      * @Route("/AfficherCategorieAides/{iduser}", name="AfficherCategorieAides")
      */
-    public function listCategoriesAides($iduser,Request $request): Response
+    public function listCategoriesAides($iduser,Request $request,PaginatorInterface $paginator): Response
     {
-        $categoriesAide = $this->getDoctrine()->getRepository(CategorieAide::class)->findAll();
+        $donnees = $this->getDoctrine()->getRepository(CategorieAide::class)->findAll();
         $form=$this->createForm(SearchCategorieAidesType::class);
         $form->handleRequest($request);
+        $categoriesAide = $paginator->paginate($donnees,$request->query->getInt('page', 1),2);
+
         if ($form->isSubmitted())
         {
             $data=$form->getData();
             $titre=$data['recherche'];
-            $categoriesAidefind=$this->getDoctrine()->getRepository(CategorieAide::class)->search($titre);
+            $donnee=$this->getDoctrine()->getRepository(CategorieAide::class)->search($titre);
+            $categoriesAidefind = $paginator->paginate($donnee,$request->query->getInt('page', 1),2);
             return $this->render('categorie_aide/listCategoriesAides.html.twig', ['listCategorieAides' => $categoriesAidefind,'iduser'=>$iduser,'formSearch'=>$form->createView(),]);
 
         }
