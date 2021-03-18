@@ -124,8 +124,9 @@ class AideController extends AbstractController
      */
     public function detailAidenote($iduser,$id,Request $request): Response
     {   $note=0;
-        $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
         $aviss="";
+        $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
+
         $Notes=$this->getDoctrine()->getRepository(Note::class)->findBy(array('aide'=>$id));
         $x = $this->getDoctrine()->getRepository(Note::class)->findOneBy(array('aide'=>$Aidefind,'user'=>$iduser));
         $total=0;

@@ -50,8 +50,8 @@ class NoteController extends AbstractController
                 ->from('holidayhiatuspidev@gmail.com')
                 ->to("{$user->getMail()}")
                 ->subject('Holidays Hiatus!')
-                ->text("Votre note a été attribué avec succée merci   ! ❤️")
-                ->html("<h1>Votre note a été attribué avec succée merci   ! ❤ </h1>");
+                ->text("Votre note pour {$Aidefind->getTitre()} a été attribué avec succée merci   ! ❤️")
+                ->html("<h1>Votre note pour {$Aidefind->getTitre()} a été attribué avec succée merci   ! ❤ </h1>");
             $mailer->send($email);
 
         }
@@ -65,8 +65,8 @@ class NoteController extends AbstractController
                     ->from('holidayhiatuspidev@gmail.com')
                     ->to("{$user->getMail()}")
                     ->subject('Holidays Hiatus!')
-                    ->text("Votre note a été modifié avec succée merci   ! ❤️")
-                    ->html("<h1>Votre note a été modifié avec succée merci   ! ❤ </h1>");
+                    ->text("Votre note pour {$Aidefind->getTitre()} a été modifié avec succée merci   ! ❤️")
+                    ->html("<h1>Votre note pour {$Aidefind->getTitre()} a été modifié avec succée merci   ! ❤ </h1>");
                 $mailer->send($email);
 
             }

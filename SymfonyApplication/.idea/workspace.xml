@@ -14,11 +14,7 @@
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/annotations.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/annotations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/3b/3b2f4237a4445f44050d2ce56e2847173ad99e554bf59f0e3e74152da8ec16ef.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/3b/3b2f4237a4445f44050d2ce56e2847173ad99e554bf59f0e3e74152da8ec16ef.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/bb/bb2a741ddbdd6fb04665bf1401d3dde061318e8721691f1b53da2242c204f031.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/bb/bb2a741ddbdd6fb04665bf1401d3dde061318e8721691f1b53da2242c204f031.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/d4/d4364e889a57022316cdafd718688814644cbcbf8b05303f9ef8c54939c60fcb.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/d4/d4364e889a57022316cdafd718688814644cbcbf8b05303f9ef8c54939c60fcb.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
@@ -26,61 +22,159 @@
       <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/DataCollector/MessageDataCollector.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/DataCollector/MessageDataCollector.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/DelayedEnvelope.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/DelayedEnvelope.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Envelope.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Envelope.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Event/MessageEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Event/MessageEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Event/MessageEvents.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Event/MessageEvents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/EventListener/EnvelopeListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/EventListener/EnvelopeListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/EventListener/MessageListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/EventListener/MessageListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/EventListener/MessageLoggerListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/EventListener/MessageLoggerListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/ExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/ExceptionInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/HttpTransportException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/HttpTransportException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/IncompleteDsnException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/IncompleteDsnException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/InvalidArgumentException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/InvalidArgumentException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/LogicException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/LogicException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/RuntimeException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/RuntimeException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/TransportException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/TransportException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/TransportExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/TransportExceptionInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/UnsupportedSchemeException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/UnsupportedSchemeException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Mailer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/MailerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/MailerInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Messenger/MessageHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Messenger/MessageHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Messenger/SendEmailMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Messenger/SendEmailMessage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/SentMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/SentMessage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Test/Constraint/EmailCount.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Test/Constraint/EmailCount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Test/Constraint/EmailIsQueued.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Test/Constraint/EmailIsQueued.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Test/TransportFactoryTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Test/TransportFactoryTestCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractApiTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractApiTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractHttpTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractHttpTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractTransportFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractTransportFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Dsn.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Dsn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/FailoverTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/FailoverTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/NullTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/NullTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/NullTransportFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/NullTransportFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/RoundRobinTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/RoundRobinTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/SendmailTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/SendmailTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/SendmailTransportFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/SendmailTransportFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/AuthenticatorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/AuthenticatorInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/CramMd5Authenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/CramMd5Authenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/LoginAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/LoginAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/PlainAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/PlainAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/XOAuth2Authenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/XOAuth2Authenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/EsmtpTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/EsmtpTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/EsmtpTransportFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/EsmtpTransportFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/SmtpTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/SmtpTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Stream/AbstractStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Stream/AbstractStream.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Stream/ProcessStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Stream/ProcessStream.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Stream/SocketStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Stream/SocketStream.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/TransportFactoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/TransportFactoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/TransportInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/TransportInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Transports.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Transports.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Controller/SinchController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/DependencyInjection/Configuration.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/DependencyInjection/FreshSinchExtension.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Event/SinchEvents.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Event/SmsEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Event/SmsMessageCallbackEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Exception/BadRequest/SinchInvalidRequestException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Exception/BadRequest/SinchMissingParameterException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Exception/BadRequest/SinchParameterValidationException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Exception/Forbidden/SinchForbiddenRequestException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Exception/Forbidden/SinchInvalidAuthorizationSchemeException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Exception/Forbidden/SinchNoVerifiedPhoneNumberException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Exception/InternalServerError/SinchInternalErrorException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Exception/PaymentRequired/SinchPaymentRequiredException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Exception/SinchException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Exception/Unauthorized/SinchIllegalAuthorizationHeaderException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Form/Type/CallbackRequestType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Form/Type/IdentityType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/FreshSinchBundle.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Helper/SinchCallbackEvents.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Helper/SinchErrorCode.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Helper/SinchSmsStatus.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Helper/SinchSupportedCountries.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Model/CallbackRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Model/Identity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Resources/config/routing.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Resources/config/services.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Resources/docs/exceptions.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Resources/images/sinch-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Service/HTTPClientInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Service/HTTPClientService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Service/Sinch.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/Service/SinchExceptionResolver.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fresh/sinch-bundle/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/.php_cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/UPGRADING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Client.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/ClientInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Cookie/CookieJar.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Cookie/CookieJarInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Cookie/FileCookieJar.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Cookie/SessionCookieJar.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Cookie/SetCookie.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/BadResponseException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/ClientException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/ConnectException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/GuzzleException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/InvalidArgumentException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/SeekException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/ServerException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/TooManyRedirectsException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/TransferException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlFactoryInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlMultiHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/EasyHandle.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/MockHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/Proxy.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/StreamHandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/HandlerStack.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/MessageFormatter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Middleware.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Pool.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/PrepareBodyMiddleware.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/RedirectMiddleware.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/RequestOptions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/RetryMiddleware.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/TransferStats.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/UriTemplate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Utils.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/functions_include.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/AggregateException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/CancellationException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/Coroutine.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/Create.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/Each.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/EachPromise.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/FulfilledPromise.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/Is.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/Promise.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/PromiseInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/PromisorInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/RejectedPromise.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/RejectionException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/TaskQueue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/TaskQueueInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/Utils.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/functions_include.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/AppendStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/BufferStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/CachingStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/DroppingStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/FnStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/InflateStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/LazyOpenStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/LimitStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Message.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/MessageTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/MimeType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/MultipartStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/NoSeekStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/PumpStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Query.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Request.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Response.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Rfc7230.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/ServerRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Stream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/StreamWrapper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UploadedFile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Uri.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UriNormalizer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UriResolver.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Utils.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/functions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/functions_include.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/http-message/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/http-message/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/http-message/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/http-message/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/MessageInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/RequestInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/ResponseInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/ServerRequestInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/StreamInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/UploadedFileInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/UriInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/ralouphie/getallheaders/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/ralouphie/getallheaders/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/ralouphie/getallheaders/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/ralouphie/getallheaders/src/getallheaders.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,12 +300,6 @@
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
       <path value="$PROJECT_DIR$/vendor/symfony/google-mailer" />
-      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
-      <path value="$PROJECT_DIR$/vendor/fresh/sinch-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1p729aNUTNDxATqbo8zt2O66bOj" />
@@ -226,7 +314,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="diff.external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -251,12 +338,8 @@
       <workItem from="1615255047205" duration="3356000" />
       <workItem from="1615396699891" duration="129000" />
       <workItem from="1615417086703" duration="7994000" />
-      <workItem from="1615804752134" duration="74471000" />
-      <workItem from="1615996679154" duration="1947000" />
-      <workItem from="1615998815502" duration="14000" />
-      <workItem from="1615999873513" duration="1754000" />
-      <workItem from="1616002883755" duration="29000" />
-      <workItem from="1616003294414" duration="26000" />
+      <workItem from="1615804752134" duration="61839000" />
+      <workItem from="1616027694966" duration="2611000" />
     </task>
     <servers />
   </component>
