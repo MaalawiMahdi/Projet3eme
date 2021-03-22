@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerIuLx8bQ/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerRhiLwnS/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -506,6 +506,7 @@ $classes[] = 'Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragme
 $classes[] = 'Symfony\Bridge\Twig\Extension\CsrfRuntime';
 $classes[] = 'Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer';
 $classes[] = 'Symfony\Bundle\TwigBundle\TemplateIterator';
+$classes[] = 'Twilio\Rest\Client';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\ValidateRequestListener';
 $classes[] = 'Symfony\Component\Validator\Validator\TraceableValidator';
 $classes[] = 'Symfony\Component\Validator\Validator\ValidatorInterface';

@@ -4,6 +4,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    twilio_sid: 'ACdc4360a77acc10736d817d6d46b25865'
+    twilio_token: '625443aba349dfb027113a604d0e385e'
+    twilio_number: '+14062045814'
 
 services:
     # default configuration for services in *this* file
@@ -20,7 +23,10 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
             - '../src/Tests/'
-
+    twilio.client:
+        class: Twilio\Rest\Client
+        arguments: [ '%twilio_sid%', '%twilio_token%' ]
+    Twilio\Rest\Client: '@twilio.client'
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     App\Controller\:

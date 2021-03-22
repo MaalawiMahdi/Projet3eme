@@ -360,6 +360,16 @@ class AideController extends AbstractController
             'moyennes' => $Moyennes
         ]);
     }
+    /**
+     * @Route("/videoAide/{id}", name="videoAide")
+     */
+    public function videoAide($id): Response
+    {$Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
+        return $this->render('aide/videoaide.html.twig', [
+            'aidefind' => $Aidefind,
+        ]);
+    }
+
 
 
 

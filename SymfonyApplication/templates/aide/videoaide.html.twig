@@ -1,0 +1,54 @@
+<style>
+    .videobutton {
+
+        background-color:transparent; border-color:transparent !important;
+        outline: none;
+    }
+    .videobutton:hover {
+        background-color:transparent; border-color:transparent !important;
+        outline: none;
+    }
+    .videobutton:active {
+        background-color:transparent; border-color:transparent !important;
+        outline: none;
+    }
+
+
+</style>
+<div style="Margin-top:10% !important;" class="modal fade " id="createmodel" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-content"  style="width:400px !important; height:400px !important;" >
+        {% if DetailAides.categorie.getTitre()=="Aide Civile" %}
+        <button style="margin-left:204%; margin-top:-11.5% !important;" class="videobutton" type="button" data-dismiss="modal">
+            <span>&times;</span></button>
+
+        <video  controls>
+            <source src="{{ asset('uploads/protection.mp4')}}" type="video/mp4" />
+        </video>
+        {% endif %}
+        {% if DetailAides.categorie.getTitre()=="Aide Médicale Privée" %}
+            <button style="margin-left:204%; margin-top:-11.5% !important;" class="videobutton" type="button" data-dismiss="modal">
+                <span>&times;</span></button>
+
+            <video  controls>
+                <source src="{{ asset('uploads/protection.mp4')}}" type="video/mp4" />
+            </video>
+        {% endif %}
+        {% if DetailAides.categorie.getTitre()=="Aide Médicale Publique" %}
+            <button style="margin-left:204%; margin-top:-11.5% !important;" class="videobutton" type="button" data-dismiss="modal">
+                <span>&times;</span></button>
+
+            <video  controls>
+                <source src="{{ asset('uploads/protection.mp4')}}" type="video/mp4" />
+            </video>
+        {% endif %}
+        {% if DetailAides.categorie.getTitre()=="Aide Remorquage" %}
+            <button style="margin-left:204%; margin-top:-11.5% !important;" class="videobutton" type="button" data-dismiss="modal">
+                <span>&times;</span></button>
+
+            <video  controls>
+                <source src="{{ asset('uploads/protection.mp4')}}" type="video/mp4" />
+            </video>
+        {% endif %}
+    </div>
+</div>

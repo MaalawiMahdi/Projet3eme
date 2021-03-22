@@ -11,7 +11,7 @@ use App\Entity\User;
 use App\Entity\Note;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
-
+use \Twilio\Rest\Client;
 
 
 class NoteController extends AbstractController
@@ -31,7 +31,7 @@ class NoteController extends AbstractController
      * @return mixed
      * @Route("/ajouternote/{id}/{iduser}/{valeur}",name="ajouternote", methods="GET")
      */
-    public function ajouterNote(MailerInterface $mailer, Request $request,$iduser,$id,$valeur)
+    public function ajouterNote(MailerInterface $mailer, Request $request,$iduser,$id,$valeur,Client $client)
     {   $avis=$request->get('avis');
         $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
         $user=$this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -54,6 +54,18 @@ class NoteController extends AbstractController
                 ->html("<h1>Votre note pour {$Aidefind->getTitre()} a été attribué avec succée merci   ! ❤ </h1>");
             $mailer->send($email);
 
+            /*$client->messages->create(
+            // the number you'd like to send the message to
+                '+21624602806',
+                [
+                    // A Twilio phone number you purchased at twilio.com/console
+                    'from' => '+14062045814',
+                    // the body of the text message you'd like to send
+                    'body' => "Votre note pour {$Aidefind->getTitre()} a été attribué avec succée merci   ! ❤️",
+                ]
+            );*/
+
+
         }
         else
             {
@@ -68,6 +80,16 @@ class NoteController extends AbstractController
                     ->text("Votre note pour {$Aidefind->getTitre()} a été modifié avec succée merci   ! ❤️")
                     ->html("<h1>Votre note pour {$Aidefind->getTitre()} a été modifié avec succée merci   ! ❤ </h1>");
                 $mailer->send($email);
+                /*$client->messages->create(
+                // the number you'd like to send the message to
+                    '+21624602806',
+                    [
+                        // A Twilio phone number you purchased at twilio.com/console
+                        'from' => '+14062045814',
+                        // the body of the text message you'd like to send
+                        'body' => "Votre note pour {$Aidefind->getTitre()} a été modifié avec succée merci   ! ❤  ",
+                    ]
+                );*/
 
             }
 
