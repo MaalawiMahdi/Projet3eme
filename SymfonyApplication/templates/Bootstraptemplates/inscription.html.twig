@@ -1,7 +1,7 @@
 {% extends 'Bootstraptemplates/index.html.twig' %}
 {% block inscription %}
-    {{ include('user/_form.html.twig') }}
+    {% include('user/_form.html.twig') with {'form':form , 'call': 'inscription'}  %}
 {% endblock %}
 {% block connexion %}
-    {% include('user/_form.html.twig') with {'form':coonexion}   %}
+    {% include('user/_form.html.twig') with {'form':coonexion, 'call': 'connexion'}  %}
 {% endblock %}

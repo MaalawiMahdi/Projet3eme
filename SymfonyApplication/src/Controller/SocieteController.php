@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -35,10 +36,10 @@ class SocieteController extends AbstractController
         ]);
     }
     /**
-     * @Route("/societe/{iduser}", name="societe_new", methods={"GET","POST"})
+     * @Route("/societe", name="societe_new", methods={"GET","POST"})
      */
-    public function new(Request $request,$iduser): Response
-    {   $user=$this->getDoctrine()->getRepository(User::class)->find($iduser);
+    public function new(Request $request,SessionInterface $session): Response
+    {   $user=$this->getDoctrine()->getRepository(User::class)->find($session->get('user')->getId());
         $existe=$user->getSociete();
         $societe = new Societe();
         if(is_null($existe)) {
@@ -53,22 +54,28 @@ class SocieteController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($societe);
                 $entityManager->flush();
-
-                return $this->redirectToRoute('societe_new', array('iduser' => $user->getId()));
+                $session->set('societe',$societe);
+                return $this->redirectToRoute('societe_new');
             }
 
             return $this->render('societe/new.html.twig', [
                 'societe' => $societe,
                 'form' => $form->createView(),
-                'user' => $user
+                'user' => $user,
+                'path'=>$session->get('path'),
+                'texte'=>$session->get('texte'),
             ]);
         }else if($existe->getEtat()==false){
             return $this->render('societe/message.html.twig', [
-                'message' => "votre demande est en cours de traitement",'user'=>$user
+                'message' => "votre demande est en cours de traitement",'user'=>$user,'etat'=>false
+                ,'path'=>$session->get('path'),
+                'texte'=>$session->get('texte'),
             ]);
         }else{
             return $this->render('societe/message.html.twig', [
-                'message' => "Vous pouvez maintenant creer votre board",'user'=>$user
+                'message' => "Vous pouvez maintenant creer votre board",'user'=>$user,'etat'=>true
+                ,'path'=>$session->get('path'),
+                'texte'=>$session->get('texte'),
             ]);
         }
 
@@ -87,7 +94,28 @@ class SocieteController extends AbstractController
             return $this->redirectToRoute('societe_demandes');
 
     }
+    /**
+     * @Route("societe/edit", name="societe_edit")
+     */
+    public function editfront(Request $request,SessionInterface $session): Response
+    {   $session->start();
+        $user=$session->get('user');
+        $Societe=$session->get('user')->getSociete();
+        $form = $this->createForm(SocieteType::class, $Societe);
+        $form=$form->add("Enregister",SubmitType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('societe_new');
+        }
 
+        return $this->render('societe/frontedit.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
+            'texte'=>$session->get('texte'),
+            'path'=>$session->get('path'),
+        ]);
+    }
     /**
      * @Route("societe/{id}", name="societe_delete", methods={"DELETE"})
      */
@@ -101,5 +129,6 @@ class SocieteController extends AbstractController
 
         return $this->redirectToRoute('societe_index');
     }
+
 
 }

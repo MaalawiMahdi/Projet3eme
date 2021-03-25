@@ -5,6 +5,5 @@
 
 
 {% block body %}
-    {% include 'Bootstraptemplates/accueilonline.html.twig' with {'iduser': user.id} %}
-
+    {% include 'Bootstraptemplates/accueilonline.html.twig' with { 'path': path , 'texte':texte} %}
 {% endblock %}

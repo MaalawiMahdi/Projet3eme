@@ -185,10 +185,12 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
                                 <div class=\"pull-left\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>
-                                </div>
+                                 </div>
                                 <div class=\"pull-right\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Sign out</a>
+                                    <a href=\"";
+        // line 112
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deconnecter");
+        echo "\" class=\"btn btn-default btn-flat\">Se Déconnecter</a>
                                 </div>
                             </li>
                         </ul>
@@ -207,7 +209,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
                     <img src=\"";
-        // line 131
+        // line 130
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
                 </div>
@@ -264,7 +266,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
     public function getDebugInfo()
     {
-        return array (  211 => 131,  177 => 100,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
+        return array (  213 => 130,  192 => 112,  177 => 100,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -378,10 +380,9 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
                                 <div class=\"pull-left\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>
-                                </div>
+                                 </div>
                                 <div class=\"pull-right\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Sign out</a>
+                                    <a href=\"{{ path('deconnecter') }}\" class=\"btn btn-default btn-flat\">Se Déconnecter</a>
                                 </div>
                             </li>
                         </ul>

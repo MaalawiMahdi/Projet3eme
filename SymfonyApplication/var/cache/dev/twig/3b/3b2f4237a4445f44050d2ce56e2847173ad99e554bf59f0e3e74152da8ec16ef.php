@@ -27,8 +27,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         $this->parent = false;
 
         $this->blocks = [
-            'ajout' => [$this, 'block_ajout'],
-            'afficher' => [$this, 'block_afficher'],
+            'content' => [$this, 'block_content'],
         ];
     }
 
@@ -51,29 +50,56 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
     <!-- Tell the browser to be responsive to screen width -->
     <meta content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\" name=\"viewport\">
     <!-- Bootstrap 3.3.7 -->
-    <link rel=\"stylesheet\" href=\"bower_components/bootstrap/dist/css/bootstrap.min.css\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 10
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bower_components/bootstrap/dist/css/bootstrap.min.css"), "html", null, true);
+        echo "\">
     <!-- Font Awesome -->
-    <link rel=\"stylesheet\" href=\"bower_components/font-awesome/css/font-awesome.min.css\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 12
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bower_components/font-awesome/css/font-awesome.min.css"), "html", null, true);
+        echo "\">
     <!-- Ionicons -->
-    <link rel=\"stylesheet\" href=\"bower_components/Ionicons/css/ionicons.min.css\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 14
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bower_components/Ionicons/css/ionicons.min.css"), "html", null, true);
+        echo "\">
     <!-- jvectormap -->
-    <link rel=\"stylesheet\" href=\"bower_components/jvectormap/jquery-jvectormap.css\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 16
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bower_components/jvectormap/jquery-jvectormap.css"), "html", null, true);
+        echo "\">
     <!-- Theme style -->
-    <link rel=\"stylesheet\" href=\"dist/css/AdminLTE.min.css\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 18
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("dist/css/AdminLTE.min.css"), "html", null, true);
+        echo "\">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel=\"stylesheet\" href=\"dist/css/skins/_all-skins.min.css\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 21
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("dist/css/skins/_all-skins.min.css"), "html", null, true);
+        echo "\">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src=\"https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js\"></script>
-    <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
+    <script src=\"";
+        // line 26
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 27
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://oss.maxcdn.com/respond/1.4.2/respond.min.js"), "html", null, true);
+        echo "\"></script>
     <![endif]-->
 
     <!-- Google Font -->
     <link rel=\"stylesheet\"
-          href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic\">
+          href=\"";
+        // line 32
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"), "html", null, true);
+        echo "\">
 </head>
 <body class=\"hold-transition skin-blue sidebar-mini\">
 <div class=\"wrapper\">
@@ -81,7 +107,10 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
     <header class=\"main-header\">
 
         <!-- Logo -->
-        <a href=\"index2.html\" class=\"logo\" style=\"background-color: #c60000\">
+        <a href=\"";
+        // line 40
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("index2.html"), "html", null, true);
+        echo "\" class=\"logo\" style=\"background-color: #c60000\">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>H</b>H</span>
             <!-- logo for regular state and mobile devices -->
@@ -92,9 +121,15 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         <!-- Header Navbar: style can be found in header.less -->
         <nav class=\"navbar navbar-static-top\" style=\"background-color: #c60000; height:60px\">
             <!-- Sidebar toggle button-->
-            <a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
+            <a href=\"";
+        // line 51
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("#"), "html", null, true);
+        echo "\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
                 <span class=\"sr-only\">Toggle navigation</span>
-            </a><img src=\"HH.png\" style=\"width:230px;height: 60px; margin-left: 300px \">
+            </a><img src=\"";
+        // line 53
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("HH.png"), "html", null, true);
+        echo "\" style=\"width:230px;height: 60px; margin-left: 300px \">
             <!-- Navbar Right Menu -->
             
         </nav>
@@ -110,7 +145,10 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
             </div>
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
-                    <img src=\"amine.jpg\" class=\"img-circle\" alt=\"User Image\">
+                    <img src=\"";
+        // line 69
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("amine.jpg"), "html", null, true);
+        echo "\" class=\"img-circle\" alt=\"User Image\">
                 </div>
                 <div class=\"pull-left info\">
                     <p>Amine Saidi</p>
@@ -149,11 +187,8 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         <section class=\"content\">
             ";
         // line 106
-        $this->displayBlock('ajout', $context, $blocks);
+        $this->displayBlock('content', $context, $blocks);
         // line 107
-        echo "            ";
-        $this->displayBlock('afficher', $context, $blocks);
-        // line 108
         echo "        </section>
         <!-- /.content -->
     </div>
@@ -395,32 +430,14 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
     }
 
     // line 106
-    public function block_ajout($context, array $blocks = [])
+    public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "ajout"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "ajout"));
-
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 107
-    public function block_afficher($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "afficher"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "afficher"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -435,9 +452,14 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         return "main.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  416 => 107,  398 => 106,  157 => 108,  154 => 107,  152 => 106,  45 => 1,);
+        return array (  433 => 106,  192 => 107,  190 => 106,  150 => 69,  131 => 53,  126 => 51,  112 => 40,  101 => 32,  93 => 27,  89 => 26,  81 => 21,  75 => 18,  70 => 16,  65 => 14,  60 => 12,  55 => 10,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -451,29 +473,29 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
     <!-- Tell the browser to be responsive to screen width -->
     <meta content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\" name=\"viewport\">
     <!-- Bootstrap 3.3.7 -->
-    <link rel=\"stylesheet\" href=\"bower_components/bootstrap/dist/css/bootstrap.min.css\">
+    <link rel=\"stylesheet\" href=\"{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}\">
     <!-- Font Awesome -->
-    <link rel=\"stylesheet\" href=\"bower_components/font-awesome/css/font-awesome.min.css\">
+    <link rel=\"stylesheet\" href=\"{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}\">
     <!-- Ionicons -->
-    <link rel=\"stylesheet\" href=\"bower_components/Ionicons/css/ionicons.min.css\">
+    <link rel=\"stylesheet\" href=\"{{ asset('bower_components/Ionicons/css/ionicons.min.css') }}\">
     <!-- jvectormap -->
-    <link rel=\"stylesheet\" href=\"bower_components/jvectormap/jquery-jvectormap.css\">
+    <link rel=\"stylesheet\" href=\"{{ asset('bower_components/jvectormap/jquery-jvectormap.css') }}\">
     <!-- Theme style -->
-    <link rel=\"stylesheet\" href=\"dist/css/AdminLTE.min.css\">
+    <link rel=\"stylesheet\" href=\"{{ asset('dist/css/AdminLTE.min.css') }}\">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel=\"stylesheet\" href=\"dist/css/skins/_all-skins.min.css\">
+    <link rel=\"stylesheet\" href=\"{{ asset('dist/css/skins/_all-skins.min.css') }}\">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src=\"https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js\"></script>
-    <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
+    <script src=\"{{ asset('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js') }}\"></script>
+    <script src=\"{{ asset('https://oss.maxcdn.com/respond/1.4.2/respond.min.js') }}\"></script>
     <![endif]-->
 
     <!-- Google Font -->
     <link rel=\"stylesheet\"
-          href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic\">
+          href=\"{{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic') }}\">
 </head>
 <body class=\"hold-transition skin-blue sidebar-mini\">
 <div class=\"wrapper\">
@@ -481,7 +503,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
     <header class=\"main-header\">
 
         <!-- Logo -->
-        <a href=\"index2.html\" class=\"logo\" style=\"background-color: #c60000\">
+        <a href=\"{{ asset('index2.html') }}\" class=\"logo\" style=\"background-color: #c60000\">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>H</b>H</span>
             <!-- logo for regular state and mobile devices -->
@@ -492,9 +514,9 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         <!-- Header Navbar: style can be found in header.less -->
         <nav class=\"navbar navbar-static-top\" style=\"background-color: #c60000; height:60px\">
             <!-- Sidebar toggle button-->
-            <a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
+            <a href=\"{{ asset('#') }}\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
                 <span class=\"sr-only\">Toggle navigation</span>
-            </a><img src=\"HH.png\" style=\"width:230px;height: 60px; margin-left: 300px \">
+            </a><img src=\"{{ asset('HH.png') }}\" style=\"width:230px;height: 60px; margin-left: 300px \">
             <!-- Navbar Right Menu -->
             
         </nav>
@@ -510,7 +532,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
             </div>
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
-                    <img src=\"amine.jpg\" class=\"img-circle\" alt=\"User Image\">
+                    <img src=\"{{ asset('amine.jpg') }}\" class=\"img-circle\" alt=\"User Image\">
                 </div>
                 <div class=\"pull-left info\">
                     <p>Amine Saidi</p>
@@ -547,8 +569,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
 
         <!-- Main content -->
         <section class=\"content\">
-            {% block ajout %}{% endblock %}
-            {% block afficher %}{% endblock %}
+            {% block content %}{% endblock %}
         </section>
         <!-- /.content -->
     </div>
@@ -780,6 +801,6 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
 <script src=\"dist/js/demo.js\"></script>
 </body>
 </html>
-", "main.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\main.html.twig");
+", "main.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\main.html.twig");
     }
 }

@@ -7,7 +7,7 @@
 
                 <nav class="navbar navbar-expand-lg narbar-light">
                     <a class="navbar-brand mr-auto" href="#">
-                        <img src="{{ asset ("logo.png") }}" alt="Site logo">
+                        <img src="{{ asset ("logo.png") }} " alt="Site logo" style="max-width: 600px">
 
                     </a>
                     <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,15 +16,24 @@
                     <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="/board">Boards <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/board">Boards </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/societe/{{ iduser }}"> Démarrer avec un compte business </a>
+                                <a class="nav-link" href="/{{ path }}">{{ texte }}</a>
                             </li>
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Options</a> <!-- lien -->
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ path('profil') }}">Compte</a>
+                                    <a class="dropdown-item" href="{{ path('deconnecter') }}">Se déconnecter</a>
+                                    <a class="dropdown-item" href="#"></a>
+                                </div>
                         </ul>
                     </div>
                 </nav>
+
             </div>
+
         </div>
     </div>
 

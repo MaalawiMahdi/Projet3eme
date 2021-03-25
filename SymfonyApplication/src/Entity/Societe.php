@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
-
 use App\Repository\SocieteRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -47,10 +46,16 @@ class Societe
      */
     private $Useraccount;
 
-    /**@Assert\NotBlank(message="le champs nom est obligatoire * ")
+    /**
+     * @Assert\NotBlank(message="le champs nom est obligatoire * ")
      * @ORM\Column(type="string", length=20)
      */
     private $nom;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Board::class, mappedBy="Societe", cascade={"persist", "remove"})
+     */
+    private $board;
 
     public function getId(): ?int
     {
@@ -125,6 +130,23 @@ class Societe
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getBoard(): ?Board
+    {
+        return $this->board;
+    }
+
+    public function setBoard(Board $board): self
+    {
+        // set the owning side of the relation if necessary
+        if ($board->getSociete() !== $this) {
+            $board->setSociete($this);
+        }
+
+        $this->board = $board;
 
         return $this;
     }

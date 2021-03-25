@@ -30,8 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '00f998960c93adbc9804de6cffeba9936d487909',
-    'reference' => '8b9833c6449b637268e811f3a9bca72ec082f971',
+    'reference' => '88da765331860e7aa2a5e3ae9647957bcc9729c0',
     'name' => '__root__',
   ),
   'versions' => 
@@ -43,10 +42,8 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '00f998960c93adbc9804de6cffeba9936d487909',
-
-      'reference' => '8b9833c6449b637268e811f3a9bca72ec082f971',
-     ),
+      'reference' => '88da765331860e7aa2a5e3ae9647957bcc9729c0',
+    ),
     'composer/package-versions-deprecated' => 
     array (
       'pretty_version' => '1.11.99.1',
@@ -209,6 +206,42 @@ private static $installed = array (
       ),
       'reference' => '121af47c9aee9c03031bdeca3fac0540f59aa5c3',
     ),
+    'guzzlehttp/guzzle' => 
+    array (
+      'pretty_version' => '7.2.0',
+      'version' => '7.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0aa74dfb41ae110835923ef10a9d803a22d50e79',
+    ),
+    'guzzlehttp/promises' => 
+    array (
+      'pretty_version' => '1.4.1',
+      'version' => '1.4.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8e7d04f1f6450fef59366c399cfad4b9383aa30d',
+    ),
+    'guzzlehttp/psr7' => 
+    array (
+      'pretty_version' => '1.7.0',
+      'version' => '1.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '53330f47520498c0ae1f61f7e2c90f55690c06a3',
+    ),
+    'knpuniversity/oauth2-client-bundle' => 
+    array (
+      'pretty_version' => 'v2.7.0',
+      'version' => '2.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a6462eac7488435526052d4a06c83086566dbbb5',
+    ),
     'laminas/laminas-code' => 
     array (
       'pretty_version' => '3.4.1',
@@ -235,6 +268,24 @@ private static $installed = array (
       array (
       ),
       'reference' => '6ede70583e101030bcace4dcddd648f760ddf642',
+    ),
+    'league/oauth2-client' => 
+    array (
+      'pretty_version' => '2.6.0',
+      'version' => '2.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'badb01e62383430706433191b82506b6df24ad98',
+    ),
+    'league/oauth2-google' => 
+    array (
+      'pretty_version' => '3.0.4',
+      'version' => '3.0.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6b79441f244040760bed5fdcd092a2bda7cf34c6',
     ),
     'monolog/monolog' => 
     array (
@@ -355,7 +406,32 @@ private static $installed = array (
         0 => '1.0',
       ),
     ),
+    'psr/http-client' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2dfb5f6c5eff0e91e20e913f8c5452ed95b86621',
+    ),
     'psr/http-client-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
+    ),
+    'psr/http-message' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
+    ),
+    'psr/http-message-implementation' => 
     array (
       'provided' => 
       array (
@@ -401,6 +477,15 @@ private static $installed = array (
       array (
         0 => '1.0',
       ),
+    ),
+    'ralouphie/getallheaders' => 
+    array (
+      'pretty_version' => '3.0.3',
+      'version' => '3.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '120b605dfeb996808c31b6477290a714d356e822',
     ),
     'sensio/framework-extra-bundle' => 
     array (
@@ -632,6 +717,15 @@ private static $installed = array (
       ),
       'reference' => '790f1db60deb1577eaf86f2025215b48c53f8e94',
     ),
+    'symfony/google-mailer' => 
+    array (
+      'pretty_version' => 'v4.4.20',
+      'version' => '4.4.20.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '441f147a329db99f7d7c351654c7c8e2f5585b1a',
+    ),
     'symfony/http-client' => 
     array (
       'pretty_version' => 'v4.4.19',
@@ -695,12 +789,12 @@ private static $installed = array (
     ),
     'symfony/mailer' => 
     array (
-      'pretty_version' => 'v4.4.19',
-      'version' => '4.4.19.0',
+      'pretty_version' => 'v4.4.20',
+      'version' => '4.4.20.0',
       'aliases' => 
       array (
       ),
-      'reference' => '38b6dcb4bb265fa4f003b0f42dd42fb91cbd877b',
+      'reference' => 'df3209aaa4008b9bb851410ab31be12d9b744773',
     ),
     'symfony/maker-bundle' => 
     array (

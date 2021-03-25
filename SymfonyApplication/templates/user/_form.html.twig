@@ -1,5 +1,26 @@
-
-{{form_start(form)}}
+{{ form_start(form) }}
     {{ form_widget(form)}}
-{{ form_errors(form) }}
+{% if call is defined %}
+{% if (call=="inscription") %}
+<div>
+    <a class="hollow button primary" href="/inscription/google/">
+        <img width="15px" style="margin-bottom:3px; margin-right:5px" alt="Google login" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+        S'inscrire via google
+    </a>
+
+
+</div>
+    {% elseif (call=="connexion") %}
+<div>
+    <a class="hollow button primary" href="/connect/google/">
+        <img width="15px" style="margin-bottom:3px; margin-right:5px" alt="Google login" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+        Se Connecter via google
+    </a>
+</div>
+        <a class="hollow button primary"  href="/user/password_backup">
+            mot de passe oublié
+        </a>
+
+{% endif %}
+{% endif %}
 {{ form_end(form) }}

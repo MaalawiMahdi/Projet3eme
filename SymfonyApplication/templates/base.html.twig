@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Welcome!{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">') }}  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">') }} ">
     <link rel="stylesheet" href="{{ asset('font-awesome-4.7.0/css/font-awesome.min.css') }}">                <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">                                      <!-- Bootstrap style -->
     <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick.css') }}"/>
@@ -26,6 +26,8 @@
 <script src="{{ asset('js/datepicker.min.js') }}"></script>                <!-- https://github.com/qodesmith/datepicker -->
 <script src="{{ asset('js/jquery.singlePageNav.min.js') }}"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
 <script src="{{ asset('slick/slick.min.js') }}"></script>
+<script src="{{ asset('https://kit.fontawesome.com/e90c3a13d2.js') }}" crossorigin="anonymous"></script>
+
 <script>
 
     /* Google map
@@ -160,9 +162,11 @@
 
         // Update the current year in copyright
         $('.tm-current-year').text(new Date().getFullYear());
+
     });
 
 </script>
+
 {% block javascripts %}{% endblock %}
 </body>
 </html>
