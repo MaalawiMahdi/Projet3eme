@@ -21,6 +21,7 @@ return [
         '/comptes' => [[['_route' => 'comptes', '_controller' => 'App\\Controller\\ComptesController::index'], null, null, null, false, false, null]],
         '/demande' => [[['_route' => 'demande', '_controller' => 'App\\Controller\\DemandeController::index'], null, null, null, false, false, null]],
         '/index' => [[['_route' => 'index', '_controller' => 'App\\Controller\\IndexController::index'], null, null, null, false, false, null]],
+        '/lds' => [[['_route' => 'lds', '_controller' => 'App\\Controller\\LdsController::index'], null, null, null, false, false, null]],
         '/HolidayHiatus' => [[['_route' => 'welcome', '_controller' => 'App\\Controller\\NavigationContrllerController::index'], null, null, null, false, false, null]],
         '/main' => [[['_route' => 'main', '_controller' => 'App\\Controller\\SujetController::index'], null, null, null, false, false, null]],
     ],
@@ -41,28 +42,43 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/Supprimer(?'
-                    .'|Commentaire/([^/]++)/([^/]++)/([^/]++)(*:220)'
-                    .'|Sujet/([^/]++)/([^/]++)(*:251)'
+                .'|/S(?'
+                    .'|upprimer(?'
+                        .'|Commentaire/([^/]++)/([^/]++)/([^/]++)(*:223)'
+                        .'|Sujet/([^/]++)/([^/]++)(*:254)'
+                    .')'
+                    .'|tats/([^/]++)(*:276)'
                 .')'
                 .'|/Modifier(?'
-                    .'|Commentaire/([^/]++)/([^/]++)/([^/]++)(*:310)'
-                    .'|Sujet/([^/]++)/([^/]++)(*:341)'
-                    .'|Image/([^/]++)/([^/]++)(*:372)'
+                    .'|Commentaire/([^/]++)/([^/]++)/([^/]++)(*:335)'
+                    .'|Sujet/([^/]++)/([^/]++)(*:366)'
+                .')'
+                .'|/Like/([^/]++)/([^/]++)(*:398)'
+                .'|/D(?'
+                    .'|islike/([^/]++)/([^/]++)(*:435)'
+                    .'|elete(?'
+                        .'|Like/([^/]++)/([^/]++)/([^/]++)/([^/]++)(*:491)'
+                        .'|Dislike/([^/]++)/([^/]++)/([^/]++)/([^/]++)(*:542)'
+                    .')'
                 .')'
                 .'|/A(?'
-                    .'|fficherSujet(?'
-                        .'|/([^/]++)(*:410)'
-                        .'|Front/([^/]++)(*:432)'
+                    .'|dd(?'
+                        .'|Like/([^/]++)/([^/]++)/([^/]++)/([^/]++)(*:602)'
+                        .'|Dislike/([^/]++)/([^/]++)/([^/]++)/([^/]++)(*:653)'
                     .')'
-                    .'|jouterSujet(?'
-                        .'|/([^/]++)(*:464)'
-                        .'|Front/([^/]++)(*:486)'
+                    .'|fficherSujet(?'
+                        .'|/([^/]++)(*:686)'
+                        .'|Front/([^/]++)(*:708)'
+                    .')'
+                    .'|jouter(?'
+                        .'|Sujet/([^/]++)(*:740)'
+                        .'|Note/([^/]++)/([^/]++)/([^/]++)(*:779)'
                     .')'
                 .')'
+                .'|/ImprimerSujets/([^/]++)(*:813)'
                 .'|/ConsulterSujet(?'
-                    .'|/([^/]++)/([^/]++)(*:532)'
-                    .'|Front/([^/]++)/([^/]++)(*:563)'
+                    .'|/([^/]++)/([^/]++)(*:857)'
+                    .'|Front/([^/]++)/([^/]++)(*:888)'
                 .')'
             .')/?$}sD',
     ],
@@ -74,17 +90,24 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        220 => [[['_route' => 'SupprimerCommentaire', '_controller' => 'App\\Controller\\CommentaireController::SupprimerCommentaire'], ['idboard', 'id', 'idcom'], null, null, false, true, null]],
-        251 => [[['_route' => 'SupprimerSujet', '_controller' => 'App\\Controller\\SujetController::SupprimerSujet'], ['idboard', 'id'], null, null, false, true, null]],
-        310 => [[['_route' => 'ModifierCommentaire', '_controller' => 'App\\Controller\\CommentaireController::ModifierCommentaire'], ['idboard', 'id', 'idcom'], null, null, false, true, null]],
-        341 => [[['_route' => 'ModifierSujet', '_controller' => 'App\\Controller\\SujetController::ModifiererSujet'], ['idboard', 'id'], null, null, false, true, null]],
-        372 => [[['_route' => 'ModifierImage', '_controller' => 'App\\Controller\\SujetController::ModifierImage'], ['idboard', 'id'], null, null, false, true, null]],
-        410 => [[['_route' => 'AfficherSujet', '_controller' => 'App\\Controller\\SujetController::afficher'], ['idboard'], null, null, false, true, null]],
-        432 => [[['_route' => 'AfficherSujetFront', '_controller' => 'App\\Controller\\SujetController::afficherFront'], ['idboard'], null, null, false, true, null]],
-        464 => [[['_route' => 'AjouterSujet', '_controller' => 'App\\Controller\\SujetController::AjouterSujet'], ['idboard'], null, null, false, true, null]],
-        486 => [[['_route' => 'AjouterSujetFront', '_controller' => 'App\\Controller\\SujetController::AjouterSujetFront'], ['idboard'], null, null, false, true, null]],
-        532 => [[['_route' => 'ConsulterSujet', '_controller' => 'App\\Controller\\SujetController::ConsulterSujet'], ['idboard', 'id'], null, null, false, true, null]],
-        563 => [
+        223 => [[['_route' => 'SupprimerCommentaire', '_controller' => 'App\\Controller\\CommentaireController::SupprimerCommentaire'], ['idboard', 'id', 'idcom'], null, null, false, true, null]],
+        254 => [[['_route' => 'SupprimerSujet', '_controller' => 'App\\Controller\\SujetController::SupprimerSujet'], ['idboard', 'id'], null, null, false, true, null]],
+        276 => [[['_route' => 'Stats', '_controller' => 'App\\Controller\\SujetController::Stats'], ['idboard'], null, null, false, true, null]],
+        335 => [[['_route' => 'ModifierCommentaire', '_controller' => 'App\\Controller\\CommentaireController::ModifierCommentaire'], ['idboard', 'id', 'idcom'], null, null, false, true, null]],
+        366 => [[['_route' => 'ModifierSujet', '_controller' => 'App\\Controller\\SujetController::ModifiererSujet'], ['idboard', 'id'], null, null, false, true, null]],
+        398 => [[['_route' => 'Like', '_controller' => 'App\\Controller\\CommentaireController::Like'], ['idcom', 'iduser'], null, null, false, true, null]],
+        435 => [[['_route' => 'Dislike', '_controller' => 'App\\Controller\\CommentaireController::Dislike'], ['idcom', 'iduser'], null, null, false, true, null]],
+        491 => [[['_route' => 'DeleteLike', '_controller' => 'App\\Controller\\LdsController::DeleteLike'], ['idboard', 'id', 'idcom', 'iduser'], null, null, false, true, null]],
+        542 => [[['_route' => 'DeleteDislike', '_controller' => 'App\\Controller\\LdsController::DeleteDislike'], ['idboard', 'id', 'idcom', 'iduser'], null, null, false, true, null]],
+        602 => [[['_route' => 'addLike', '_controller' => 'App\\Controller\\LdsController::addLike'], ['idboard', 'id', 'idcom', 'iduser'], null, null, false, true, null]],
+        653 => [[['_route' => 'addDislike', '_controller' => 'App\\Controller\\LdsController::addDislike'], ['idboard', 'id', 'idcom', 'iduser'], null, null, false, true, null]],
+        686 => [[['_route' => 'AfficherSujet', '_controller' => 'App\\Controller\\SujetController::afficher'], ['idboard'], null, null, false, true, null]],
+        708 => [[['_route' => 'AfficherSujetFront', '_controller' => 'App\\Controller\\SujetController::afficherFront'], ['idboard'], null, null, false, true, null]],
+        740 => [[['_route' => 'AjouterSujet', '_controller' => 'App\\Controller\\SujetController::AjouterSujet'], ['idboard'], null, null, false, true, null]],
+        779 => [[['_route' => 'AjouterNoteSujet', '_controller' => 'App\\Controller\\SujetController::AjouterNoteSujet'], ['idsujet', 'iduser', 'v'], null, null, false, true, null]],
+        813 => [[['_route' => 'ImprimerSujets', '_controller' => 'App\\Controller\\SujetController::ImprimerS'], ['idboard'], null, null, false, true, null]],
+        857 => [[['_route' => 'ConsulterSujet', '_controller' => 'App\\Controller\\SujetController::ConsulterSujet'], ['idboard', 'id'], null, null, false, true, null]],
+        888 => [
             [['_route' => 'ConsulterSujetFront', '_controller' => 'App\\Controller\\SujetController::ConsulterSujetFront'], ['idboard', 'id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

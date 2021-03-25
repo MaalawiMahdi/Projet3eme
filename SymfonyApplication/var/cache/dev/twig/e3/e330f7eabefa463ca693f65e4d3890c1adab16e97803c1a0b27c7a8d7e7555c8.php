@@ -68,39 +68,89 @@ class __TwigTemplate_ce3ba0f13c7dc2956b3a810cd20d49286847fa1ee6a9493e3f136589c1c
         echo "    ";
         $this->loadTemplate("Bootstraptemplates/navbartemplate.html.twig", "sujet/frontaffichersujet.html.twig", 3)->display($context);
         // line 4
-        echo "    <table class=\"table table-striped\">
-        <thead>
-        <tr>
-            <th scope=\"col\">Les sujets</th>
-        </tr>
-        </thead>
-        <tbody>
-        ";
-        // line 11
+        echo "
+    <div class=\"tm-section tm-position-relative\">
+        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\" class=\"tm-section-down-arrow\">
+            <polygon fill=\"#ee5057\" points=\"0,0  100,0  50,60\"></polygon>
+        </svg>
+    </div>
+    <input id=\"search\" class=\"form-control mr-sm-2\" type=\"text\" name=\"search\" placeholder=\"Search ...\" aria-label=\"Search\"  >
+
+    <div>
+
+        <div class=\"container tm-pt-5 tm-pb-4\" >
+            <script src=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/js/jquery.min.js"), "html", null, true);
+        echo "\"></script>
+            <div class=\"row text-center\" id=\"sa\">
+                ";
+        // line 17
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["list"]) || array_key_exists("list", $context) ? $context["list"] : (function () { throw new RuntimeError('Variable "list" does not exist.', 11, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-            // line 12
-            echo "
-            <tr>
-                <td><a href=\"/ConsulterSujetFront/";
-            // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["i"], "board", [], "any", false, false, false, 14), "id", [], "any", false, false, false, 14), "html", null, true);
-            echo "/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "id", [], "any", false, false, false, 14), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "titre", [], "any", false, false, false, 14), "html", null, true);
-            echo "</a></td>
-            </tr>
-        ";
+        $context['_seq'] = twig_ensure_traversable((isset($context["list"]) || array_key_exists("list", $context) ? $context["list"] : (function () { throw new RuntimeError('Variable "list" does not exist.', 17, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["A"]) {
+            // line 18
+            echo "                    <article class=\"col-sm-16 col-md-6 col-lg-6 col-xl-6 tm-article\">
+                        <i class=\"fa tm-fa-6x tm-color-primary tm-margin-b-20\"><img style=\" padding-right: 2px; padding-left: 2px; width:100px ; height: 100px ; \" src=\"";
+            // line 19
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("im/" . twig_get_attribute($this->env, $this->source, $context["A"], "lienimage", [], "any", false, false, false, 19))), "html", null, true);
+            echo "\"></i>
+                        <!--<i class=\"fa tm-fa-6x tm-color-primary tm-margin-b-20\"><img style=\" padding-right: 2px; padding-left: 2px; width:100px ; height: 100px ; \" src=\"";
+            // line 20
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/" . twig_get_attribute($this->env, $this->source, $context["A"], "getLienImage", [], "method", false, false, false, 20))), "html", null, true);
+            echo "\"></i>-->
+                        <h3 class=\"tm-color-primary tm-article-title-1\">";
+            // line 21
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["A"], "titre", [], "any", false, false, false, 21), "html", null, true);
+            echo "</h3>
+                        <p>";
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["A"], "description", [], "any", false, false, false, 22), "html", null, true);
+            echo "</p>
+                        <td><form action=\" ";
+            // line 23
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ConsulterSujetFront", ["idboard" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["A"], "board", [], "any", false, false, false, 23), "id", [], "any", false, false, false, 23), "id" => twig_get_attribute($this->env, $this->source, $context["A"], "id", [], "any", false, false, false, 23)]), "html", null, true);
+            echo " \"><button>Consulter</button></form></td>
+
+                    </article>
+                ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['A'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 17
-        echo "        </tbody>
-    </table>
+        // line 27
+        echo "
+                <script>
+                    \$(document).ready(function(){
+                        \$('#search').keyup(function(){
+                            search_table(\$(this).val());
+                        });
+                        function search_table(value){
+                            \$('#sa article').each(function(){
+                                var found = 'false';
+                                \$(this).each(function(){
+                                    if(\$(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                    {
+                                        found = 'true';
+                                    }
+                                });
+                                if(found == 'true')
+                                {
+                                    \$(this).show();
 
+                                }
+                                else
+                                {
+                                    \$(this).hide();
+
+                                }
+                            });
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -122,7 +172,7 @@ class __TwigTemplate_ce3ba0f13c7dc2956b3a810cd20d49286847fa1ee6a9493e3f136589c1c
 
     public function getDebugInfo()
     {
-        return array (  101 => 17,  88 => 14,  84 => 12,  80 => 11,  71 => 4,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  122 => 27,  112 => 23,  108 => 22,  104 => 21,  100 => 20,  96 => 19,  93 => 18,  89 => 17,  84 => 15,  71 => 4,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -130,22 +180,61 @@ class __TwigTemplate_ce3ba0f13c7dc2956b3a810cd20d49286847fa1ee6a9493e3f136589c1c
         return new Source("{% extends 'base.html.twig' %}
 {% block body %}
     {% include 'Bootstraptemplates/navbartemplate.html.twig' %}
-    <table class=\"table table-striped\">
-        <thead>
-        <tr>
-            <th scope=\"col\">Les sujets</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for i in list %}
 
-            <tr>
-                <td><a href=\"/ConsulterSujetFront/{{ i.board.id }}/{{ i.id }}\">{{ i.titre  }}</a></td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class=\"tm-section tm-position-relative\">
+        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\" class=\"tm-section-down-arrow\">
+            <polygon fill=\"#ee5057\" points=\"0,0  100,0  50,60\"></polygon>
+        </svg>
+    </div>
+    <input id=\"search\" class=\"form-control mr-sm-2\" type=\"text\" name=\"search\" placeholder=\"Search ...\" aria-label=\"Search\"  >
 
+    <div>
+
+        <div class=\"container tm-pt-5 tm-pb-4\" >
+            <script src=\"{{ asset('/js/jquery.min.js') }}\"></script>
+            <div class=\"row text-center\" id=\"sa\">
+                {% for A in list %}
+                    <article class=\"col-sm-16 col-md-6 col-lg-6 col-xl-6 tm-article\">
+                        <i class=\"fa tm-fa-6x tm-color-primary tm-margin-b-20\"><img style=\" padding-right: 2px; padding-left: 2px; width:100px ; height: 100px ; \" src=\"{{ asset('im/' ~A.lienimage)}}\"></i>
+                        <!--<i class=\"fa tm-fa-6x tm-color-primary tm-margin-b-20\"><img style=\" padding-right: 2px; padding-left: 2px; width:100px ; height: 100px ; \" src=\"{{ asset('uploads/' ~ A.getLienImage())}}\"></i>-->
+                        <h3 class=\"tm-color-primary tm-article-title-1\">{{ A.titre }}</h3>
+                        <p>{{ A.description}}</p>
+                        <td><form action=\" {{path('ConsulterSujetFront',{idboard:A.board.id,id:A.id})}} \"><button>Consulter</button></form></td>
+
+                    </article>
+                {% endfor %}
+
+                <script>
+                    \$(document).ready(function(){
+                        \$('#search').keyup(function(){
+                            search_table(\$(this).val());
+                        });
+                        function search_table(value){
+                            \$('#sa article').each(function(){
+                                var found = 'false';
+                                \$(this).each(function(){
+                                    if(\$(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                    {
+                                        found = 'true';
+                                    }
+                                });
+                                if(found == 'true')
+                                {
+                                    \$(this).show();
+
+                                }
+                                else
+                                {
+                                    \$(this).hide();
+
+                                }
+                            });
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 ", "sujet/frontaffichersujet.html.twig", "D:\\Projet3eme\\SymfonyApplication\\templates\\sujet\\frontaffichersujet.html.twig");
     }

@@ -1,0 +1,19 @@
+<table class="table" border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in list %}
+            <tr>
+                <td>{{  i.id  }}</td>
+                <td>{{ i.titre  }}</td>
+                <td>{{ i.description }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+

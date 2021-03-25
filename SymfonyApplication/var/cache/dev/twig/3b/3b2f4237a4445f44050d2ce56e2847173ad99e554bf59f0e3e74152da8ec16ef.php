@@ -92,18 +92,41 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         }
         .btn-primary:active {
             background-color: darkred;
-            border-color: darkred;
+            border-color: #8b0000;
+        }
+    </style>
+    <style>
+        button {
+            color: #FFFFFF;
+            background-color: #8a0001;
+            border-color: #8a0001;
+            border-radius: 6px;
+            padding: 8px;
+            font-size:10px;
+        }
+        button:hover {
+            color: #FFFFFF;
+            opacity: 0.8;
+            background-color: #8a0001;
+            border-color: #8a0001;
+            border-radius: 6px;
+        }
+        button:active {
+            color: #FFFFFF;
+            background-color: #8a0001;
+            border-color: #8a0001;
+            border-radius: 6px;
         }
     </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src=\"";
-        // line 39
+        // line 62
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 40
+        // line 63
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://oss.maxcdn.com/respond/1.4.2/respond.min.js"), "html", null, true);
         echo "\"></script>
     <![endif]-->
@@ -111,7 +134,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
     <!-- Google Font -->
     <link rel=\"stylesheet\"
           href=\"";
-        // line 45
+        // line 68
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"), "html", null, true);
         echo "\">
 </head>
@@ -122,7 +145,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
 
         <!-- Logo -->
         <a href=\"";
-        // line 53
+        // line 76
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("index2.html"), "html", null, true);
         echo "\" class=\"logo\" style=\"background-color: #c60000\">
             <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -136,12 +159,12 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         <nav class=\"navbar navbar-static-top\" style=\"background-color: #c60000; height:60px\">
             <!-- Sidebar toggle button-->
             <a href=\"";
-        // line 64
+        // line 87
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("#"), "html", null, true);
         echo "\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
                 <span class=\"sr-only\">Toggle navigation</span>
             </a><img src=\"";
-        // line 66
+        // line 89
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("HH.png"), "html", null, true);
         echo "\" style=\"width:230px;height: 60px; margin-left: 300px \">
             <!-- Navbar Right Menu -->
@@ -160,12 +183,12 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
                     <img src=\"";
-        // line 82
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("amine.jpg"), "html", null, true);
+        // line 105
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("ma.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
                 </div>
                 <div class=\"pull-left info\">
-                    <p>Amine Saidi</p>
+                    <p>Mohamed Amara</p>
                     <a href=\"#\"><i class=\"fa fa-circle text-success\"></i> Online</a>
                 </div>
             </div>
@@ -182,9 +205,9 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
                     </a>
                     <ul class=\"treeview-menu\">
                         ";
-        // line 101
+        // line 124
         $this->displayBlock('lienspages', $context, $blocks);
-        // line 106
+        // line 129
         echo "                    </ul>
                 </li>
             </ul>
@@ -200,9 +223,9 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         <!-- Main content -->
         <section class=\"content\">
             ";
-        // line 120
+        // line 143
         $this->displayBlock('content', $context, $blocks);
-        // line 121
+        // line 144
         echo "        </section>
         <!-- /.content -->
     </div>
@@ -443,7 +466,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
 
     }
 
-    // line 101
+    // line 124
     public function block_lienspages($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -453,7 +476,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "lienspages"));
 
-        // line 102
+        // line 125
         echo "                        <li ><a href=\"#\" style=\"background-color: #ffa9a9;color: red\" ><i class=\"fa fa-circle-o\" style=\"color: red\"></i> Gestion Des Sujet</a></li>
                         <li  style=\"background-color: white;\" ><a href=\"#\" style=\"color: red\"><i class=\"fa fa-circle-o\" style=\"color: red\"></i> Gestion de Boutique</a></li>
                         <li  style=\"background-color: white;\" ><a href=\"#\" style=\"color: red\"><i class=\"fa fa-circle-o\" style=\"color: red\"></i> Gestion de Moderateur</a></li>
@@ -466,7 +489,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
 
     }
 
-    // line 120
+    // line 143
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -496,7 +519,7 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
 
     public function getDebugInfo()
     {
-        return array (  470 => 120,  457 => 102,  447 => 101,  206 => 121,  204 => 120,  188 => 106,  186 => 101,  164 => 82,  145 => 66,  140 => 64,  126 => 53,  115 => 45,  107 => 40,  103 => 39,  82 => 21,  76 => 18,  71 => 16,  66 => 14,  61 => 12,  56 => 10,  45 => 1,);
+        return array (  493 => 143,  480 => 125,  470 => 124,  229 => 144,  227 => 143,  211 => 129,  209 => 124,  187 => 105,  168 => 89,  163 => 87,  149 => 76,  138 => 68,  130 => 63,  126 => 62,  82 => 21,  76 => 18,  71 => 16,  66 => 14,  61 => 12,  56 => 10,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -533,7 +556,30 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
         }
         .btn-primary:active {
             background-color: darkred;
-            border-color: darkred;
+            border-color: #8b0000;
+        }
+    </style>
+    <style>
+        button {
+            color: #FFFFFF;
+            background-color: #8a0001;
+            border-color: #8a0001;
+            border-radius: 6px;
+            padding: 8px;
+            font-size:10px;
+        }
+        button:hover {
+            color: #FFFFFF;
+            opacity: 0.8;
+            background-color: #8a0001;
+            border-color: #8a0001;
+            border-radius: 6px;
+        }
+        button:active {
+            color: #FFFFFF;
+            background-color: #8a0001;
+            border-color: #8a0001;
+            border-radius: 6px;
         }
     </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -582,10 +628,10 @@ class __TwigTemplate_28a551b6e74f9362b7e4f7fe75ab7b92aab987f790f2859e782d2b8a0ba
             </div>
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
-                    <img src=\"{{ asset('amine.jpg') }}\" class=\"img-circle\" alt=\"User Image\">
+                    <img src=\"{{ asset('ma.jpg') }}\" class=\"img-circle\" alt=\"User Image\">
                 </div>
                 <div class=\"pull-left info\">
-                    <p>Amine Saidi</p>
+                    <p>Mohamed Amara</p>
                     <a href=\"#\"><i class=\"fa fa-circle text-success\"></i> Online</a>
                 </div>
             </div>

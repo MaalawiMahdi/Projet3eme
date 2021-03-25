@@ -12,7 +12,13 @@
     {{ form_widget(form.titre) }}
     {{ form_label(form.description,"Description") }}
     {{ form_widget(form.description)}}
-    <img src="{{ asset('im/' ~sujet.lienimage) }}">
+    <br>
+    <center>
+        <img src="{{ asset('im/' ~sujet.lienimage) }}">
+        <br>
+        <br>
+        {{ form_end(form) }}
 
-    {{ form_end(form) }}
+    </center>
+
 {% endblock %}

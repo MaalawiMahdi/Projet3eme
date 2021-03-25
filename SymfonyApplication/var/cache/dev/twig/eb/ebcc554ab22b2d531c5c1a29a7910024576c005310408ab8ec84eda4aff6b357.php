@@ -71,7 +71,57 @@ class __TwigTemplate_39784370799f4e282fdc5c12b0f0fdf7c5317991bbf7f2f9c5cab6a28d9
             </nav>
         </div>
     </div>
-</div>";
+</div>
+<style> .btn-primary {
+        background-color: #ee5057 !important;
+        border-color: #ee5057 !important;
+        border-radius: 6px !important;
+
+    }
+    .btn-primary:hover {
+        opacity: 0.8!important;
+        background-color: #ee5057!important;
+        border-color: #ee5057!important;
+        border-radius: 6px!important;
+    }
+    .btn-primary:active {
+        background-color: #ee5057 !important;
+        border-color: #ee5057!important;
+        border-radius: 6px!important;
+    }
+</style>
+<style>
+    button {
+        color: #FFFFFF;
+        background-color: #ee5057;
+        border-color: #ee5057;
+        border-radius: 6px;
+        padding: 8px;
+        font-size:10px;
+    }
+    button:hover {
+        color: #FFFFFF;
+        opacity: 0.8;
+        background-color: #ee5057;
+        border-color: #ee5057;
+        border-radius: 6px;
+    }
+    button:active {
+        color: #FFFFFF;
+        background-color: #ee5057;
+        border-color: #ee5057;
+        border-radius: 6px;
+    }
+</style>
+<style>
+    .alert {
+        padding: 7px;
+        background-color: #f44336; /* Red */
+        color: white;
+        margin-bottom: 15px;
+    }
+</style>
+";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -125,6 +175,56 @@ class __TwigTemplate_39784370799f4e282fdc5c12b0f0fdf7c5317991bbf7f2f9c5cab6a28d9
             </nav>
         </div>
     </div>
-</div>", "Bootstraptemplates/navbartemplate.html.twig", "D:\\Projet3eme\\SymfonyApplication\\templates\\Bootstraptemplates\\navbartemplate.html.twig");
+</div>
+<style> .btn-primary {
+        background-color: #ee5057 !important;
+        border-color: #ee5057 !important;
+        border-radius: 6px !important;
+
+    }
+    .btn-primary:hover {
+        opacity: 0.8!important;
+        background-color: #ee5057!important;
+        border-color: #ee5057!important;
+        border-radius: 6px!important;
+    }
+    .btn-primary:active {
+        background-color: #ee5057 !important;
+        border-color: #ee5057!important;
+        border-radius: 6px!important;
+    }
+</style>
+<style>
+    button {
+        color: #FFFFFF;
+        background-color: #ee5057;
+        border-color: #ee5057;
+        border-radius: 6px;
+        padding: 8px;
+        font-size:10px;
+    }
+    button:hover {
+        color: #FFFFFF;
+        opacity: 0.8;
+        background-color: #ee5057;
+        border-color: #ee5057;
+        border-radius: 6px;
+    }
+    button:active {
+        color: #FFFFFF;
+        background-color: #ee5057;
+        border-color: #ee5057;
+        border-radius: 6px;
+    }
+</style>
+<style>
+    .alert {
+        padding: 7px;
+        background-color: #f44336; /* Red */
+        color: white;
+        margin-bottom: 15px;
+    }
+</style>
+", "Bootstraptemplates/navbartemplate.html.twig", "D:\\Projet3eme\\SymfonyApplication\\templates\\Bootstraptemplates\\navbartemplate.html.twig");
     }
 }

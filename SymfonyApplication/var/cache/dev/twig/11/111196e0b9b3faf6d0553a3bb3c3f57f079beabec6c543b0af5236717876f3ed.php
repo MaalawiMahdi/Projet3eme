@@ -83,40 +83,45 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
         // line 15
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/tooplate-style.css"), "html", null, true);
         echo "\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 16
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://pro.fontawesome.com/releases/v5.10.0/css/all.css"), "html", null, true);
+        echo "\" integrity=\"sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p\" crossorigin=\"anonymous\"/>
+
 
     ";
-        // line 17
+        // line 19
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 18
+        // line 20
         echo "
 </head>
 <body>
 
 ";
-        // line 22
+        // line 24
         $this->displayBlock('body', $context, $blocks);
-        // line 23
+        // line 25
         echo "<script src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/jquery-1.11.3.min.js"), "html", null, true);
         echo "\"></script>             <!-- jQuery (https://jquery.com/download/) -->
 <script src=\"";
-        // line 24
+        // line 26
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/popper.min.js"), "html", null, true);
         echo "\"></script>                    <!-- https://popper.js.org/ -->
 <script src=\"";
-        // line 25
+        // line 27
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>                 <!-- https://getbootstrap.com/ -->
 <script src=\"";
-        // line 26
+        // line 28
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/datepicker.min.js"), "html", null, true);
         echo "\"></script>                <!-- https://github.com/qodesmith/datepicker -->
 <script src=\"";
-        // line 27
+        // line 29
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/jquery.singlePageNav.min.js"), "html", null, true);
         echo "\"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
 <script src=\"";
-        // line 28
+        // line 30
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("slick/slick.min.js"), "html", null, true);
         echo "\"></script>
 <script>
@@ -257,9 +262,9 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
 </script>
 ";
-        // line 166
+        // line 168
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 167
+        // line 169
         echo "</body>
 </html>";
         
@@ -289,7 +294,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     }
 
-    // line 17
+    // line 19
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -307,7 +312,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     }
 
-    // line 22
+    // line 24
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -326,7 +331,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     }
 
-    // line 166
+    // line 168
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -356,7 +361,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     public function getDebugInfo()
     {
-        return array (  330 => 166,  311 => 22,  293 => 17,  274 => 8,  263 => 167,  261 => 166,  120 => 28,  116 => 27,  112 => 26,  108 => 25,  104 => 24,  99 => 23,  97 => 22,  91 => 18,  89 => 17,  84 => 15,  80 => 14,  76 => 13,  72 => 12,  68 => 11,  64 => 10,  60 => 9,  56 => 8,  47 => 1,);
+        return array (  335 => 168,  316 => 24,  298 => 19,  279 => 8,  268 => 169,  266 => 168,  125 => 30,  121 => 29,  117 => 28,  113 => 27,  109 => 26,  104 => 25,  102 => 24,  96 => 20,  94 => 19,  88 => 16,  84 => 15,  80 => 14,  76 => 13,  72 => 12,  68 => 11,  64 => 10,  60 => 9,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -376,6 +381,8 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
     <link rel=\"stylesheet\" type=\"text/css\" href=\"{{ asset('slick/slick-theme.css') }}\"/>
     <link rel=\"stylesheet\" type=\"text/css\" href=\"{{ asset('css/datepicker.css') }}\"/>
     <link rel=\"stylesheet\" href=\"{{ asset('css/tooplate-style.css') }}\">
+    <link rel=\"stylesheet\" href=\"{{ asset('https://pro.fontawesome.com/releases/v5.10.0/css/all.css') }}\" integrity=\"sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p\" crossorigin=\"anonymous\"/>
+
 
     {% block stylesheets %}{% endblock %}
 

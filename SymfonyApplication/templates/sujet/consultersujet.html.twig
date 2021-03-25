@@ -10,6 +10,29 @@
 </center>
     <h4>{{ sujet.description }}</h4>
     <img src="{{ asset('im/' ~sujet.lienimage) }}">
+    <br>
+    <h3>Les Commentaires du sujet</h3>
+    <table class="table">
+        <thead>
+
+        </thead>
+        <tbody>
+        {% for x in commentaires %}
+            {% if x.Sujet.id == sujet.id %}
+            <tr>
+                <td>
+                    <div style="color:red">{{ x.User.mail }} </div> {{ x.com }}
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+
+    </table>
 
 
 

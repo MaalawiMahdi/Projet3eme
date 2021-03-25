@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'ed080ba523280b94cb6e262f1ebb656c64f1ef95',
+    'reference' => '5775a56e3c534d877eedbc703317f73688f42ad9',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,34 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'ed080ba523280b94cb6e262f1ebb656c64f1ef95',
+      'reference' => '5775a56e3c534d877eedbc703317f73688f42ad9',
+    ),
+    'abraham/twitteroauth' => 
+    array (
+      'pretty_version' => '0.7.4',
+      'version' => '0.7.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c6f9e692552dd037b2324ed0dfa28a4e60875acf',
+    ),
+    'clue/stream-filter' => 
+    array (
+      'pretty_version' => 'v1.5.0',
+      'version' => '1.5.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'aeb7d8ea49c7963d3b581378955dbf5bc49aa320',
+    ),
+    'cmen/google-charts-bundle' => 
+    array (
+      'pretty_version' => '4.0.0',
+      'version' => '4.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8bc2b9a28d8b44527d373b39e110f6ec33b8d0ed',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -188,6 +215,15 @@ private static $installed = array (
       ),
       'reference' => '56070bebac6e77230ed7d306ad13528e60732871',
     ),
+    'dompdf/dompdf' => 
+    array (
+      'pretty_version' => 'v1.0.2',
+      'version' => '1.0.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8768448244967a46d6e67b891d30878e0e15d25c',
+    ),
     'egulias/email-validator' => 
     array (
       'pretty_version' => '2.1.25',
@@ -197,6 +233,15 @@ private static $installed = array (
       ),
       'reference' => '0dbf5d78455d4d6a41d186da50adc1122ec066f4',
     ),
+    'facebook/graph-sdk' => 
+    array (
+      'pretty_version' => '5.7.0',
+      'version' => '5.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2d8250638b33d73e7a87add65f47fabf91f8ad9b',
+    ),
     'friendsofphp/proxy-manager-lts' => 
     array (
       'pretty_version' => 'v1.0.3',
@@ -205,6 +250,33 @@ private static $installed = array (
       array (
       ),
       'reference' => '121af47c9aee9c03031bdeca3fac0540f59aa5c3',
+    ),
+    'happyr/linkedin-api-client' => 
+    array (
+      'pretty_version' => '1.0.0',
+      'version' => '1.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '792745ae1d53847bcecfe485d695f6888f03453a',
+    ),
+    'knplabs/knp-components' => 
+    array (
+      'pretty_version' => 'v2.5.1',
+      'version' => '2.5.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ab7ced8a662e6aa1898b5c4919fe3eb78d62d963',
+    ),
+    'knplabs/knp-paginator-bundle' => 
+    array (
+      'pretty_version' => 'v5.3.0',
+      'version' => '5.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '87ca999b6ac886e3f20a1e3abc07523140509ca4',
     ),
     'laminas/laminas-code' => 
     array (
@@ -224,6 +296,15 @@ private static $installed = array (
       ),
       'reference' => 'ce4dc0bdf3b14b7f9815775af9dfee80a63b4748',
     ),
+    'laminas/laminas-json' => 
+    array (
+      'pretty_version' => '3.1.2',
+      'version' => '3.1.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '00dc0da7b5e5018904c5c4a8e80a5faa16c2c1c6',
+    ),
     'laminas/laminas-zendframework-bridge' => 
     array (
       'pretty_version' => '1.1.1',
@@ -232,6 +313,24 @@ private static $installed = array (
       array (
       ),
       'reference' => '6ede70583e101030bcace4dcddd648f760ddf642',
+    ),
+    'martin-georgiev/social-post' => 
+    array (
+      'pretty_version' => 'v1.0',
+      'version' => '1.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd0ea7061a4eaadf9529c8cb7e82882b4e45430c3',
+    ),
+    'martin-georgiev/social-post-bundle' => 
+    array (
+      'pretty_version' => 'v3.1.0',
+      'version' => '3.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a9c459a22d3b5ac7d756fb061a920885fd562c9a',
     ),
     'monolog/monolog' => 
     array (
@@ -250,6 +349,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'c6d052fc58cb876152f89f532b95a8d7907e7f0e',
+    ),
+    'ob/highcharts-bundle' => 
+    array (
+      'pretty_version' => '1.7',
+      'version' => '1.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7faa0a48aa8255ff047b2ff76ead6222bfffc2da',
     ),
     'ocramius/package-versions' => 
     array (
@@ -272,19 +380,100 @@ private static $installed = array (
         0 => '2.*',
       ),
     ),
+    'phenx/php-font-lib' => 
+    array (
+      'pretty_version' => '0.5.2',
+      'version' => '0.5.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ca6ad461f032145fff5971b5985e5af9e7fa88d8',
+    ),
+    'phenx/php-svg-lib' => 
+    array (
+      'pretty_version' => 'v0.3.3',
+      'version' => '0.3.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5fa61b65e612ce1ae15f69b3d223cb14ecc60e32',
+    ),
     'php-http/async-client-implementation' => 
     array (
       'provided' => 
       array (
-        0 => '*',
+        0 => '1.0',
+        1 => '*',
       ),
     ),
     'php-http/client-implementation' => 
     array (
       'provided' => 
       array (
-        0 => '*',
+        0 => '1.0',
+        1 => '*',
       ),
+    ),
+    'php-http/curl-client' => 
+    array (
+      'pretty_version' => 'v1.7.1',
+      'version' => '1.7.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6341a93d00e5d953fc868a3928b5167e6513f2b6',
+    ),
+    'php-http/discovery' => 
+    array (
+      'pretty_version' => '1.13.0',
+      'version' => '1.13.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '788f72d64c43dc361e7fcc7464c3d947c64984a7',
+    ),
+    'php-http/httplug' => 
+    array (
+      'pretty_version' => 'v1.1.0',
+      'version' => '1.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1c6381726c18579c4ca2ef1ec1498fdae8bdf018',
+    ),
+    'php-http/message' => 
+    array (
+      'pretty_version' => '1.11.0',
+      'version' => '1.11.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fb0dbce7355cad4f4f6a225f537c34d013571f29',
+    ),
+    'php-http/message-factory' => 
+    array (
+      'pretty_version' => 'v1.0.2',
+      'version' => '1.0.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a478cb11f66a6ac48d8954216cfed9aa06a501a1',
+    ),
+    'php-http/message-factory-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
+    ),
+    'php-http/promise' => 
+    array (
+      'pretty_version' => '1.1.0',
+      'version' => '1.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4c4c1f9b7289a2ec57cde7f1e9762a5789506f88',
     ),
     'phpdocumentor/reflection-common' => 
     array (
@@ -359,6 +548,15 @@ private static $installed = array (
         0 => '1.0',
       ),
     ),
+    'psr/http-message' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
+    ),
     'psr/link' => 
     array (
       'pretty_version' => '1.0.0',
@@ -398,6 +596,15 @@ private static $installed = array (
       array (
         0 => '1.0',
       ),
+    ),
+    'sabberworm/php-css-parser' => 
+    array (
+      'pretty_version' => '8.3.1',
+      'version' => '8.3.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd217848e1396ef962fb1997cf3e2421acba7f796',
     ),
     'sensio/framework-extra-bundle' => 
     array (
@@ -1120,6 +1327,13 @@ private static $installed = array (
       'replaced' => 
       array (
         0 => '3.2.1',
+      ),
+    ),
+    'zendframework/zend-json' => 
+    array (
+      'replaced' => 
+      array (
+        0 => '3.1.2',
       ),
     ),
   ),

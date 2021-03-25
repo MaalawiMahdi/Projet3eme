@@ -49,10 +49,22 @@ class User
      */
     private $paniers;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Ld::class, mappedBy="User", orphanRemoval=true)
+     */
+    private $lds;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Notesujet::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $notesujets;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
         $this->paniers = new ArrayCollection();
+        $this->lds = new ArrayCollection();
+        $this->notesujets = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -167,6 +179,66 @@ class User
             // set the owning side to null (unless already changed)
             if ($panier->getUser() === $this) {
                 $panier->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ld[]
+     */
+    public function getLds(): Collection
+    {
+        return $this->lds;
+    }
+
+    public function addLd(Ld $ld): self
+    {
+        if (!$this->lds->contains($ld)) {
+            $this->lds[] = $ld;
+            $ld->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLd(Ld $ld): self
+    {
+        if ($this->lds->removeElement($ld)) {
+            // set the owning side to null (unless already changed)
+            if ($ld->getUser() === $this) {
+                $ld->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Notesujet[]
+     */
+    public function getNotesujets(): Collection
+    {
+        return $this->notesujets;
+    }
+
+    public function addNotesujet(Notesujet $notesujet): self
+    {
+        if (!$this->notesujets->contains($notesujet)) {
+            $this->notesujets[] = $notesujet;
+            $notesujet->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNotesujet(Notesujet $notesujet): self
+    {
+        if ($this->notesujets->removeElement($notesujet)) {
+            // set the owning side to null (unless already changed)
+            if ($notesujet->getUser() === $this) {
+                $notesujet->setUser(null);
             }
         }
 

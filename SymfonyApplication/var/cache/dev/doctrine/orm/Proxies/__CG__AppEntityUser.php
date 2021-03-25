@@ -66,10 +66,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'type', '' . "\0" . 'App\\Entity\\User' . "\0" . 'mail', '' . "\0" . 'App\\Entity\\User' . "\0" . 'societe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'commentaires', '' . "\0" . 'App\\Entity\\User' . "\0" . 'paniers'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'type', '' . "\0" . 'App\\Entity\\User' . "\0" . 'mail', '' . "\0" . 'App\\Entity\\User' . "\0" . 'societe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'commentaires', '' . "\0" . 'App\\Entity\\User' . "\0" . 'paniers', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lds', '' . "\0" . 'App\\Entity\\User' . "\0" . 'notesujets'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'type', '' . "\0" . 'App\\Entity\\User' . "\0" . 'mail', '' . "\0" . 'App\\Entity\\User' . "\0" . 'societe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'commentaires', '' . "\0" . 'App\\Entity\\User' . "\0" . 'paniers'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'type', '' . "\0" . 'App\\Entity\\User' . "\0" . 'mail', '' . "\0" . 'App\\Entity\\User' . "\0" . 'societe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'commentaires', '' . "\0" . 'App\\Entity\\User' . "\0" . 'paniers', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lds', '' . "\0" . 'App\\Entity\\User' . "\0" . 'notesujets'];
     }
 
     /**
@@ -343,6 +343,72 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removePanier', [$panier]);
 
         return parent::removePanier($panier);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getLds(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLds', []);
+
+        return parent::getLds();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addLd(\App\Entity\Ld $ld): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLd', [$ld]);
+
+        return parent::addLd($ld);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeLd(\App\Entity\Ld $ld): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLd', [$ld]);
+
+        return parent::removeLd($ld);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getNotesujets(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNotesujets', []);
+
+        return parent::getNotesujets();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addNotesujet(\App\Entity\Notesujet $notesujet): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addNotesujet', [$notesujet]);
+
+        return parent::addNotesujet($notesujet);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeNotesujet(\App\Entity\Notesujet $notesujet): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeNotesujet', [$notesujet]);
+
+        return parent::removeNotesujet($notesujet);
     }
 
 }

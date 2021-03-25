@@ -19,14 +19,15 @@ class SujetType extends AbstractType
         $builder
             ->add('titre',
             TextareaType::class,
-                ['attr' => ['placeholder' => 'Tapez le titre ici ']]
+                ['attr' => ['placeholder' => 'Tapez le titre ici '],'required'=>false]
             )
 
             ->add('description',TextareaType::class,['required'=>false,
                 'attr' => ['placeholder' => 'Tapez la description ici ']])
 
             ->add('lien_image', FileType::class, [
-                'required'=>false,
+                    'required'=>false,
+                    'mapped'=>false,
                     ('data_class')=>null]
             )
 

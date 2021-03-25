@@ -5,7 +5,9 @@
     <li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Moderateur</a></li>
 {% endblock %}
 {% block content %}
-{{ form(form) }}
+    <img src="{{ asset('im/' ~sujet.lienimage) }}">
+
+    {{ form(form) }}
 
 
 

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Commentaire;
+use App\Entity\Ld;
 use App\Entity\Sujet;
 use App\Entity\User;
 use App\Form\CommentaireType;
@@ -11,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CommentaireController extends AbstractController
@@ -27,10 +29,10 @@ class CommentaireController extends AbstractController
     /**
      * @Route("/SupprimerCommentaire/{idboard}/{id}/{idcom}", name="SupprimerCommentaire")
      */
-    public function SupprimerCommentaire($idboard,$id,$idcom)
+    public function SupprimerCommentaire($idboard,$id,$idcom,SessionInterface $session)
     {
         $comm = $this->getDoctrine()->getRepository( Commentaire::class)->find($idcom);
-        $user = $this->getDoctrine()->getRepository( User::class)->find(1);
+        $user = $this->getDoctrine()->getRepository( User::class)->find($session->get('user')->getId());
         if ($comm->getUser()===$user)
         {
             $em=$this->getDoctrine()->getManager();
@@ -48,22 +50,124 @@ class CommentaireController extends AbstractController
     /**
      * @Route("/ModifierCommentaire/{idboard}/{id}/{idcom}", name="ModifierCommentaire")
      */
-    public function ModifierCommentaire(Request $request,$idboard,$id,$idcom)
+    public function ModifierCommentaire(Request $request,$idboard,$id,$idcom,SessionInterface $session)
     {
+        $e = "";
         $sujet=$this->getDoctrine()->getRepository(Sujet::class)->find($id);
         $comm = $this->getDoctrine()->getRepository( Commentaire::class)->find($idcom);
-        $user = $this->getDoctrine()->getRepository( User::class)->find(1);
+        $user = $this->getDoctrine()->getRepository( User::class)->find($session->get('user')->getId());
         $f = $this->createForm(CommentaireType::class,$comm);
         $f->add('Valider', SubmitType::class);
         $f->handleRequest($request);
         if($f->isSubmitted()&&$f->isValid())
         {
-            $em = $this->getDoctrine()->getManager();
-            $em->flush();
-            return $this->redirectToRoute('ConsulterSujetFront',['idboard'=>$idboard,'id'=>$id]);
+            $c = $comm->getCom();
+            if (str_contains($c, 'religion') || str_contains($c, 'politique')) {
+                $e = '1';
+            }
+            else
+            {
+                $em = $this->getDoctrine()->getManager();
+                $em->flush();
+                return $this->redirectToRoute('ConsulterSujetFront',['idboard'=>$idboard,'id'=>$id]);
+            }
         }
         $listc=$this->getDoctrine()->getRepository(Commentaire::class)->findAll();
-        return $this->render('sujet/modifiercommentairefront.html.twig',['sujet'=>$sujet, 'board_id'=>$idboard, 'f'=>$f->createView(),'listc'=>$listc, 'user'=>$user,'idcom'=>$idcom]);
+        return $this->render('sujet/modifiercommentairefront.html.twig',['e'=>$e,'sujet'=>$sujet, 'board_id'=>$idboard, 'f'=>$f->createView(),'listc'=>$listc, 'user'=>$user,'idcom'=>$idcom]);
 
     }
+    /**
+     * @Route("/Like/{idcom}/{iduser}", name="Like")
+     */
+    public function Like($idcom,$iduser) : Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $commentaire = $this->getDoctrine()->getRepository(Commentaire::class)->find($idcom);
+        $u = $this->getDoctrine()->getRepository(User::class)->find($iduser);
+        if ($commentaire->isLikedBy($u))
+        {
+            $x = $this->getDoctrine()->getRepository(Ld::class)->findOneBy(array('Commentaire'=>$commentaire,'User'=>$u,'value'=>'like'));
+            $em ->remove($x);
+            $em ->flush();
+            return $this->json([
+                'code'=>200,
+                'likes'=>$this->getDoctrine()->getRepository(Ld::class)->count(['Commentaire'=>$commentaire,'value'=>'like']),
+                'dislikes'=>$this->getDoctrine()->getRepository(Ld::class)->count(['Commentaire'=>$commentaire,'value'=>'dislike']),
+                'idcom'=>$idcom
+            ],200);
+        }
+        elseif ($commentaire->isDisLikedBy($u))
+        {
+            $x = $this->getDoctrine()->getRepository(Ld::class)->findOneBy(array('Commentaire'=>$commentaire,'User'=>$u,'value'=>'dislike'));
+            $x->setValue('like');
+            $em ->flush();
+            return $this->json([
+                'code'=>200,
+                'likes' => $this->getDoctrine()->getRepository(Ld::class)->count(['Commentaire'=>$commentaire,'value'=>'like']),
+                'dislikes'=>$this->getDoctrine()->getRepository(Ld::class)->count(['Commentaire'=>$commentaire,'value'=>'dislike']),
+                'idcom'=>$idcom
+            ],200);
+        }
+        $l = new Ld();
+        $l->setValue('like');
+        $l->setUser($u);
+        $l->setCommentaire($commentaire);
+        $em->persist($l);
+        $em->flush();
+        return $this->json([
+                'code' => 200,
+                'likes' => $this->getDoctrine()->getRepository(Ld::class)->count(['Commentaire'=>$commentaire,'value'=>'like']),
+                'dislikes'=>$this->getDoctrine()->getRepository(Ld::class)->count(['Commentaire'=>$commentaire,'value'=>'dislike']),
+            'idcom'=>$idcom
+        ],200);
+
+    }
+    /**
+     * @Route("/Dislike/{idcom}/{iduser}", name="Dislike")
+     */
+    public function Dislike($idcom,$iduser) : Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $commentaire = $this->getDoctrine()->getRepository(Commentaire::class)->find($idcom);
+        $u = $this->getDoctrine()->getRepository(User::class)->find($iduser);
+        if ($commentaire->isDislikedBy($u))
+        {
+            $x = $this->getDoctrine()->getRepository(Ld::class)->findOneBy(array('Commentaire'=>$commentaire,'User'=>$u,'value'=>'dislike'));
+            $em ->remove($x);
+            $em ->flush();
+            return $this->json([
+                'code'=>200,
+                'dislikes'=>$this->getDoctrine()->getRepository(Ld::class)->count(['Commentaire'=>$commentaire,'value'=>'dislike']),
+                'likes'=>$this->getDoctrine()->getRepository(Ld::class)->count(['Commentaire'=>$commentaire,'value'=>'like']),
+                'idcom'=>$idcom
+
+            ],200);
+        }
+        elseif ($commentaire->isLikedBy($u))
+        {
+            $x = $this->getDoctrine()->getRepository(Ld::class)->findOneBy(array('Commentaire'=>$commentaire,'User'=>$u,'value'=>'like'));
+            $x->setValue('dislike');
+            $em ->flush();
+            return $this->json([
+                'code'=>200,
+                'dislikes' => $this->getDoctrine()->getRepository(Ld::class)->count(['Commentaire'=>$commentaire,'value'=>'dislike']),
+                'likes'=>$this->getDoctrine()->getRepository(Ld::class)->count(['Commentaire'=>$commentaire,'value'=>'like']),
+                'idcom'=>$idcom
+            ],200);
+        }
+        $l = new Ld();
+        $l->setValue('dislike');
+        $l->setUser($u);
+        $l->setCommentaire($commentaire);
+        $em->persist($l);
+        $em->flush();
+        return $this->json([
+            'code' => 200,
+            'dislikes' => $this->getDoctrine()->getRepository(Ld::class)->count(['Commentaire'=>$commentaire,'value'=>'dislike']),
+            'likes'=>$this->getDoctrine()->getRepository(Ld::class)->count(['Commentaire'=>$commentaire,'value'=>'like']),
+            'idcom'=>$idcom
+        ],200);
+
+    }
+
 }

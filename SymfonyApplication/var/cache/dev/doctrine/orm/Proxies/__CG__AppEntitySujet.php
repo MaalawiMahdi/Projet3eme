@@ -66,10 +66,10 @@ class Sujet extends \App\Entity\Sujet implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'titre', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'lien_image', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'board', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'commentaires'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'titre', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'lien_image', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'board', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'commentaires', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'notesujets'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'titre', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'lien_image', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'board', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'commentaires'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'titre', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'description', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'lien_image', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'board', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'commentaires', '' . "\0" . 'App\\Entity\\Sujet' . "\0" . 'notesujets'];
     }
 
     /**
@@ -310,6 +310,72 @@ class Sujet extends \App\Entity\Sujet implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeCommentaire', [$commentaire]);
 
         return parent::removeCommentaire($commentaire);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getNotesujets(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNotesujets', []);
+
+        return parent::getNotesujets();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addNotesujet(\App\Entity\Notesujet $notesujet): \App\Entity\Sujet
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addNotesujet', [$notesujet]);
+
+        return parent::addNotesujet($notesujet);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeNotesujet(\App\Entity\Notesujet $notesujet): \App\Entity\Sujet
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeNotesujet', [$notesujet]);
+
+        return parent::removeNotesujet($notesujet);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function RatedBy(\App\Entity\User $u): bool
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'RatedBy', [$u]);
+
+        return parent::RatedBy($u);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function NotePerso(\App\Entity\User $u): int
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'NotePerso', [$u]);
+
+        return parent::NotePerso($u);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function NoteSujetMoyenne(): int
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'NoteSujetMoyenne', []);
+
+        return parent::NoteSujetMoyenne();
     }
 
 }

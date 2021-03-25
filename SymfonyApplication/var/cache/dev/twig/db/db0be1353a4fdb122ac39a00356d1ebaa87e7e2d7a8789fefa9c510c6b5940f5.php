@@ -114,15 +114,21 @@ class __TwigTemplate_130bab1cb82247b544c94ec1c094273d3d409ba004d293ef2f2bb9f3592
         // line 14
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 14, $this->source); })()), "description", [], "any", false, false, false, 14), 'widget');
         echo "
-    <img src=\"";
-        // line 15
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("im/" . twig_get_attribute($this->env, $this->source, (isset($context["sujet"]) || array_key_exists("sujet", $context) ? $context["sujet"] : (function () { throw new RuntimeError('Variable "sujet" does not exist.', 15, $this->source); })()), "lienimage", [], "any", false, false, false, 15))), "html", null, true);
-        echo "\">
-
-    ";
+    <br>
+    <center>
+        <img src=\"";
         // line 17
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), 'form_end');
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("im/" . twig_get_attribute($this->env, $this->source, (isset($context["sujet"]) || array_key_exists("sujet", $context) ? $context["sujet"] : (function () { throw new RuntimeError('Variable "sujet" does not exist.', 17, $this->source); })()), "lienimage", [], "any", false, false, false, 17))), "html", null, true);
+        echo "\">
+        <br>
+        <br>
+        ";
+        // line 20
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 20, $this->source); })()), 'form_end');
         echo "
+
+    </center>
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -144,7 +150,7 @@ class __TwigTemplate_130bab1cb82247b544c94ec1c094273d3d409ba004d293ef2f2bb9f3592
 
     public function getDebugInfo()
     {
-        return array (  124 => 17,  119 => 15,  115 => 14,  111 => 13,  107 => 12,  103 => 11,  97 => 9,  94 => 8,  84 => 7,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  127 => 20,  121 => 17,  115 => 14,  111 => 13,  107 => 12,  103 => 11,  97 => 9,  94 => 8,  84 => 7,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -163,9 +169,15 @@ class __TwigTemplate_130bab1cb82247b544c94ec1c094273d3d409ba004d293ef2f2bb9f3592
     {{ form_widget(form.titre) }}
     {{ form_label(form.description,\"Description\") }}
     {{ form_widget(form.description)}}
-    <img src=\"{{ asset('im/' ~sujet.lienimage) }}\">
+    <br>
+    <center>
+        <img src=\"{{ asset('im/' ~sujet.lienimage) }}\">
+        <br>
+        <br>
+        {{ form_end(form) }}
 
-    {{ form_end(form) }}
+    </center>
+
 {% endblock %}", "sujet/modifiersujet.html.twig", "D:\\Projet3eme\\SymfonyApplication\\templates\\sujet\\modifiersujet.html.twig");
     }
 }

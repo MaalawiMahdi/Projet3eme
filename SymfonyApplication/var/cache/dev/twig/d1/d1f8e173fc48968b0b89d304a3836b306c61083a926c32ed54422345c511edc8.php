@@ -91,7 +91,13 @@ class __TwigTemplate_42a1d2e834d8c1306a0fabd015e8bf6901a1d3983f3e4b5e9680c0e31dd
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
         // line 8
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()), 'form');
+        echo "    <img src=\"";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("im/" . twig_get_attribute($this->env, $this->source, (isset($context["sujet"]) || array_key_exists("sujet", $context) ? $context["sujet"] : (function () { throw new RuntimeError('Variable "sujet" does not exist.', 8, $this->source); })()), "lienimage", [], "any", false, false, false, 8))), "html", null, true);
+        echo "\">
+
+    ";
+        // line 10
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), 'form');
         echo "
 
 
@@ -117,7 +123,7 @@ class __TwigTemplate_42a1d2e834d8c1306a0fabd015e8bf6901a1d3983f3e4b5e9680c0e31dd
 
     public function getDebugInfo()
     {
-        return array (  94 => 8,  84 => 7,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  100 => 10,  94 => 8,  84 => 7,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -129,7 +135,9 @@ class __TwigTemplate_42a1d2e834d8c1306a0fabd015e8bf6901a1d3983f3e4b5e9680c0e31dd
     <li  style=\"background-color: white;\" ><a href=\"#\" style=\"color: red\"><i class=\"fa fa-circle-o\" style=\"color: red\"></i> Gestion de Moderateur</a></li>
 {% endblock %}
 {% block content %}
-{{ form(form) }}
+    <img src=\"{{ asset('im/' ~sujet.lienimage) }}\">
+
+    {{ form(form) }}
 
 
 

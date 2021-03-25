@@ -6,8 +6,11 @@ use App\Repository\SujetRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Boolean;
+use phpDocumentor\Reflection\Utils;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 /**
@@ -31,6 +34,12 @@ class Sujet
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotBlank(message="Description est obligatoire")
+     * @Assert\Length(
+     *      min = "15",
+     *      max = "200",
+     *      minMessage = "Votre description doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre description ne peut pas être plus long que {{ limit }} caractères"
+     * )
      */
     private $description;
 
@@ -50,9 +59,15 @@ class Sujet
      */
     private $commentaires;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Notesujet::class, mappedBy="sujet", orphanRemoval=true)
+     */
+    private $notesujets;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->notesujets = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -133,6 +148,76 @@ class Sujet
             if ($commentaire->getSujet() === $this) {
                 $commentaire->setSujet(null);
             }
+        }
+    }
+
+    /**
+     * @return Collection|Notesujet[]
+     */
+    public function getNotesujets(): Collection
+    {
+        return $this->notesujets;
+    }
+
+    public function addNotesujet(Notesujet $notesujet): self
+    {
+        if (!$this->notesujets->contains($notesujet)) {
+            $this->notesujets[] = $notesujet;
+            $notesujet->setSujet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNotesujet(Notesujet $notesujet): self
+    {
+        if ($this->notesujets->removeElement($notesujet)) {
+            // set the owning side to null (unless already changed)
+            if ($notesujet->getSujet() === $this) {
+                $notesujet->setSujet(null);
+            }
+        }
+
+        return $this;
+    }
+    public function RatedBy(User $u): Bool
+    {
+        foreach ($this->notesujets as $ns)
+        {
+            if( $ns->getUser() === $u)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public function NotePerso(User $u): int
+    {
+        foreach ($this->notesujets as $ns)
+        {
+            if( $ns->getUser() === $u)
+            {
+                return $ns->getValue();
+            }
+        }
+        return 0;
+    }
+    public function NoteSujetMoyenne() : int
+    {
+        $x = 0;
+        $nb = 0;
+        foreach ($this->notesujets as $ns)
+        {
+            $nb = $nb + 1;
+            $x = $x + $ns->getValue();
+        }
+        if ($nb != 0)
+        {
+            $moy = $x / $nb;
+            return (round ($moy));
+        }
+        else {
+            return 0;
         }
     }
 }

@@ -111,38 +111,51 @@ class __TwigTemplate_a27614c995431dae6ce8fac7c83f1fcf222b1966402efa1b63bd5a690be
                 if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["i"], "id", [], "any", false, false, false, 25), (isset($context["idcom"]) || array_key_exists("idcom", $context) ? $context["idcom"] : (function () { throw new RuntimeError('Variable "idcom" does not exist.', 25, $this->source); })())))) {
                     // line 26
                     echo "                <td>
+
                     ";
-                    // line 27
-                    echo                     $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 27, $this->source); })()), 'form');
+                    // line 28
+                    if ((0 === twig_compare((isset($context["e"]) || array_key_exists("e", $context) ? $context["e"] : (function () { throw new RuntimeError('Variable "e" does not exist.', 28, $this->source); })()), "1"))) {
+                        // line 29
+                        echo "                        <div class=\"alert\">
+                            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>
+                            Vous utilisez un mot indésirable, merci de le changer
+                        </div>
+                    ";
+                    }
+                    // line 34
+                    echo "                    ";
+                    echo                     $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 34, $this->source); })()), 'form');
                     echo "
                 </td>
                 ";
                 } else {
-                    // line 30
+                    // line 37
                     echo "                    <td>
                         <div style=\"color:red\">";
-                    // line 31
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["i"], "User", [], "any", false, false, false, 31), "mail", [], "any", false, false, false, 31), "html", null, true);
+                    // line 38
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["i"], "User", [], "any", false, false, false, 38), "mail", [], "any", false, false, false, 38), "html", null, true);
                     echo " </div> ";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "com", [], "any", false, false, false, 31), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "com", [], "any", false, false, false, 38), "html", null, true);
                     echo "
                     </td>
                 ";
                 }
-                // line 34
+                // line 41
                 echo "                ";
             }
-            // line 35
+            // line 42
             echo "            </tr>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
+        // line 44
         echo "        </tbody>
 
     </table>
+
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -164,7 +177,7 @@ class __TwigTemplate_a27614c995431dae6ce8fac7c83f1fcf222b1966402efa1b63bd5a690be
 
     public function getDebugInfo()
     {
-        return array (  143 => 37,  136 => 35,  133 => 34,  125 => 31,  122 => 30,  116 => 27,  113 => 26,  111 => 25,  108 => 24,  106 => 23,  102 => 21,  98 => 20,  87 => 12,  81 => 9,  77 => 8,  71 => 4,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  154 => 44,  147 => 42,  144 => 41,  136 => 38,  133 => 37,  126 => 34,  119 => 29,  117 => 28,  113 => 26,  111 => 25,  108 => 24,  106 => 23,  102 => 21,  98 => 20,  87 => 12,  81 => 9,  77 => 8,  71 => 4,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -195,6 +208,13 @@ class __TwigTemplate_a27614c995431dae6ce8fac7c83f1fcf222b1966402efa1b63bd5a690be
 
                 {% if i.id == idcom %}
                 <td>
+
+                    {% if e == '1' %}
+                        <div class=\"alert\">
+                            <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>
+                            Vous utilisez un mot indésirable, merci de le changer
+                        </div>
+                    {% endif %}
                     {{ form(f) }}
                 </td>
                 {% else %}
@@ -208,6 +228,8 @@ class __TwigTemplate_a27614c995431dae6ce8fac7c83f1fcf222b1966402efa1b63bd5a690be
         </tbody>
 
     </table>
+
+
 {% endblock %}", "sujet/modifiercommentairefront.html.twig", "D:\\Projet3eme\\SymfonyApplication\\templates\\sujet\\modifiercommentairefront.html.twig");
     }
 }
