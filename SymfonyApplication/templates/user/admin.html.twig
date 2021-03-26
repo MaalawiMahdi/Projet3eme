@@ -1,12 +1,25 @@
 
 
     {% include('temp1.html.twig') %}
-
+        <div class="content">
     <h1>User index</h1>
+            <table id="tableuser" class="table">
+                <thead>
+                <tr>
+                <th><script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+                <input id="search" class="form-control " type="text" name="search" placeholder="Search ..." aria-label="Search"  >
+                  </th>
+                </tr>
+                <tr>
+                    <th><p><label>Banned</label>  <input id="bannedCheck" type="checkbox" class="form-check" unchecked></p></th>
+                    <th><p><label>Not Banned</label>  <input id="notbannedCheck" type="checkbox" class="form-check" unchecked></p></th>
+                    <th><p><label>Active</label>  <input id="ActiveCheck" type="checkbox" class="form-check" unchecked></p></th>
+                    <th><p><label>Not Active</label>  <input id="notActiveCheck" type="checkbox" class="form-check" unchecked></p></th>
+                    <th><p><label>All</label>  <input id="withoutFiltre" type="checkbox" class="form-check" checked disabled></p></th>
 
-    <table class="table">
-        <thead>
-        <tr>
+
+                </tr>
+                <tr>
             <th>Id</th>
             <th>Password</th>
             <th>Type</th>
@@ -14,23 +27,128 @@
             <th>actions</th>
         </tr>
         </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.type }}</td>
-                <td>{{ user.mail }}</td>
-                <td>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                <tbody id="AjaxTableUser">
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.password }}</td>
+                        <td>{{ user.type }}</td>
+                        <td>{{ user.mail }}</td>
+                        <td>
+                            <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#search').keyup(function(){
+                search_table($(this).val());
+            });
+            $('#bannedCheck').change(function () {
+                if (this.checked) {
+                    $('#notbannedCheck').prop('checked', false);
+                    $('#ActiveCheck').prop('checked', false);
+                    $('#notActiveCheck').prop('checked', false);
+                    $('#withoutFiltre').prop('checked', false);
+
+                    axios.get('/user/index/ban/1').then((response) => {
+                        $('#AjaxTableUser').html(response.data.template)
+                    });
+                }else{
+                    $('#withoutFiltre').prop('checked', true);
+
+                    axios.get('/user/index/non_filtre').then((response) => {
+                        $('#AjaxTableUser').html(response.data.template)
+                    });
+                }
+            });
+
+            $('#notbannedCheck').change(function () {
+                if (this.checked) {
+                    $('#bannedCheck').prop('checked', false);
+                    $('#ActiveCheck').prop('checked', false);
+                    $('#notActiveCheck').prop('checked', false);
+                    $('#withoutFiltre').prop('checked', false);
+
+                    axios.get('/user/index/ban/0').then((response) => {
+                        $('#AjaxTableUser').html(response.data.template)
+                    });
+                }else{
+                    $('#withoutFiltre').prop('checked', true);
+
+                    axios.get('/user/index/non_filtre').then((response) => {
+                        $('#AjaxTableUser').html(response.data.template)
+                    });
+                }
+            });
+            $('#ActiveCheck').change(function () {
+
+                if (this.checked) {
+                    $('#bannedCheck').prop('checked', false);
+                    $('#notbannedCheck').prop('checked', false);
+                    $('#notActiveCheck').prop('checked', false);
+                    $('#withoutFiltre').prop('checked', false);
+
+                    axios.get('/user/index/active/1').then((response) => {
+                        $('#AjaxTableUser').html(response.data.template)
+                    });
+                }else{
+                    $('#withoutFiltre').prop('checked', true);
+
+                    axios.get('/user/index/non_filtre').then((response) => {
+                        $('#AjaxTableUser').html(response.data.template)
+                    });
+                }
+            });
+
+            $('#notActiveCheck').change(function () {
+                if (this.checked) {
+                    $('#bannedCheck').prop('checked', false);
+                    $('#notbannedCheck').prop('checked', false);
+                    $('#ActiveCheck').prop('checked', false);
+                    $('#withoutFiltre').prop('checked', false);
+
+                    axios.get('/user/index/active/0').then((response) => {
+                        $('#AjaxTableUser').html(response.data.template)
+                    });
+                }else{
+                    $('#withoutFiltre').prop('checked', true);
+                    axios.get('/user/index/non_filtre').then((response) => {
+                        $('#AjaxTableUser').html(response.data.template)
+                    });
+                }
+            });
+            function search_table(value){
+                $('#tableuser tbody tr').each(function(){
+                    var found = 'false';
+                    $(this).each(function(){
+                        if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                        {
+                            found = 'true';
+                        }
+                    });
+                    if(found == 'true')
+                    {
+                        $(this).show();
+
+                    }
+                    else
+                    {
+                        $(this).hide();
+
+                    }
+                });
+            }
+        });
+    </script>
     {% include('temp2.html.twig') %}
 

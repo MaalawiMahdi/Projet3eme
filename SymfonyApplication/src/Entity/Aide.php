@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AideRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -24,19 +26,19 @@ class Aide
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="le champs Titre est obligatoire *"))
      */
     private $titre;
 
     /**
-     * @ORM\Column(type="string", length=250)
+     * @ORM\Column(type="string", length=500)
      * @Assert\NotBlank(message="le champs Description est obligatoire * "))
      */
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=50, nullable=true)
+     * @ORM\Column(type="string", length=100, nullable=true)
      * @Assert\NotBlank(message="le champs adresse est obligatoire * "))
      */
     private $adresse;
@@ -44,7 +46,7 @@ class Aide
     /**
      * @ORM\Column(type="string", length=20, nullable=true)
      * @Assert\NotBlank(message="le champs numero de telephone obligatoire * "))
-     * @Assert\Length(min=8,minMessage="votre numero de telephne doit contenir au minimum 8 caractères.",max=15,minMessage="votre numero de telephne ne doit depasser 15 caractères."))
+     * @Assert\Length(min=8,minMessage="votre numero de telephne doit contenir au minimum 8 caractères.",max=15,maxMessage="votre numero de telephne ne doit depasser 15 caractères."))
      */
     private $num_tell;
 
@@ -58,6 +60,19 @@ class Aide
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorie;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Note::class, mappedBy="aide")
+     */
+    private $notes;
+
+    public function __construct()
+    {
+        $this->notes = new ArrayCollection();
+    }
+
+
+
 
     public function getId(): ?int
     {
@@ -135,4 +150,40 @@ class Aide
 
         return $this;
     }
+
+    /**
+     * @return Collection|Note[]
+     */
+    public function getNotes(): Collection
+    {
+        return $this->notes;
+    }
+
+    public function addNote(Note $note): self
+    {
+        if (!$this->notes->contains($note)) {
+            $this->notes[] = $note;
+            $note->setAide($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNote(Note $note): self
+    {
+        if ($this->notes->removeElement($note)) {
+            // set the owning side to null (unless already changed)
+            if ($note->getAide() === $this) {
+                $note->setAide(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+
+
+
+
 }

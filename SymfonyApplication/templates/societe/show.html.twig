@@ -1,9 +1,7 @@
-{% extends 'base.html.twig' %}
 
-{% block title %}Societe{% endblock %}
-
-{% block body %}
-    <h1>Societe</h1>
+{% include('temp1.html.twig') %}
+<div class="content">
+<h1>Societe</h1>
 
     <table class="table">
         <tbody>
@@ -27,12 +25,23 @@
                 <th>Etat</th>
                 <td>{{ societe.etat ? 'Yes' : 'No' }}</td>
             </tr>
+         <tr>
+             <td>
+                 {{ include('societe/_delete_form.html.twig') }}
+             </td>
+             <td>
+                 {% if(societe.etat==false) %}
+                 <a class="btn btn-danger" href="{{ path('societe_confirmer', {'id': societe.id}) }}"> Confirmer </a>
+             {% endif %}
+             </td>
+            </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('societe_index') }}">back to list</a>
-
-    <a href="{{ path('societe_edit', {'id': societe.id}) }}">edit</a>
-
-    {{ include('societe/_delete_form.html.twig') }}
-{% endblock %}
+    {# <a href="{{ path('societe_demandes') }}">back to list</a>
+     <br>
+    #}
+    {# <a href="{{ path('societe_edit', {'id': societe.id}) }}">edit</a>
+    <br>
+    #}
+</div>
+{% include('temp2.html.twig') %}

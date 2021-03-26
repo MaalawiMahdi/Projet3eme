@@ -45,6 +45,12 @@ class Board
      */
     private $moderators;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Societe::class, inversedBy="board", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Societe;
+
     public function __construct()
     {
         $this->sujets = new ArrayCollection();
@@ -167,6 +173,18 @@ class Board
                 $moderator->setBoard(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSociete(): ?Societe
+    {
+        return $this->Societe;
+    }
+
+    public function setSociete(Societe $Societe): self
+    {
+        $this->Societe = $Societe;
 
         return $this;
     }

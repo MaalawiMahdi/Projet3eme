@@ -58,7 +58,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
     <link rel=\"stylesheet\" href=\"";
         // line 9
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700\">"), "html", null, true);
-        echo "  <!-- Google web font \"Open Sans\" -->
+        echo " \">
     <link rel=\"stylesheet\" href=\"";
         // line 10
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("font-awesome-4.7.0/css/font-awesome.min.css"), "html", null, true);
@@ -119,6 +119,11 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
         // line 28
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("slick/slick.min.js"), "html", null, true);
         echo "\"></script>
+<script src=\"";
+        // line 29
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://kit.fontawesome.com/e90c3a13d2.js"), "html", null, true);
+        echo "\" crossorigin=\"anonymous\"></script>
+
 <script>
 
     /* Google map
@@ -253,13 +258,15 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
         // Update the current year in copyright
         \$('.tm-current-year').text(new Date().getFullYear());
+
     });
 
 </script>
+
 ";
-        // line 166
+        // line 170
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 167
+        // line 171
         echo "</body>
 </html>";
         
@@ -326,7 +333,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     }
 
-    // line 166
+    // line 170
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -356,7 +363,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
     public function getDebugInfo()
     {
-        return array (  330 => 166,  311 => 22,  293 => 17,  274 => 8,  263 => 167,  261 => 166,  120 => 28,  116 => 27,  112 => 26,  108 => 25,  104 => 24,  99 => 23,  97 => 22,  91 => 18,  89 => 17,  84 => 15,  80 => 14,  76 => 13,  72 => 12,  68 => 11,  64 => 10,  60 => 9,  56 => 8,  47 => 1,);
+        return array (  337 => 170,  318 => 22,  300 => 17,  281 => 8,  270 => 171,  268 => 170,  124 => 29,  120 => 28,  116 => 27,  112 => 26,  108 => 25,  104 => 24,  99 => 23,  97 => 22,  91 => 18,  89 => 17,  84 => 15,  80 => 14,  76 => 13,  72 => 12,  68 => 11,  64 => 10,  60 => 9,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -369,7 +376,7 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
     <title>{% block title %}Welcome!{% endblock %}</title>
-    <link rel=\"stylesheet\" href=\"{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700\">') }}  <!-- Google web font \"Open Sans\" -->
+    <link rel=\"stylesheet\" href=\"{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700\">') }} \">
     <link rel=\"stylesheet\" href=\"{{ asset('font-awesome-4.7.0/css/font-awesome.min.css') }}\">                <!-- Font Awesome -->
     <link rel=\"stylesheet\" href=\"{{ asset('css/bootstrap.min.css') }}\">                                      <!-- Bootstrap style -->
     <link rel=\"stylesheet\" type=\"text/css\" href=\"{{ asset('slick/slick.css') }}\"/>
@@ -389,6 +396,8 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 <script src=\"{{ asset('js/datepicker.min.js') }}\"></script>                <!-- https://github.com/qodesmith/datepicker -->
 <script src=\"{{ asset('js/jquery.singlePageNav.min.js') }}\"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
 <script src=\"{{ asset('slick/slick.min.js') }}\"></script>
+<script src=\"{{ asset('https://kit.fontawesome.com/e90c3a13d2.js') }}\" crossorigin=\"anonymous\"></script>
+
 <script>
 
     /* Google map
@@ -523,11 +532,13 @@ class __TwigTemplate_d81d5ec5f298644c4e5676bd644c848d762a40c2e4e3b7ed0798ad634b3
 
         // Update the current year in copyright
         \$('.tm-current-year').text(new Date().getFullYear());
+
     });
 
 </script>
+
 {% block javascripts %}{% endblock %}
 </body>
-</html>", "base.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\Users\\drwhoo\\Desktop\\projet integrer\\Projet3eme\\SymfonyApplication\\templates\\base.html.twig");
     }
 }

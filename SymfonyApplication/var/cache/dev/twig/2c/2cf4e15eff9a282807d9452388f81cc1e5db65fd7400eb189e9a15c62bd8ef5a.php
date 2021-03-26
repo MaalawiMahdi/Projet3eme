@@ -109,21 +109,21 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
     <![endif]-->
     <style> .btn-primary {
-            background-color: #d11414 !important;
-            border-color: #d11414 !important;
-            border-radius: 6px !important;
+            background-color: #d11414;
+            border-color: #d11414;
+            border-radius: 6px;
 
         }
         .btn-primary:hover {
-            opacity: 0.8!important;
-            background-color: #d11414!important;
-            border-color: #d11414!important;
-            border-radius: 6px!important;
+            opacity: 0.8;
+            background-color: #d11414;
+            border-color: #d11414;
+            border-radius: 6px;
         }
         .btn-primary:active {
-            background-color: #d11414 !important;
-            border-color: #d11414!important;
-            border-radius: 6px!important;
+            background-color: #d11414;
+            border-color: #d11414;
+            border-radius: 6px;
         }
     </style>
     <!-- Google Font -->
@@ -185,10 +185,12 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
                                 <div class=\"pull-left\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>
-                                </div>
+                                 </div>
                                 <div class=\"pull-right\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Sign out</a>
+                                    <a href=\"";
+        // line 112
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deconnecter");
+        echo "\" class=\"btn btn-default btn-flat\">Se Déconnecter</a>
                                 </div>
                             </li>
                         </ul>
@@ -207,7 +209,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
                     <img src=\"";
-        // line 131
+        // line 130
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
                 </div>
@@ -218,28 +220,21 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class=\"sidebar-menu\" data-widget=\"tree\">
-                <li class=\"treeview\">
+                <li class=\"treeview active\">
                     <a href=\"#\">
                         <i class=\"fa fa-dashboard\"></i> <span>Gestion des comptes</span>
                         <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
                     <ul class=\"treeview-menu\">
-                        <li class=\"active\"><a href=\"/comptes\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
-                        <li><a href=\"/demande\"><i class=\"fa fa-circle-o\"></i> Gestion des sociétés</a></li>
+                        <li class=\"active\"><a href=\"/user/index\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
+                        <li><a href=\"/societe_demandes\"><i class=\"fa fa-circle-o\"></i> Gestion des sociétés</a></li>
                     </ul>
                 </li>
 
 
 
                 <li><a href=\"/categorie\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories</span></a></li>
-                <li class=\"treeview\">
-                    <a href=\"#\">
-                        <i class=\"fa fa-dashboard\"></i> <span>Gestion des Aides</span>
-                        <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
-                    <ul class=\"treeview-menu\">
-                        <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-circle-o\"></i> Gestion des catégories aides</a></li>
-                        <li><a href=\"/AfficherAide\"><i class=\"fa fa-circle-o\"></i> Gestion des aides</a></li>
-                    </ul>
-                </li>
+                <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories aides</span></a></li>
+                <li><a href=\"/AfficherAide\"><i class=\"fa fa-book\"></i> <span>Gestion des aides</span></a></li>
 
             </ul>
         </section>
@@ -248,6 +243,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
     <!-- Content Wrapper. Contains page content -->
     <div class=\"content-wrapper\">
+
 
 ";
         
@@ -270,7 +266,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
 
     public function getDebugInfo()
     {
-        return array (  211 => 131,  177 => 100,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
+        return array (  213 => 130,  192 => 112,  177 => 100,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -314,21 +310,21 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
     <![endif]-->
     <style> .btn-primary {
-            background-color: #d11414 !important;
-            border-color: #d11414 !important;
-            border-radius: 6px !important;
+            background-color: #d11414;
+            border-color: #d11414;
+            border-radius: 6px;
 
         }
         .btn-primary:hover {
-            opacity: 0.8!important;
-            background-color: #d11414!important;
-            border-color: #d11414!important;
-            border-radius: 6px!important;
+            opacity: 0.8;
+            background-color: #d11414;
+            border-color: #d11414;
+            border-radius: 6px;
         }
         .btn-primary:active {
-            background-color: #d11414 !important;
-            border-color: #d11414!important;
-            border-radius: 6px!important;
+            background-color: #d11414;
+            border-color: #d11414;
+            border-radius: 6px;
         }
     </style>
     <!-- Google Font -->
@@ -384,10 +380,9 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
                                 <div class=\"pull-left\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>
-                                </div>
+                                 </div>
                                 <div class=\"pull-right\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Sign out</a>
+                                    <a href=\"{{ path('deconnecter') }}\" class=\"btn btn-default btn-flat\">Se Déconnecter</a>
                                 </div>
                             </li>
                         </ul>
@@ -414,28 +409,21 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class=\"sidebar-menu\" data-widget=\"tree\">
-                <li class=\"treeview\">
+                <li class=\"treeview active\">
                     <a href=\"#\">
                         <i class=\"fa fa-dashboard\"></i> <span>Gestion des comptes</span>
                         <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
                     <ul class=\"treeview-menu\">
-                        <li class=\"active\"><a href=\"/comptes\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
-                        <li><a href=\"/demande\"><i class=\"fa fa-circle-o\"></i> Gestion des sociétés</a></li>
+                        <li class=\"active\"><a href=\"/user/index\"><i class=\"fa fa-circle-o\"></i> Gestion des utilisateurs</a></li>
+                        <li><a href=\"/societe_demandes\"><i class=\"fa fa-circle-o\"></i> Gestion des sociétés</a></li>
                     </ul>
                 </li>
 
 
 
                 <li><a href=\"/categorie\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories</span></a></li>
-                <li class=\"treeview\">
-                    <a href=\"#\">
-                        <i class=\"fa fa-dashboard\"></i> <span>Gestion des Aides</span>
-                        <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
-                    <ul class=\"treeview-menu\">
-                        <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-circle-o\"></i> Gestion des catégories aides</a></li>
-                        <li><a href=\"/AfficherAide\"><i class=\"fa fa-circle-o\"></i> Gestion des aides</a></li>
-                    </ul>
-                </li>
+                <li><a href=\"/AfficherCategorieAide\"><i class=\"fa fa-book\"></i> <span>Gestion des catégories aides</span></a></li>
+                <li><a href=\"/AfficherAide\"><i class=\"fa fa-book\"></i> <span>Gestion des aides</span></a></li>
 
             </ul>
         </section>
@@ -445,6 +433,7 @@ class __TwigTemplate_e47e461f7fde5087fda51155e4fa8aa89cdfabf1a312a555146b69635e8
     <!-- Content Wrapper. Contains page content -->
     <div class=\"content-wrapper\">
 
-", "temp1.html.twig", "C:\\Users\\ASUS\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\temp1.html.twig");
+
+", "temp1.html.twig", "C:\\Users\\drwhoo\\Desktop\\projet integrer\\Projet3eme\\SymfonyApplication\\templates\\temp1.html.twig");
     }
 }

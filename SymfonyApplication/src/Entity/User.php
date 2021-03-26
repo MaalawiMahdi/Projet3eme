@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -20,7 +22,7 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=72)
      * @Assert\Length(
      *      min = 4,
      *      max = 16,
@@ -45,7 +47,7 @@ class User
     /**
      * @ORM\OneToOne(targetEntity=Societe::class, mappedBy="Useraccount", cascade={"persist", "remove"})
      */
-    private $societe;
+    private $Societe;
 
     /**
      * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="User", orphanRemoval=true)
@@ -56,6 +58,21 @@ class User
      * @ORM\OneToMany(targetEntity=Panier::class, mappedBy="User", orphanRemoval=true)
      */
     private $paniers;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $active;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $ban;
+
+    /**
+     * @ORM\OneToOne(targetEntity=InformationsSupplementaires::class, mappedBy="User", cascade={"persist", "remove"})
+     */
+    private $informationsSupplementaires;
 
     public function __construct()
     {
@@ -106,17 +123,17 @@ class User
 
     public function getSociete(): ?Societe
     {
-        return $this->societe;
+        return $this->Societe;
     }
 
-    public function setSociete(Societe $societe): self
+    public function setSociete(Societe $Societe): self
     {
         // set the owning side of the relation if necessary
-        if ($societe->getUseraccount() !== $this) {
-            $societe->setUseraccount($this);
+        if ($Societe->getUseraccount() !== $this) {
+            $Societe->setUseraccount($this);
         }
 
-        $this->societe = $societe;
+        $this->Societe = $Societe;
 
         return $this;
     }
@@ -177,6 +194,47 @@ class User
                 $panier->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): self
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    public function getBan(): ?bool
+    {
+        return $this->ban;
+    }
+
+    public function setBan(bool $ban): self
+    {
+        $this->ban = $ban;
+
+        return $this;
+    }
+
+    public function getInformationsSupplementaires(): ?InformationsSupplementaires
+    {
+        return $this->informationsSupplementaires;
+    }
+
+    public function setInformationsSupplementaires(InformationsSupplementaires $informationsSupplementaires): self
+    {
+        // set the owning side of the relation if necessary
+        if ($informationsSupplementaires->getUser() !== $this) {
+            $informationsSupplementaires->setUser($this);
+        }
+
+        $this->informationsSupplementaires = $informationsSupplementaires;
 
         return $this;
     }

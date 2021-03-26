@@ -89,6 +89,6 @@ class __TwigTemplate_64d69e4ba7bbd0cf3d3aa86f60f2863e62992cd2c69f00b5819db03c877
 
     {% include 'temp2.html.twig' %}
 
-", "admin/index.html.twig", "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\templates\\admin\\index.html.twig");
+", "admin/index.html.twig", "C:\\Users\\drwhoo\\Desktop\\projet integrer\\Projet3eme\\SymfonyApplication\\templates\\admin\\index.html.twig");
     }
 }

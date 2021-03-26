@@ -1,13 +1,25 @@
-{% extends 'base.html.twig' %}
 
-{% block title %}Edit User{% endblock %}
-
-{% block body %}
+       {% include('temp1.html.twig') %}
+<div class="content">
     <h1>Edit User</h1>
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('user/_form.html.twig') }}
 
-    <a href="{{ path('user_index') }}">back to list</a>
+    <div align="right" style="margin-top: -48px;">
+        <a class="btn btn-facebook" href="{{ path('user_index') }}">Retour</a>
+    </div>
+    <div align="right" style="margin-right: 70px; margin-top: -34px;">
 
-    {{ include('user/_delete_form.html.twig') }}
-{% endblock %}
+        {{ include('user/_delete_form.html.twig') }}
+
+    </div>
+    <div align="right" style="margin-right: 165px; margin-top: -34px;">
+        {% if(user.ban == false) %}
+        <a class="btn btn-danger" href="{{ path('ban',{'iduser':user.id}) }}">Bannir</a>
+{% else %}
+        <a class="btn btn-danger" href="{{ path('ban_remove',{'iduser':user.id}) }}">Restaurer</a>
+{% endif %}
+    </div>
+</div>
+    {% include('temp2.html.twig') %}
+
