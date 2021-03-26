@@ -1,0 +1,85 @@
+
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <style>
+        button {
+            color: #FFFFFF;
+            background-color: #ee5057;
+            border-color: #ee5057;
+            border-radius: 6px;
+            padding: 8px;
+            font-size:18px;
+        }
+        button:hover {
+            color: #FFFFFF;
+            opacity: 0.8;
+            background-color: #ee5057;
+            border-color: #ee5057;
+            border-radius: 6px;
+        }
+        button:active {
+            color: #FFFFFF;
+            background-color: #ee5057;
+            border-color: #ee5057;
+            border-radius: 6px;
+        }
+    </style>
+    {% block js %} {% endblock %}
+    {% include 'Bootstraptemplates/bootstrapAide1.html.twig'   %}
+    <div class="tm-section tm-position-relative">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="tm-section-down-arrow">
+            <polygon fill="#ee5057" points="0,0  100,0  50,60"></polygon>
+        </svg>
+
+        <div class="container tm-pt-5 tm-pb-4">
+            {{ form(formSearch,{'attr': {'novalidate': 'novalidate'}}) }}
+            <!--input id="search" class="form-control mr-sm-2" type="text" name="search" placeholder="Search ..." aria-label="Search"-->
+            <div class="row text-center" id="sa">
+                <script src="{{ asset('/js/jquery.min.js') }}"></script>
+                {% for CA in listCategorieAides %}
+                    <article class="col-sm-16 col-md-6 col-lg-6 col-xl-6 tm-article" >
+                        <i class="fa tm-fa-6x tm-color-primary tm-margin-b-20"><img style=" padding-right: 2px; padding-left: 2px; width:100px ; height: 100px ; " src="{{ asset('uploads/' ~ CA.getLienIcon())}}"></i>
+                        <h3 class="tm-color-primary tm-article-title-1">{{ CA.titre }}</h3>
+                        <!--p></p-->
+                        <form action="{{ path("AfficherAides",{'id':CA.id,'iduser':iduser} ) }}" class="text-uppercase tm-color-primary tm-font-semibold"><button>Consulter</button></form>
+                    </article>
+                {% endfor %}
+                <div style="margin-left: 37.2%; margin-top: 5%;">{{ knp_pagination_render(listCategorieAides) }}</div>
+
+                <!--script>
+                    $(document).ready(function(){
+                        $('#search').keyup(function(){
+                            search_table($(this).val());
+                        });
+                        function search_table(value){
+                            $('#sa article').each(function(){
+                                var found = 'false';
+                                $(this).each(function(){
+                                    if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                    {
+                                        found = 'true';
+                                    }
+                                });
+                                if(found == 'true')
+                                {
+                                    $(this).show();
+
+                                }
+                                else
+                                {
+                                    $(this).hide();
+
+                                }
+                            });
+                        }
+                    });
+                </script-->
+            </div>
+        </div>
+    </div>
+    {% include 'Bootstraptemplates/bootstrapAide2.html.twig' %}
+
+{% endblock %}
+

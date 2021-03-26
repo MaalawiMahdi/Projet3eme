@@ -4,33 +4,34 @@
 <style>
     button {
         color: #FFFFFF;
-        background-color: #d11414;
-        border-color: #d11414;
+        background-color: #ee5057;
+        border-color: #ee5057;
         border-radius: 6px;
     }
     button:hover {
         color: #FFFFFF;
         opacity: 0.8;
-        background-color: #d11414;
-        border-color: #d11414;
+        background-color: #ee5057;
+        border-color: #ee5057;
         border-radius: 6px;
     }
     button:active {
         color: #FFFFFF;
-        background-color: #d11414;
-        border-color: #d11414;
+        background-color: #ee5057;
+        border-color: #ee5057;
         border-radius: 6px;
     }
 </style>
 <div class="box">
     <div class="box-header">
-        <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Gestion des Categories Aides </h1>
+        <h1 style ="margin-bottom: 2%; text-align: center; color: #ee5057 ;  " > Gestion des Categories Aides </h1>
 
         <form action="  {{path('ajouterCategorieAide')}} "><button>Ajouter</button></form>
 
     </div>
     <!-- /.box-header -->
     <div class="box-body">
+        {{ form(formSearch,{'attr': {'novalidate': 'novalidate'}}) }}
         <table id="example1" class="table table-bordered table-striped">
             <thead>
             <tr>

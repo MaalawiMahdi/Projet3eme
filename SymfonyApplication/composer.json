@@ -10,6 +10,8 @@
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.8",
+        "dompdf/dompdf": "^1.0",
+        "knplabs/knp-paginator-bundle": "^5.3",
         "knpuniversity/oauth2-client-bundle": "^2.8",
         "league/oauth2-google": "^3.0",
         "phpdocumentor/reflection-docblock": "^5.2",
@@ -39,9 +41,11 @@
         "symfony/web-server-bundle": "4.4.*",
         "symfony/yaml": "4.4.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "twilio/sdk": "^6.20"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "symfony/browser-kit": "^4.4",
         "symfony/css-selector": "^4.4",
         "symfony/debug-bundle": "^4.4",

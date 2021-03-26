@@ -1,0 +1,60 @@
+{% include 'temp1.html.twig' %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <div class="content">
+        <div>
+            <h1 style ="margin-bottom: 2%; text-align: center; color: #ee5057 ;  " > Statistiques des Aides </h1>
+        </div>
+        <div class="table-responsive">
+            <div class="form-group">
+                <hr class="invis">
+                <div class="container">
+                    <canvas id="aide" width="400" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+
+    let aide = document.querySelector("#aide")
+    let annGraph = new Chart(aide, {
+        scaleFontColor: "black",
+        type: "line",
+        data: {
+            labels: {{ aides| json_encode|raw }},
+            datasets: [{
+                label: "note",
+                data: {{ moyennes|json_encode|raw }},
+                backgroundColor: "rgba(238,80,87,0.8)",
+
+                pointRadius: 5,
+                pointBackgroundColor: "rgb(238,80,87)",
+                pointBorderColor: "rgba(255,255,255,0.8)",
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgb(238,80,87)",
+                pointHitRadius: 20,
+                pointBorderWidth: 1,
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        min: 0,
+                        max:5,
+                        fontColor: 'black'
+                    }
+            }],
+                xAxes: [{
+                    ticks: {
+                        fontColor: 'black'
+                    }
+                }]
+            }
+        }
+    })
+</script>
+
+
+{% include 'temp2.html.twig' %}

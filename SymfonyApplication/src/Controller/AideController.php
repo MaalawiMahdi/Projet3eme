@@ -3,12 +3,27 @@
 namespace App\Controller;
 
 use App\Form\AideType;
+use App\Form\SearchAidesType;
+use mysql_xdevapi\Exception;
+use PhpParser\Node\Scalar\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DomCrawler\Field\TextareaFormField;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 use App\Entity\Aide;
+use App\Form\TriformType;
+use App\Entity\Captcha;
+use App\Form\CaptchaType;
+use App\Form\NoteType;
+use App\Entity\Note;
+use App\Entity\User;
+
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -16,6 +31,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class AideController extends AbstractController
 {
+    public $rand=1;
     /**
      * @Route("/aide", name="aide")
      */
@@ -27,13 +43,165 @@ class AideController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * @param Request $requests
      * @return Response
      * @Route("/AfficherAide", name="AfficherAide")
      */
-    public function listAide(): Response
+    public function listAide(Request $request): Response
     {
         $Aide = $this->getDoctrine()->getRepository(Aide::class)->findAll();
-        return $this->render('aide/listAides.html.twig', ['listAide' => $Aide,]);
+        $Aidetri = $this->getDoctrine()->getRepository(Aide::class)->findAlltri();
+        $formtri=$this->createForm(TriformType::class);
+        $formtri->handleRequest($request);
+        $form=$this->createForm(SearchAidesType::class);
+        $form->handleRequest($request);
+
+
+
+
+        if ($form->isSubmitted())
+        {
+            $data=$form->getData();
+            $titre=$data['recherche'];
+            $searchAidesfind=$this->getDoctrine()->getRepository(Aide::class)->search($titre);
+            /*$searchAidesfindtri=$this->getDoctrine()->getRepository(Aide::class)->searchtri($titre);
+            if ($formtri->isSubmitted()) {
+
+                return $this->render('aide/listAide.html.twig', ['listAide' => $searchAidesfindtri,'formSearch'=>$form->createView(),
+                    'formtri' => $formtri->createView(),]);
+            }*/
+            return $this->render('aide/listAide.html.twig', ['listAide' => $searchAidesfind,'formSearch'=>$form->createView(),
+                'formtri' => $formtri->createView(),]);
+
+        }
+        else if ($formtri->isSubmitted()) {
+
+            return $this->render('aide/listAide.html.twig', ['listAide' => $Aidetri,'formSearch'=>$form->createView(),
+                'formtri' => $formtri->createView(),]);
+        }
+        return $this->render('aide/listAide.html.twig', ['listAide' => $Aide,'formSearch'=>$form->createView(),
+            'formtri' => $formtri->createView(),]);
+    }
+
+    /**
+     * @param $iduser
+     * @param $id
+     * @param Request $request
+     * @return Response
+     * @Route ("/Afficherdetailaide/{id}/{iduser}",name="Afficherdetailaide")
+     */
+    public function detailAide($iduser,$id,Request $request): Response
+    {   $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
+        $x=random_int(1,21);
+        $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
+        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
+        $formCaptcha->handleRequest($request);
+
+        if ($formCaptcha->isSubmitted()) {
+            $data=$formCaptcha->getData();
+            $findCaptcha=$this->getDoctrine()->getRepository(Captcha::class)->find($data['id']);
+            $verif=$data['Captcha'];
+            if($findCaptcha->getValue()==$verif)
+            {
+                return $this->redirectToRoute('Afficherdetailaidenote',['DetailAides' => $Aidefind,'iduser'=>$iduser,'id'=>$id]);}
+        }
+        $x=random_int(1,21);
+        $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
+        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
+        return $this->render('aide/DetailAides.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView(),]);
+
+
+    }
+
+    /**
+     * @param $iduser
+     * @param $id
+     * @param Request $request
+     * @return Response
+     * @Route ("/Afficherdetailaidenote/{id}/{iduser}",name="Afficherdetailaidenote")
+     */
+    public function detailAidenote($iduser,$id,Request $request): Response
+    {   $note=0;
+        $aviss="";
+        $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
+
+        $Notes=$this->getDoctrine()->getRepository(Note::class)->findBy(array('aide'=>$id));
+        $x = $this->getDoctrine()->getRepository(Note::class)->findOneBy(array('aide'=>$Aidefind,'user'=>$iduser));
+        $total=0;
+        $Moyenne=0;
+        if (!(empty($Notes))){
+        for ($i =0; $i <= (count($Notes)-1); $i++)
+        {
+            $total=$total+($Notes[$i]->getValeur());
+        }
+        $Moyenne=$total/(count($Notes));}
+        if(!(empty($x)))
+        {
+            $note=$x->getValeur();
+            $aviss=$x->getAvis();
+        }
+            return $this->render('aide/DetailAidesnote.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'moyenne'=>$Moyenne,'note'=>$note,'aviss'=>$aviss,]);
+
+
+
+    }
+
+    /**
+     * @Route ("/impression/{id}/{iduser}",name="impression")
+     */
+    public function impression($iduser,$id)
+    {$Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
+
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('aide/mypdf.html.twig', [
+            'title' => "Welcome to our PDF Test",'aide'=>$Aidefind,
+        ]);
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => false
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     * @Route("/AfficherAides/{id}/{iduser}", name="AfficherAides")
+     */
+    public function listAides($iduser,$id,Request $request): Response
+    {   $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->findBy(array('categorie'=>$id));
+
+        $categorieid=$Aidefind[0]->getCategorie();
+        $form=$this->createForm(SearchAidesType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted())
+        {
+            $data=$form->getData();
+            $titre=$data['recherche'];
+            $searchAidesfind=$this->getDoctrine()->getRepository(Aide::class)->searchs($titre,$categorieid);
+            return $this->render('aide/listAides.html.twig', ['listAides' => $searchAidesfind,'iduser'=>$iduser,'formSearch'=>$form->createView(),]);
+
+        }
+        return $this->render('aide/listAides.html.twig', ['listAides' => $Aidefind,'iduser'=>$iduser,'formSearch'=>$form->createView(),]);
+
     }
     /**
      * @param Request $request
@@ -130,5 +298,79 @@ class AideController extends AbstractController
             $newFilename
         ));
     }
+
+    /**
+     * @param Request $request
+     * @return mixed
+     * @Route ("/captcha", name="captcha")
+     */
+    public function captcha(Request $request)
+    {
+        $x=random_int(1,21);
+        $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
+        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
+        $formCaptcha->handleRequest($request);
+
+        if ($formCaptcha->isSubmitted()) {
+            $data=$formCaptcha->getData();
+            $findCaptcha=$this->getDoctrine()->getRepository(Captcha::class)->find($data['id']);
+            $verif=$data['Captcha'];
+            if($findCaptcha->getValue()==$verif)
+            {return $this->redirectToRoute('admin');}
+        }
+        $x=random_int(1,21);
+        $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
+        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
+
+        return $this->render('aide/Captcha.html.twig', ['captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView()]);
+    }
+
+    /**
+     * @return Response
+     * @Route ("/AfficherStatAide", name="AfficherStatAide")
+     */
+
+    public function AfficherStatAide()
+    {
+
+        $Aide = $this->getDoctrine()->getRepository(Aide::class)->findAll();
+         $Aides = [];
+        $Moyennes = [];
+        for ($j =0; $j <= (count($Aide)-1); $j++)
+        {
+            $Notes=$this->getDoctrine()->getRepository(Note::class)->findBy(array('aide'=>$Aide[$j]));
+            $Aides [$j] = $Aide[$j]->getTitre();
+            $total=0;
+            $Moyenne=0;
+            if (!(empty($Notes)))
+            {
+                for ($i =0; $i <= (count($Notes)-1); $i++)
+                {
+                    $total=$total+($Notes[$i]->getValeur());
+                }
+                $Moyenne=$total/(count($Notes));
+            }
+            $Moyennes[] = $Moyenne;
+
+        }
+        return $this->render('aide/statsAides.html.twig', [
+            'aides' => $Aides,
+            'moyennes' => $Moyennes
+        ]);
+    }
+    /**
+     * @Route("/videoAide/{id}", name="videoAide")
+     */
+    public function videoAide($id): Response
+    {$Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
+        return $this->render('aide/videoaide.html.twig', [
+            'aidefind' => $Aidefind,
+        ]);
+    }
+
+
+
 
 }

@@ -23,6 +23,9 @@
     "doctrine/common": {
         "version": "3.1.1"
     },
+    "doctrine/data-fixtures": {
+        "version": "1.5.0"
+    },
     "doctrine/dbal": {
         "version": "2.10.4"
     },
@@ -39,6 +42,18 @@
             "./config/packages/prod/doctrine.yaml",
             "./src/Entity/.gitignore",
             "./src/Repository/.gitignore"
+        ]
+    },
+    "doctrine/doctrine-fixtures-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "e5b542d4ef47d8a003c91beb35650c76907f7e53"
+        },
+        "files": [
+            "./src/DataFixtures/AppFixtures.php"
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
@@ -78,6 +93,9 @@
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
+    "dompdf/dompdf": {
+        "version": "v1.0.2"
+    },
     "egulias/email-validator": {
         "version": "2.1.25"
     },
@@ -92,6 +110,12 @@
     },
     "guzzlehttp/psr7": {
         "version": "1.8.1"
+    },
+    "knplabs/knp-components": {
+        "version": "v2.5.1"
+    },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v5.3.0"
     },
     "knpuniversity/oauth2-client-bundle": {
         "version": "1.20",
@@ -126,6 +150,12 @@
     "nikic/php-parser": {
         "version": "v4.10.4"
     },
+    "phenx/php-font-lib": {
+        "version": "0.5.2"
+    },
+    "phenx/php-svg-lib": {
+        "version": "v0.3.3"
+    },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
     },
@@ -155,6 +185,9 @@
     },
     "ralouphie/getallheaders": {
         "version": "3.0.3"
+    },
+    "sabberworm/php-css-parser": {
+        "version": "8.3.1"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
@@ -554,6 +587,9 @@
     },
     "twig/twig": {
         "version": "v3.3.0"
+    },
+    "twilio/sdk": {
+        "version": "6.20.0"
     },
     "webmozart/assert": {
         "version": "1.9.1"

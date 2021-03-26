@@ -22,6 +22,8 @@
       <parameter key="TwigExtraBundle">Twig\Extra\TwigExtraBundle\TwigExtraBundle</parameter>
       <parameter key="WebServerBundle">Symfony\Bundle\WebServerBundle\WebServerBundle</parameter>
       <parameter key="KnpUOAuth2ClientBundle">KnpU\OAuth2ClientBundle\KnpUOAuth2ClientBundle</parameter>
+      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -76,11 +78,22 @@
         <parameter key="path">C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knpuniversity\oauth2-client-bundle\src</parameter>
         <parameter key="namespace">KnpU\OAuth2ClientBundle</parameter>
       </parameter>
+      <parameter key="DoctrineFixturesBundle" type="collection">
+        <parameter key="path">C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\doctrine\doctrine-fixtures-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
+      </parameter>
+      <parameter key="KnpPaginatorBundle" type="collection">
+        <parameter key="path">C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\PaginatorBundle</parameter>
+      </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">srcApp_KernelDevDebugContainer</parameter>
     <parameter key="container.dumper.inline_class_loader">true</parameter>
     <parameter key="container.dumper.inline_factories">true</parameter>
+    <parameter key="twilio_sid">ACdc4360a77acc10736d817d6d46b25865</parameter>
+    <parameter key="twilio_token">1c6704076476bfa7f33907040ff89232</parameter>
+    <parameter key="twilio_number" type="string">+14062045814</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -254,6 +267,11 @@
     <parameter key="security.authentication.session_strategy.strategy">migrate</parameter>
     <parameter key="security.access.always_authenticate_before_granting">false</parameter>
     <parameter key="security.authentication.hide_user_not_found">true</parameter>
+    <parameter key="knp_paginator.template.pagination">twitter_bootstrap_v4_pagination.html.twig</parameter>
+    <parameter key="knp_paginator.template.filtration">@KnpPaginator/Pagination/filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">@KnpPaginator/Pagination/sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">5</parameter>
+    <parameter key="knp_paginator.page_limit">null</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -339,6 +357,10 @@
     <service id="kernel" class="App\Kernel" public="true" synthetic="true">
       <tag name="routing.route_loader"/>
     </service>
+    <service id="twilio.client" class="Twilio\Rest\Client" autowire="true" autoconfigure="true">
+      <argument>ACdc4360a77acc10736d817d6d46b25865</argument>
+      <argument>1c6704076476bfa7f33907040ff89232</argument>
+    </service>
     <service id="App\Controller\AdminController" class="App\Controller\AdminController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -395,6 +417,13 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\IndexController"/>
       </call>
     </service>
+    <service id="App\Controller\NoteController" class="App\Controller\NoteController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\NoteController"/>
+      </call>
+    </service>
     <service id="App\Controller\SocieteController" class="App\Controller\SocieteController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -416,7 +445,13 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\UserController"/>
       </call>
     </service>
+    <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
     <service id="App\Form\AideType" class="App\Form\AideType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\CategorieAideType" class="App\Form\CategorieAideType" autowire="true" autoconfigure="true">
@@ -428,16 +463,28 @@
     <service id="App\Form\InfoSuppType" class="App\Form\InfoSuppType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\NoteType" class="App\Form\NoteType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\PasswordbackupType" class="App\Form\PasswordbackupType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\PasswordkeyType" class="App\Form\PasswordkeyType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\SearchAidesType" class="App\Form\SearchAidesType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\SearchCategorieAidesType" class="App\Form\SearchCategorieAidesType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\SocieteType" class="App\Form\SocieteType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\SujetType" class="App\Form\SujetType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\TriformType" class="App\Form\TriformType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\UploadimageType" class="App\Form\UploadimageType" autowire="true" autoconfigure="true">
@@ -451,6 +498,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\BoardRepository" class="App\Repository\BoardRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\CaptchaRepository" class="App\Repository\CaptchaRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -487,6 +538,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\ModeratorRepository" class="App\Repository\ModeratorRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\NoteRepository" class="App\Repository\NoteRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -926,13 +981,18 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\AideType</argument>
+        <argument>App\Form\CaptchaType</argument>
         <argument>App\Form\CategorieAideType</argument>
         <argument>App\Form\ConnexionUserType</argument>
         <argument>App\Form\InfoSuppType</argument>
+        <argument>App\Form\NoteType</argument>
         <argument>App\Form\PasswordbackupType</argument>
         <argument>App\Form\PasswordkeyType</argument>
+        <argument>App\Form\SearchAidesType</argument>
+        <argument>App\Form\SearchCategorieAidesType</argument>
         <argument>App\Form\SocieteType</argument>
         <argument>App\Form\SujetType</argument>
+        <argument>App\Form\TriformType</argument>
         <argument>App\Form\UploadimageType</argument>
         <argument>App\Form\UserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
@@ -1269,7 +1329,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.djeAMyk"/>
+      <argument type="service" id=".service_locator.BzTXoU9"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1576,15 +1636,160 @@
         <argument key="cache_dir">C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\var\cache\dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
+          <argument key="ar" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ar.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
+          </argument>
+          <argument key="bg" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.bg.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.bg.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.bg.xlf</argument>
+          </argument>
+          <argument key="cs" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.cs.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
+          </argument>
+          <argument key="da" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.da.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.da.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
+          </argument>
+          <argument key="de" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.de.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
+          </argument>
+          <argument key="en" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.en.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
+          </argument>
+          <argument key="es" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.es.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
+          </argument>
+          <argument key="eu" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.eu.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.eu.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
+          </argument>
+          <argument key="fa" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fa.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.fa.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
+          </argument>
+          <argument key="fr" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fr.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
+          </argument>
+          <argument key="hu" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.hu.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
+          </argument>
+          <argument key="id" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.id.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
+          </argument>
+          <argument key="it" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.it.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
+          </argument>
+          <argument key="ja" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ja.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
+          </argument>
+          <argument key="ky" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ky.xliff</argument>
+          </argument>
+          <argument key="lt" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.lt.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.lt.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.lt.xlf</argument>
+          </argument>
+          <argument key="nl" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.nl.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
+          </argument>
+          <argument key="no" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.no.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.no.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
+          </argument>
+          <argument key="pl" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.pl.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
+          </argument>
+          <argument key="pt_BR" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.pt_BR.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.pt_BR.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
+          </argument>
+          <argument key="ro" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ro.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
+          </argument>
+          <argument key="ru" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ru.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
+          </argument>
+          <argument key="sv" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.sv.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.sv.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.sv.xlf</argument>
+          </argument>
+          <argument key="sw" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.sw.xliff</argument>
+          </argument>
+          <argument key="tr" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.tr.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
+          </argument>
+          <argument key="uk" type="collection">
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.uk.xliff</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
+          </argument>
           <argument key="af" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.af.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.af.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.af.xlf</argument>
-          </argument>
-          <argument key="ar" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
           </argument>
           <argument key="az" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.az.xlf</argument>
@@ -1596,11 +1801,6 @@
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.be.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.be.xlf</argument>
           </argument>
-          <argument key="bg" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.bg.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.bg.xlf</argument>
-          </argument>
           <argument key="bs" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.bs.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.bs.xlf</argument>
@@ -1611,59 +1811,19 @@
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.ca.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.ca.xlf</argument>
           </argument>
-          <argument key="cs" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
-          </argument>
-          <argument key="da" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.da.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
-          </argument>
-          <argument key="de" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
-          </argument>
           <argument key="el" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.el.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.el.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
           </argument>
-          <argument key="en" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
-          </argument>
-          <argument key="es" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
-          </argument>
           <argument key="et" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.et.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
-          </argument>
-          <argument key="eu" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.eu.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
-          </argument>
-          <argument key="fa" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.fa.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
           </argument>
           <argument key="fi" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.fi.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
-          </argument>
-          <argument key="fr" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.gl.xlf</argument>
@@ -1680,39 +1840,14 @@
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.hr.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.hr.xlf</argument>
           </argument>
-          <argument key="hu" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
-          </argument>
           <argument key="hy" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.hy.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
-          </argument>
-          <argument key="id" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
-          </argument>
-          <argument key="it" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
-          </argument>
-          <argument key="ja" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
           </argument>
           <argument key="lb" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.lb.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.lb.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
-          </argument>
-          <argument key="lt" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.lt.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.lt.xlf</argument>
           </argument>
           <argument key="lv" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.lv.xlf</argument>
@@ -1729,45 +1864,15 @@
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.nb.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.nb.xlf</argument>
           </argument>
-          <argument key="nl" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
-          </argument>
           <argument key="nn" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.nn.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.nn.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
           </argument>
-          <argument key="no" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.no.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
-          </argument>
-          <argument key="pl" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
-          </argument>
           <argument key="pt" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.pt.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
-          </argument>
-          <argument key="pt_BR" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.pt_BR.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
-          </argument>
-          <argument key="ro" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
-          </argument>
-          <argument key="ru" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.sk.xlf</argument>
@@ -1794,11 +1899,6 @@
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.sr_Latn.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.sr_Latn.xlf</argument>
           </argument>
-          <argument key="sv" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.sv.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.sv.xlf</argument>
-          </argument>
           <argument key="th" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.th.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.th.xlf</argument>
@@ -1808,16 +1908,6 @@
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.tl.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.tl.xlf</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.tl.xlf</argument>
-          </argument>
-          <argument key="tr" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
-          </argument>
-          <argument key="uk" type="collection">
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
-            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
           </argument>
           <argument key="vi" type="collection">
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations\validators.vi.xlf</argument>
@@ -1842,6 +1932,7 @@
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations</argument>
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations</argument>
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations</argument>
+          <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations</argument>
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication/translations</argument>
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\framework-bundle/translations</argument>
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/FrameworkBundle/translations</argument>
@@ -1869,6 +1960,9 @@
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/WebServerBundle/translations</argument>
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knpuniversity\oauth2-client-bundle\src/translations</argument>
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/KnpUOAuth2ClientBundle/translations</argument>
+          <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
+          <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/DoctrineFixturesBundle/translations</argument>
+          <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/KnpPaginatorBundle/translations</argument>
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
@@ -1876,6 +1970,7 @@
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\validator/Resources/translations</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\form/Resources/translations</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-core/Resources/translations</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/translations</argument>
             <argument>translations</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\framework-bundle/translations</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/FrameworkBundle/translations</argument>
@@ -1903,6 +1998,9 @@
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/WebServerBundle/translations</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knpuniversity\oauth2-client-bundle\src/translations</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/KnpUOAuth2ClientBundle/translations</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/DoctrineFixturesBundle/translations</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/KnpPaginatorBundle/translations</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/translations</argument>
           </argument>
         </argument>
@@ -2346,6 +2444,14 @@
         <argument>0</argument>
       </call>
       <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.response</argument>
         <argument type="collection">
           <argument type="service" id="response_listener"/>
@@ -2760,6 +2866,46 @@
           <argument>onKernelFinishRequest</argument>
         </argument>
         <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>before</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sortable"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.filtration"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>1</argument>
       </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver" public="false">
@@ -3266,6 +3412,9 @@
       <call method="addExtension">
         <argument type="service" id="doctrine.twig.doctrine_extension"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -3373,6 +3522,14 @@
       <call method="addPath">
         <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\symfony\security-bundle/Resources/views</argument>
         <argument>!Security</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/templates</argument>
+        <argument>KnpPaginator</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle/templates</argument>
+        <argument>!KnpPaginator</argument>
       </call>
       <call method="addPath">
         <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication/templates</argument>
@@ -4028,7 +4185,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator._w8kqGj"/>
+      <argument type="service" id=".service_locator.7O3vvRv"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5030,6 +5187,76 @@
       <argument type="service" id="knpu.oauth2.provider.google_inscription"/>
       <argument type="service" id="request_stack"/>
     </service>
+    <service id="doctrine.fixtures_load_command" class="Doctrine\Bundle\FixturesBundle\Command\LoadDataFixturesDoctrineCommand">
+      <tag name="console.command" command="doctrine:fixtures:load"/>
+      <argument type="service" id="doctrine.fixtures.loader"/>
+      <argument type="service" id="doctrine"/>
+      <argument type="collection">
+        <argument key="default" type="service" id="doctrine.fixtures.purger.orm_purger_factory"/>
+      </argument>
+      <call method="setName">
+        <argument>doctrine:fixtures:load</argument>
+      </call>
+    </service>
+    <service id="doctrine.fixtures.loader" class="Doctrine\Bundle\FixturesBundle\Loader\SymfonyFixturesLoader" public="false">
+      <argument type="service" id="service_container"/>
+      <call method="addFixtures">
+        <argument type="collection">
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\AppFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+        </argument>
+      </call>
+    </service>
+    <service id="doctrine.fixtures.purger.orm_purger_factory" class="Doctrine\Bundle\FixturesBundle\Purger\ORMPurgerFactory" public="false">
+      <tag name="doctrine.fixtures.purger_factory" alias="default"/>
+    </service>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator" public="true" lazy="true">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="request_stack"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+          <argument key="pageOutOfRange">ignore</argument>
+          <argument key="defaultLimit">10</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <tag name="container.hot_path"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">twitter_bootstrap_v4_pagination.html.twig</argument>
+        <argument key="defaultSortableTemplate">@KnpPaginator/Pagination/sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">@KnpPaginator/Pagination/filtration.html.twig</argument>
+        <argument key="defaultPageRange">5</argument>
+        <argument key="defaultPageLimit">null</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5054,6 +5281,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\NoteController" class="App\Controller\NoteController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NoteController" class="App\Controller\NoteController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\NoteController" class="App\Controller\NoteController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SocieteController" class="App\Controller\SocieteController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SocieteController" class="App\Controller\SocieteController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SocieteController" class="App\Controller\SocieteController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5063,22 +5293,34 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AideType" class="App\Form\AideType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AideType" class="App\Form\AideType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieAideType" class="App\Form\CategorieAideType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategorieAideType" class="App\Form\CategorieAideType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ConnexionUserType" class="App\Form\ConnexionUserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ConnexionUserType" class="App\Form\ConnexionUserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\InfoSuppType" class="App\Form\InfoSuppType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\InfoSuppType" class="App\Form\InfoSuppType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\NoteType" class="App\Form\NoteType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\NoteType" class="App\Form\NoteType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PasswordbackupType" class="App\Form\PasswordbackupType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\PasswordbackupType" class="App\Form\PasswordbackupType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PasswordkeyType" class="App\Form\PasswordkeyType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\PasswordkeyType" class="App\Form\PasswordkeyType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SearchAidesType" class="App\Form\SearchAidesType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SearchAidesType" class="App\Form\SearchAidesType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SearchCategorieAidesType" class="App\Form\SearchCategorieAidesType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SearchCategorieAidesType" class="App\Form\SearchCategorieAidesType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SocieteType" class="App\Form\SocieteType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SocieteType" class="App\Form\SocieteType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SujetType" class="App\Form\SujetType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SujetType" class="App\Form\SujetType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TriformType" class="App\Form\TriformType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TriformType" class="App\Form\TriformType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UploadimageType" class="App\Form\UploadimageType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UploadimageType" class="App\Form\UploadimageType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
@@ -5087,6 +5329,8 @@
     <service id=".abstract.instanceof.App\Repository\AideRepository" class="App\Repository\AideRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\BoardRepository" class="App\Repository\BoardRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\BoardRepository" class="App\Repository\BoardRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CaptchaRepository" class="App\Repository\CaptchaRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CaptchaRepository" class="App\Repository\CaptchaRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorieAideRepository" class="App\Repository\CategorieAideRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CategorieAideRepository" class="App\Repository\CategorieAideRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorieBoardRepository" class="App\Repository\CategorieBoardRepository" autowire="true" abstract="true"/>
@@ -5105,6 +5349,8 @@
     <service id=".abstract.instanceof.App\Repository\MaintenanceRepository" class="App\Repository\MaintenanceRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ModeratorRepository" class="App\Repository\ModeratorRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ModeratorRepository" class="App\Repository\ModeratorRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NoteRepository" class="App\Repository\NoteRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\NoteRepository" class="App\Repository\NoteRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PanierRepository" class="App\Repository\PanierRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\PanierRepository" class="App\Repository\PanierRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProduitServiceRepository" class="App\Repository\ProduitServiceRepository" autowire="true" abstract="true"/>
@@ -5396,6 +5642,19 @@
         <argument>make:migration</argument>
       </call>
     </service>
+    <service id=".service_locator.o3htLhs" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.wf.M68N" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="paginator" type="service" id="knp_paginator"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
     <service id=".service_locator.M1_Y_xF" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5416,16 +5675,17 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.9GiGIpz" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="client" type="service" id="twilio.client"/>
+        <argument key="mailer" type="service" id="mailer.mailer"/>
+      </argument>
+    </service>
     <service id=".service_locator.M4nb6.8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="societe" type="service" id=".errored..service_locator.M4nb6.8.App\Entity\Societe"/>
-      </argument>
-    </service>
-    <service id=".service_locator.o3htLhs" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="session" type="service" id="session"/>
       </argument>
     </service>
     <service id=".service_locator.dZRF6eB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5461,13 +5721,16 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.OiBoYbg" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.EDZyIWJ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\CategorieAideController::listCategoriesAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieAideController::listCategoriesAides" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\GoogleController::connectAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController::connectCheckAction" type="service" id=".service_locator.cSxFMnv"/>
         <argument key="App\Controller\GoogleController::inscriptionAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController::inscriptionCheckAction" type="service" id=".service_locator.Jm3FXCg"/>
+        <argument key="App\Controller\NoteController::ajouterNote" type="service" id=".service_locator.9GiGIpz"/>
         <argument key="App\Controller\SocieteController::delete" type="service" id=".service_locator.M4nb6.8"/>
         <argument key="App\Controller\SocieteController::edit" type="service" id=".service_locator.M4nb6.8"/>
         <argument key="App\Controller\SocieteController::editfront" type="service" id=".service_locator.o3htLhs"/>
@@ -5488,10 +5751,13 @@
         <argument key="App\Controller\UserController::passwordbackupkey" type="service" id=".service_locator.txaLixa"/>
         <argument key="App\Controller\UserController::profil" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::show" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieAideController:listCategoriesAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieAideController:listCategoriesAides" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\GoogleController:connectAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController:connectCheckAction" type="service" id=".service_locator.cSxFMnv"/>
         <argument key="App\Controller\GoogleController:inscriptionAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController:inscriptionCheckAction" type="service" id=".service_locator.Jm3FXCg"/>
+        <argument key="App\Controller\NoteController:ajouterNote" type="service" id=".service_locator.9GiGIpz"/>
         <argument key="App\Controller\SocieteController:delete" type="service" id=".service_locator.M4nb6.8"/>
         <argument key="App\Controller\SocieteController:edit" type="service" id=".service_locator.M4nb6.8"/>
         <argument key="App\Controller\SocieteController:editfront" type="service" id=".service_locator.o3htLhs"/>
@@ -5573,17 +5839,22 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.djeAMyk" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.BzTXoU9" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AideType" type="service" id="App\Form\AideType"/>
+        <argument key="App\Form\CaptchaType" type="service" id="App\Form\CaptchaType"/>
         <argument key="App\Form\CategorieAideType" type="service" id="App\Form\CategorieAideType"/>
         <argument key="App\Form\ConnexionUserType" type="service" id="App\Form\ConnexionUserType"/>
         <argument key="App\Form\InfoSuppType" type="service" id="App\Form\InfoSuppType"/>
+        <argument key="App\Form\NoteType" type="service" id="App\Form\NoteType"/>
         <argument key="App\Form\PasswordbackupType" type="service" id="App\Form\PasswordbackupType"/>
         <argument key="App\Form\PasswordkeyType" type="service" id="App\Form\PasswordkeyType"/>
+        <argument key="App\Form\SearchAidesType" type="service" id="App\Form\SearchAidesType"/>
+        <argument key="App\Form\SearchCategorieAidesType" type="service" id="App\Form\SearchCategorieAidesType"/>
         <argument key="App\Form\SocieteType" type="service" id="App\Form\SocieteType"/>
         <argument key="App\Form\SujetType" type="service" id="App\Form\SujetType"/>
+        <argument key="App\Form\TriformType" type="service" id="App\Form\TriformType"/>
         <argument key="App\Form\UploadimageType" type="service" id="App\Form\UploadimageType"/>
         <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
@@ -5751,11 +6022,12 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator._w8kqGj" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.7O3vvRv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\AideRepository" type="service" id="App\Repository\AideRepository"/>
         <argument key="App\Repository\BoardRepository" type="service" id="App\Repository\BoardRepository"/>
+        <argument key="App\Repository\CaptchaRepository" type="service" id="App\Repository\CaptchaRepository"/>
         <argument key="App\Repository\CategorieAideRepository" type="service" id="App\Repository\CategorieAideRepository"/>
         <argument key="App\Repository\CategorieBoardRepository" type="service" id="App\Repository\CategorieBoardRepository"/>
         <argument key="App\Repository\CategorieProduitServiceRepository" type="service" id="App\Repository\CategorieProduitServiceRepository"/>
@@ -5765,6 +6037,7 @@
         <argument key="App\Repository\LivraisonRepository" type="service" id="App\Repository\LivraisonRepository"/>
         <argument key="App\Repository\MaintenanceRepository" type="service" id="App\Repository\MaintenanceRepository"/>
         <argument key="App\Repository\ModeratorRepository" type="service" id="App\Repository\ModeratorRepository"/>
+        <argument key="App\Repository\NoteRepository" type="service" id="App\Repository\NoteRepository"/>
         <argument key="App\Repository\PanierRepository" type="service" id="App\Repository\PanierRepository"/>
         <argument key="App\Repository\ProduitServiceRepository" type="service" id="App\Repository\ProduitServiceRepository"/>
         <argument key="App\Repository\SocieteRepository" type="service" id="App\Repository\SocieteRepository"/>
@@ -5865,6 +6138,12 @@
     <service id=".service_locator.vdmMuyE.App\Controller\IndexController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\IndexController"/>
       <argument>App\Controller\IndexController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\NoteController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\NoteController"/>
+      <argument>App\Controller\NoteController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
@@ -6029,12 +6308,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.OiBoYbg"/>
+      <argument type="service" id=".service_locator.EDZyIWJ"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.OiBoYbg"/>
+      <argument type="service" id=".service_locator.EDZyIWJ"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6047,7 +6326,7 @@
     <service id=".errored..service_locator.M4nb6.8.App\Entity\Societe" class="App\Entity\Societe"/>
     <service id=".errored..service_locator.tIQ5Q0N.App\Entity\User" class="App\Entity\User"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator..dRf9lX"/>
+      <argument type="service" id=".service_locator.npLK9dQ"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -6118,6 +6397,7 @@
         <argument key="server:start">web_server.command.server_start</argument>
         <argument key="server:stop">web_server.command.server_stop</argument>
         <argument key="server:status">web_server.command.server_status</argument>
+        <argument key="doctrine:fixtures:load">doctrine.fixtures_load_command</argument>
         <argument key="make:auth">maker.auto_command.make_auth</argument>
         <argument key="make:command">maker.auto_command.make_command</argument>
         <argument key="make:controller">maker.auto_command.make_controller</argument>
@@ -6143,7 +6423,7 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator..dRf9lX" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.npLK9dQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="Doctrine\DBAL\Tools\Console\Command\RunSqlCommand" type="service" id="Doctrine\DBAL\Tools\Console\Command\RunSqlCommand"/>
@@ -6184,6 +6464,7 @@
         <argument key="doctrine.database_drop_command" type="service" id="doctrine.database_drop_command"/>
         <argument key="doctrine.database_import_command" type="service" id="doctrine.database_import_command"/>
         <argument key="doctrine.ensure_production_settings_command" type="service" id="doctrine.ensure_production_settings_command"/>
+        <argument key="doctrine.fixtures_load_command" type="service" id="doctrine.fixtures_load_command"/>
         <argument key="doctrine.mapping_convert_command" type="service" id="doctrine.mapping_convert_command"/>
         <argument key="doctrine.mapping_import_command" type="service" id="doctrine.mapping_import_command"/>
         <argument key="doctrine.mapping_info_command" type="service" id="doctrine.mapping_info_command"/>
@@ -6308,6 +6589,7 @@
     </service>
     <service id="Psr\Container\ContainerInterface" alias="service_container" public="false"/>
     <service id="Symfony\Component\DependencyInjection\ContainerInterface" alias="service_container" public="false"/>
+    <service id="Twilio\Rest\Client" alias="twilio.client"/>
     <service id="controller_name_converter" alias=".legacy_controller_name_converter" public="false">
       <deprecated>The "%alias_id%" service is deprecated since Symfony 4.3.</deprecated>
     </service>
@@ -6439,9 +6721,10 @@
     <service id="KnpU\OAuth2ClientBundle\Client\ClientRegistry" alias="knpu.oauth2.registry" public="false"/>
     <service id="oauth2.registry" alias="knpu.oauth2.registry" public="true"/>
     <service id="KnpU\OAuth2ClientBundle\Client\Provider\GoogleClient" alias="knpu.oauth2.client.google_connect" public="false"/>
+    <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.OiBoYbg"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.EDZyIWJ"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
