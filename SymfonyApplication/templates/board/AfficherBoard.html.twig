@@ -1,0 +1,144 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include '/Bootstraptemplates/accueilonline.html.twig'%}
+
+       {% block content %}
+    <table class="table" id="tableac">
+        <input id="search" class="form-control mr-sm-2" type="text" name="search" placeholder="Search ..." aria-label="Search"  >
+        <script src="{{ asset('/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+        <div id="fb-root"></div>
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Categorie</th>
+            <th scope="col">Image</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <a href="{{ path('AfficherBoardFavoris', {'id_user': user.id}) }}" class="text-uppercase btn-primary tm-btn-primary">  Juste les Favoris</a>
+
+        {% for i in listB %}
+
+            <tr>
+                <td>{{ i.id  }}</td>
+                <td>{{ i.titre  }}</td>
+                <td>{{ i.getCategorie()}}</td>
+
+
+                <td>       <article class="tm-bg-white mr-2 tm-carousel-item">
+                        <img style=" padding-right: 2px; padding-left: 2px;  width:250px ; hight: 100px ;" src="{{ asset(i.getPic())}}" alt="Image" class="img-fluid">
+                        <div class="tm-article-pad">
+                            <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
+                        </div>
+                    </article></td>
+<td>
+
+
+    <a href="{{ path('AjouterFavoris',{'id_board':i.id,'id_user':user.id} )}}" class="js-star{{ i.id }}">
+        {%  if i.Favorised(user) %}
+            <i class="fas fa-star" style="color: gold" id="Favorised{{ i.id }}"></i>
+        {% else %}
+            <i class="far fa-star" style="color: gold" id="NoFavorised{{ i.id }}"></i>
+        {% endif %}
+    </a>
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        $(document).ready(function ()
+        {
+            $('#NoFavorised{{ i.id }}').mousemove(function (){
+                $('#NoFavorised{{ i.id }}').removeClass('far fa-star').addClass('fas fa-star');
+            })
+            $('#NoFavorised{{ i.id }}').mouseleave(function (){
+                $('#NoFavorised{{ i.id }}').removeClass('fas fa-star').addClass('far fa-star');
+            })
+
+        })
+    </script>
+    <script>
+
+        document.querySelectorAll('a.js-star{{i.id}}').forEach(function (link){
+            link.addEventListener('click',StarClick);
+        })
+        function StarClick(event)
+        {
+            event.preventDefault();
+            const st = this.querySelector('i');
+            axios.get(this.href).then(function (response){
+                if (response.data.etat > 0)
+                {
+                    st.classList.replace('far','fas');
+                    $('#NoFavorised{{ i.id }}').mouseleave(function (){
+                        $('#NoFavorised{{ i.id }}').removeClass('far fa-star').addClass('fas fa-star');
+                    })
+                }
+                else
+                {
+                    st.classList.replace('fas','far')
+                    $('#NoFavorised{{ i.id }}').mousemove(function (){
+                        $('#NoFavorised{{ i.id }}').removeClass('far fa-star').addClass('fas fa-star');
+                    })
+                    $('#NoFavorised{{ i.id }}').mouseleave(function (){
+                        $('#NoFavorised{{ i.id }}').removeClass('fas fa-star').addClass('far fa-star');
+                    })
+                }
+            })
+        }
+    </script>
+
+    <!--                     {%  if i.Favorised(user) %}
+                            <a href="{{ path('SupprimerFavoris',{'id_board':i.id,'id_user':user.id} )}}"> <button>Delete From Favoris</button></a>
+
+                        {%  else %}
+                            <a href="{{ path('AjouterFavoris',{'id_board':i.id,'id_user':user.id} )}}"> <button>Add To Favoris</button></a>
+
+                        {%  endif %} -->
+</td>
+
+            </tr>
+
+        {% endfor %}
+
+        <script>
+            $(document).ready(function(){
+                $('#search').keyup(function(){
+                    search_table($(this).val());
+                });
+                function search_table(value){
+                    $('#tableac tbody tr').each(function(){
+                        var found = 'false';
+                        $(this).each(function(){
+                            if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                            {
+                                found = 'true';
+                            }
+                        });
+                        if(found == 'true')
+                        {
+                            $(this).show();
+
+                        }
+                        else
+                        {
+                            $(this).hide();
+
+                        }
+                    });
+                }
+            });
+        </script>
+        </tbody>
+        <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2F127.0.0.1%3A8000%2FAfficherBoard%2F1%3Fpage%3D1&layout=button_count&size=small&width=91&height=20&appId" width="91" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+    </table>
+           {{ knp_pagination_render(listB) }}
+           <a href="{{ path('pdf') }}" class="text-uppercase btn-primary tm-btn-primary">  Imprimer</a>
+
+{% endblock %}
+ {% endblock %}

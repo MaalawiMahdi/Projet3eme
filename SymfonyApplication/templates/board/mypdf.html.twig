@@ -1,0 +1,27 @@
+{% include 'temp1.html.twig' %}
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Categorie</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in listB %}
+
+            <tr>
+                <td>{{ i.id  }}</td>
+                <td>{{ i.titre  }}</td>
+                <td>{{ i.categorie  }}</td>
+
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
+{% include 'temp2.html.twig' %}

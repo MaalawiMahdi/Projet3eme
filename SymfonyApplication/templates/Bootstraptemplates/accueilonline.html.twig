@@ -17,15 +17,15 @@
                         <ul class="navbar-nav ml-auto">
 			    <li class="nav-item">
                                 <a class="nav-link" href="{{ path('AfficherCategorieAides') }}">Aides <span class="sr-only">(current)</span></a>
-                            </li>                            
+                            </li>
 
 			    <li class="nav-item">
 
-                                <a class="nav-link" href="/board">Boards </a>
+                                <a class="nav-link" href="{{ path('listB') }}">Boards </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/{{ path }}">{{ texte }}</a>
-                            </li>
+                <a class="nav-link" href="{{ path }}">{{ texte }}</a>
+            </li>
                             <div class="dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Options</a> <!-- lien -->
                                 <div class="dropdown-menu">
@@ -42,181 +42,4 @@
 
         </div>
     </div>
-
-    <div class="tm-section tm-bg-img" >
-        <div class="tm-bg-white ie-container-width-fix-2">
-            <div class="container ie-h-align-center-fix">
-                <div class="row">
-                    <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tm-section-2" >
-        <div class="container">
-            <div class="row">
-                <div class="col text-center">
-                    <h2 class="tm-section-title">We are here to help you?</h2>
-                    <p class="tm-color-white tm-section-subtitle">Subscribe to get our newsletters</p>
-                    <a href="#" class="tm-color-white tm-btn-white-bordered">Subscribe Newletters</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="tm-section tm-position-relative">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="tm-section-down-arrow">
-            <polygon fill="#ee5057" points="0,0  100,0  50,60"></polygon>
-        </svg>
-        <div class="container tm-pt-5 tm-pb-4">
-            <div class="row text-center">
-                <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">
-                    <i class="fa tm-fa-6x fa-legal tm-color-primary tm-margin-b-20"></i>
-                    <h3 class="tm-color-primary tm-article-title-1">Pellentesque accumsan arcu nec dolor tempus</h3>
-                    <p>Pellentesque at velit ante. Duis scelerisque metus vel felis porttitor gravida. Donec at felis libero. Mauris odio tortor.</p>
-                    <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>
-                </article>
-                <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">
-                    <i class="fa tm-fa-6x fa-plane tm-color-primary tm-margin-b-20"></i>
-                    <h3 class="tm-color-primary tm-article-title-1">Duis scelerisque metus vel felis porttitor</h3>
-                    <p>Pellentesque at velit ante. Duis scelerisque metus vel felis porttitor gravida. Donec at felis libero. Mauris odio tortor.</p>
-                    <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>
-                </article>
-                <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">
-                    <i class="fa tm-fa-6x fa-life-saver tm-color-primary tm-margin-b-20"></i>
-                    <h3 class="tm-color-primary tm-article-title-1">Etiam aliquam arcu at mauris consectetur</h3>
-                    <p>Pellentesque at velit ante. Duis scelerisque metus vel felis porttitor gravida. Donec at felis libero. Mauris odio tortor.</p>
-                    <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>
-                </article>
-            </div>
-        </div>
-    </div>
-    <div class="tm-section tm-section-pad tm-bg-gray" id="tm-section-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
-                    <div class="tm-article-carousel">
-                        <article class="tm-bg-white mr-2 tm-carousel-item">
-                            <img src="{{ asset('img/img-01.jpg') }}" alt="Image" class="img-fluid">
-                            <div class="tm-article-pad">
-                                <header><h3 class="text-uppercase tm-article-title-2">Nunc in felis aliquet metus luctus iaculis</h3></header>
-                                <p>Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla. Nullam sollicitudin at augue venenatis eleifend. Nulla ligula ligula, egestas sit amet viverra id, iaculis sit amet ligula.</p>
-                                <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
-                            </div>
-                        </article>
-                        <article class="tm-bg-white mr-2 tm-carousel-item">
-                            <img src="{{ asset('img/img-02.jpg') }}" alt="Image" class="img-fluid">
-                            <div class="tm-article-pad">
-                                <header><h3 class="text-uppercase tm-article-title-2">Sed cursus dictum nunc quis molestie</h3></header>
-                                <p>Pellentesque quis dui sit amet purus scelerisque eleifend sed ut eros. Morbi viverra blandit massa in varius. Sed nec ex eu ex tincidunt iaculis. Curabitur eget turpis gravida.</p>
-                                <a href="#" class="text-uppercase btn-primary tm-btn-primary">View Detail</a>
-                            </div>
-                        </article>
-                        <article class="tm-bg-white mr-2 tm-carousel-item">
-                            <img src="{{ asset('img/img-01.jpg')  }}" alt="Image" class="img-fluid">
-                            <div class="tm-article-pad">
-                                <header><h3 class="text-uppercase tm-article-title-2">Eget diam pellentesque interdum ut porta</h3></header>
-                                <p>Aenean finibus tempor nulla, et maximus nibh dapibus ac. Duis consequat sed sapien venenatis consequat. Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla.</p>
-                                <a href="#" class="text-uppercase btn-primary tm-btn-primary">More Info.</a>
-                            </div>
-                        </article>
-                        <article class="tm-bg-white mr-2 tm-carousel-item">
-                            <img src="{{ asset('img/img-02.jpg') }}" alt="Image" class="img-fluid">
-                            <div class="tm-article-pad">
-                                <header><h3 class="text-uppercase tm-article-title-2">Lorem ipsum dolor sit amet, consectetur</h3></header>
-                                <p>Suspendisse molestie sed dui eget faucibus. Duis accumsan sagittis tortor in ultrices. Praesent tortor ante, fringilla ac nibh porttitor, fermentum commodo nulla.</p>
-                                <a href="#" class="text-uppercase btn-primary tm-btn-primary">Detail Info.</a>
-                            </div>
-                        </article>
-                        <article class="tm-bg-white mr-2 tm-carousel-item">
-                            <img src="{{ asset('img/img-01.jpg') }}" alt="Image" class="img-fluid">
-                            <div class="tm-article-pad">
-                                <header><h3 class="text-uppercase tm-article-title-2">Orci varius natoque penatibus et</h3></header>
-                                <p>Pellentesque quis dui sit amet purus scelerisque eleifend sed ut eros. Morbi viverra blandit massa in varius. Sed nec ex eu ex tincidunt iaculis. Curabitur eget turpis gravida.</p>
-                                <a href="#" class="text-uppercase btn-primary tm-btn-primary">Read More</a>
-                            </div>
-                        </article>
-                        <article class="tm-bg-white tm-carousel-item">
-                            <img src="{{ asset('img/img-02.jpg') }}" alt="Image" class="img-fluid">
-                            <div class="tm-article-pad">
-                                <header><h3 class="text-uppercase tm-article-title-2">Nullam sollicitudin at augue venenatis eleifend</h3></header>
-                                <p>Aenean finibus tempor nulla, et maximus nibh dapibus ac. Duis consequat sed sapien venenatis consequat. Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla.</p>
-                                <a href="#" class="text-uppercase btn-primary tm-btn-primary">More Details</a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-recommended-container">
-                    <div class="tm-bg-white">
-                        <div class="tm-bg-primary tm-sidebar-pad">
-                            <h3 class="tm-color-white tm-sidebar-title">Recommended Places</h3>
-                            <p class="tm-color-white tm-margin-b-0 tm-font-light">Enamel pin cliche tilde, kitsch and VHS thundercats</p>
-                        </div>
-                        <div class="tm-sidebar-pad-2">
-                            <a href="#" class="media tm-media tm-recommended-item">
-                                <img src="{{ asset('img/tn-img-01.jpg') }}" alt="Image">
-                                <div class="media-body tm-media-body tm-bg-gray">
-                                    <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Europe</h4>
-                                </div>
-                            </a>
-                            <a href="#" class="media tm-media tm-recommended-item">
-                                <img src="{{ asset('img/tn-img-02.jpg') }}" alt="Image">
-                                <div class="media-body tm-media-body tm-bg-gray">
-                                    <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Asia</h4>
-                                </div>
-                            </a>
-                            <a href="#" class="media tm-media tm-recommended-item">
-                                <img src="{{ asset('img/tn-img-03.jpg') }}" alt="Image">
-                                <div class="media-body tm-media-body tm-bg-gray">
-                                    <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">Africa</h4>
-                                </div>
-                            </a>
-                            <a href="#" class="media tm-media tm-recommended-item">
-                                <img src="{{ asset('img/tn-img-04.jpg') }}" alt="Image">
-                                <div class="media-body tm-media-body tm-bg-gray">
-                                    <h4 class="text-uppercase tm-font-semibold tm-sidebar-item-title">South America</h4>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="tm-section tm-section-pad tm-bg-img tm-position-relative" id="tm-section-6">
-        <div class="container ie-h-align-center-fix">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-7">
-                    <div class="tm-bg-white tm-p-4">
-                        {% block inscription %}<div id="google-map"></div> {% endblock %}
-                    </div>
-
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-5 mt-3 mt-md-0">
-                    <div class="tm-bg-white tm-p-4">
-                        {% block connexion %}
-
-                        {% endblock %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="tm-bg-dark-blue">
-        <div class="container">
-            <div class="row">
-                <p class="col-sm-12 text-center tm-font-light tm-color-white p-4 tm-margin-b-0">
-                    Copyright &copy; <span class="tm-current-year">2018</span> Your Company
-
-                    - Design: Tooplate</p>
-            </div>
-        </div>
-    </footer>
 </div>

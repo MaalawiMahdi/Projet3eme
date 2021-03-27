@@ -1,0 +1,40 @@
+{% include 'temp1.html.twig' %}
+
+
+
+    {% block content %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Categorie</th>
+
+                <th scope="col">Image</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in listB %}
+
+                <tr>
+                    <td>{{ i.id  }}</td>
+                    <td>{{ i.titre  }}</td>
+                    <td>{{ i.getCategorie()}}</td>
+
+
+                    <td>       <article class="tm-bg-white mr-2 tm-carousel-item">
+                            <img style=" padding-right: 2px; padding-left: 2px;  width:250px ; hight: 100px ;" src="{{ asset(i.getPic())}}" alt="Image" class="img-fluid">
+                            <div class="tm-article-pad">
+                                <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
+                            </div>
+                        </article></td>
+
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    {% endblock %}
+{% include 'temp2.html.twig' %}

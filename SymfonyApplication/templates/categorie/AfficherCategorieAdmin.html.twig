@@ -1,0 +1,30 @@
+{% include 'temp1.html.twig' %}
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Titre</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in list %}
+
+            <tr>
+                <td>{{ i.id  }}</td>
+                <td>{{ i.titre  }}</td>
+                <td>
+                    <a href="{{ path('update', {id: i.id}) }}">  Modifier</a>
+                </td>
+                <td>
+                    <a href="{{ path('delete', {id: i.id}) }}"> Supprimer</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="/AjouterCategorie" >Ajouter une Categorie</a>
+
+{% endblock %}
+{% include 'temp2.html.twig' %}

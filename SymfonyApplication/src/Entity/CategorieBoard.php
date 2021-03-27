@@ -6,7 +6,7 @@ use App\Repository\CategorieBoardRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=CategorieBoardRepository::class)
  */
@@ -17,15 +17,19 @@ class CategorieBoard
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
+
     private $id;
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\NotBlank
      */
+
     private $titre;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     *
      */
     private $lien_icon;
 
@@ -96,5 +100,9 @@ class CategorieBoard
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {return $this->titre;
     }
 }

@@ -6,6 +6,7 @@ use App\Repository\BoardRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=BoardRepository::class)
@@ -20,6 +21,13 @@ class Board
     private $id;
 
     /**
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 16,
+     *      minMessage = "Your password must be at least {{ limit }} characters long",
+     *      maxMessage = "Your passowrd cannot be longer than {{ limit }} characters",
+     *      allowEmptyString = false
+     * )
      * @ORM\Column(type="string", length=20)
      */
     private $titre;
@@ -46,11 +54,18 @@ class Board
     private $moderators;
 
     /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $pic;
+
+    /**
      * @ORM\OneToOne(targetEntity=Societe::class, inversedBy="board", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
      */
     private $Societe;
-
+    /**
+     * @ORM\OneToMany(targetEntity=Favoris::class, mappedBy="board", orphanRemoval=true)
+     */
+    private $favoris;
     public function __construct()
     {
         $this->sujets = new ArrayCollection();
@@ -177,15 +192,66 @@ class Board
         return $this;
     }
 
+    public function getPic(): ?string
+    {
+        return $this->pic;
+    }
+
+    public function setPic(?string $pic): self
+    {
+        $this->pic = $pic;
+
+        return $this;
+    }
+
     public function getSociete(): ?Societe
     {
         return $this->Societe;
     }
 
-    public function setSociete(Societe $Societe): self
+    public function setSociete(?Societe $Societe): self
     {
         $this->Societe = $Societe;
 
         return $this;
+    }
+    /**
+     * @return Collection|Favoris[]
+     */
+    public function getFavoris(): Collection
+    {
+        return $this->favoris;
+    }
+
+    public function addFavori(Favoris $favori): self
+    {
+        if (!$this->favoris->contains($favori)) {
+            $this->favoris[] = $favori;
+            $favori->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavori(Favoris $favori): self
+    {
+        if ($this->favoris->removeElement($favori)) {
+            // set the owning side to null (unless already changed)
+            if ($favori->getUser() === $this) {
+                $favori->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+    public function Favorised(User $u) : bool
+    {    foreach ($this->favoris as $f)
+        {
+            if($f->getUser() === $u)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

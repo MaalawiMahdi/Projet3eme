@@ -1,0 +1,15 @@
+{% include 'temp1.html.twig' %}
+{% block AjoutCAT %}
+    {% if err == '1' %}
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            Vous utilisez un mot indésirable, merci de le changer
+        </div>
+    {% endif %}
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+{% endblock %}
+{% include 'temp2.html.twig' %}

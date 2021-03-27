@@ -136,7 +136,7 @@
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="treeview active">
+                <li class="treeview">
                     <a href="#">
                         <i class="fa fa-dashboard"></i> <span>Gestion des comptes</span>
                         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>  </a>
@@ -146,7 +146,6 @@
                     </ul>
                 </li>
 
-                <li><a href="/categorie"><i class="fa fa-book"></i> <span>Gestion des catégories</span></a></li>
 
                 <li class="treeview">
                     <a href="#">
@@ -159,6 +158,32 @@
                         <li><a href="/AfficherStatCatAide"><i class="fa fa-circle-o"></i> Statistiques des Categorie Aides</a></li>
                     </ul>
                 </li>
+
+                {% if list is defined %}
+                    <li class="active treeview menu-open ">
+                        <a href="#">
+                            <i class="fa fa-dashboard"></i> <span>Les Categorie</span>
+                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                        </a>
+
+                        <ul class="treeview-menu">
+                            <li><a href="{{ asset('/AfficherCategorieAdmin') }}"><i class="fa fa-circle"></i> <span>Toutes les Categories</span></a></li>
+
+                            {% for i in list %}
+                                <li><a href="{{ path("AfficherBoardAvanceForAdmin",{'categorie_id':i.id}) }}"  ><i class="fa fa-circle"></i> {{ i.titre }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ asset('/AfficherCategorieAdmin') }}" >
+                            <i class="fa fa-dashboard"></i> <span>Les Categorie</span>
+                            <span class="pull-right-container" ><i class="fa fa-angle-left pull-right " ></i></span>
+                        </a>
+                    </li>
+                {% endif %}
+                <li><a href="{{ asset('/AfficherBoardAdmin') }}"><i class="fa fa-book"></i> <span>Gestion des Boards</span></a></li>
+
 
             </ul>
         </section>

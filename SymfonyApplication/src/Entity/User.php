@@ -74,10 +74,16 @@ class User
      */
     private $informationsSupplementaires;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Favoris::class, mappedBy="User")
+     */
+    private $favoris;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
         $this->paniers = new ArrayCollection();
+        $this->favoris = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -235,6 +241,36 @@ class User
         }
 
         $this->informationsSupplementaires = $informationsSupplementaires;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Favoris[]
+     */
+    public function getFavoris(): Collection
+    {
+        return $this->favoris;
+    }
+
+    public function addFavori(Favoris $favori): self
+    {
+        if (!$this->favoris->contains($favori)) {
+            $this->favoris[] = $favori;
+            $favori->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavori(Favoris $favori): self
+    {
+        if ($this->favoris->removeElement($favori)) {
+            // set the owning side to null (unless already changed)
+            if ($favori->getUser() === $this) {
+                $favori->setUser(null);
+            }
+        }
 
         return $this;
     }

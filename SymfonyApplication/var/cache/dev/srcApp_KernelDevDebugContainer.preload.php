@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerBiIX3uJ/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerAOGNm5x/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -38,10 +38,12 @@ $classes[] = 'Symfony\Component\HttpFoundation\RequestMatcher';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'App\Controller\AdminController';
 $classes[] = 'App\Controller\AideController';
+$classes[] = 'App\Controller\BoardController';
 $classes[] = 'App\Controller\CategorieAideController';
 $classes[] = 'App\Controller\CategorieController';
 $classes[] = 'App\Controller\ComptesController';
 $classes[] = 'App\Controller\DemandeController';
+$classes[] = 'App\Controller\FavorisController';
 $classes[] = 'App\Controller\GoogleController';
 $classes[] = 'App\Controller\IndexController';
 $classes[] = 'App\Controller\NoteController';
@@ -49,8 +51,10 @@ $classes[] = 'App\Controller\SocieteController';
 $classes[] = 'App\Controller\SujetController';
 $classes[] = 'App\Controller\UserController';
 $classes[] = 'App\Form\AideType';
+$classes[] = 'App\Form\BoardType';
 $classes[] = 'App\Form\CaptchaType';
 $classes[] = 'App\Form\CategorieAideType';
+$classes[] = 'App\Form\CategorieBoardType';
 $classes[] = 'App\Form\ConnexionUserType';
 $classes[] = 'App\Form\InfoSuppType';
 $classes[] = 'App\Form\NoteType';
@@ -71,6 +75,7 @@ $classes[] = 'App\Repository\CategorieBoardRepository';
 $classes[] = 'App\Repository\CategorieProduitServiceRepository';
 $classes[] = 'App\Repository\CommandeRepository';
 $classes[] = 'App\Repository\CommentaireRepository';
+$classes[] = 'App\Repository\FavorisRepository';
 $classes[] = 'App\Repository\InformationsSupplementairesRepository';
 $classes[] = 'App\Repository\LivraisonRepository';
 $classes[] = 'App\Repository\MaintenanceRepository';

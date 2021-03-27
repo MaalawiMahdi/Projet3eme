@@ -18,7 +18,6 @@ class CategorieBoardRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, CategorieBoard::class);
     }
-
     // /**
     //  * @return CategorieBoard[] Returns an array of CategorieBoard objects
     //  */

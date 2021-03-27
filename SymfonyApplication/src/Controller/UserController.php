@@ -178,9 +178,9 @@ class UserController extends AbstractController
         if($user->getType()=="societe"){
         if(is_null($user->getSociete()->getBoard())){
             $texte="Créér votre board";
-            $path="societe";
+            $path="/AjouterBoard";
         }else{
-            $path="Gérer votre board";
+            $texte="Gérer votre board";
             $path="moderator";
         }
         }

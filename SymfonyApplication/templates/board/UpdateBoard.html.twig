@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include '/Bootstraptemplates/accueilonline.html.twig'%}
+
+    {% block content %}{% block AjoutBoard %}
+        {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    {% endblock %}
+    {% endblock %}
+{% endblock %}

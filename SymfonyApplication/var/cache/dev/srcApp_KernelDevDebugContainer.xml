@@ -375,6 +375,13 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\AideController"/>
       </call>
     </service>
+    <service id="App\Controller\BoardController" class="App\Controller\BoardController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\BoardController"/>
+      </call>
+    </service>
     <service id="App\Controller\CategorieAideController" class="App\Controller\CategorieAideController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -401,6 +408,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\DemandeController"/>
+      </call>
+    </service>
+    <service id="App\Controller\FavorisController" class="App\Controller\FavorisController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\FavorisController"/>
       </call>
     </service>
     <service id="App\Controller\GoogleController" class="App\Controller\GoogleController" public="true" autowire="true" autoconfigure="true">
@@ -451,10 +465,16 @@
     <service id="App\Form\AideType" class="App\Form\AideType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\BoardType" class="App\Form\BoardType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\CategorieAideType" class="App\Form\CategorieAideType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\CategorieBoardType" class="App\Form\CategorieBoardType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ConnexionUserType" class="App\Form\ConnexionUserType" autowire="true" autoconfigure="true">
@@ -522,6 +542,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\CommentaireRepository" class="App\Repository\CommentaireRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\FavorisRepository" class="App\Repository\FavorisRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -981,8 +1005,10 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\AideType</argument>
+        <argument>App\Form\BoardType</argument>
         <argument>App\Form\CaptchaType</argument>
         <argument>App\Form\CategorieAideType</argument>
+        <argument>App\Form\CategorieBoardType</argument>
         <argument>App\Form\ConnexionUserType</argument>
         <argument>App\Form\InfoSuppType</argument>
         <argument>App\Form\NoteType</argument>
@@ -1329,7 +1355,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.BzTXoU9"/>
+      <argument type="service" id=".service_locator.tZC12Oe"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4185,7 +4211,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.7O3vvRv"/>
+      <argument type="service" id=".service_locator.d_b2l4y"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5263,6 +5289,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AideController" class="App\Controller\AideController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AideController" class="App\Controller\AideController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AideController" class="App\Controller\AideController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BoardController" class="App\Controller\BoardController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BoardController" class="App\Controller\BoardController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\BoardController" class="App\Controller\BoardController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CategorieAideController" class="App\Controller\CategorieAideController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CategorieAideController" class="App\Controller\CategorieAideController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CategorieAideController" class="App\Controller\CategorieAideController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5275,6 +5304,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DemandeController" class="App\Controller\DemandeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DemandeController" class="App\Controller\DemandeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DemandeController" class="App\Controller\DemandeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\FavorisController" class="App\Controller\FavorisController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\FavorisController" class="App\Controller\FavorisController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\FavorisController" class="App\Controller\FavorisController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5297,10 +5329,14 @@
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AideType" class="App\Form\AideType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AideType" class="App\Form\AideType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\BoardType" class="App\Form\BoardType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\BoardType" class="App\Form\BoardType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieAideType" class="App\Form\CategorieAideType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategorieAideType" class="App\Form\CategorieAideType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieBoardType" class="App\Form\CategorieBoardType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CategorieBoardType" class="App\Form\CategorieBoardType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ConnexionUserType" class="App\Form\ConnexionUserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ConnexionUserType" class="App\Form\ConnexionUserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\InfoSuppType" class="App\Form\InfoSuppType" autowire="true" abstract="true"/>
@@ -5341,6 +5377,8 @@
     <service id=".abstract.instanceof.App\Repository\CommandeRepository" class="App\Repository\CommandeRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommentaireRepository" class="App\Repository\CommentaireRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CommentaireRepository" class="App\Repository\CommentaireRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\FavorisRepository" class="App\Repository\FavorisRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\FavorisRepository" class="App\Repository\FavorisRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\InformationsSupplementairesRepository" class="App\Repository\InformationsSupplementairesRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\InformationsSupplementairesRepository" class="App\Repository\InformationsSupplementairesRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LivraisonRepository" class="App\Repository\LivraisonRepository" autowire="true" abstract="true"/>
@@ -5642,16 +5680,16 @@
         <argument>make:migration</argument>
       </call>
     </service>
-    <service id=".service_locator.o3htLhs" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="session" type="service" id="session"/>
-      </argument>
-    </service>
     <service id=".service_locator.wf.M68N" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="paginator" type="service" id="knp_paginator"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.o3htLhs" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
@@ -5721,9 +5759,13 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.EDZyIWJ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.m2nkEkz" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\BoardController::AjouterBoard" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController::BoardFavoris" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController::BoardFind" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController::list" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\CategorieAideController::listCategoriesAide" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieAideController::listCategoriesAides" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\GoogleController::connectAction" type="service" id=".service_locator.M1_Y_xF"/>
@@ -5751,6 +5793,10 @@
         <argument key="App\Controller\UserController::passwordbackupkey" type="service" id=".service_locator.txaLixa"/>
         <argument key="App\Controller\UserController::profil" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::show" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController:AjouterBoard" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController:BoardFavoris" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController:BoardFind" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController:list" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\CategorieAideController:listCategoriesAide" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieAideController:listCategoriesAides" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\GoogleController:connectAction" type="service" id=".service_locator.M1_Y_xF"/>
@@ -5839,12 +5885,14 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.BzTXoU9" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.tZC12Oe" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AideType" type="service" id="App\Form\AideType"/>
+        <argument key="App\Form\BoardType" type="service" id="App\Form\BoardType"/>
         <argument key="App\Form\CaptchaType" type="service" id="App\Form\CaptchaType"/>
         <argument key="App\Form\CategorieAideType" type="service" id="App\Form\CategorieAideType"/>
+        <argument key="App\Form\CategorieBoardType" type="service" id="App\Form\CategorieBoardType"/>
         <argument key="App\Form\ConnexionUserType" type="service" id="App\Form\ConnexionUserType"/>
         <argument key="App\Form\InfoSuppType" type="service" id="App\Form\InfoSuppType"/>
         <argument key="App\Form\NoteType" type="service" id="App\Form\NoteType"/>
@@ -6022,7 +6070,7 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.7O3vvRv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.d_b2l4y" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\AideRepository" type="service" id="App\Repository\AideRepository"/>
@@ -6033,6 +6081,7 @@
         <argument key="App\Repository\CategorieProduitServiceRepository" type="service" id="App\Repository\CategorieProduitServiceRepository"/>
         <argument key="App\Repository\CommandeRepository" type="service" id="App\Repository\CommandeRepository"/>
         <argument key="App\Repository\CommentaireRepository" type="service" id="App\Repository\CommentaireRepository"/>
+        <argument key="App\Repository\FavorisRepository" type="service" id="App\Repository\FavorisRepository"/>
         <argument key="App\Repository\InformationsSupplementairesRepository" type="service" id="App\Repository\InformationsSupplementairesRepository"/>
         <argument key="App\Repository\LivraisonRepository" type="service" id="App\Repository\LivraisonRepository"/>
         <argument key="App\Repository\MaintenanceRepository" type="service" id="App\Repository\MaintenanceRepository"/>
@@ -6105,6 +6154,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\BoardController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\BoardController"/>
+      <argument>App\Controller\BoardController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
     <service id=".service_locator.vdmMuyE.App\Controller\CategorieAideController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\CategorieAideController"/>
       <argument>App\Controller\CategorieAideController</argument>
@@ -6126,6 +6181,12 @@
     <service id=".service_locator.vdmMuyE.App\Controller\DemandeController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\DemandeController"/>
       <argument>App\Controller\DemandeController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\FavorisController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\FavorisController"/>
+      <argument>App\Controller\FavorisController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
@@ -6308,12 +6369,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.EDZyIWJ"/>
+      <argument type="service" id=".service_locator.m2nkEkz"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.EDZyIWJ"/>
+      <argument type="service" id=".service_locator.m2nkEkz"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6724,7 +6785,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.EDZyIWJ"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.m2nkEkz"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
