@@ -8,6 +8,7 @@ use App\Form\CategorieBoardType;
 use App\Form\StudentType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,8 +31,11 @@ class CategorieController extends AbstractController
     /**
      * @Route("/AfficherCategorieClient", name="list")
      */
-    public function listC()
+    public function listC(SessionInterface $session)
     {
+        if(is_null($session->get('user'))){
+            return $this->redirectToRoute('user_inscription');
+        }
         $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
 
 
@@ -42,8 +46,10 @@ class CategorieController extends AbstractController
     /**
      * @Route("/AfficherCategorie", name="list")
      */
-    public function list()
-    {
+    public function list(SessionInterface $session)
+    {  if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }
         $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
 
 
@@ -54,8 +60,10 @@ class CategorieController extends AbstractController
     /**
      * @Route("/AfficherCategorieAdmin", name="listAdmin")
      */
-    public function listAdmin()
-    {
+    public function listAdmin(SessionInterface $session)
+    { if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }
         $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
 
 
@@ -67,8 +75,10 @@ class CategorieController extends AbstractController
     /**
      * @Route("/AjouterCategorie", name="AjouterCategorie")
      */
-    public function AjouterCategorie(Request $request)
-    {
+    public function AjouterCategorie(Request $request,SessionInterface $session)
+    {if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }
         $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
          $err="";
         $CategorieBoard =new CategorieBoard();
@@ -114,8 +124,10 @@ class CategorieController extends AbstractController
     /**
      * @Route("/UpdateCategorie/{id}", name="update")
      */
-    public function update(Request $request,$id)
-    {
+    public function update(Request $request,$id,SessionInterface $session)
+    {   if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }
         $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
 
         $em = $this->getDoctrine()->getmanager();
@@ -152,8 +164,10 @@ class CategorieController extends AbstractController
     /**
      * @Route("/DeleteCategorie/{id}", name="delete")
      */
-    public function delete($id)
-    {
+    public function delete($id,SessionInterface $session)
+    {   if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }
 
         $em = $this->getDoctrine()->getmanager();
         $CategorieBoard = $em->getRepository(CategorieBoard::class)->find($id);

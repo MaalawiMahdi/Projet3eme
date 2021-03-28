@@ -19,7 +19,43 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">
-
+    <style> .btn-primary {
+            background-color: darkred;
+            border-color: darkred;
+        }
+        .btn-primary:hover {
+            opacity: 0.7;
+            background-color: darkred;
+            border-color: darkred;
+        }
+        .btn-primary:active {
+            background-color: darkred;
+            border-color: #8b0000;
+        }
+    </style>
+    <style>
+        button {
+            color: #FFFFFF;
+            background-color: #8a0001;
+            border-color: #8a0001;
+            border-radius: 6px;
+            padding: 8px;
+            font-size:10px;
+        }
+        button:hover {
+            color: #FFFFFF;
+            opacity: 0.8;
+            background-color: #8a0001;
+            border-color: #8a0001;
+            border-radius: 6px;
+        }
+        button:active {
+            color: #FFFFFF;
+            background-color: #8a0001;
+            border-color: #8a0001;
+            border-radius: 6px;
+        }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -66,10 +102,10 @@
             </div>
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{ asset('amine.jpg') }}" class="img-circle" alt="User Image">
+                    <img src="{{ asset('ma.jpg') }}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Amine Saidi</p>
+                    <p>Mohamed Amara</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -85,10 +121,11 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
+                        {% block lienspages %}
                         <li ><a href="#" style="background-color: #ffa9a9;color: red" ><i class="fa fa-circle-o" style="color: red"></i> Gestion Des Sujet</a></li>
                         <li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Boutique</a></li>
                         <li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Moderateur</a></li>
-
+                        {% endblock %}
                     </ul>
                 </li>
             </ul>

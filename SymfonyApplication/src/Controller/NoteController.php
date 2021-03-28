@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Aide;
@@ -31,8 +32,13 @@ class NoteController extends AbstractController
      * @return mixed
      * @Route("/ajouternote/{id}/{iduser}/{valeur}",name="ajouternote", methods="GET")
      */
-    public function ajouterNote(MailerInterface $mailer, Request $request,$iduser,$id,$valeur,Client $client)
-    {   $avis=$request->get('avis');
+    public function ajouterNote(MailerInterface $mailer, Request $request,$iduser,$id,$valeur,Client $client,SessionInterface $session)
+    {    if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }else if($session->get('user')->getId()!=$iduser){
+        return $this->redirectToRoute('ajouternote',['iduser'=>$session->get('user')->getId() ,  'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
+    }
+        $avis=$request->get('avis');
         $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
         $user=$this->getDoctrine()->getRepository(User::class)->find($iduser);
         $x = $this->getDoctrine()->getRepository(Note::class)->findOneBy(array('aide'=>$Aidefind,'user'=>$iduser));
@@ -100,7 +106,7 @@ class NoteController extends AbstractController
                 $em->flush();
                 }
             }
-            return $this->redirectToRoute('Afficherdetailaidenote',['DetailAides' => $Aidefind,'iduser'=>$iduser,'id'=>$id]);
+            return $this->redirectToRoute('Afficherdetailaidenote',['DetailAides' => $Aidefind,'iduser'=>$iduser,'id'=>$id,'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
 
 
     }

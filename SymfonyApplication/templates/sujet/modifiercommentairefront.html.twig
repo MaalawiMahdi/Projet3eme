@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include 'Bootstraptemplates/navbartemplate.html.twig' %}
+
+    <br>
+    <br>
+    <br>
+    <h4><p class="text-center">{{ sujet.titre }}</p></h4>
+    <h4><p class="text">{{ sujet.description }}</p></h4>
+    <center>
+
+        <img src="{{ asset('im/' ~sujet.lienimage) }}">
+
+    </center>
+    <h3>Les Commentaires du sujet</h3>
+    <table class="table">
+        <thead>
+        </thead>
+        <tbody>
+        {% for i in listc %}
+
+            <tr>
+                {% if i.Sujet.id == sujet.id %}
+
+                {% if i.id == idcom %}
+                <td>
+
+                    {% if e == '1' %}
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Vous utilisez un mot indésirable, merci de le changer
+                        </div>
+                    {% endif %}
+                    {{ form(f) }}
+                </td>
+                {% else %}
+                    <td>
+                        <div style="color:red">{{ i.User.mail }} </div> {{ i.com }}
+                    </td>
+                {% endif %}
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

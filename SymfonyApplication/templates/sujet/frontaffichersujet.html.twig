@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% include 'Bootstraptemplates/navbartemplate.html.twig' %}
+
+    <div class="tm-section tm-position-relative">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="tm-section-down-arrow">
+            <polygon fill="#ee5057" points="0,0  100,0  50,60"></polygon>
+        </svg>
+    </div>
+    <input id="search" class="form-control mr-sm-2" type="text" name="search" placeholder="Search ..." aria-label="Search"  >
+
+    <div>
+        <div class="container tm-pt-5 tm-pb-4" >
+            <script src="{{ asset('/js/jquery.min.js') }}"></script>
+            <div class="row text-center" id="sa">
+                {% for A in list %}
+                    <article class="col-sm-16 col-md-6 col-lg-6 col-xl-6 tm-article">
+                        <i class="fa tm-fa-6x tm-color-primary tm-margin-b-20"><img style=" padding-right: 2px; padding-left: 2px; width:100px ; height: 100px ; " src="{{ asset('im/' ~A.lienimage)}}"></i>
+                        <!--<i class="fa tm-fa-6x tm-color-primary tm-margin-b-20"><img style=" padding-right: 2px; padding-left: 2px; width:100px ; height: 100px ; " src="{{ asset('uploads/' ~ A.getLienImage())}}"></i>-->
+                        <h3 class="tm-color-primary tm-article-title-1">{{ A.titre }}</h3>
+                        <p>{{ A.description}}</p>
+                        <td><form action=" {{path('ConsulterSujetFront',{idboard:A.board.id,id:A.id})}} "><button>Consulter</button></form></td>
+
+                    </article>
+                {% endfor %}
+                <script>
+                    $(document).ready(function(){
+                        $('#search').keyup(function(){
+                            search_table($(this).val());
+                        });
+                        function search_table(value){
+                            $('#sa article').each(function(){
+                                var found = 'false';
+                                $(this).each(function(){
+                                    if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                    {
+                                        found = 'true';
+                                    }
+                                });
+                                if(found == 'true')
+                                {
+                                    $(this).show();
+
+                                }
+                                else
+                                {
+                                    $(this).hide();
+
+                                }
+                            });
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <a href="{{ path('Stats',{idboard:board_id}) }}"><button>Statistique sur ce board</button></a>
+    </div>
+    <br>
+    <div class="navigation text-center">
+        {{ knp_pagination_render(list) }}
+    </div>
+{% endblock %}

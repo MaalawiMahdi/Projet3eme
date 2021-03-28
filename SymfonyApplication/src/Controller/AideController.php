@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Aide;
@@ -48,8 +49,10 @@ class AideController extends AbstractController
      * @return Response
      * @Route("/AfficherAide", name="AfficherAide")
      */
-    public function listAide(Request $request): Response
-    {
+    public function listAide(Request $request,SessionInterface $session): Response
+    {if(is_null($session->get('user'))||$session->get('user')->getType()!="admin"){
+        return $this->redirectToRoute('user_inscription');
+    }
         $Aide = $this->getDoctrine()->getRepository(Aide::class)->findAll();
         $Aidetri = $this->getDoctrine()->getRepository(Aide::class)->findAlltri();
         $formtri=$this->createForm(TriformType::class);
@@ -91,8 +94,14 @@ class AideController extends AbstractController
      * @return Response
      * @Route ("/Afficherdetailaide/{id}/{iduser}",name="Afficherdetailaide")
      */
-    public function detailAide($iduser,$id,Request $request): Response
-    {   $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
+    public function detailAide($iduser,$id,Request $request,SessionInterface $session): Response
+    {   if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }else if($session->get('user')->getId()!=$iduser){
+        return $this->redirectToRoute('Afficherdetailaide',['iduser'=>$session->get('user')->getId() ,  'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
+    }
+
+        $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
         $x=random_int(1,21);
         $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
         $formCaptcha= $this->createForm(CaptchaType::class);
@@ -105,13 +114,13 @@ class AideController extends AbstractController
             $verif=$data['Captcha'];
             if($findCaptcha->getValue()==$verif)
             {
-                return $this->redirectToRoute('Afficherdetailaidenote',['DetailAides' => $Aidefind,'iduser'=>$iduser,'id'=>$id]);}
+                return $this->redirectToRoute('Afficherdetailaidenote',['DetailAides' => $Aidefind,'iduser'=>$iduser,'id'=>$id,   'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);}
         }
         $x=random_int(1,21);
         $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
         $formCaptcha= $this->createForm(CaptchaType::class);
         $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
-        return $this->render('aide/DetailAides.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView(),]);
+        return $this->render('aide/DetailAides.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView() ,  'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
 
 
     }
@@ -123,8 +132,13 @@ class AideController extends AbstractController
      * @return Response
      * @Route ("/Afficherdetailaidenote/{id}/{iduser}",name="Afficherdetailaidenote")
      */
-    public function detailAidenote($iduser,$id,Request $request): Response
-    {   $note=0;
+    public function detailAidenote($iduser,$id,Request $request,SessionInterface $session): Response
+    {   if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }else if($session->get('user')->getId()!=$iduser){
+        return $this->redirectToRoute('Afficherdetailaidenote',['iduser'=>$session->get('user')->getId() ,  'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
+    }
+        $note=0;
         $aviss="";
         $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
 
@@ -143,7 +157,7 @@ class AideController extends AbstractController
             $note=$x->getValeur();
             $aviss=$x->getAvis();
         }
-            return $this->render('aide/DetailAidesnote.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'moyenne'=>$Moyenne,'note'=>$note,'aviss'=>$aviss,]);
+            return $this->render('aide/DetailAidesnote.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'moyenne'=>$Moyenne,'note'=>$note,'aviss'=>$aviss, 'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
 
 
 
@@ -152,8 +166,13 @@ class AideController extends AbstractController
     /**
      * @Route ("/impression/{id}/{iduser}",name="impression")
      */
-    public function impression($iduser,$id)
-    {$Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
+    public function impression($iduser,$id,SessionInterface $session)
+    {   if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }else if($session->get('user')->getId()!=$iduser){
+        return $this->redirectToRoute('impression',['iduser'=>$session->get('user')->getId() ,  'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
+    }
+        $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
 
         $pdfOptions = new Options();
         $pdfOptions->set('defaultFont', 'Arial');
@@ -186,8 +205,13 @@ class AideController extends AbstractController
      * @return Response
      * @Route("/AfficherAides/{id}/{iduser}", name="AfficherAides")
      */
-    public function listAides($iduser,$id,Request $request): Response
-    {   $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->findBy(array('categorie'=>$id));
+    public function listAides($iduser,$id,Request $request,SessionInterface $session): Response
+    {   if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }else if($session->get('user')->getId()!=$iduser){
+        return $this->redirectToRoute('impression',['iduser'=>$session->get('user')->getId() ,  'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
+    }
+        $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->findBy(array('categorie'=>$id));
 
         $categorieid=$Aidefind[0]->getCategorie();
         $form=$this->createForm(SearchAidesType::class);
@@ -197,10 +221,10 @@ class AideController extends AbstractController
             $data=$form->getData();
             $titre=$data['recherche'];
             $searchAidesfind=$this->getDoctrine()->getRepository(Aide::class)->searchs($titre,$categorieid);
-            return $this->render('aide/listAides.html.twig', ['listAides' => $searchAidesfind,'iduser'=>$iduser,'formSearch'=>$form->createView(),]);
+            return $this->render('aide/listAides.html.twig', ['listAides' => $searchAidesfind,'iduser'=>$iduser,'formSearch'=>$form->createView(),'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
 
         }
-        return $this->render('aide/listAides.html.twig', ['listAides' => $Aidefind,'iduser'=>$iduser,'formSearch'=>$form->createView(),]);
+        return $this->render('aide/listAides.html.twig', ['listAides' => $Aidefind,'iduser'=>$iduser,'formSearch'=>$form->createView(),'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
 
     }
     /**
@@ -208,8 +232,10 @@ class AideController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @Route ("/ajouterAide" , name="ajouterAide")
      */
-    public function ajouterAide(Request $request)
-    {
+    public function ajouterAide(Request $request,SessionInterface $session)
+    {   if(is_null($session->get('user'))||$session->get('user')->getType()!="admin"){
+        return $this->redirectToRoute('user_inscription');
+    }
         $Aide = new Aide();
         $form = $this->createForm(AideType::class, $Aide);
         $form->add('ajouter', SubmitType::class);
@@ -242,8 +268,10 @@ class AideController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route ("/supprimerAide/{id}" , name="supprimerAide")
      */
-    public function SupprimerAide($id)
-    {
+    public function SupprimerAide($id,SessionInterface $session)
+    {  if(is_null($session->get('user'))||$session->get('user')->getType()!="admin"){
+        return $this->redirectToRoute('user_inscription');
+    }
         $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($Aidefind);
@@ -256,8 +284,10 @@ class AideController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route ("/modifierAide/{id}" , name="modifierAide")
      */
-    public function modifierAide($id, Request $request)
-    {
+    public function modifierAide($id, Request $request,SessionInterface $session)
+    {  if(is_null($session->get('user'))||$session->get('user')->getType()!="admin"){
+        return $this->redirectToRoute('user_inscription');
+    }
         $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->findBy(['id' => $id])[0];
         $form = $this->createForm(AideType::class, $Aidefind);
         $form->add('modifier', SubmitType::class);
@@ -286,7 +316,7 @@ class AideController extends AbstractController
     /**
      * @Route("/admin/upload/test", name="upload_test")
      */
-    public function temporaryUploadAction(Request $request)
+    public function temporaryUploadAction(Request $request,SessionInterface $session)
     {
         /** @var UploadedFile $uploadedFile */
         $uploadedFile = $request->files->get('image');
@@ -304,8 +334,10 @@ class AideController extends AbstractController
      * @return mixed
      * @Route ("/captcha", name="captcha")
      */
-    public function captcha(Request $request)
-    {
+    public function captcha(Request $request,SessionInterface $session)
+    {  if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }
         $x=random_int(1,21);
         $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
         $formCaptcha= $this->createForm(CaptchaType::class);
@@ -324,7 +356,7 @@ class AideController extends AbstractController
         $formCaptcha= $this->createForm(CaptchaType::class);
         $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
 
-        return $this->render('aide/Captcha.html.twig', ['captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView()]);
+        return $this->render('aide/Captcha.html.twig', ['captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView(),'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
     }
 
     /**
@@ -332,8 +364,10 @@ class AideController extends AbstractController
      * @Route ("/AfficherStatAide", name="AfficherStatAide")
      */
 
-    public function AfficherStatAide()
-    {
+    public function AfficherStatAide(SessionInterface $session)
+    {     if(is_null($session->get('user'))||$session->get('user')->getType()!="admin"){
+        return $this->redirectToRoute('user_inscription');
+    }
 
         $Aide = $this->getDoctrine()->getRepository(Aide::class)->findAll();
          $Aides = [];
@@ -363,10 +397,13 @@ class AideController extends AbstractController
     /**
      * @Route("/videoAide/{id}", name="videoAide")
      */
-    public function videoAide($id): Response
-    {$Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
+    public function videoAide($id,SessionInterface $session): Response
+    {  if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }
+        $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
         return $this->render('aide/videoaide.html.twig', [
-            'aidefind' => $Aidefind,
+            'aidefind' => $Aidefind,'path'=>$session->get('path'),'texte'=>$session->get('texte'),
         ]);
     }
 

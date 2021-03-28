@@ -74,7 +74,9 @@ class BoardController extends AbstractController
      * @Route("/AfficherBoard", name="listB")
      */
     public function list(Request $request,PaginatorInterface $paginator,SessionInterface $session)
-    {
+    {  if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }
         $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
 
         $listboard=$this->getDoctrine()->getRepository(Board::class)->findAll();
@@ -96,8 +98,10 @@ class BoardController extends AbstractController
     /**
      * @Route("/AfficherBoardAdmin2", name="listB2")
      */
-    public function listAdmin2()
-    {
+    public function listAdmin2(SessionInterface $session)
+    {    if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }
         $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
 
         $listboard=$this->getDoctrine()->getRepository(Board::class)->findAll();
@@ -114,7 +118,12 @@ class BoardController extends AbstractController
      * @Route("/AfficherBoardAvance/{categorie_id}/{id_user}", name="AfficherBoardAvance")
      */
     public function BoardFind($categorie_id,$id_user,SessionInterface $session): Response
-    {         $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
+    {    if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+       }else if($session->get('user')->getId()!=$id_user){
+        return $this->redirectToRoute('AfficherBoardAvance',['id_user'=>$session->get('user')->getId()]);
+    }
+        $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
         $user=$this->getDoctrine()->getRepository(User::class)->find($id_user);
 
         $BoardFind = $this->getDoctrine()->getRepository(Board::class)->findBy(array('categorie'=>$categorie_id));
@@ -132,7 +141,12 @@ class BoardController extends AbstractController
      * @Route("/AfficherBoardFavoris/{id_user}", name="AfficherBoardFavoris")
      */
     public function BoardFavoris($id_user,SessionInterface $session): Response
-    {         $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
+    {         if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }else if($session->get('user')->getId()!=$id_user){
+        return $this->redirectToRoute('AfficherBoardFavoris',['id_user'=>$session->get('user')->getId()]);
+    }
+        $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
         $user=$this->getDoctrine()->getRepository(User::class)->find($id_user);
         $listboard=$this->getDoctrine()->getRepository(Board::class)->findAll();
 
@@ -148,8 +162,10 @@ class BoardController extends AbstractController
      * @return Response
      * @Route("/AfficherBoardAvanceForAdmin/{categorie_id}", name="AfficherBoardAvanceForAdmin")
      */
-    public function BoardFindForAdmin($categorie_id): Response
-    {         $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
+    public function BoardFindForAdmin($categorie_id,SessionInterface $session): Response
+    {      if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');}
+        $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
 
         $BoardFind = $this->getDoctrine()->getRepository(Board::class)->findBy(array('categorie'=>$categorie_id));
         return $this->render('board/AfficherBoardAvanceForAdmin.html.twig', [
@@ -162,8 +178,9 @@ class BoardController extends AbstractController
     /**
      * @Route("/AfficherBoardAdmin", name="listBA")
      */
-    public function listAdmin()
-    {
+    public function listAdmin(SessionInterface $session)
+    {  if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');}
         $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
 
         $listboard=$this->getDoctrine()->getRepository(Board::class)->findAll();
@@ -229,8 +246,10 @@ class BoardController extends AbstractController
     /**
      * @Route("/UpdateBoard/{id}", name="updateBoard")
      */
-    public function update(Request $request,$id)
-    {
+    public function update(Request $request,$id,SessionInterface $session)
+    {   if(is_null($session->get('user'))){
+        $this->redirectToRoute('user_inscription');
+        }
         $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
 
         $em = $this->getDoctrine()->getmanager();
@@ -267,8 +286,10 @@ class BoardController extends AbstractController
     /**
      * @Route("/DeleteBoard/{id}", name="deleteBoard")
      */
-    public function delete($id)
-    {
+    public function delete($id,SessionInterface $session)
+    {    if(is_null($session->get('user'))){
+        $this->redirectToRoute('user_inscription');
+    }
 
         $em = $this->getDoctrine()->getmanager();
         $Board= $em->getRepository(Board::class)->find($id);
@@ -281,8 +302,11 @@ class BoardController extends AbstractController
     /**
      * @Route("/rechercheBoard", name="rechercheBoard")
      */
-    public function rechercheStudent(Request $request)
-    {   $data=$request->get('categorie');
+    public function rechercheStudent(Request $request,SessionInterface $session)
+    {    if(is_null($session->get('user'))){
+        $this->redirectToRoute('user_inscription');
+    }
+        $data=$request->get('categorie');
         $Board=$this->getDoctrine()->getRepository(Board::class);
         $listStudent=$Board->findBy(['nsc'=>$data]);
 

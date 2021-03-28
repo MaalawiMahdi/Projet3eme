@@ -54,7 +54,8 @@ class SocieteController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($societe);
                 $entityManager->flush();
-                $session->set('societe',$societe);
+                $user->setSociete($societe);
+                $session->set('user',$user);
                 return $this->redirectToRoute('societe_new');
             }
 
@@ -98,14 +99,18 @@ class SocieteController extends AbstractController
      * @Route("societe/edit", name="societe_edit")
      */
     public function editfront(Request $request,SessionInterface $session): Response
-    {   $session->start();
+    {
         $user=$session->get('user');
-        $Societe=$session->get('user')->getSociete();
+        $user=$this->getDoctrine()->getRepository(User::class)->find($user->getId());
+        $Societe=$user->getSociete();
         $form = $this->createForm(SocieteType::class, $Societe);
         $form=$form->add("Enregister",SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            $user->setSociete($Societe);
+            $session->set('user',$user);
             return $this->redirectToRoute('societe_new');
         }
 

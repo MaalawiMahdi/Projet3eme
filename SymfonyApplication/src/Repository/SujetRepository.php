@@ -19,6 +19,17 @@ class SujetRepository extends ServiceEntityRepository
         parent::__construct($registry, Sujet::class);
     }
 
+    public function Search($t,$b)
+    {
+        return $this->createQueryBuilder('x')
+            ->where('x.titre LIKE :titre')
+            ->andWhere('x.board = :br')
+            ->setParameter('titre' , '%'.$t.'%')
+            ->setParameter('br', $b)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Sujet[] Returns an array of Sujet objects
     //  */

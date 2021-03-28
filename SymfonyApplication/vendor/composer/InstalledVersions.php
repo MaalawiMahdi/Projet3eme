@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'a798ac3b9ce3a9be20a41031818bdf50e9aec10c',
+    'reference' => '7c111e79601bfcfc71858cbd75938b68ddb76257',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'a798ac3b9ce3a9be20a41031818bdf50e9aec10c',
+      'reference' => '7c111e79601bfcfc71858cbd75938b68ddb76257',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -305,6 +305,15 @@ private static $installed = array (
       ),
       'reference' => 'ce4dc0bdf3b14b7f9815775af9dfee80a63b4748',
     ),
+    'laminas/laminas-json' => 
+    array (
+      'pretty_version' => '3.1.2',
+      'version' => '3.1.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '00dc0da7b5e5018904c5c4a8e80a5faa16c2c1c6',
+    ),
     'laminas/laminas-zendframework-bridge' => 
     array (
       'pretty_version' => '1.1.1',
@@ -349,6 +358,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'c6d052fc58cb876152f89f532b95a8d7907e7f0e',
+    ),
+    'ob/highcharts-bundle' => 
+    array (
+      'pretty_version' => '1.7',
+      'version' => '1.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7faa0a48aa8255ff047b2ff76ead6222bfffc2da',
     ),
     'ocramius/package-versions' => 
     array (
@@ -1298,6 +1316,13 @@ private static $installed = array (
       'replaced' => 
       array (
         0 => '3.2.1',
+      ),
+    ),
+    'zendframework/zend-json' => 
+    array (
+      'replaced' => 
+      array (
+        0 => '3.1.2',
       ),
     ),
   ),

@@ -78,6 +78,15 @@ class User
      * @ORM\OneToMany(targetEntity=Favoris::class, mappedBy="User")
      */
     private $favoris;
+    /**
+     * @ORM\OneToMany(targetEntity=Ld::class, mappedBy="User", orphanRemoval=true)
+     */
+    private $lds;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Notesujet::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $notesujets;
 
     public function __construct()
     {

@@ -123,6 +123,10 @@ class ComposerStaticInitd7a72c7eca0991a5d7d8b53874f913f6
             'PhpParser\\' => 10,
             'PackageVersions\\' => 16,
         ),
+        'O' => 
+        array (
+            'Ob\\HighchartsBundle\\' => 20,
+        ),
         'M' => 
         array (
             'Monolog\\' => 8,
@@ -131,6 +135,7 @@ class ComposerStaticInitd7a72c7eca0991a5d7d8b53874f913f6
         array (
             'League\\OAuth2\\Client\\' => 21,
             'Laminas\\ZendFrameworkBridge\\' => 28,
+            'Laminas\\Json\\' => 13,
             'Laminas\\EventManager\\' => 21,
             'Laminas\\Code\\' => 13,
         ),
@@ -516,6 +521,10 @@ class ComposerStaticInitd7a72c7eca0991a5d7d8b53874f913f6
         array (
             0 => __DIR__ . '/..' . '/composer/package-versions-deprecated/src/PackageVersions',
         ),
+        'Ob\\HighchartsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ob/highcharts-bundle',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -528,6 +537,10 @@ class ComposerStaticInitd7a72c7eca0991a5d7d8b53874f913f6
         'Laminas\\ZendFrameworkBridge\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src',
+        ),
+        'Laminas\\Json\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laminas/laminas-json/src',
         ),
         'Laminas\\EventManager\\' => 
         array (

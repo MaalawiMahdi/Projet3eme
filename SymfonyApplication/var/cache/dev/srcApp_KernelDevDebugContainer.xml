@@ -24,6 +24,7 @@
       <parameter key="KnpUOAuth2ClientBundle">KnpU\OAuth2ClientBundle\KnpUOAuth2ClientBundle</parameter>
       <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
       <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
+      <parameter key="ObHighchartsBundle">Ob\HighchartsBundle\ObHighchartsBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -85,6 +86,10 @@
       <parameter key="KnpPaginatorBundle" type="collection">
         <parameter key="path">C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\knplabs\knp-paginator-bundle</parameter>
         <parameter key="namespace">Knp\Bundle\PaginatorBundle</parameter>
+      </parameter>
+      <parameter key="ObHighchartsBundle" type="collection">
+        <parameter key="path">C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\ob\highcharts-bundle</parameter>
+        <parameter key="namespace">Ob\HighchartsBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -272,6 +277,7 @@
     <parameter key="knp_paginator.template.sortable">@KnpPaginator/Pagination/sortable_link.html.twig</parameter>
     <parameter key="knp_paginator.page_range">5</parameter>
     <parameter key="knp_paginator.page_limit">null</parameter>
+    <parameter key="ob_highcharts.twig_extension.class">Ob\HighchartsBundle\Twig\HighchartsExtension</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -396,6 +402,13 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CategorieController"/>
       </call>
     </service>
+    <service id="App\Controller\CommentaireController" class="App\Controller\CommentaireController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CommentaireController"/>
+      </call>
+    </service>
     <service id="App\Controller\ComptesController" class="App\Controller\ComptesController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -429,6 +442,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\IndexController"/>
+      </call>
+    </service>
+    <service id="App\Controller\LdsController" class="App\Controller\LdsController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\LdsController"/>
       </call>
     </service>
     <service id="App\Controller\NoteController" class="App\Controller\NoteController" public="true" autowire="true" autoconfigure="true">
@@ -477,6 +497,9 @@
     <service id="App\Form\CategorieBoardType" class="App\Form\CategorieBoardType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\CommentaireType" class="App\Form\CommentaireType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\ConnexionUserType" class="App\Form\ConnexionUserType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -496,6 +519,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\SearchCategorieAidesType" class="App\Form\SearchCategorieAidesType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\SearchSujetType" class="App\Form\SearchSujetType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\SocieteType" class="App\Form\SocieteType" autowire="true" autoconfigure="true">
@@ -553,6 +579,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\LdRepository" class="App\Repository\LdRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\LivraisonRepository" class="App\Repository\LivraisonRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -566,6 +596,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\NoteRepository" class="App\Repository\NoteRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\NotesujetRepository" class="App\Repository\NotesujetRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -1009,6 +1043,7 @@
         <argument>App\Form\CaptchaType</argument>
         <argument>App\Form\CategorieAideType</argument>
         <argument>App\Form\CategorieBoardType</argument>
+        <argument>App\Form\CommentaireType</argument>
         <argument>App\Form\ConnexionUserType</argument>
         <argument>App\Form\InfoSuppType</argument>
         <argument>App\Form\NoteType</argument>
@@ -1016,6 +1051,7 @@
         <argument>App\Form\PasswordkeyType</argument>
         <argument>App\Form\SearchAidesType</argument>
         <argument>App\Form\SearchCategorieAidesType</argument>
+        <argument>App\Form\SearchSujetType</argument>
         <argument>App\Form\SocieteType</argument>
         <argument>App\Form\SujetType</argument>
         <argument>App\Form\TriformType</argument>
@@ -1355,7 +1391,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.tZC12Oe"/>
+      <argument type="service" id=".service_locator.UHikGAo"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1989,6 +2025,8 @@
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/DoctrineFixturesBundle/translations</argument>
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/KnpPaginatorBundle/translations</argument>
+          <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\ob\highcharts-bundle/translations</argument>
+          <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/ObHighchartsBundle/translations</argument>
           <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
@@ -2027,6 +2065,8 @@
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/DoctrineFixturesBundle/translations</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/KnpPaginatorBundle/translations</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\vendor\ob\highcharts-bundle/translations</argument>
+            <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/ObHighchartsBundle/translations</argument>
             <argument>C:\Users\drwhoo\Desktop\projet integrer\Projet3eme\SymfonyApplication\src/Resources/translations</argument>
           </argument>
         </argument>
@@ -3441,6 +3481,9 @@
       <call method="addExtension">
         <argument type="service" id="knp_paginator.twig.extension.pagination"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="ob_highcharts.twig.highcharts_extension"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -4211,7 +4254,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.d_b2l4y"/>
+      <argument type="service" id=".service_locator.fzOkZ1O"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5283,6 +5326,9 @@
       <tag name="twig.extension"/>
       <argument type="service" id="knp_paginator.helper.processor"/>
     </service>
+    <service id="ob_highcharts.twig.highcharts_extension" class="Ob\HighchartsBundle\Twig\HighchartsExtension">
+      <tag name="twig.extension"/>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5298,6 +5344,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CategorieController" class="App\Controller\CategorieController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CategorieController" class="App\Controller\CategorieController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CategorieController" class="App\Controller\CategorieController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CommentaireController" class="App\Controller\CommentaireController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CommentaireController" class="App\Controller\CommentaireController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CommentaireController" class="App\Controller\CommentaireController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ComptesController" class="App\Controller\ComptesController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ComptesController" class="App\Controller\ComptesController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ComptesController" class="App\Controller\ComptesController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5313,6 +5362,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\IndexController" class="App\Controller\IndexController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\LdsController" class="App\Controller\LdsController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\LdsController" class="App\Controller\LdsController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\LdsController" class="App\Controller\LdsController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\NoteController" class="App\Controller\NoteController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NoteController" class="App\Controller\NoteController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\NoteController" class="App\Controller\NoteController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5337,6 +5389,8 @@
     <service id=".abstract.instanceof.App\Form\CategorieAideType" class="App\Form\CategorieAideType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieBoardType" class="App\Form\CategorieBoardType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategorieBoardType" class="App\Form\CategorieBoardType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CommentaireType" class="App\Form\CommentaireType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CommentaireType" class="App\Form\CommentaireType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ConnexionUserType" class="App\Form\ConnexionUserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ConnexionUserType" class="App\Form\ConnexionUserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\InfoSuppType" class="App\Form\InfoSuppType" autowire="true" abstract="true"/>
@@ -5351,6 +5405,8 @@
     <service id=".abstract.instanceof.App\Form\SearchAidesType" class="App\Form\SearchAidesType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SearchCategorieAidesType" class="App\Form\SearchCategorieAidesType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SearchCategorieAidesType" class="App\Form\SearchCategorieAidesType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SearchSujetType" class="App\Form\SearchSujetType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SearchSujetType" class="App\Form\SearchSujetType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SocieteType" class="App\Form\SocieteType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SocieteType" class="App\Form\SocieteType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SujetType" class="App\Form\SujetType" autowire="true" abstract="true"/>
@@ -5381,6 +5437,8 @@
     <service id=".abstract.instanceof.App\Repository\FavorisRepository" class="App\Repository\FavorisRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\InformationsSupplementairesRepository" class="App\Repository\InformationsSupplementairesRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\InformationsSupplementairesRepository" class="App\Repository\InformationsSupplementairesRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LdRepository" class="App\Repository\LdRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\LdRepository" class="App\Repository\LdRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LivraisonRepository" class="App\Repository\LivraisonRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\LivraisonRepository" class="App\Repository\LivraisonRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MaintenanceRepository" class="App\Repository\MaintenanceRepository" autowire="true" abstract="true"/>
@@ -5389,6 +5447,8 @@
     <service id=".abstract.instanceof.App\Repository\ModeratorRepository" class="App\Repository\ModeratorRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NoteRepository" class="App\Repository\NoteRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\NoteRepository" class="App\Repository\NoteRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NotesujetRepository" class="App\Repository\NotesujetRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\NotesujetRepository" class="App\Repository\NotesujetRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PanierRepository" class="App\Repository\PanierRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\PanierRepository" class="App\Repository\PanierRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProduitServiceRepository" class="App\Repository\ProduitServiceRepository" autowire="true" abstract="true"/>
@@ -5680,16 +5740,16 @@
         <argument>make:migration</argument>
       </call>
     </service>
+    <service id=".service_locator.o3htLhs" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
     <service id=".service_locator.wf.M68N" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="paginator" type="service" id="knp_paginator"/>
-        <argument key="session" type="service" id="session"/>
-      </argument>
-    </service>
-    <service id=".service_locator.o3htLhs" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
@@ -5699,13 +5759,6 @@
         <argument key="clientRegistry" type="service" id="knpu.oauth2.registry"/>
       </argument>
     </service>
-    <service id=".service_locator.cSxFMnv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="clientRegistry" type="service" id="knpu.oauth2.registry"/>
-        <argument key="sesssion" type="service" id="session"/>
-      </argument>
-    </service>
     <service id=".service_locator.Jm3FXCg" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5713,11 +5766,12 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.9GiGIpz" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.RPHEguS" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="client" type="service" id="twilio.client"/>
         <argument key="mailer" type="service" id="mailer.mailer"/>
+        <argument key="session" type="service" id="session"/>
       </argument>
     </service>
     <service id=".service_locator.M4nb6.8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5730,13 +5784,6 @@
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="session" type="service" id="session"/>
-        <argument key="userRepository" type="service" id="App\Repository\UserRepository"/>
-      </argument>
-    </service>
-    <service id=".service_locator.MLr6CGD" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="sesssion" type="service" id="session"/>
         <argument key="userRepository" type="service" id="App\Repository\UserRepository"/>
       </argument>
     </service>
@@ -5759,25 +5806,68 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.m2nkEkz" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.nmvPvAI" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\AdminController::index" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController::AfficherStatAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController::SupprimerAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController::ajouterAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController::captcha" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController::detailAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController::detailAidenote" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController::impression" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController::listAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController::listAides" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController::modifierAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController::temporaryUploadAction" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController::videoAide" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\BoardController::AjouterBoard" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\BoardController::BoardFavoris" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\BoardController::BoardFind" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController::BoardFindForAdmin" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController::delete" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\BoardController::list" type="service" id=".service_locator.wf.M68N"/>
+        <argument key="App\Controller\BoardController::listAdmin" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController::listAdmin2" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController::rechercheStudent" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController::update" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieAideController::AfficherStatAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieAideController::SupprimerCategorieAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieAideController::ajouterCategorieAide" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieAideController::listCategoriesAide" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieAideController::listCategoriesAides" type="service" id=".service_locator.wf.M68N"/>
+        <argument key="App\Controller\CategorieAideController::modifierCategorieAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieController::AjouterCategorie" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieController::delete" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieController::list" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieController::listAdmin" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieController::listC" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieController::update" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CommentaireController::Dislike" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CommentaireController::Like" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CommentaireController::ModifierCommentaire" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CommentaireController::SupprimerCommentaire" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\GoogleController::connectAction" type="service" id=".service_locator.M1_Y_xF"/>
-        <argument key="App\Controller\GoogleController::connectCheckAction" type="service" id=".service_locator.cSxFMnv"/>
+        <argument key="App\Controller\GoogleController::connectCheckAction" type="service" id=".service_locator.Jm3FXCg"/>
         <argument key="App\Controller\GoogleController::inscriptionAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController::inscriptionCheckAction" type="service" id=".service_locator.Jm3FXCg"/>
-        <argument key="App\Controller\NoteController::ajouterNote" type="service" id=".service_locator.9GiGIpz"/>
+        <argument key="App\Controller\NoteController::ajouterNote" type="service" id=".service_locator.RPHEguS"/>
         <argument key="App\Controller\SocieteController::delete" type="service" id=".service_locator.M4nb6.8"/>
         <argument key="App\Controller\SocieteController::edit" type="service" id=".service_locator.M4nb6.8"/>
         <argument key="App\Controller\SocieteController::editfront" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SocieteController::new" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SocieteController::show" type="service" id=".service_locator.M4nb6.8"/>
+        <argument key="App\Controller\SujetController::AjouterNoteSujet" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController::AjouterSujet" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController::ConsulterSujet" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController::ConsulterSujetFront" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController::ImprimerS" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController::ModifiererSujet" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController::Stats" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController::SupprimerSujet" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController::afficher" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController::afficherFront" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\UserController::Desactiver" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::delete" type="service" id=".service_locator.tIQ5Q0N"/>
         <argument key="App\Controller\UserController::edit" type="service" id=".service_locator.tIQ5Q0N"/>
@@ -5787,28 +5877,71 @@
         <argument key="App\Controller\UserController::index" type="service" id=".service_locator.dZRF6eB"/>
         <argument key="App\Controller\UserController::logout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::mailsender" type="service" id=".service_locator.iP8eVIx"/>
-        <argument key="App\Controller\UserController::new" type="service" id=".service_locator.MLr6CGD"/>
+        <argument key="App\Controller\UserController::new" type="service" id=".service_locator.dZRF6eB"/>
         <argument key="App\Controller\UserController::non_filtre" type="service" id=".service_locator.dZRF6eB"/>
         <argument key="App\Controller\UserController::passwordbackup" type="service" id=".service_locator.txaLixa"/>
         <argument key="App\Controller\UserController::passwordbackupkey" type="service" id=".service_locator.txaLixa"/>
         <argument key="App\Controller\UserController::profil" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::show" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AdminController:index" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController:AfficherStatAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController:SupprimerAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController:ajouterAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController:captcha" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController:detailAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController:detailAidenote" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController:impression" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController:listAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController:listAides" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController:modifierAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController:temporaryUploadAction" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController:videoAide" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\BoardController:AjouterBoard" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\BoardController:BoardFavoris" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\BoardController:BoardFind" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController:BoardFindForAdmin" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController:delete" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\BoardController:list" type="service" id=".service_locator.wf.M68N"/>
+        <argument key="App\Controller\BoardController:listAdmin" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController:listAdmin2" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController:rechercheStudent" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\BoardController:update" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieAideController:AfficherStatAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieAideController:SupprimerCategorieAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieAideController:ajouterCategorieAide" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieAideController:listCategoriesAide" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieAideController:listCategoriesAides" type="service" id=".service_locator.wf.M68N"/>
+        <argument key="App\Controller\CategorieAideController:modifierCategorieAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieController:AjouterCategorie" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieController:delete" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieController:list" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieController:listAdmin" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieController:listC" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategorieController:update" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CommentaireController:Dislike" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CommentaireController:Like" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CommentaireController:ModifierCommentaire" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CommentaireController:SupprimerCommentaire" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\GoogleController:connectAction" type="service" id=".service_locator.M1_Y_xF"/>
-        <argument key="App\Controller\GoogleController:connectCheckAction" type="service" id=".service_locator.cSxFMnv"/>
+        <argument key="App\Controller\GoogleController:connectCheckAction" type="service" id=".service_locator.Jm3FXCg"/>
         <argument key="App\Controller\GoogleController:inscriptionAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController:inscriptionCheckAction" type="service" id=".service_locator.Jm3FXCg"/>
-        <argument key="App\Controller\NoteController:ajouterNote" type="service" id=".service_locator.9GiGIpz"/>
+        <argument key="App\Controller\NoteController:ajouterNote" type="service" id=".service_locator.RPHEguS"/>
         <argument key="App\Controller\SocieteController:delete" type="service" id=".service_locator.M4nb6.8"/>
         <argument key="App\Controller\SocieteController:edit" type="service" id=".service_locator.M4nb6.8"/>
         <argument key="App\Controller\SocieteController:editfront" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SocieteController:new" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SocieteController:show" type="service" id=".service_locator.M4nb6.8"/>
+        <argument key="App\Controller\SujetController:AjouterNoteSujet" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController:AjouterSujet" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController:ConsulterSujet" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController:ConsulterSujetFront" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController:ImprimerS" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController:ModifiererSujet" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController:Stats" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController:SupprimerSujet" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController:afficher" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SujetController:afficherFront" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\UserController:Desactiver" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:delete" type="service" id=".service_locator.tIQ5Q0N"/>
         <argument key="App\Controller\UserController:edit" type="service" id=".service_locator.tIQ5Q0N"/>
@@ -5818,7 +5951,7 @@
         <argument key="App\Controller\UserController:index" type="service" id=".service_locator.dZRF6eB"/>
         <argument key="App\Controller\UserController:logout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:mailsender" type="service" id=".service_locator.iP8eVIx"/>
-        <argument key="App\Controller\UserController:new" type="service" id=".service_locator.MLr6CGD"/>
+        <argument key="App\Controller\UserController:new" type="service" id=".service_locator.dZRF6eB"/>
         <argument key="App\Controller\UserController:non_filtre" type="service" id=".service_locator.dZRF6eB"/>
         <argument key="App\Controller\UserController:passwordbackup" type="service" id=".service_locator.txaLixa"/>
         <argument key="App\Controller\UserController:passwordbackupkey" type="service" id=".service_locator.txaLixa"/>
@@ -5885,7 +6018,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.tZC12Oe" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.UHikGAo" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AideType" type="service" id="App\Form\AideType"/>
@@ -5893,6 +6026,7 @@
         <argument key="App\Form\CaptchaType" type="service" id="App\Form\CaptchaType"/>
         <argument key="App\Form\CategorieAideType" type="service" id="App\Form\CategorieAideType"/>
         <argument key="App\Form\CategorieBoardType" type="service" id="App\Form\CategorieBoardType"/>
+        <argument key="App\Form\CommentaireType" type="service" id="App\Form\CommentaireType"/>
         <argument key="App\Form\ConnexionUserType" type="service" id="App\Form\ConnexionUserType"/>
         <argument key="App\Form\InfoSuppType" type="service" id="App\Form\InfoSuppType"/>
         <argument key="App\Form\NoteType" type="service" id="App\Form\NoteType"/>
@@ -5900,6 +6034,7 @@
         <argument key="App\Form\PasswordkeyType" type="service" id="App\Form\PasswordkeyType"/>
         <argument key="App\Form\SearchAidesType" type="service" id="App\Form\SearchAidesType"/>
         <argument key="App\Form\SearchCategorieAidesType" type="service" id="App\Form\SearchCategorieAidesType"/>
+        <argument key="App\Form\SearchSujetType" type="service" id="App\Form\SearchSujetType"/>
         <argument key="App\Form\SocieteType" type="service" id="App\Form\SocieteType"/>
         <argument key="App\Form\SujetType" type="service" id="App\Form\SujetType"/>
         <argument key="App\Form\TriformType" type="service" id="App\Form\TriformType"/>
@@ -6070,7 +6205,7 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.d_b2l4y" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.fzOkZ1O" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\AideRepository" type="service" id="App\Repository\AideRepository"/>
@@ -6083,10 +6218,12 @@
         <argument key="App\Repository\CommentaireRepository" type="service" id="App\Repository\CommentaireRepository"/>
         <argument key="App\Repository\FavorisRepository" type="service" id="App\Repository\FavorisRepository"/>
         <argument key="App\Repository\InformationsSupplementairesRepository" type="service" id="App\Repository\InformationsSupplementairesRepository"/>
+        <argument key="App\Repository\LdRepository" type="service" id="App\Repository\LdRepository"/>
         <argument key="App\Repository\LivraisonRepository" type="service" id="App\Repository\LivraisonRepository"/>
         <argument key="App\Repository\MaintenanceRepository" type="service" id="App\Repository\MaintenanceRepository"/>
         <argument key="App\Repository\ModeratorRepository" type="service" id="App\Repository\ModeratorRepository"/>
         <argument key="App\Repository\NoteRepository" type="service" id="App\Repository\NoteRepository"/>
+        <argument key="App\Repository\NotesujetRepository" type="service" id="App\Repository\NotesujetRepository"/>
         <argument key="App\Repository\PanierRepository" type="service" id="App\Repository\PanierRepository"/>
         <argument key="App\Repository\ProduitServiceRepository" type="service" id="App\Repository\ProduitServiceRepository"/>
         <argument key="App\Repository\SocieteRepository" type="service" id="App\Repository\SocieteRepository"/>
@@ -6172,6 +6309,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\CommentaireController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\CommentaireController"/>
+      <argument>App\Controller\CommentaireController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
     <service id=".service_locator.vdmMuyE.App\Controller\ComptesController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ComptesController"/>
       <argument>App\Controller\ComptesController</argument>
@@ -6199,6 +6342,12 @@
     <service id=".service_locator.vdmMuyE.App\Controller\IndexController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\IndexController"/>
       <argument>App\Controller\IndexController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\LdsController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\LdsController"/>
+      <argument>App\Controller\LdsController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
@@ -6369,12 +6518,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.m2nkEkz"/>
+      <argument type="service" id=".service_locator.nmvPvAI"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.m2nkEkz"/>
+      <argument type="service" id=".service_locator.nmvPvAI"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6785,7 +6934,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.m2nkEkz"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.nmvPvAI"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

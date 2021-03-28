@@ -32,8 +32,14 @@ class CategorieAideController extends AbstractController
      * @Route("/AfficherCategorieAide", name="AfficherCategorieAide")
      */
     public function listCategoriesAide(Request $request,SessionInterface $session): Response
-    {$user=$session->get('user');
+    { if(is_null($session->get('user'))||$session->get('user')->getType()!="admin"){
+        return $this->redirectToRoute('user_inscription');
+    }
+
+        $user=$session->get('user');
      $iduser=$user->getId();
+
+
         $categoriesAide = $this->getDoctrine()->getRepository(CategorieAide::class)->findAll();
         $form=$this->createForm(SearchCategorieAidesType::class);
         $form->handleRequest($request);
@@ -52,7 +58,10 @@ class CategorieAideController extends AbstractController
      * @Route("/AfficherCategorieAides", name="AfficherCategorieAides")
      */
     public function listCategoriesAides(Request $request,SessionInterface $session,PaginatorInterface $paginator): Response
-    { $user=$session->get('user');
+    {  if(is_null($session->get('user'))){
+        return $this->redirectToRoute('user_inscription');
+    }
+        $user=$session->get('user');
         $iduser=$user->getId();
         $donnees = $this->getDoctrine()->getRepository(CategorieAide::class)->findAll();
         $form=$this->createForm(SearchCategorieAidesType::class);
@@ -65,10 +74,12 @@ class CategorieAideController extends AbstractController
             $titre=$data['recherche'];
             $donnee=$this->getDoctrine()->getRepository(CategorieAide::class)->search($titre);
             $categoriesAidefind = $paginator->paginate($donnee,$request->query->getInt('page', 1),2);
-            return $this->render('categorie_aide/listCategoriesAides.html.twig', ['listCategorieAides' => $categoriesAidefind,'iduser'=>$iduser,'formSearch'=>$form->createView(),]);
+            return $this->render('categorie_aide/listCategoriesAides.html.twig', ['listCategorieAides' => $categoriesAidefind,'iduser'=>$iduser,'formSearch'=>$form->createView(),'path'=>$session->get('path'),'texte'=>$session->get('texte'),
+            ]);
 
         }
-        return $this->render('categorie_aide/listCategoriesAides.html.twig', ['listCategorieAides' => $categoriesAide,'iduser'=>$iduser,'formSearch'=>$form->createView(),]);
+        return $this->render('categorie_aide/listCategoriesAides.html.twig', ['listCategorieAides' => $categoriesAide,'iduser'=>$iduser,'formSearch'=>$form->createView(),'path'=>$session->get('path'),'texte'=>$session->get('texte'),
+        ]);
     }
 
     /**
@@ -76,8 +87,10 @@ class CategorieAideController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @Route ("/ajouterCategorieAide" , name="ajouterCategorieAide")
      */
-    public function ajouterCategorieAide(Request $request)
-    {
+    public function ajouterCategorieAide(Request $request,SessionInterface $session)
+    {if(is_null($session->get('user'))||$session->get('user')->getType()!="admin"){
+        return $this->redirectToRoute('user_inscription');
+    }
         $CategorieAide= new CategorieAide();
         $form= $this->createForm(CategorieAideType::class,$CategorieAide);
         $form->add('ajouter',SubmitType::class);
@@ -110,8 +123,10 @@ class CategorieAideController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route ("/supprimerCategorieAide/{id}" , name="supprimerCategorieAide")
      */
-    public function SupprimerCategorieAide($id)
-    {
+    public function SupprimerCategorieAide($id,SessionInterface $session)
+    {if(is_null($session->get('user'))||$session->get('user')->getType()!="admin"){
+        return $this->redirectToRoute('user_inscription');
+    }
         $CategorieAidefind = $this->getDoctrine()->getRepository(CategorieAide::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($CategorieAidefind);
@@ -125,8 +140,10 @@ class CategorieAideController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @Route ("/modifierCategorieAide/{id}" , name="modifierCategorieAide")
      */
-    public function modifierCategorieAide($id, Request $request)
-    {
+    public function modifierCategorieAide($id, Request $request,SessionInterface $session)
+    {if(is_null($session->get('user'))||$session->get('user')->getType()!="admin"){
+        return $this->redirectToRoute('user_inscription');
+    }
         $CategorieAidefind = $this->getDoctrine()->getRepository(CategorieAide::class)->findBy(['id' => $id])[0];
         $form = $this->createForm(CategorieAideType::class, $CategorieAidefind);
         $form->add('modifier', SubmitType::class);
@@ -160,8 +177,10 @@ class CategorieAideController extends AbstractController
      * @return mixed
      * @Route ("/AfficherStatCatAide", name="AfficherStatCatAide")
      */
-    public function AfficherStatAide()
-    {
+    public function AfficherStatAide(SessionInterface $session)
+    {if(is_null($session->get('user'))||$session->get('user')->getType()!="admin"){
+        return $this->redirectToRoute('user_inscription');
+    }
 
         $CategorieAide = $this->getDoctrine()->getRepository(CategorieAide::class)->findAll();
         $Aides = [];

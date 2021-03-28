@@ -97,11 +97,11 @@ class UserController extends AbstractController
     /**
      * @Route("/HolidayHiatus", name="user_inscription", methods={"GET","POST"})
      */
-        public function new(Request $request,UserRepository $userRepository,SessionInterface $sesssion): Response
+        public function new(Request $request,UserRepository $userRepository,SessionInterface $session): Response
     {
-      if(!(is_null($sesssion->get('googleuser')))){
+      if(!(is_null($session->get('googleuser')))){
        $user= new User();
-       $gooleuser=$sesssion->get('googleuser');
+       $gooleuser=$session->get('googleuser');
        $user->setMail($gooleuser->getEmail());
        $information_supp=new InformationsSupplementaires();
        $information_supp->setUser($user);
@@ -130,12 +130,12 @@ class UserController extends AbstractController
                 $entityManager->persist($user);
                 $entityManager->persist($information_supp);
                 $entityManager->flush();
-                $sesssion->clear();
+                $session->clear();
 
                 return $this->redirectToRoute('user_inscription');
 
             }else {
-                $sesssion->clear();
+                $session->clear();
 
                 return $this->render('user/message.html.twig',['message'=>"Ce mail existe déjà"]);
             }
@@ -149,11 +149,11 @@ class UserController extends AbstractController
 
             } else {
                 if ($verifuser->getType() == "client" || $verifuser->getType() == "societe") {
-                    $sesssion->set('user', $verifuser);
+                    $session->set('user', $verifuser);
                     return $this->redirectToRoute('user_online');
                 } elseif ($verifuser->getType() == "admin") {
 
-                    $sesssion->set('user', $verifuser);
+                    $session->set('user', $verifuser);
                     return $this->redirectToRoute('user_index');
                 }
             }
@@ -174,14 +174,15 @@ class UserController extends AbstractController
             return $this->redirectToRoute('user_inscription');
 
         }$texte="DÉMARRER AVEC UN COMPTE BUSINESS";
-        $path="societe";
+        $path="/societe";
         if($user->getType()=="societe"){
         if(is_null($user->getSociete()->getBoard())){
             $texte="Créér votre board";
             $path="/AjouterBoard";
         }else{
             $texte="Gérer votre board";
-            $path="moderator";
+            $path="/AfficherSujet/";
+            $path=$path.$session->get('user')->getSociete()->getBoard()->getId();
         }
         }
         $session->set('path',$path);

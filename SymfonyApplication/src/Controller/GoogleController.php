@@ -35,7 +35,7 @@ class GoogleController extends AbstractController
      *
      * @Route("/connect/google/check/", name="connect_google_check")
      */
-    public function connectCheckAction(Request $request, ClientRegistry $clientRegistry,SessionInterface $sesssion)
+    public function connectCheckAction(Request $request, ClientRegistry $clientRegistry,SessionInterface $session)
     {
         /** @var \KnpU\OAuth2ClientBundle\Client\Provider\googleClient $client */
         $client = $clientRegistry->getClient('google_connect');
@@ -56,11 +56,11 @@ class GoogleController extends AbstractController
                     $googleuser->setActive(true);
                     $entityManager = $this->getDoctrine()->getManager();
                     $entityManager->flush();
-                    $sesssion->set('user', $googleuser);
+                    $session->set('user', $googleuser);
 
                     return $this->redirectToRoute('user_online');
                 } elseif ($googleuser->getType() == "admin") {
-                    $sesssion->set('user', $googleuser);
+                    $session->set('user', $googleuser);
                     return $this->redirectToRoute('user_index');
                 }
             }
