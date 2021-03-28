@@ -230,7 +230,7 @@ class SujetController extends AbstractController
         }
         $e = "";
         $sujet=$this->getDoctrine()->getRepository(Sujet::class)->find($id);
-        $user=$this->getDoctrine()->getRepository(User::class)->find(2);
+        $user = $this->getDoctrine()->getRepository( User::class)->find($session->get('user')->getId());
         $session->set('user',$user);
         $comm = new Commentaire();
         $comm->setSujet($sujet);
@@ -264,7 +264,7 @@ class SujetController extends AbstractController
     { if(is_null($session->get('user'))||$session->get('user')->getType()=="admin"){
         return $this->redirectToRoute('user_inscription');
     } else if($session->get('user')->getId()!=$iduser){
-        return $this->redirectToRoute('AjouterNoteSujet',['idsujet'=>$idsujet,'iduser'=>$session->get('user')->getId()]);
+        return $this->redirectToRoute('AjouterNoteSujet',['idsujet'=>$idsujet,'iduser'=>$session->get('user')->getId(),'v'=>$v]);
     }
         $s = $this->getDoctrine()->getRepository(Sujet::class)->find($idsujet);
         $u = $this->getDoctrine()->getRepository(User::class)->find($iduser);

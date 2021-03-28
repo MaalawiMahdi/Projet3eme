@@ -66,11 +66,17 @@ class Board
      * @ORM\OneToMany(targetEntity=Favoris::class, mappedBy="board", orphanRemoval=true)
      */
     private $favoris;
+
+    /**
+     * @ORM\OneToMany(targetEntity=CategorieProduitService::class, mappedBy="board")
+     */
+    private $categorieProduitServices;
     public function __construct()
     {
         $this->sujets = new ArrayCollection();
         $this->produitServices = new ArrayCollection();
         $this->moderators = new ArrayCollection();
+        $this->categorieProduitServices = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -253,5 +259,35 @@ class Board
             }
         }
         return false;
+    }
+
+    /**
+     * @return Collection|CategorieProduitService[]
+     */
+    public function getCategorieProduitServices(): Collection
+    {
+        return $this->categorieProduitServices;
+    }
+
+    public function addCategorieProduitService(CategorieProduitService $categorieProduitService): self
+    {
+        if (!$this->categorieProduitServices->contains($categorieProduitService)) {
+            $this->categorieProduitServices[] = $categorieProduitService;
+            $categorieProduitService->setBoard($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategorieProduitService(CategorieProduitService $categorieProduitService): self
+    {
+        if ($this->categorieProduitServices->removeElement($categorieProduitService)) {
+            // set the owning side to null (unless already changed)
+            if ($categorieProduitService->getBoard() === $this) {
+                $categorieProduitService->setBoard(null);
+            }
+        }
+
+        return $this;
     }
 }

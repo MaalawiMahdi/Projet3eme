@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title%} Liste des Produits{% endblock %}
+{% block body %}
+    <div class="tm-main-content" id="top">
+        <div class="tm-top-bar-bg"></div>
+        <div class="tm-top-bar" id="tm-top-bar">
+            <!-- Top Navbar -->
+            <div class="container">
+                <div class="row">
+                    {%  include('Bootstraptemplates/navbarfront.html.twig')  with { 'iduser': user.id,'path': path,'texte':texte }  %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="tm-section" id="tm-section-2">
+            {% if ProduitService %}
+                <table id="ProduitService" class="table table-striped">
+
+                    <tbody>
+                    <div class="container">
+                        <div class="row">
+
+                        {% for c in ProduitService %}
+                            <div class="card" style="width: 20rem; margin: 10px;" >
+                                <center><img class="card-img-top" src ="{{ asset('img/' ~ c.lien_image) }}" alt="Card image cap" style="max-height:150px; max-width: 200px; margin-top: 10px"  >
+                                </center>
+                                    <div class="card-body">
+                                    <h5 class="card-title">{{ c.titre }}</h5>
+                                    <p class="card-text">{{ c.description }}</p>
+                                    <p class="card-text">{{ c.prix_unitaire }}</p>
+                                    <p class="card-text">{{ c.nom }}</p>
+                                        {% for message in app.flashes(c.titre) %}
+                                            <p class="alert alert-success">
+                                                {{ message }}
+                                            </p>
+                                        {% endfor %}
+                                    <a href="{{ path('cart_add', {'id':c.id,'idboard':idboard}) }}" class="btn btn-success float-right">
+                                        <i class="fas fa-shopping-cart nr-i"></i>
+                                        Ajouter au Panier
+                                    </a>
+                                </div>
+                            </div>
+
+
+
+                                    {% endfor %}
+                        </div>
+
+                    </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    </tbody>
+                </table>
+            {% else %}
+                <p>Aucun produits</p>
+            {% endif %}
+        </div>
+
+{% endblock %}

@@ -87,7 +87,9 @@ class CommentaireController extends AbstractController
     public function Like($idcom,$iduser,SessionInterface $session) : Response
     { if(is_null($session->get('user'))||$session->get('user')->getType()=="admin"){
         return $this->redirectToRoute('user_inscription');
-      }
+      }else if($session->get('user')->getId()!=$iduser){
+        return $this->redirectToRoute('Like',['idcom'=>$idcom,'iduser'=>$session->get('user')->getId()]);
+        }
         $em = $this->getDoctrine()->getManager();
         $commentaire = $this->getDoctrine()->getRepository(Commentaire::class)->find($idcom);
         $u = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -135,6 +137,9 @@ class CommentaireController extends AbstractController
     public function Dislike($idcom,$iduser,SessionInterface $session) : Response
     {if(is_null($session->get('user'))||$session->get('user')->getType()=="admin"){
         return $this->redirectToRoute('user_inscription');
+    }else if($session->get('user')->getId()!=$iduser){
+        return $this->redirectToRoute('Dislike',['idcom'=>$idcom,'iduser'=>$session->get('user')->getId()]);
+
     }
         $em = $this->getDoctrine()->getManager();
         $commentaire = $this->getDoctrine()->getRepository(Commentaire::class)->find($idcom);

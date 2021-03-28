@@ -1,0 +1,37 @@
+
+
+<center>
+<h1>Liste des Produits</h1>
+
+
+ {% if ProduitService %}
+          <table id="ProduitService" border="1">
+                  <thead>
+                  <tr>
+                      <th>titre</th>
+                      <th>description</th>
+                      <th>type</th>
+                      <th>prix_unitaire</th>
+
+
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% for c in ProduitService %}
+                      <tr>
+                          <td>{{ c.titre }}</td>
+                          <td>{{ c.description }}</td>
+
+                          </td>
+                          <td>{{ c.type }}</td>
+                          <td>{{ c.prixunitaire }}</td>
+
+                        </tr>
+                  {% endfor %}
+                  </tbody>
+              </table>
+
+ {% else %}
+              <p>Aucun produits</p>
+          {% endif %}
+</center>

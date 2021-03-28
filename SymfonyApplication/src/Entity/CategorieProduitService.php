@@ -29,6 +29,12 @@ class CategorieProduitService
      */
     private $produitServices;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Board::class, inversedBy="categorieProduitServices")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Board;
+
     public function __construct()
     {
         $this->produitServices = new ArrayCollection();
@@ -77,6 +83,18 @@ class CategorieProduitService
                 $produitService->setCategorie(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getBoard(): ?Board
+    {
+        return $this->Board;
+    }
+
+    public function setBoard(?Board $Board): self
+    {
+        $this->Board = $Board;
 
         return $this;
     }

@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\CategorieProduitService;
 use App\Entity\ProduitService;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -19,6 +20,14 @@ class ProduitServiceRepository extends ServiceEntityRepository
         parent::__construct($registry, ProduitService::class);
     }
 
+
+
+
+
+
+
+
+
     // /**
     //  * @return ProduitService[] Returns an array of ProduitService objects
     //  */
@@ -35,6 +44,21 @@ class ProduitServiceRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findProdCat($idboard): array
+    {
+        $entityManager = $this->getEntityManager();
+        //'SELECT p , c FROM App\Entity\ProduitService p JOIN App\Entity\CategorieProduitService c ON p.id_categorie == c.id '
+        $query = $entityManager ->createQueryBuilder()
+            ->select('p.titre', 'p.description', 'p.lien_image', 'c.nom', 'p.id', 'p.prix_unitaire')
+            ->from(ProduitService::class, 'p')
+            ->where('p.board=:idboard')
+            ->setParameter('idboard', $idboard)
+        ->innerJoin(CategorieProduitService::class, 'c', 'WITH','p.categorie = c.id');
+
+
+        return $query->getQuery()->getArrayResult();
+    }
 
     /*
     public function findOneBySomeField($value): ?ProduitService

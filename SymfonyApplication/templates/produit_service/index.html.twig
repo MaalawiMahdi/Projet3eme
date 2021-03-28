@@ -1,0 +1,115 @@
+{% extends 'main.html.twig' %}
+
+  {% block content %}
+
+{% block title%} Liste des Produits{% endblock %}
+{% block body %}
+    {% if ProduitService %}
+        <table id="tableproduit" class="table">
+            <thead>
+            <tr>
+                <th><script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+                    <input id="search" class="form-control " type="text" name="search" placeholder="Search ..." aria-label="Search"  >
+                </th>
+                <th><p><label>Tri Par titre</label>  <input id="TriParnom" type="checkbox" class="form-check" unchecked></p></th>
+                <th><p><label>Tri Par Type</label>  <input id="TriParType" type="checkbox" class="form-check" unchecked></p></th>
+                <th><p><label>Tri Par Prix</label>  <input id="TriParPrix" type="checkbox" class="form-check" unchecked></p></th>
+
+            </tr>
+            <tr>
+                <th>titre</th>
+                <th>description</th>
+               <th>lien_image</th>
+                <th>type</th>
+                <th>prix_unitaire</th>
+
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+            </thead>
+            <tbody id="AjaxTable">
+            {% for c in ProduitService %}
+                <tr>
+                    <td>{{ c.titre }}</td>
+                    <td>{{ c.description }}</td>
+                    <td><img src ="{{ asset('img/' ~ c.getLienImage()) }}"
+                    alt = "" style = "width:50px; height: 50px">
+                    </td>
+                    <td>{{ c.type }}</td>
+                    <td>{{ c.prixunitaire }}</td>
+
+                    <td><a href="{{ path("produit_service_delete", {'id' : c.id}) }}" >Supprimer</a> </td>
+                    <td><a href="{{ path("produit_service_update", {'id' : c.id}) }}" >Modifier</a> </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun produits</p>
+    {% endif %}
+    <div class="navigation">
+    </div>
+    <a href="{{ path('produit_service_liste') }}">Imprimer</a>
+    <a href="{{ path('produit_service_add') }}">Ajouter un produit/service </a>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script>
+          $(document).ready(function() {
+              $('#search').keyup(function () {
+                  search_table($(this).val());
+              });
+              $('#TriParnom').change(function () {
+                  if (this.checked) {
+                      axios.get('/produit/service/tri/titre').then((response) => {
+                          $('#AjaxTable').html(response.data.template)
+                      });
+                  }else{
+                      axios.get('/produit/service/notri').then((response) => {
+                          $('#AjaxTable').html(response.data.template)
+                      });
+                  }
+              });
+              $('#TriParType').change(function () {
+                  if (this.checked) {
+                      axios.get('/produit/service/tri/type').then((response) => {
+                          $('#AjaxTable').html(response.data.template)
+                      });
+                  }else{
+                      axios.get('/produit/service/notri').then((response) => {
+                          $('#AjaxTable').html(response.data.template)
+                      });
+                  }
+              });
+              $('#TriParPrix').change(function () {
+                  if (this.checked) {
+                      axios.get('/produit/service/tri/type').then((response) => {
+                          $('#AjaxTable').html(response.data.template)
+                      });
+                  }else{
+                      axios.get('/produit/service/notri').then((response) => {
+                          $('#AjaxTable').html(response.data.template)
+                      });
+                  }
+              });
+
+              function search_table(value) {
+                  $('#tableproduit tbody tr').each(function () {
+                      var found = 'false';
+                      $(this).each(function () {
+                          if ($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+                              found = 'true';
+                          }
+                      });
+                      if (found == 'true') {
+                          $(this).show();
+
+                      } else {
+                          $(this).hide();
+
+                      }
+                  });
+              }
+          });
+          </script>
+
+          {% endblock %}
+  {% endblock %}

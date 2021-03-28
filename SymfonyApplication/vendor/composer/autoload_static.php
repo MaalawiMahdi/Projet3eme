@@ -150,6 +150,8 @@ class ComposerStaticInitd7a72c7eca0991a5d7d8b53874f913f6
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
+            'Gregwar\\CaptchaBundle\\' => 22,
+            'Gregwar\\' => 8,
         ),
         'F' => 
         array (
@@ -573,6 +575,14 @@ class ComposerStaticInitd7a72c7eca0991a5d7d8b53874f913f6
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Gregwar\\CaptchaBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gregwar/captcha-bundle',
+        ),
+        'Gregwar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gregwar/captcha/src/Gregwar',
         ),
         'FontLib\\' => 
         array (

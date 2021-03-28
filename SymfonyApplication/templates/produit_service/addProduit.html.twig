@@ -1,0 +1,12 @@
+{% extends 'main.html.twig' %}
+  {% block content %}
+<h1>Ajout d'un Produit</h1>
+
+<form  method="POST" enctype="multipart/form-data">
+
+    {{ form_widget(Form) }}
+
+    <input type="submit" />
+
+</form>
+  {% endblock %}

@@ -1,8 +1,9 @@
 {% extends 'main.html.twig' %}
 {% block lienspages %}
-<li ><a href="/AfficherSujet/{{ board_id }}" style="background-color: #ffa9a9;color: red" ><i class="fa fa-circle-o" style="color: red"></i> Gestion Des Sujet</a></li>
-<li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Boutique</a></li>
-<li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Moderateur</a></li>
+<li><a href="/AfficherSujet/{{ board_id }}" style="background-color: white;color: red" ><i class="fa fa-circle-o" style="color: red"></i> Gestion Des Sujet</a></li>
+<li  style="background-color: white;" ><a href="{{ asset('/category/produit/service') }}" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion des Categories produits/services</a></li>
+<li  style="background-color: white;" ><a href="{{ asset('/produit/service') }}" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion des produits/services</a></li>
+    <li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Moderateur</a></li>
 {% endblock %}
 {% block content %}
 

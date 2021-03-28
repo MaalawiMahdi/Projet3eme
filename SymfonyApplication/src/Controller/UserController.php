@@ -150,6 +150,7 @@ class UserController extends AbstractController
             } else {
                 if ($verifuser->getType() == "client" || $verifuser->getType() == "societe") {
                     $session->set('user', $verifuser);
+                    $session->set('panier',[]) ;
                     return $this->redirectToRoute('user_online');
                 } elseif ($verifuser->getType() == "admin") {
 

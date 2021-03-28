@@ -78,7 +78,6 @@ class BoardController extends AbstractController
         return $this->redirectToRoute('user_inscription');
     }
         $listcategorie=$this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
-
         $listboard=$this->getDoctrine()->getRepository(Board::class)->findAll();
         $user=$this->getDoctrine()->getRepository(User::class)->find($session->get('user')->getId());
         $articles =$paginator->paginate(

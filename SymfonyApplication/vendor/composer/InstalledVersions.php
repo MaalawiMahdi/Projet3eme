@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '7c111e79601bfcfc71858cbd75938b68ddb76257',
+    'reference' => '9e5d8d82f1341b03f5be5a3056fcb067fa4382e9',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '7c111e79601bfcfc71858cbd75938b68ddb76257',
+      'reference' => '9e5d8d82f1341b03f5be5a3056fcb067fa4382e9',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -232,6 +232,24 @@ private static $installed = array (
       array (
       ),
       'reference' => '121af47c9aee9c03031bdeca3fac0540f59aa5c3',
+    ),
+    'gregwar/captcha' => 
+    array (
+      'pretty_version' => 'v1.1.9',
+      'version' => '1.1.9.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4bb668e6b40e3205a020ca5ee4ca8cff8b8780c5',
+    ),
+    'gregwar/captcha-bundle' => 
+    array (
+      'pretty_version' => 'v2.1.4',
+      'version' => '2.1.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5e434e185951a1ab38875affca4c036cc172a20a',
     ),
     'guzzlehttp/guzzle' => 
     array (

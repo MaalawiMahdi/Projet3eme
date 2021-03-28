@@ -1,0 +1,32 @@
+{% extends 'main.html.twig' %}
+
+
+  {% block content %}
+
+{% block title%} Liste des categories{% endblock %}
+{% block body %}
+    {% if categories %}
+        <table id="categories" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for c in categories %}
+                <tr>
+                    <td>{{ c.nom }}</td>
+                    <td><a href="{{ path("category_produit_service_delete", {'id' : c.id}) }}" >Supprimer</a> </td>
+                    <td><a href="{{ path("category_produit_service_update", {'id' : c.id}) }}" >Modifier</a> </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun categories</p>
+    {% endif %}
+{% endblock %}
+  {% endblock %}
+
