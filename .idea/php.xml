@@ -103,6 +103,29 @@
       <path value="$PROJECT_DIR$/SymfonyApplication/vendor/psr/container" />
       <path value="$PROJECT_DIR$/SymfonyApplication/vendor/psr/log" />
       <path value="$PROJECT_DIR$/SymfonyApplication/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/knpuniversity/oauth2-client-bundle" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/symfony/google-mailer" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/laminas/laminas-json" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/league/oauth2-client" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/league/oauth2-google" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/twilio/sdk" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/ob/highcharts-bundle" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/gregwar/captcha-bundle" />
+      <path value="$PROJECT_DIR$/SymfonyApplication/vendor/gregwar/captcha" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
