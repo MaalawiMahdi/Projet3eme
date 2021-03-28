@@ -3,46 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7e3f5532-bbb7-4619-87fe-38f87a4368f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AideController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AideController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BoardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BoardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CategorieAideController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CategorieAideController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CategorieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CategorieController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/GoogleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GoogleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/NoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NoteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SocieteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SocieteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SujetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SujetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Commentaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Commentaire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Sujet.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Sujet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SujetType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SujetType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/SujetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SujetRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Bootstraptemplates/bootstrapAide1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Bootstraptemplates/bootstrapAide1.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Bootstraptemplates/navbarfront.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Bootstraptemplates/navbarfront.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/board/AfficherBoard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/board/AfficherBoard.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sujet/affichersujet.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sujet/affichersujet.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sujet/ajoutersujet.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sujet/ajoutersujet.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sujet/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sujet/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlGenerator.php.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/UrlMatcher.php.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/annotations.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/annotations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/aide/listAides.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aide/listAides.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +170,7 @@
       <workItem from="1616778215338" duration="16590000" />
       <workItem from="1616869962850" duration="704000" />
       <workItem from="1616872215475" duration="887000" />
-      <workItem from="1616874072814" duration="17771000" />
+      <workItem from="1616874072814" duration="20853000" />
     </task>
     <servers />
   </component>
