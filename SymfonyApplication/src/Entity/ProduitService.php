@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ProduitServiceRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProduitServiceRepository::class)
@@ -29,11 +30,18 @@ class ProduitService
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Assert\File(mimeTypes={ "image/jpeg" , "image/png",  "image/jpg" })
+     *  @Assert\NotBlank(message="please upload image")
+
+
+
      */
     private $lien_image;
 
     /**
      * @ORM\Column(type="string", length=20)
+
+
      */
     private $type;
 
@@ -83,12 +91,12 @@ class ProduitService
         return $this;
     }
 
-    public function getLienImage(): ?string
+    public function getLienImage()
     {
         return $this->lien_image;
     }
 
-    public function setLienImage(?string $lien_image): self
+    public function setLienImage($lien_image)
     {
         $this->lien_image = $lien_image;
 

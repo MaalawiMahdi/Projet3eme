@@ -1,10 +1,12 @@
-{% include 'temp1.html.twig' %}
-<h1>Ajout d'un Category</h1>
+{% extends 'main.html.twig' %}
+  {% block content %}
+<h1>Ajout d'un Produit</h1>
 
-<form  method="POST">
+<form  method="POST" enctype="multipart/form-data">
 
     {{ form_widget(Form) }}
 
     <input type="submit" />
 
 </form>
+  {% endblock %}
