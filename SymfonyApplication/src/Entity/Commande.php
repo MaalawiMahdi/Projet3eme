@@ -3,7 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\CommandeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=CommandeRepository::class)
@@ -17,14 +21,13 @@ class Commande
      */
     private $id;
 
-    /**
-     * @ORM\OneToOne(targetEntity=panier::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
-     */
-    private $panier;
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank
+     * @Assert\GreaterThan(
+     *     value = 0
+     * )
      */
     private $prix;
 
@@ -33,22 +36,30 @@ class Commande
      */
     private $livraison;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ProdutiCommande::class, mappedBy="commande")
+     */
+    private $produtiCommandes;
+
+
+
+    public function __construct()
+    {
+        $this->produtiCommandes = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPanier(): ?panier
-    {
-        return $this->panier;
-    }
 
-    public function setPanier(panier $panier): self
-    {
-        $this->panier = $panier;
-
-        return $this;
-    }
 
     public function getPrix(): ?float
     {
@@ -73,4 +84,48 @@ class Commande
 
         return $this;
     }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ProdutiCommande[]
+     */
+    public function getprodutiCommandes(): Collection
+    {
+        return $this->produtiCommandes;
+    }
+
+    public function addprodutiCommandes(ProdutiCommande $produtiCommandes): self
+    {
+        if (!$this->produtiCommandes->contains($produtiCommandes)) {
+            $this->produtiCommandes[] = $produtiCommandes;
+            $produtiCommandes->setCommande($this);
+        }
+
+        return $this;
+    }
+
+    public function removeprodutiCommandes(ProdutiCommande $produtiCommandes): self
+    {
+        if ($this->produtiCommandes->removeElement($produtiCommandes)) {
+            // set the owning side to null (unless already changed)
+            if ($produtiCommandes->getCommande() === $this) {
+                $produtiCommandes->setCommande(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

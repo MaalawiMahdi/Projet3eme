@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\ProduitServiceType;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -68,9 +69,10 @@ class ProduitServiceController extends AbstractController
     /**
      * @Route("/produit/service/front/{idboard}", name="produit_service_front")
      */
-    public function indexx($idboard,SessionInterface $session): Response
+    public function indexx(Request $request,PaginatorInterface $paginator,$idboard,SessionInterface $session): Response
     {
-        $ProduitService= $this->getDoctrine()->getRepository(ProduitService::class)->findProdCat($idboard);
+        $donnees= $this->getDoctrine()->getRepository(ProduitService::class)->findProdCat($idboard);
+        $ProduitService=$paginator->paginate($donnees,$request->query->getInt('page', 1),3);
 
         return $this->render('produit_service/index1.html.twig', [
             'ProduitService' => $ProduitService,

@@ -8,6 +8,7 @@ parameters:
     twilio_token: '1c6704076476bfa7f33907040ff89232'
     twilio_number: '+14062045814'
     images_directory: '%kernel.project_dir%/public/img'
+    upload_directory: '%kernel.project_dir%/public/im'
 services:
     # default configuration for services in *this* file
     _defaults:

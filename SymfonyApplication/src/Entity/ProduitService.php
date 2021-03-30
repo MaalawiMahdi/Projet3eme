@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProduitServiceRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -61,6 +63,16 @@ class ProduitService
      * @ORM\Column(type="float")
      */
     private $prix_unitaire;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ProdutiCommande::class, mappedBy="produitservice")
+     */
+    private $produtiCommandes;
+
+    public function __construct()
+    {
+        $this->produtiCommandes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -150,4 +162,40 @@ class ProduitService
 
         return $this;
     }
+
+    public function __toString():string
+    {
+        return $this->getId();
+    }
+
+    /**
+     * @return Collection|ProdutiCommande[]
+     */
+    public function getProdutiCommandes(): Collection
+    {
+        return $this->produtiCommandes;
+    }
+
+    public function addProdutiCommande(ProdutiCommande $produtiCommande): self
+    {
+        if (!$this->produtiCommandes->contains($produtiCommande)) {
+            $this->produtiCommandes[] = $produtiCommande;
+            $produtiCommande->setProduitservice($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProdutiCommande(ProdutiCommande $produtiCommande): self
+    {
+        if ($this->produtiCommandes->removeElement($produtiCommande)) {
+            // set the owning side to null (unless already changed)
+            if ($produtiCommande->getProduitservice() === $this) {
+                $produtiCommande->setProduitservice(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

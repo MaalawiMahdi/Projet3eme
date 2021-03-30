@@ -50,17 +50,18 @@
                         </div>
 
                     </div>
-                            </div>
 
-                        </div>
-                    </div>
+
 
 
                     </tbody>
                 </table>
+                <div style="margin-top: 5%;">{{ knp_pagination_render(ProduitService) }}</div>
+
             {% else %}
                 <p>Aucun produits</p>
+                </div>
             {% endif %}
-        </div>
+
 
 {% endblock %}

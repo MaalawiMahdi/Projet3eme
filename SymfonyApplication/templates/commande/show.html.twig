@@ -1,0 +1,133 @@
+{% include 'temp1.html.twig' %}
+
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+        {#<style>
+            .marker {
+                background-image: url(../../public/img/mapbox-icon.png);
+                background-size: cover;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        </style>#}
+
+    </head>
+    <div class="content">
+    {% if ProduitService %}
+        <h1>Facture</h1>
+        <table id="tableproduit" class="table">
+            <thead>
+            <tr>
+                <th>titre</th>
+                <th>description</th>
+                <th>lien_image</th>
+                <th>type</th>
+                <th>Prix unitaire</th>
+                <th>Quantite</th>
+                <th>societe</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for c in ProduitService %}
+                <tr>
+                    <td>{{ c.getProduitservice.titre }}</td>
+                    <td>{{ c.getProduitservice.description }}</td>
+                    <td><img src ="{{ asset('img/' ~ c.getProduitservice.getLienImage()) }}"
+                             alt = "" style = "width:50px; height: 50px">
+                    </td>
+                    <td>{{ c.getProduitservice.type }}</td>
+                    <td>{{ c.getProduitservice.prixunitaire }}</td>
+                    <td>{{ c.quantite }}</td>
+                    <td>{{ c.getProduitservice.getboard.getsociete.getnumregistre }}</td>
+
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun produits</p>
+    {% endif %}  <h1>Commande</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th colspan="3">Id</th>
+                <td colspan="3">{{ commande.id }}</td>
+            </tr>
+
+        <tr>
+            <th colspan="3">
+                email
+            </th>
+            <td colspan="3">{{ commande.user.mail }}</td>
+        </tr>
+            <tr>
+                <th colspan="3">Prix</th>
+                <td colspan="3">{{ commande.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div id='map' style='width: 400px; height: 300px;'></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY2hlZm5vMyIsImEiOiJja21yeGliaGQwOGNnMm5wY3dhaTNsN3hyIn0.DCZ867frkQwAPm3w5B_NXA';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [ 10.18,36.80],
+            zoom: 3,
+        });
+        var geojson = {
+            type: 'FeatureCollection',
+            features: [{
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [10.18,36.80]
+                },
+                properties: {
+                    title: 'Mapbox',
+                    description: 'Tunisia'
+                }
+
+                }]
+        };
+      /*  geojson.features.forEach(function(marker) {
+
+            // create a HTML element for each feature
+            var el = document.createElement('div');
+            el.className = 'marker';
+
+            // make a marker for each feature and add to the map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .addTo(map);
+        });*/
+        var marker = new mapboxgl.Marker({
+            color: "red",
+            draggable: true
+        }).setLngLat([10.18,36.80])
+            .addTo(map);
+
+    </script>
+
+
+    <a href="{{ path('commande_index') }}">back to list</a>
+
+    <a href="{{ path('commande_edit', {'id': commande.id}) }}">edit</a>
+    {% if commande.getLivraison is null %}
+    <a class="btn btn-primary" href="{{ path('commande_affectation', {'id': commande.id}) }}">affecter a une livraison</a>
+    {% else %}
+    <p style="text-align: left"  > Livraison :   <a href="{{ path("livraison_show",{'id':commande.getLivraison.getId}) }}"> {{  commande.getLivraison }}</a>
+  </p>  {% endif %}
+
+    {{ include('commande/_delete_form.html.twig') }}
+
+</div>
+{% include 'temp2.html.twig' %}
+
+

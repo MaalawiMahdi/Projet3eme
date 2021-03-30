@@ -19,8 +19,15 @@ class SocieteController extends AbstractController
     /**
      * @Route("/societe_demandes", name="societe_demandes")
      */
-    public function afficherdemande(): Response
-    {   $societe=$this->getDoctrine()->getRepository(Societe::class)->findBy(array('etat'=>true));
+    public function afficherdemande(SessionInterface $session): Response
+    {   $user=$session->get('user');
+        if(is_null($user)){
+            return $this->redirectToRoute('user_inscription');
+
+        }else if($user->getType()!="admin")
+        {   return $this->redirectToRoute('user_inscription');
+        }
+        $societe=$this->getDoctrine()->getRepository(Societe::class)->findBy(array('etat'=>true));
         $liste_des_demandes=$this->getDoctrine()->getRepository(Societe::class)->findBy(array('etat'=>false));
         return $this->render('societe/admin.html.twig', [
             'societes' => $societe,'liste_des_demandes'=>$liste_des_demandes

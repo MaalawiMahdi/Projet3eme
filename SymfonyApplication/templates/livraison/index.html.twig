@@ -1,0 +1,84 @@
+{% include 'temp1.html.twig' %}
+
+
+<div class="content">
+    <h1>Livraison index</h1>
+
+    <table class="table" id="tablivraison" >
+        <thead>
+        <tr><th colspan="4"><script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+                <input id="search" class="form-control " type="text" name="search" placeholder="Search ..." aria-label="Search"  >
+            </th>
+        <th><a class="btn-primary" href="/livraison/tri"> Tri par prix</a> </th>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Prix</th>
+            <th>Etat de livraison </th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for livraison in livraisons %}
+            <tr>
+                <td>{{ livraison.id }}</td>
+                <td>{{ livraison.type }}</td>
+                <td>{{ livraison.prix }}</td>
+                <td>{% if livraison.etat ==true %}
+                    livrée
+                    {% else %}
+                        en cours de livraison
+                        {% endif %}
+                </td>
+                <td>
+                    {% if livraison.etat==false %}
+                    <a class="btn btn-danger" href="{{ path('livraison_fin', {'id': livraison.id}) }}">fin de livraison </a>
+                    {% endif %}
+                    <a class="btn btn-warning" href="{{ path('livraison_show', {'id': livraison.id}) }}">show</a>
+
+                    <a class="btn btn-info" href="{{ path('livraison_edit', {'id': livraison.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('livraison_new') }}">Create new</a>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#search').keyup(function () {
+                search_table($(this).val());
+            });
+            function search_table(value){
+                $('#tablivraison tbody tr').each(function(){
+                    var found = 'false';
+                    $(this).each(function(){
+                        if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                        {
+                            found = 'true';
+                        }
+                    });
+                    if(found == 'true')
+                    {
+                        $(this).show();
+
+                    }
+                    else
+                    {
+                        $(this).hide();
+
+                    }
+                });
+            }
+        });
+
+    </script>
+</div>
+
+    {% include 'temp2.html.twig' %}

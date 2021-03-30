@@ -42,8 +42,9 @@ foreach ($panierwithData as $item){
     $totalItem = $item['ProduitService']->getPrixUnitaire() * $item['quantity'] ;
     $total += $totalItem;
 }
-
-
+/* for no3men */
+$session->set('PanierTotal',$total);
+$session->set('PanierItems',$panierwithData);
         return $this->render('Cart/index.html.twig',['items'=>$panierwithData, 'total'=>$total,
             'user'=>$session->get('user'),
             'path'=>$session->get('path'),

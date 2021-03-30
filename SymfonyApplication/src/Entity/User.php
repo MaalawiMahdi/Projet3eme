@@ -54,10 +54,7 @@ class User
      */
     private $commentaires;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Panier::class, mappedBy="User", orphanRemoval=true)
-     */
-    private $paniers;
+
 
     /**
      * @ORM\Column(type="boolean")
@@ -91,7 +88,6 @@ class User
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
-        $this->paniers = new ArrayCollection();
         $this->favoris = new ArrayCollection();
     }
 
@@ -183,35 +179,7 @@ class User
         return $this;
     }
 
-    /**
-     * @return Collection|Panier[]
-     */
-    public function getPaniers(): Collection
-    {
-        return $this->paniers;
-    }
 
-    public function addPanier(Panier $panier): self
-    {
-        if (!$this->paniers->contains($panier)) {
-            $this->paniers[] = $panier;
-            $panier->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removePanier(Panier $panier): self
-    {
-        if ($this->paniers->removeElement($panier)) {
-            // set the owning side to null (unless already changed)
-            if ($panier->getUser() === $this) {
-                $panier->setUser(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getActive(): ?bool
     {
@@ -283,4 +251,9 @@ class User
 
         return $this;
     }
+
+    public function __toString():string
+    {return  $this->mail;
+    }
+
 }

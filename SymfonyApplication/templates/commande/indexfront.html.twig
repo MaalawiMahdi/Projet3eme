@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commande{% endblock %}
+
+{% block body %}
+<div class="tm-main-content" id="top">
+    <div class="tm-top-bar-bg"></div>
+    <div class="tm-top-bar" id="tm-top-bar">
+        <!-- Top Navbar -->
+        <div class="container">
+            <div class="row">
+                {%  include('Bootstraptemplates/navbarfront.html.twig')  with { 'iduser': user.id }  %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tm-section tm-section-pad tm-bg-img tm-position-relative" id="tm-section-6">
+    <div class="container ie-h-align-center-fix">
+
+        <div class="row">
+
+            <div class="tm-bg-white" style="width: 100% ; padding: 10px">
+           <h1>Liste des commandes</h1>
+
+           <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Prix</th>
+            <th>Etat</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.id }}</td>
+                <td>{{ commande.prix }}</td>
+                <td>{% if commande.getLivraison %}
+                        {% if commande.getLivraison.etat == true %}
+                            livrée
+                        {% else %}
+                            en cours de livraison
+                        {% endif %}
+                    {% else %}
+                        non confirmeé
+                    {% endif  %}
+                </td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

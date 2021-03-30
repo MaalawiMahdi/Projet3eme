@@ -1,0 +1,21 @@
+{% extends 'main.html.twig' %}
+{% block title %}Commande{% endblock %}
+
+{% block content %}
+
+<h1>Commande</h1>
+
+<table class="table">
+    <tbody>
+    <tr>
+        <th>Id</th>
+        <td>{{ commande.id }}</td>
+    </tr>
+    <tr>
+        <th>Prix</th>
+        <td>{{ commande.prix }}</td>
+    </tr>
+    </tbody>
+</table>
+    {% include 'livraison/_form.html.twig' with {'from':form} %}
+{% endblock %}

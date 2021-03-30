@@ -115,7 +115,7 @@ class SujetController extends AbstractController
         $form->handleRequest($request);
             if($form->isSubmitted() && $form->isValid())
             {
-                $file = $Sujet->getLienImage();
+                $file = $form['lien_image']->getData();
                 if ($file)
                 {
                     $fileLink = md5(uniqid()).'.'.$file->guessExtension();

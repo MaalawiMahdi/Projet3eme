@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Commande{% endblock %}
+
+{% block body %}
+    <div class="tm-main-content" id="top">
+        <div class="tm-top-bar-bg"></div>
+        <div class="tm-top-bar" id="tm-top-bar">
+            <!-- Top Navbar -->
+            <div class="container">
+                <div class="row">
+                    {%  include('Bootstraptemplates/navbarfront.html.twig')  with { 'iduser': user.id }  %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tm-section tm-section-pad tm-bg-img tm-position-relative" id="tm-section-6">
+        <div class="container ie-h-align-center-fix">
+            <div class="row">
+
+                <div class="tm-bg-white" style="width: 100%; padding: 10px;" >
+                    <h1>Enregistrer votre commande</h1>
+
+                     <h6>Vos Produits</h6>
+                    {% if items | length >0 %}
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>prix</th>
+                            <th>quantite</th>
+                            <th>total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in items %}
+                            <tr>
+                                <td>{{ item.ProduitService.titre }}</td>
+                                <td>{{ item.ProduitService.getPrixUnitaire() }}</td>
+                                <td>{{ item.quantity }}</td>
+                                <td>{{ item.ProduitService.getPrixUnitaire()  * item.quantity }}</td>
+                                <td>
+                                    <a href="{{ path('cart_remove',{'id':item.ProduitService.id}) }}" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% endif %}
+                    {{ include('commande/_form.html.twig') }}
+
+
+                    <a href="{{ '/HolidayHiatus/' }}">retour</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
