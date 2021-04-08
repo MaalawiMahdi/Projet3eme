@@ -7,6 +7,7 @@ use App\Entity\Favoris;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class FavorisController extends AbstractController
@@ -24,7 +25,7 @@ class FavorisController extends AbstractController
     /**
      * @Route("/AjouterFavoris/{id_board}/{id_user}", name="AjouterFavoris")
      */
-    public function Ajouter($id_board,$id_user): Response
+    public function Ajouter($id_board,$id_user,SessionInterface $session): Response
     {
         $em = $this->getDoctrine()->getManager();
         $board=$this->getDoctrine()->getRepository(Board::class)->find($id_board);
@@ -34,7 +35,8 @@ class FavorisController extends AbstractController
             $f = $this->getDoctrine()->getRepository(Favoris::class)->findOneBy(array('board'=>$board,'User'=>$User));
             $em->remove($f);
             $em->flush();
-        }
+            $session->set('user',$User);
+       }
         else
         {
             $call=1;
@@ -42,7 +44,9 @@ class FavorisController extends AbstractController
         $Favoris->setUser($User);
         $Favoris->setBoard($board);
         $em->persist($Favoris);
-        $em->flush();}
+        $em->flush();
+        $session->set('user',$User);
+        }
         /*return $this->redirectToRoute("listB",['iduser'=>$id_user]);*/
         return $this->json(['etat'=>$call],200);
 

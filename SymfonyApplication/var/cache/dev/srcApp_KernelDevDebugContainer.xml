@@ -575,7 +575,7 @@
     <service id="App\Form\BoardType" class="App\Form\BoardType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" autoconfigure="true">
+    <service id="App\Form\CaptchaAIDEType" class="App\Form\CaptchaAIDEType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\CategorieAideType" class="App\Form\CategorieAideType" autowire="true" autoconfigure="true">
@@ -1145,7 +1145,7 @@
         <argument>App\Form\AffectationcommandeType</argument>
         <argument>App\Form\AideType</argument>
         <argument>App\Form\BoardType</argument>
-        <argument>App\Form\CaptchaType</argument>
+        <argument>App\Form\CaptchaAIDEType</argument>
         <argument>App\Form\CategorieAideType</argument>
         <argument>App\Form\CategorieBoardType</argument>
         <argument>App\Form\CategoryPSType</argument>
@@ -1501,7 +1501,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.TgqIEHA"/>
+      <argument type="service" id=".service_locator.ILrje2B"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5582,8 +5582,8 @@
     <service id=".abstract.instanceof.App\Form\AideType" class="App\Form\AideType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\BoardType" class="App\Form\BoardType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\BoardType" class="App\Form\BoardType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CaptchaAIDEType" class="App\Form\CaptchaAIDEType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CaptchaAIDEType" class="App\Form\CaptchaAIDEType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieAideType" class="App\Form\CategorieAideType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategorieAideType" class="App\Form\CategorieAideType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieBoardType" class="App\Form\CategorieBoardType" autowire="true" abstract="true"/>
@@ -6062,7 +6062,7 @@
         <argument key="mailer" type="service" id="mailer.mailer"/>
       </argument>
     </service>
-    <service id=".service_locator.pj1A0H0" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.UEB1xGc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::index" type="service" id=".service_locator.o3htLhs"/>
@@ -6104,6 +6104,7 @@
         <argument key="App\Controller\CategorieController::listC" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieController::update" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategoryProduitServiceController::addCategoryAction" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategoryProduitServiceController::index" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CommandeController::affectation" type="service" id=".service_locator.txaLixa"/>
         <argument key="App\Controller\CommandeController::afficherfront" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CommandeController::delete" type="service" id=".service_locator.e1rdezy"/>
@@ -6115,6 +6116,7 @@
         <argument key="App\Controller\CommentaireController::Like" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CommentaireController::ModifierCommentaire" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CommentaireController::SupprimerCommentaire" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\FavorisController::Ajouter" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\GoogleController::connectAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController::connectCheckAction" type="service" id=".service_locator.Jm3FXCg"/>
         <argument key="App\Controller\GoogleController::inscriptionAction" type="service" id=".service_locator.M1_Y_xF"/>
@@ -6201,6 +6203,7 @@
         <argument key="App\Controller\CategorieController:listC" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieController:update" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategoryProduitServiceController:addCategoryAction" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CategoryProduitServiceController:index" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CommandeController:affectation" type="service" id=".service_locator.txaLixa"/>
         <argument key="App\Controller\CommandeController:afficherfront" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CommandeController:delete" type="service" id=".service_locator.e1rdezy"/>
@@ -6212,6 +6215,7 @@
         <argument key="App\Controller\CommentaireController:Like" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CommentaireController:ModifierCommentaire" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CommentaireController:SupprimerCommentaire" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\FavorisController:Ajouter" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\GoogleController:connectAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController:connectCheckAction" type="service" id=".service_locator.Jm3FXCg"/>
         <argument key="App\Controller\GoogleController:inscriptionAction" type="service" id=".service_locator.M1_Y_xF"/>
@@ -6320,13 +6324,13 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.TgqIEHA" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.ILrje2B" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AffectationcommandeType" type="service" id="App\Form\AffectationcommandeType"/>
         <argument key="App\Form\AideType" type="service" id="App\Form\AideType"/>
         <argument key="App\Form\BoardType" type="service" id="App\Form\BoardType"/>
-        <argument key="App\Form\CaptchaType" type="service" id="App\Form\CaptchaType"/>
+        <argument key="App\Form\CaptchaAIDEType" type="service" id="App\Form\CaptchaAIDEType"/>
         <argument key="App\Form\CategorieAideType" type="service" id="App\Form\CategorieAideType"/>
         <argument key="App\Form\CategorieBoardType" type="service" id="App\Form\CategorieBoardType"/>
         <argument key="App\Form\CategoryPSType" type="service" id="App\Form\CategoryPSType"/>
@@ -6857,12 +6861,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.pj1A0H0"/>
+      <argument type="service" id=".service_locator.UEB1xGc"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.pj1A0H0"/>
+      <argument type="service" id=".service_locator.UEB1xGc"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -7278,7 +7282,7 @@
     <service id="Gregwar\CaptchaBundle\Controller\CaptchaController" alias="gregwar_captcha.controller" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.pj1A0H0"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.UEB1xGc"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -7293,7 +7297,7 @@
     <service id="Psr\Log\LoggerInterface $doctrineLogger" alias="monolog.logger.doctrine"/>
     <service id="Psr\Log\LoggerInterface $securityLogger" alias="monolog.logger.security"/>
     <service id=".service_locator.tHpW6v3" alias=".service_locator.Y7gDuDN" public="false"/>
-    <service id=".service_locator.KYKfSQ1" alias=".service_locator.TgqIEHA" public="false"/>
+    <service id=".service_locator.BMzrN.J" alias=".service_locator.ILrje2B" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="translator.data_collector.inner" alias="translator.default" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>

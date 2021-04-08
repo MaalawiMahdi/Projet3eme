@@ -19,43 +19,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">
-    <style> .btn-primary {
-            background-color: darkred;
-            border-color: darkred;
-        }
-        .btn-primary:hover {
-            opacity: 0.7;
-            background-color: darkred;
-            border-color: darkred;
-        }
-        .btn-primary:active {
-            background-color: darkred;
-            border-color: #8b0000;
-        }
-    </style>
-    <style>
-        button {
-            color: #FFFFFF;
-            background-color: #8a0001;
-            border-color: #8a0001;
-            border-radius: 6px;
-            padding: 8px;
-            font-size:10px;
-        }
-        button:hover {
-            color: #FFFFFF;
-            opacity: 0.8;
-            background-color: #8a0001;
-            border-color: #8a0001;
-            border-radius: 6px;
-        }
-        button:active {
-            color: #FFFFFF;
-            background-color: #8a0001;
-            border-color: #8a0001;
-            border-radius: 6px;
-        }
-    </style>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -64,8 +28,83 @@
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet"
-          href="{{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic') }}">
+    <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic') }}">
+    <style>
+        .btn-primary {
+            background-color:#f14e4e;
+            display:inline-block;
+            padding:0.3em 1.2em;
+            margin:0 0.1em 0.1em 0;
+            border:0.16em solid rgba(255,255,255,0);
+            border-radius:2em;
+            box-sizing: border-box;
+            text-decoration:none;
+            font-family:'Roboto',sans-serif;
+            font-weight:300;
+            color:#FFFFFF;
+            text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+            text-align:center;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover {
+            border-color: rgba(255,255,255,1);
+
+        }
+        .btn-primary:active {
+            border-color: rgba(255,255,255,1);
+
+        }
+
+        button {
+            background-color:#f14e4e;
+            display:inline-block;
+            padding:0.3em 1.2em;
+            margin:0 0.1em 0.1em 0;
+            border:0.16em solid rgba(255,255,255,0);
+            border-radius:2em;
+            box-sizing: border-box;
+            text-decoration:none;
+            font-family:'Roboto',sans-serif;
+            font-weight:300;
+            color:#FFFFFF;
+            text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+            text-align:center;
+            transition: all 0.2s;
+        }
+        button:hover {
+            border-color: rgba(255,255,255,1);
+
+        }
+        button:active {
+            border-color: rgba(255,255,255,1);
+
+        }
+        a.button4{
+            background-color:#f14e4e;
+            display:inline-block;
+            padding:0.3em 1.2em;
+            margin:0 0.1em 0.1em 0;
+            border:0.16em solid rgba(255,255,255,0);
+            border-radius:2em;
+            box-sizing: border-box;
+            text-decoration:none;
+            font-family:'Roboto',sans-serif;
+            font-weight:300;
+            color:#FFFFFF;
+            text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+            text-align:center;
+            transition: all 0.2s;
+        }
+        a.button4:hover{
+            border-color: rgba(255,255,255,1);
+        }
+        @media all and (max-width:30em){
+            a.button4{
+                display:block;
+                margin:0.2em auto;
+                }
+        }
+    </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -73,7 +112,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="{{ asset('index2.html') }}" class="logo" style="background-color: #c60000">
+        <a href="{{ asset('/AfficherBoard') }}" class="logo" style="background-color: #ea486b">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>H</b>H</span>
             <!-- logo for regular state and mobile devices -->
@@ -82,17 +121,17 @@
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" style="background-color: #c60000; height:60px">
+        <nav class="navbar navbar-static-top" style="background-color:#ea486b; height:60px">
             <!-- Sidebar toggle button-->
             <a href="{{ asset('#') }}" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only">Toggle navigation</span>
-            </a><img src="{{ asset('HH.png') }}" style="width:230px;height: 60px; margin-left: 300px ">
+            </a>
             <!-- Navbar Right Menu -->
-            
+
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar" style="background-color:#c60000">
+    <aside class="main-sidebar" style="background-color:#ea486b">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
@@ -102,33 +141,39 @@
             </div>
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{ asset('ma.jpg') }}" class="img-circle" alt="User Image">
+                    <img src="{{ asset('profil/user.png') }}" class="img-circle" alt="User Image" style="max-width: 40px; height: 40px; ">
                 </div>
                 <div class="pull-left info">
-                    <p>Mohamed Amara</p>
+                    <p>Societe Board</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
 
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
-            <ul class="sidebar-menu" data-widget="tree" style="background-color: white">
-                <li class="active treeview menu-open"style="background-color: white">
-                    <a href="#" style="background-color: white" >
-                        <i  style="background-color: white"></i> <span style="color: red">Gestion Board</span>
-                        <span class="pull-right-container" style="background-color: white">
-              <i class="fa fa-angle-left pull-right "style="color: red"></i>
-            </span>
-                    </a>
+            <ul class="sidebar-menu" data-widget="tree" style="background-color: #334344" >
+
+                <li class="treeview" style="background-color: #334344">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Gestion Board</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>  </a>
                     <ul class="treeview-menu">
                         {% block lienspages %}
-                        <li><a href="#" style="background-color: white;color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion Des Sujet</a></li>
-                            <li  style="background-color: white;" ><a href="{{ asset('/category/produit/service') }}" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion des Categories produits/services</a></li>
-                            <li  style="background-color: white;" ><a href="{{ asset('/produit/service') }}" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion des produits/services</a></li>
-                            <li  style="background-color: white;" ><a href="#" style="color: red"><i class="fa fa-circle-o" style="color: red"></i> Gestion de Moderateur</a></li>
+                       <li><a href="/AfficherSujet/{{ board_id }}" ><i class="fa fa-circle-o" style="color: #705487" ></i> Gestion Des Sujet</a></li>
                         {% endblock %}
+                        <li><a href="{{ asset('/category/produit/service') }}" ><i class="fa fa-circle-o" style="color: #705487"></i> Gestion des Categories produits/services</a></li>
+                        <li><a href="{{ asset('/produit/service') }}"><i class="fa fa-circle-o" style="color: #705487"></i> Gestion des produits/services</a></li>
                     </ul>
                 </li>
+                <li class="treeview" style="background-color: #334344">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>Options</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>  </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ asset('/user/deconnexion') }}" ><i class="fa fa-circle-o" style="color: #705487"></i> Se deconnecter</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -350,26 +395,41 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<<script src="{{ asset('bundles/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('bundles/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button);
+</script>
 <!-- Bootstrap 3.3.7 -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="{{ asset('bundles/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- Morris.js charts -->
+<script src="{{ asset('bundles/bower_components/raphael/raphael.min.js')}}"></script>
+<script src="{{ asset('bundles/bower_components/morris.js/morris.min.js')}}"></script>
 <!-- Sparkline -->
-<script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-<!-- jvectormap  -->
-<script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<!-- SlimScroll -->
-<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- ChartJS -->
-<script src="bower_components/chart.js/Chart.js"></script>
+<script src="{{ asset('bundles/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+<!-- jvectormap -->
+<script src="{{ asset('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+<script src="{{ asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{ asset('bundles/bower_components/jquery-knob/dist/jquery.knob.min.js')}}"></script>
+<!-- daterangepicker -->
+<script src="{{ asset('bundles/bower_components/moment/min/moment.min.js')}}"></script>
+<script src="{{ asset('bundles/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+<!-- datepicker -->
+<script src="{{ asset('bundles/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+<!-- Slimscroll -->
+<script src="{{ asset('bundles/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<!-- FastClick -->
+<script src="{{ asset('bundles/bower_components/fastclick/lib/fastclick.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('bundles/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard2.js"></script>
+<script src="{{ asset('bundles/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<script src="{{ asset('bundles/dist/js/demo.js')}}"></script>
 </body>
 </html>

@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Aide;
 use App\Form\TriformType;
 use App\Entity\Captcha;
-use App\Form\CaptchaType;
+use App\Form\CaptchaAIDEType;
 use App\Form\NoteType;
 use App\Entity\Note;
 use App\Entity\User;
@@ -104,7 +104,7 @@ class AideController extends AbstractController
         $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find($id);
         $x=random_int(1,21);
         $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
-        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha= $this->createForm(CaptchaAIDEType::class);
         $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
         $formCaptcha->handleRequest($request);
 
@@ -118,7 +118,7 @@ class AideController extends AbstractController
         }
         $x=random_int(1,21);
         $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
-        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha= $this->createForm(CaptchaAIDEType::class);
         $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
         return $this->render('aide/DetailAides.html.twig', ['DetailAides' => $Aidefind,'iduser'=>$iduser,'captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView() ,  'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
 
@@ -340,7 +340,7 @@ class AideController extends AbstractController
     }
         $x=random_int(1,21);
         $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
-        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha= $this->createForm(CaptchaAIDEType::class);
         $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
         $formCaptcha->handleRequest($request);
 
@@ -353,10 +353,10 @@ class AideController extends AbstractController
         }
         $x=random_int(1,21);
         $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
-        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha= $this->createForm(CaptchaAIDEType::class);
         $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
 
-        return $this->render('aide/Captcha.html.twig', ['captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView(),'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
+        return $this->render('aide/CaptchaAIDE.html.twig', ['captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView(),'path'=>$session->get('path'),'texte'=>$session->get('texte'),]);
     }
 
     /**

@@ -38,8 +38,8 @@
                     <td>{{ c.type }}</td>
                     <td>{{ c.prixunitaire }}</td>
 
-                    <td><a href="{{ path("produit_service_delete", {'id' : c.id}) }}" >Supprimer</a> </td>
-                    <td><a href="{{ path("produit_service_update", {'id' : c.id}) }}" >Modifier</a> </td>
+                    <td><a class="button4" href="{{ path("produit_service_delete", {'id' : c.id}) }}" >Supprimer</a> </td>
+                    <td><a class="button4" href="{{ path("produit_service_update", {'id' : c.id}) }}" >Modifier</a> </td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -49,8 +49,8 @@
     {% endif %}
     <div class="navigation">
     </div>
-    <a href="{{ path('produit_service_liste') }}">Imprimer</a>
-    <a href="{{ path('produit_service_add') }}">Ajouter un produit/service </a>
+    <a class="button4" href="{{ path('produit_service_liste') }}">Imprimer</a>
+    <a  class="button4" href="{{ path('produit_service_add') }}">Ajouter un produit/service </a>
       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <script>
           $(document).ready(function() {

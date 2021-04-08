@@ -31,6 +31,7 @@ class ProduitServiceController extends AbstractController
 
         return $this->render('produit_service/index.html.twig', [
             'ProduitService' => $ProduitService,
+            'board_id'=>$boardid
 
         ]);
     }
@@ -164,7 +165,8 @@ class ProduitServiceController extends AbstractController
 
             return $this->render('produit_service/addProduit.html.twig',
                 array(
-                    'Form' => $form->createView()
+                    'Form' => $form->createView(),
+                    'board_id'=>$board->getId(),
                 ));
         }
 

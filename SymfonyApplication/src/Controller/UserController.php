@@ -124,7 +124,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $verifuser=$userRepository->findOneBy(array('mail'=>$user->getMail()));
             if(is_null($verifuser)) {
-                $user->setPassword(password_hash ($user->getPassword(),PASSWORD_DEFAULT));
+                $user->setPassword(password_hash ($user->getPassword(),PASSWORD_BCRYPT,['cost' => 12]));
                 $entityManager = $this->getDoctrine()->getManager();
                 $user->setBan(false);
                 $entityManager->persist($user);
@@ -202,7 +202,7 @@ class UserController extends AbstractController
         $form=$form->add("Enregister",SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setPassword(password_hash($user->getPassword(),PASSWORD_DEFAULT));
+            $user->setPassword(password_hash($user->getPassword(), PASSWORD_BCRYPT,['cost' => 12]));
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('user_index');
         }
@@ -277,7 +277,7 @@ class UserController extends AbstractController
         $forminfo->handleRequest($request);
 
         if($formuser->isSubmitted()&&$formuser->isValid()){
-           $user->setPassword(password_hash ($user->getPassword(),PASSWORD_DEFAULT));
+           $user->setPassword(password_hash ($user->getPassword(), PASSWORD_BCRYPT, ['cost' => 12]));
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('profil');
         }elseif($forminfo->isSubmitted()&&$forminfo->isValid()){
@@ -408,7 +408,7 @@ class UserController extends AbstractController
         $passwordform->add('Envoyer',SubmitType::class);
         $passwordform->handleRequest($request);
         if($passwordform->isSubmitted()){
-            $user->setPassword(password_hash($user->getPassword(),PASSWORD_DEFAULT));
+            $user->setPassword(password_hash($user->getPassword(), PASSWORD_BCRYPT, ['cost' => 12]));
             $this->getDoctrine()->getManager()->flush();
             $session->clear();
             return $this->redirectToRoute('user_inscription');

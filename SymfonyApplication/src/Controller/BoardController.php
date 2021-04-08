@@ -229,8 +229,7 @@ class BoardController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->persist($Board);
             $em->flush();
-            $session->set('path',"moderator");
-            $session->set('Texte',"Gérer votre board");
+            $user=$this->getDoctrine()->getRepository(User::class)->find($session->get('user')->getId());
             return $this->redirectToRoute("listB",['iduser'=>$user->getId()]);
         }
         return $this->render('board/AjouterBoard.html.twig', [

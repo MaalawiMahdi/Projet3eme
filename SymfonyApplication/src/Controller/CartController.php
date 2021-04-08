@@ -20,10 +20,8 @@ class CartController extends AbstractController
      * @Route("/produit/service/panier", name="produit_service_panier")
      */
     public function index(SessionInterface  $session,ProduitServiceRepository $ProduitService)
-    {
-if(is_null($session->get('user'))){
-    $this->redirectToRoute('user_inscription');
-}
+    { if(is_null($session->get('user'))){
+    $this->redirectToRoute('user_inscription');}
 $panier = $session->get('panier',[]) ;
 
 $panierwithData = [] ;

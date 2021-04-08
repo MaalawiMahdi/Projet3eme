@@ -3,27 +3,31 @@
   <component name="ChangeListManager">
     <list default="true" id="7d8e557b-bc08-48fe-b0f3-6e18b4c897ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/.env" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/migrations/Version20210328133345.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/migrations/Version20210328143604.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/.idea/php.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Controller/AideController.php" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/src/Controller/AideController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Controller/BoardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/src/Controller/BoardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Controller/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/src/Controller/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Controller/CategoryProduitServiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/src/Controller/CategoryProduitServiceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Controller/FavorisController.php" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/src/Controller/FavorisController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Controller/ProduitServiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/src/Controller/ProduitServiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Controller/SocieteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/src/Controller/SocieteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Controller/SujetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/src/Controller/SujetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Entity/Commande.php" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/src/Entity/Commande.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Entity/Livraison.php" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/src/Entity/Livraison.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Entity/Panier.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Entity/ProduitService.php" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/src/Entity/ProduitService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/templates/Cart/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/templates/Cart/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/templates/produit_service/index1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/templates/produit_service/index1.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/src/Form/CaptchaType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/templates/aide/Captcha.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/templates/aide/listAides.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/templates/aide/listAides.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/templates/board/AfficherBoard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/templates/board/AfficherBoard.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/templates/category_produit_service/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/templates/category_produit_service/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/templates/main.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/templates/main.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/templates/produit_service/ajaxtable.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/templates/produit_service/ajaxtable.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/templates/produit_service/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/templates/produit_service/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/templates/sujet/affichersujet.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/templates/sujet/affichersujet.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SymfonyApplication/templates/temp1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/templates/temp1.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/var/cache/dev/UrlGenerator.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/var/cache/dev/UrlGenerator.php.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/var/cache/dev/UrlMatcher.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/var/cache/dev/UrlMatcher.php.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/templates/user/profil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/templates/user/profil.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymfonyApplication/var/cache/dev/annotations.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SymfonyApplication/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/var/cache/dev/srcApp_KernelDevDebugContainer.preload.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SymfonyApplication/var/cache/dev/srcApp_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/var/cache/dev/srcApp_KernelDevDebugContainer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SymfonyApplication/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/SymfonyApplication/var/cache/dev/srcApp_KernelDevDebugContainerCompiler.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +180,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SymfonyApplication" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -194,7 +198,11 @@
       <workItem from="1616939165300" duration="6473000" />
       <workItem from="1616945974955" duration="238000" />
       <workItem from="1616954450396" duration="11672000" />
-      <workItem from="1617031627269" duration="30395000" />
+      <workItem from="1617031627269" duration="37672000" />
+      <workItem from="1617101377822" duration="9610000" />
+      <workItem from="1617114773461" duration="31000" />
+      <workItem from="1617115253838" duration="858000" />
+      <workItem from="1617117802483" duration="1109000" />
     </task>
     <servers />
   </component>
@@ -210,5 +218,28 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1617054028070" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1617114804876">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1617114804876" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1617104942143">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1617104942143" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1617101875436">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1617101875436" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/SymfonyApplication/src/Controller/UserController.php</url>
+          <line>379</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

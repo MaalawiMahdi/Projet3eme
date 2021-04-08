@@ -17,12 +17,17 @@ class CategoryProduitServiceController extends AbstractController
     /**
      * @Route("/category/produit/service", name="category_produit_service")
      */
-    public function index(): Response
-    {
+    public function index(SessionInterface $session): Response
+    {  if(is_null($session->get('user')->getSociete()->getBoard()->getId())){
+        $this->redirectToRoute('user_inscription');
+    }
         $categories= $this->getDoctrine()->getManager()->getRepository(CategorieProduitService::class)->findAll();
-
+        $board_id=$session->get('user')->getSociete()->getBoard()->getId();
         return $this->render('category_produit_service/index.html.twig', [
             'categories' => $categories,
+            'path'=>$session->get('path'),
+            'texte'=>$session->get('texte'),
+            'board_id'=>$board_id,
         ]);
     }
 
@@ -54,7 +59,8 @@ class CategoryProduitServiceController extends AbstractController
 
         return $this->render('category_produit_service/addCategoryPS.html.twig',
             array(
-                'Form'=>$form->createView()
+                'Form'=>$form->createView(),
+                'board_id'=>$board->getId(),
             ));
     }
 
