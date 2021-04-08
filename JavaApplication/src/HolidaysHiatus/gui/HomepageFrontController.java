@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author drwhoo
  */
-public class HomepageController implements Initializable {
+public class HomepageFrontController implements Initializable {
 
     /**
      * Initializes the controller class.

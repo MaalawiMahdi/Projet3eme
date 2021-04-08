@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="909.0" prefWidth="1177.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.HomepageFrontController">
+    <stylesheets>
+        <URL value="@homepage.css" />
+    </stylesheets>
+    <styleClass>
+        <String fx:value="mainFxmlClass" />
+        <String fx:value="backgroundFront" />
+    </styleClass>
+    <children>
+        <Pane prefHeight="89.0" prefWidth="1174.0">
+            <children>
+                <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="29.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/Logo.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="51.0" fitWidth="40.0" layoutX="1079.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/user.png" />
+                    </image>
+                </ImageView>
+                
+                <Label layoutX="1060.0" layoutY="65.0" text="se deconnecter" />
+                <Hyperlink focusTraversable="false" layoutX="666.0" layoutY="28.0" prefHeight="29.0" prefWidth="69.0" text="Boards" textFill="#1b1a1a">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Hyperlink>
+                <Hyperlink focusTraversable="false" layoutX="753.0" layoutY="28.0" prefHeight="29.0" prefWidth="259.0" text="Démarrer avec un compte Business" textFill="#1b1a1a">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Hyperlink>
+                <Hyperlink fx:id="btn_accueil" focusTraversable="false" layoutX="584.0" layoutY="28.0" onAction="#envoiAccueil" prefHeight="29.0" prefWidth="69.0" text="Aides" textFill="#1b1a1a">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Hyperlink>
+                <Separator layoutX="649.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="92.0" prefWidth="8.0" />
+                <Separator layoutX="734.0" orientation="VERTICAL" prefHeight="92.0" prefWidth="8.0" />
+                <Separator layoutX="562.0" orientation="VERTICAL" prefHeight="89.0" prefWidth="8.0" />
+
+            </children>
+        </Pane>
+        <ImageView fitHeight="171.0" fitWidth="1177.0" layoutX="1.0" layoutY="93.0" pickOnBounds="true">
+            <image>
+                <Image url="@../images/photo.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="id_ID" layoutX="701.0" layoutY="105.0" scaleX="2.0" scaleY="2.0" text="id_user" visible="false" />
+        <AnchorPane fx:id="home" layoutY="872.0" prefHeight="40.0" prefWidth="1177.0" styleClass="backgroundFooter">
+            <children>
+                <Label layoutX="468.0" layoutY="8.0" styleClass="backgroundFooter" text="Copyright © 2018 Your Company - Design: Tooplate" textFill="WHITE" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

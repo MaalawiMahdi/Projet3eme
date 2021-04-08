@@ -2,15 +2,32 @@
  * Empty Stylesheet file.
  */
 
-
-.background
+.backgroundBack
 { 
-    -fx-background-color: linear-gradient(grey ,#ee5057 );
+    -fx-background-color: white;
 }
-
-
-
+.backgroundBackNav
+{ 
+    -fx-background-color: #D11414;
+}
+.backgroundFront
+{ 
+    -fx-background-color: white;
+}
+.backgroundAdmin
+{ 
+    -fx-background-color: black;
+    -fx-color: white;
+}
+.backgroundFooter
+{ 
+    -fx-background-color: #1F3646;
+    -fx-color: white;
+}
 .button {
     -fx-background-color: linear-gradient( #91B0D9, #91B0D9);
 }
-
+.backgroundBackSocieteNav
+{ 
+    -fx-background-color: #EA486B;
+}

@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+
 /**
  *
  * @author drwhoo
@@ -31,9 +32,10 @@ public class HolidaysHiatus extends Application {
         
             Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("Homepage.fxml"));
+            //root = FXMLLoader.load(getClass().getResource("HomepageBack.fxml"));
+            root = FXMLLoader.load(getClass().getResource("HomepageBackSociete.fxml"));
       
-            Scene scene = new Scene(root, 1000, 800);
+            Scene scene = new Scene(root);
             primaryStage.setTitle("HolidaysHiatus");
             primaryStage.setScene(scene);
             primaryStage.show();
