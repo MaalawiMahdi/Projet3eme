@@ -32,14 +32,12 @@
                         <Image url="@../images/user.png" />
                     </image>
                 </ImageView>
-                
-                <Label layoutX="1271.0" layoutY="61.0" text="se deconnecter" />
                 <Hyperlink focusTraversable="false" layoutX="882.0" layoutY="28.0" prefHeight="29.0" prefWidth="69.0" text="Boards" textFill="#1b1a1a">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Hyperlink>
-                <Hyperlink focusTraversable="false" layoutX="958.0" layoutY="31.0" prefHeight="29.0" prefWidth="259.0" text="Démarrer avec un compte Business" textFill="#1b1a1a">
+                <Hyperlink focusTraversable="false" layoutX="958.0" layoutY="31.0" onAction="#inscriptionbusiness" prefHeight="29.0" prefWidth="259.0" text="Démarrer avec un compte Business" textFill="#1b1a1a">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
@@ -52,6 +50,7 @@
                 <Separator layoutX="865.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="92.0" prefWidth="8.0" />
                 <Separator layoutX="950.0" orientation="VERTICAL" prefHeight="92.0" prefWidth="8.0" />
                 <Separator layoutX="781.0" orientation="VERTICAL" prefHeight="89.0" prefWidth="8.0" />
+            <Hyperlink fx:id="deconnecter" layoutX="1265.0" layoutY="63.0" onAction="#deconnecter" text="Se déconnecter" />
 
             </children>
         </Pane>

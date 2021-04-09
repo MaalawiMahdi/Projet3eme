@@ -35,6 +35,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 
 /**
@@ -70,6 +72,7 @@ public class GestionUserController implements Initializable {
     private Button bannir;
     @FXML
     private Hyperlink deconnecter;
+    @FXML
     /**
      * Initializes the controller class.
      */
@@ -111,7 +114,7 @@ public class GestionUserController implements Initializable {
             }
            
         });
-      
+    
     }    
 
     @FXML
@@ -161,23 +164,22 @@ public class GestionUserController implements Initializable {
             Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    @FXML
+  
 
+    @FXML
     private void editPassword(CellEditEvent<User, String> event) {
-        System.out.print(event.getRowValue());
+    System.out.print(event.getRowValue());
         System.out.print(event.getNewValue());
         UserService us = new UserService();
         event.getRowValue().setPassword(BCrypt.hashpw(event.getNewValue(),BCrypt.gensalt()));
         us.UpdateUser(event.getRowValue());
         refrech();
         
-        
     }
 
-       @FXML
-
+    @FXML
     private void editmail(CellEditEvent<User, String> event) {
-    UserService us = new UserService();
+         UserService us = new UserService();
         event.getRowValue().setMail(event.getNewValue());
         us.UpdateUser(event.getRowValue());
         refrech();
