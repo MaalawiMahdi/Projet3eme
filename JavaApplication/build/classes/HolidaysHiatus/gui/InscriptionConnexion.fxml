@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="980.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.InscriptionConnexionController">
+   <children>
+      <AnchorPane layoutX="82.0" layoutY="193.0" prefHeight="320.0" prefWidth="414.0">
+         <children>
+            <Label layoutX="154.0" layoutY="14.0" text="Inscription">
+               <font>
+                  <Font size="23.0" />
+               </font></Label>
+            <Label layoutX="74.0" layoutY="79.0" text="E-mail " />
+            <Label layoutX="73.0" layoutY="119.0" text="Mot de passe " />
+            <Label layoutX="73.0" layoutY="160.0" text="Repeter mot de passe" />
+            <TextField fx:id="inscription_email" layoutX="234.0" layoutY="75.0" />
+            <PasswordField fx:id="inscription_mot_de_passe" layoutX="234.0" layoutY="115.0" />
+            <PasswordField fx:id="inscription_repeter_mot_de_passe" layoutX="234.0" layoutY="156.0" />
+            <Button layoutX="176.0" layoutY="228.0" mnemonicParsing="false" onAction="#inscription" style="-fx-alignment: center; -fx-background-color: #ee5057;" text="S'inscrire" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="696.0" layoutY="193.0" prefHeight="320.0" prefWidth="414.0">
+         <children>
+            <Label layoutX="53.0" layoutY="79.0" text="E-mail " />
+            <Label layoutX="53.0" layoutY="119.0" text="Mot de passe " />
+            <TextField fx:id="connexion_email" layoutX="226.0" layoutY="75.0" />
+            <PasswordField fx:id="connexion_mot_de_passe" layoutX="226.0" layoutY="115.0" />
+            <Button layoutX="163.0" layoutY="160.0" mnemonicParsing="false" onAction="#connecter" style="-fx-alignment: center; -fx-background-color: #ee5057;" text="Se connceter" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Label layoutX="155.0" layoutY="14.0" text="Connexion">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="434.0" layoutX="371.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
