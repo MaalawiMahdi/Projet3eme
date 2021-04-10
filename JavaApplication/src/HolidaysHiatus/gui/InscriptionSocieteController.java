@@ -25,6 +25,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -51,13 +52,32 @@ public class InscriptionSocieteController implements Initializable {
     private TextField typesociete;
     @FXML
     private Button inscription;
+    @FXML
+    private Text message;
+    @FXML
+    private Button modifiersocite;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //tester si une demende existe déja 
+        SocieteService Sc = new SocieteService();
+        System.out.print(Session.StartSession().getSessionUser().getId());
+        
+        if(Sc.chercherparidclient(Session.StartSession().getSessionUser().getId())!=null){
+         Societe s = Sc.chercherparidclient(Session.StartSession().getSessionUser().getId());
+       
+            inscription.setDisable(true);
+              inscription.setOpacity(0);
+              message.setText("Votre demmande est en cours de traitement \n , vous pouvez la modifier a tous moment ");
+             nomsociete.setText(s.getNom().toString());
+             numregistresociete.setText(s.getNumregistre().toString());
+             adressesociete.setText(s.getAdresse().toString());
+             typesociete.setText(s.getType().toString());
+             modifiersocite.setOpacity(1);
+        }
     }    
 
     @FXML
@@ -79,7 +99,7 @@ public class InscriptionSocieteController implements Initializable {
 
     @FXML
     private void deconnecter(ActionEvent event) {
-    Session.getSession().clearSession();
+   Session.StartSession().clearSession();
               try {
      FXMLLoader loader = new FXMLLoader(getClass().getResource("InscriptionConnexion.fxml"));
      Parent root= loader.load();
@@ -88,35 +108,36 @@ public class InscriptionSocieteController implements Initializable {
             Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-/*  private TextField nomsociete;
-    @FXML
-    private TextField numregistresociete;
-    @FXML
-    private TextField adressesociete;
-    @FXML
-    private TextField typesociete;
-    @FXML
-    private Button inscription;
-*/
+
     
     @FXML
     private void insciptionsociete(ActionEvent event) {
-          if(nomsociete.getText().compareTo("")==0||numregistresociete.getText().compareTo("")==0||adressesociete.getText().compareTo("")==0||typesociete.getText().compareTo("")==0){
+          if(nomsociete.getText().compareTo("")==0||numregistresociete.getText().compareTo("")==0
+                  ||adressesociete.getText().compareTo("")==0||typesociete.getText().compareTo("")==0){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("un ou plusieurs champs sont manquants"); 
         alert.setHeaderText("un ou plusieurs champs sont manquants ");
         alert.setContentText("les champs nom de societe , numero de registre , adresse et type  sont obligatoires !");
         alert.showAndWait();
         }else {
-              Societe s = new Societe(Session.getSession().getSessionUser().getId(),numregistresociete.getText(), adressesociete.getText(),typesociete.getText(),false,nomsociete.getText());
+              Societe s = new Societe(Session.StartSession().getSessionUser().getId(),numregistresociete.getText(), adressesociete.getText(),typesociete.getText(),false,nomsociete.getText());
               SocieteService S_Service = new SocieteService();
               S_Service.AjouterSociete(s);
-              Session.getSession().getSessionUser().setType("societe"); //update session
-              UserService us = new UserService();
-              us.UpdateUser(Session.getSession().getSessionUser());
-              
-       }
+              inscription.setDisable(true);
+              inscription.setOpacity(0);
+              message.setText("Votre demmande est en cours de traitement \n , vous pouvez la modifier a tous moment ");
+             nomsociete.setText(s.getNom());
+             numregistresociete.setText(s.getNumregistre());
+             adressesociete.setText(s.getAdresse());
+             typesociete.setText(s.getType());
+             modifiersocite.setOpacity(1);
+             
+          }
 
+    }
+
+    @FXML
+    private void modifiersocite(ActionEvent event) {
     }
     
 }

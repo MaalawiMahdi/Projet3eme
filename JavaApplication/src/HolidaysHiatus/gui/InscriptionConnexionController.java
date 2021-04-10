@@ -140,7 +140,8 @@ public class InscriptionConnexionController implements Initializable {
       
         }else{
             u.setActive(true);
-            Session.StartSession(u);
+            Session.StartSession().SetSessionUser(u);
+            
             if(u.getType().compareTo("client")==0||u.getType().compareTo("societe")==0){
                  try {
            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageFront.fxml"));

@@ -41,13 +41,13 @@ public class SocieteService {
     }
     }
     public List<Societe> AfficherSocietes(){
-     String sql="select * from user ";
+     String sql="select * from societe ";
      List <Societe> Societes  = new ArrayList();
      try{
      ste=cnx.prepareStatement(sql);
      ResultSet result= ste.executeQuery();
      while(result.next()){
-     Societes.add(new Societe(result.getInt(1),result.getInt(2),result.getString(2),result.getString(3),result.getString(4),result.getBoolean(5),result.getString(6)));
+     Societes.add(new Societe(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getBoolean(6),result.getString(7)));
      }
      } catch(SQLException ex){
         System.out.print(ex.getMessage());
@@ -55,5 +55,26 @@ public class SocieteService {
      return Societes;
     }
      
-    
+    public Societe chercherparidclient(int id){
+     String sql="select * from societe where useraccount_id = ?";
+     List <Societe> Societe  = new ArrayList();
+     try{
+     ste=cnx.prepareStatement(sql);
+     ste.setInt(1,id);
+     ResultSet result= ste.executeQuery();
+    while(result.next()){
+     Societe.add(new Societe(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getBoolean(6),result.getString(7)));
+     }
+if (Societe.size()>0){
+    return Societe.get(0);
+
+}else{
+    return null;
+}
+     } catch(SQLException ex){
+        System.out.print(ex.getMessage());
+      return null;
+     }
+
+    }
 }

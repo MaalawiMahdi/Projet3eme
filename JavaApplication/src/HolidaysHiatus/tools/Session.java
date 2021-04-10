@@ -5,6 +5,7 @@
  */
 package HolidaysHiatus.tools;
 
+import HolidaysHiatus.entites.Societe;
 import HolidaysHiatus.entites.User;
 
 /**
@@ -14,6 +15,9 @@ import HolidaysHiatus.entites.User;
 public final class Session {
      private static Session instance;
      private User SessionUser;
+     private Societe SessionSociete;
+
+   
      private Session() {
      }
       private Session(User SessionUser) {
@@ -46,7 +50,17 @@ public final class Session {
       return this.SessionUser;
       }
       
-      
+       public Societe getSessionSociete() {
+        return SessionSociete;
+    }
+
+    public void setSessionSociete(Societe SessionSociete) {
+        this.SessionSociete = SessionSociete;
+    }
+    public void SetSessionUser(User SessionUser ){
+    this.SessionUser=SessionUser;
+    
+    }
       
       
      

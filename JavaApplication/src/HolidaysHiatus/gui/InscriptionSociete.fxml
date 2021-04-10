@@ -94,12 +94,17 @@
             <TextField fx:id="numregistresociete" layoutX="342.0" layoutY="160.0" prefHeight="25.0" prefWidth="219.0" />
             <TextField fx:id="adressesociete" layoutX="342.0" layoutY="211.0" prefHeight="25.0" prefWidth="219.0" />
             <TextField fx:id="typesociete" layoutX="342.0" layoutY="249.0" prefHeight="25.0" prefWidth="219.0" />
-            <Text fill="#ee5057" layoutX="133.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Démarrer avec un compte Business">
+            <Text fx:id="message" fill="#ee5057" layoutX="133.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Démarrer avec un compte Business">
                <font>
                   <Font size="27.0" />
                </font>
             </Text>
             <Button fx:id="inscription" layoutX="240.0" layoutY="341.0" mnemonicParsing="false" onAction="#insciptionsociete" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #ee5057;" text="S'inscrire" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="modifiersocite" layoutX="240.0" layoutY="301.0" mnemonicParsing="false" onAction="#modifiersocite" opacity="0.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #ee5057;" text="Modifier" textFill="WHITE">
                <font>
                   <Font size="13.0" />
                </font>
