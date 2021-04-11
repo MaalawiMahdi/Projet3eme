@@ -23,8 +23,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 /**
@@ -41,7 +43,7 @@ public class InscriptionSocieteController implements Initializable {
     @FXML
     private AnchorPane home;
     @FXML
-    private Hyperlink deconnecter;
+    private MenuItem deconnecter;
     @FXML
     private TextField nomsociete;
     @FXML
@@ -56,6 +58,12 @@ public class InscriptionSocieteController implements Initializable {
     private Text message;
     @FXML
     private Button modifiersocite;
+    @FXML
+    private Pane form;
+    @FXML
+    private Text message1;
+    @FXML
+    private MenuItem profil;
 
     /**
      * Initializes the controller class.
@@ -63,13 +71,18 @@ public class InscriptionSocieteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //tester si une demende existe déja 
+        message1.setOpacity(0);
         SocieteService Sc = new SocieteService();
         System.out.print(Session.StartSession().getSessionUser().getId());
         
         if(Sc.chercherparidclient(Session.StartSession().getSessionUser().getId())!=null){
          Societe s = Sc.chercherparidclient(Session.StartSession().getSessionUser().getId());
-       
-            inscription.setDisable(true);
+         if(s.isEtat()){
+                      message1.setOpacity(1);
+
+         form.setOpacity(0);
+         }else{   
+         inscription.setDisable(true);
               inscription.setOpacity(0);
               message.setText("Votre demmande est en cours de traitement \n , vous pouvez la modifier a tous moment ");
              nomsociete.setText(s.getNom().toString());
@@ -79,7 +92,7 @@ public class InscriptionSocieteController implements Initializable {
              modifiersocite.setOpacity(1);
         }
     }    
-
+    }
     @FXML
     private void inscriptionbusiness(ActionEvent event) {
     
@@ -138,6 +151,41 @@ public class InscriptionSocieteController implements Initializable {
 
     @FXML
     private void modifiersocite(ActionEvent event) {
+        SocieteService Sc = new SocieteService();
+          if(nomsociete.getText().compareTo("")==0||numregistresociete.getText().compareTo("")==0
+                  ||adressesociete.getText().compareTo("")==0||typesociete.getText().compareTo("")==0){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("un ou plusieurs champs sont manquants"); 
+        alert.setHeaderText("un ou plusieurs champs sont manquants ");
+        alert.setContentText("les champs nom de societe , numero de registre , adresse et type  sont obligatoires !");
+        alert.showAndWait();
+        }else{
+        if(Sc.chercherparidclient(Session.StartSession().getSessionUser().getId())!=null){
+         Societe s = Sc.chercherparidclient(Session.StartSession().getSessionUser().getId());
+         s.setNom(nomsociete.getText());
+         s.setNumregistre(numregistresociete.getText());
+         s.setAdresse(adressesociete.getText());
+         s.setType(typesociete.getText());
+         Sc.updateSociete(s);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Modification enregistrée "); 
+        alert.setHeaderText("Modification enregistrée ");
+        alert.setContentText("Modification enregistrée");
+        alert.showAndWait();
+         
+        }
     }
     
 }
+     @FXML
+    private void profil(ActionEvent event) {
+        try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("profil.fxml"));
+     Parent root= loader.load();
+            btn_accueil.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}
+    

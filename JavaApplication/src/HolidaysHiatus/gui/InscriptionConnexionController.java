@@ -5,7 +5,9 @@
  */
 package HolidaysHiatus.gui;
 
+import HolidaysHiatus.entites.InformationsSupplementaires;
 import HolidaysHiatus.entites.User;
+import HolidaysHiatus.services.InformationsSupplementairesService;
 import HolidaysHiatus.services.UserService;
 import HolidaysHiatus.tools.BCrypt;
 import HolidaysHiatus.tools.Session;
@@ -89,8 +91,10 @@ public class InscriptionConnexionController implements Initializable {
         
         User u = new User(hashedPassword,"client",inscription_email.getText(),true,false);
         us.AjouterUser(u);
-         Alert alert = new Alert(AlertType.INFORMATION);
-        
+        User userforInformation = us.ChercherParMail(inscription_email.getText());
+        InformationsSupplementairesService information_ss = new  InformationsSupplementairesService();
+        information_ss.AjouterInformation(new InformationsSupplementaires(userforInformation.getId()));
+        Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Inscription terminée  "); 
         alert.setHeaderText("Bienvenue dans notre application ");
         alert.setContentText("Bienvenue dans notre application, vous pouvez maintenant vous connecter");

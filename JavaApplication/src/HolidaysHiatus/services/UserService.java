@@ -125,5 +125,25 @@ ste.executeUpdate();
     }
      return null;
     }
-    
+     
+    public List<User> Chercher(String val){
+         String sql="select * from user where (id=?) or (mail like ?) or (type like ?) ";
+     
+     List <User> Users  = new ArrayList();
+     try{
+     ste=cnx.prepareStatement(sql);
+     ste.setString(1, val);
+      val="%" + val + "%";
+     ste.setString(2, val);
+     ste.setString(3, val);
+     
+     ResultSet result= ste.executeQuery();
+     while(result.next()){
+     Users.add(new User(result.getInt(1),result.getString(2),result.getString(3),result.getString(4),result.getBoolean(5),result.getBoolean(6)));
+     }
+     } catch(SQLException ex){
+        System.out.print(ex.getMessage());
+    }
+     return Users;
+    }
 }

@@ -77,4 +77,42 @@ if (Societe.size()>0){
      }
 
     }
+        public void updateSociete(Societe s){
+      String sql="Update societe set numregistre=?,adresse=?,type=?,etat=?,nom=? where id =?";
+     try{
+          ste=cnx.prepareStatement(sql);
+          ste.setString(1,s.getNumregistre());
+          ste.setString(2,s.getAdresse());
+          ste.setString(3,s.getType());
+          ste.setBoolean(4,s.isEtat());
+          ste.setString(5, s.getNom());
+          ste.setInt(6,s.getId());
+          ste.executeUpdate();
+     } catch(SQLException ex){
+        System.out.print(ex.getMessage());
+     }
+    }
+    public List<Societe> Chercher(String val){
+   String sql="select * from societe where (id=?) or (useraccount_id = ?) or (numregistre like ?) or (adresse like ?) or (type like ?) or (nom like ? ) ";
+     
+     List <Societe> Societes  = new ArrayList();
+     try{
+     ste=cnx.prepareStatement(sql);
+     ste.setString(1, val);
+     ste.setString(2, val);
+     val="%" + val + "%";
+     ste.setString(3, val);
+     ste.setString(4, val);
+     ste.setString(5, val);
+     ste.setString(6, val);
+     
+     ResultSet result= ste.executeQuery();
+     while(result.next()){
+     Societes.add(new Societe(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getBoolean(6),result.getString(7)));
+     }
+     } catch(SQLException ex){
+        System.out.print(ex.getMessage());
+    }
+     return Societes;
+    }
 }

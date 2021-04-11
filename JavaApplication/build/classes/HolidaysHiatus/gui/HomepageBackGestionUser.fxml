@@ -50,7 +50,7 @@
                   <Image url="@../images/users.png" />
                </image>
             </ImageView>
-            <Hyperlink focusTraversable="false" layoutX="45.0" layoutY="43.0" prefHeight="26.0" prefWidth="169.0" text="Gestion des Societés" textFill="WHITE">
+            <Hyperlink fx:id="gestionsociete" focusTraversable="false" layoutX="45.0" layoutY="43.0" onAction="#gestionsociete" prefHeight="26.0" prefWidth="169.0" text="Gestion des Societés" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -82,7 +82,7 @@
                   <Button fx:id="bannir" disable="true" mnemonicParsing="false" onAction="#ban" text="Bannir" />
                </buttons>
             </ButtonBar>
-            <TextField fx:id="recherche" layoutX="173.0" layoutY="103.0" prefHeight="25.0" prefWidth="446.0" promptText="Chercher" />
+            <TextField fx:id="recherche" layoutX="173.0" layoutY="103.0" onKeyReleased="#chercher" prefHeight="25.0" prefWidth="446.0" promptText="Chercher" />
          </children></Pane>
           <Pane layoutX="266.0" prefHeight="71.0" prefWidth="1100.0" styleClass="backgroundBackNav">
          <children>

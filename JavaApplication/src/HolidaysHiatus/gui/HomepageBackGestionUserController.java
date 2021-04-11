@@ -30,6 +30,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.KeyEvent;
 
 /**
  * FXML Controller class
@@ -41,7 +42,7 @@ public class HomepageBackGestionUserController implements Initializable {
     @FXML
     private Label id_ID;
     @FXML
-    private TableView<Object> tableview;
+    private TableView<User> tableview;
     @FXML
    private TableColumn<User, Integer> id;
     @FXML
@@ -62,14 +63,16 @@ public class HomepageBackGestionUserController implements Initializable {
     private TextField recherche;
     @FXML
     private Hyperlink deconnecter;
+    @FXML
+    private Hyperlink gestionsociete;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
- UserService us= new UserService();      
-      ObservableList<Object> list = FXCollections.observableArrayList();
+    UserService us= new UserService();      
+      ObservableList<User> list = FXCollections.observableArrayList();
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         password.setCellValueFactory(new PropertyValueFactory<>("password"));
         type.setCellValueFactory(new PropertyValueFactory<>("type"));
@@ -125,7 +128,7 @@ public class HomepageBackGestionUserController implements Initializable {
    }
     public void refrech(){
      UserService us= new UserService();      
-      ObservableList<Object> list = FXCollections.observableArrayList();
+      ObservableList<User> list = FXCollections.observableArrayList();
       id.setCellValueFactory(new PropertyValueFactory<>("id"));
       password.setCellValueFactory(new PropertyValueFactory<>("password"));
       type.setCellValueFactory(new PropertyValueFactory<>("type"));
@@ -152,7 +155,8 @@ public class HomepageBackGestionUserController implements Initializable {
             Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    @FXML
+   
+    @FXML 
     private void editPassword(TableColumn.CellEditEvent<User, String> event) {
         System.out.print(event.getRowValue());
         System.out.print(event.getNewValue());
@@ -171,4 +175,32 @@ public class HomepageBackGestionUserController implements Initializable {
         refrech();
     }
 
+    @FXML
+    private void gestionsociete(ActionEvent event) {
+        try {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageBackGestionSociete.fxml"));
+           Parent root= loader.load();
+            gestionsociete.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+     
+    }
+    }
+
+    
+    @FXML
+    private void chercher(KeyEvent event) {
+         System.out.println("chercher ");
+      UserService us= new UserService();      
+      ObservableList<User> list = FXCollections.observableArrayList();
+      list.addAll(us.Chercher(recherche.getText()));
+      tableview.setItems(list);
+      System.out.print("list value \n " + list);
+      password.setCellFactory(TextFieldTableCell.forTableColumn());
+      mail.setCellFactory(TextFieldTableCell.forTableColumn());
+     bannir.setText("bannir");
+  
+         }
+
+    
 }

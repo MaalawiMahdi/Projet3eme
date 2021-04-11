@@ -96,6 +96,12 @@ public class Societe {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    @Override
+    public String toString() {
+        return "Societe{" + "id=" + id + ", useraccount_id=" + useraccount_id + ", numregistre=" + numregistre + ", adresse=" + adresse + ", type=" + type + ", etat=" + etat + ", nom=" + nom + '}';
+    }
+    
     
 
 }

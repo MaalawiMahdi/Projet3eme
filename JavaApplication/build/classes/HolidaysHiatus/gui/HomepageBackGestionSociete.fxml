@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1366.0" styleClass="mainFxmlClass" stylesheets="@HomePage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.HomepageBackGestionUserController">
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1366.0" styleClass="mainFxmlClass" stylesheets="@HomePage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.HomepageBackGestionSocieteController">
      <styleClass>
         <String fx:value="mainFxmlClass" />
         <String fx:value="backgroundBack" />
@@ -42,7 +42,7 @@
                         <Image url="@../images/aide.png" />
                     </image>
                 </ImageView>                
-                <Hyperlink focusTraversable="false" layoutX="62.0" layoutY="11.0" prefHeight="26.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des Utilisateurs" textFill="WHITE" />
+                <Hyperlink fx:id="gestionuser" focusTraversable="false" layoutX="62.0" layoutY="11.0" onAction="#gestionuser" prefHeight="26.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des Utilisateurs" textFill="WHITE" />
                 <Hyperlink focusTraversable="false" layoutX="62.0" layoutY="98.0" prefHeight="26.0" prefWidth="154.0" scaleX="1.2" scaleY="1.2" text="Gestion des Categorie Aide" textFill="WHITE" />
                 <Hyperlink focusTraversable="false" layoutX="64.0" layoutY="131.0" prefHeight="29.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des Aide" textFill="WHITE" />
             <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="5.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
@@ -50,7 +50,7 @@
                   <Image url="@../images/users.png" />
                </image>
             </ImageView>
-            <Hyperlink fx:id="gestionsociete" focusTraversable="false" layoutX="45.0" layoutY="43.0" onAction="#gestionsociete" prefHeight="26.0" prefWidth="169.0" text="Gestion des Societés" textFill="WHITE">
+            <Hyperlink focusTraversable="false" layoutX="45.0" layoutY="43.0" prefHeight="26.0" prefWidth="169.0" text="Gestion des Societés" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -66,23 +66,24 @@
                         <Image url="@../images/Logo.png" />
                     </image>
                 </ImageView>
-            <TableView fx:id="tableview" layoutX="173.0" layoutY="145.0" prefHeight="304.0" prefWidth="790.0">
+            <TableView fx:id="tableview" layoutX="184.0" layoutY="145.0" prefHeight="304.0" prefWidth="737.0">
               <columns>
                 <TableColumn fx:id="id" prefWidth="75.0" text="id" />
-                <TableColumn fx:id="password" onEditCommit="#editPassword" prefWidth="121.0" text="password" />
-                  <TableColumn fx:id="type" prefWidth="64.0" text="type" />
-                  <TableColumn fx:id="mail" onEditCommit="#editmail" prefWidth="173.0" text="adresse mail" />
-                  <TableColumn fx:id="active" prefWidth="153.0" text="active" />
-                  <TableColumn fx:id="ban" prefWidth="203.0" text="ban" />
+                <TableColumn fx:id="useraccount_id" prefWidth="121.0" text="useraccount_id" />
+                  <TableColumn fx:id="nom" prefWidth="75.0" text="Nom" />
+                  <TableColumn fx:id="numregistre" prefWidth="146.0" text="numregistre" />
+                  <TableColumn fx:id="adresse" prefWidth="91.0" text="adresse" />
+                  <TableColumn fx:id="type" prefWidth="153.0" text="type" />
+                  <TableColumn fx:id="etat" prefWidth="71.0" text="etat" />
               </columns>
             </TableView>
             <ButtonBar layoutX="517.0" layoutY="463.0" prefHeight="40.0" prefWidth="446.0">
                <buttons>
                   <Button fx:id="supprimer" disable="true" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />
-                  <Button fx:id="bannir" disable="true" mnemonicParsing="false" onAction="#ban" text="Bannir" />
+                  <Button fx:id="Confirmer" disable="true" mnemonicParsing="false" onAction="#confirmer" text="confirmer" />
                </buttons>
             </ButtonBar>
-            <TextField fx:id="recherche" layoutX="173.0" layoutY="103.0" onKeyReleased="#chercher" prefHeight="25.0" prefWidth="446.0" promptText="Chercher" />
+            <TextField fx:id="recherche" layoutX="184.0" layoutY="105.0" onKeyReleased="#chercher" prefHeight="25.0" prefWidth="446.0" promptText="Chercher" />
          </children></Pane>
           <Pane layoutX="266.0" prefHeight="71.0" prefWidth="1100.0" styleClass="backgroundBackNav">
          <children>

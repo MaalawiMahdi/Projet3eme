@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -30,11 +32,6 @@
                         <Image url="@../images/Logo.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="51.0" fitWidth="40.0" layoutX="1290.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../images/user.png" />
-                    </image>
-                </ImageView>
                 <Hyperlink focusTraversable="false" layoutX="882.0" layoutY="28.0" prefHeight="29.0" prefWidth="69.0" text="Boards" textFill="#1b1a1a">
                     <font>
                         <Font name="System Bold" size="15.0" />
@@ -53,7 +50,22 @@
                 <Separator layoutX="865.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="92.0" prefWidth="8.0" />
                 <Separator layoutX="950.0" orientation="VERTICAL" prefHeight="92.0" prefWidth="8.0" />
                 <Separator layoutX="781.0" orientation="VERTICAL" prefHeight="89.0" prefWidth="8.0" />
-            <Hyperlink fx:id="deconnecter" layoutX="1265.0" layoutY="63.0" onAction="#deconnecter" text="Se deconnecter" />
+            <MenuButton layoutX="1235.0" layoutY="29.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="121.0" style="-fx-background-color: none; -fx-border-style: none; -fx-alignment: center;" text="Compte" textAlignment="CENTER">
+               <items>
+                  <MenuItem fx:id="profil" mnemonicParsing="false" onAction="#profil" text="Profil" />
+                  <MenuItem fx:id="deconnecter" mnemonicParsing="false" onAction="#deconnecter" text="Se déconnecter" />
+               </items>
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/user.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </MenuButton>
 
             </children>
         </Pane>
@@ -68,7 +80,7 @@
                 <Label layoutX="468.0" layoutY="8.0" styleClass="backgroundFooter" text="Copyright © 2018 Your Company - Design: Tooplate" textFill="WHITE" />
             </children>
         </AnchorPane>
-      <Pane layoutX="359.0" layoutY="298.0" prefHeight="473.0" prefWidth="655.0">
+      <Pane fx:id="form" layoutX="359.0" layoutY="298.0" prefHeight="473.0" prefWidth="655.0">
          <children>
             <Label layoutX="95.0" layoutY="160.0" prefHeight="30.0" prefWidth="219.0" text="numregistre">
                <font>
@@ -111,5 +123,10 @@
             </Button>
          </children>
       </Pane>
+      <Text fx:id="message1" fill="#ee5057" layoutX="34.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous pouvez maintenant créer votre board">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>
