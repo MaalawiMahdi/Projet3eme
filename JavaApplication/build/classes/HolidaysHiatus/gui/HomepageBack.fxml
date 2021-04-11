@@ -39,8 +39,8 @@
                     </image>
                 </ImageView>                
                 <Hyperlink focusTraversable="false" layoutX="62.0" layoutY="11.0" prefHeight="26.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des Utilisateurs" textFill="WHITE" />
-                <Hyperlink focusTraversable="false" layoutX="62.0" layoutY="98.0" prefHeight="26.0" prefWidth="154.0" scaleX="1.2" scaleY="1.2" text="Gestion des Categorie Aide" textFill="WHITE" />
-                <Hyperlink focusTraversable="false" layoutX="64.0" layoutY="131.0" prefHeight="29.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des Aide" textFill="WHITE" />
+                <Hyperlink fx:id="btn_Cat_Aide" focusTraversable="false" layoutX="62.0" layoutY="98.0" onAction="#envoi_Cat_Aide" prefHeight="26.0" prefWidth="154.0" scaleX="1.2" scaleY="1.2" text="Gestion des Categorie Aide" textFill="WHITE" />
+                <Hyperlink fx:id="btn_aide" focusTraversable="false" layoutX="64.0" layoutY="131.0" onAction="#envoi_Aide" prefHeight="29.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des Aide" textFill="WHITE" />
             <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="5.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/users.png" />
