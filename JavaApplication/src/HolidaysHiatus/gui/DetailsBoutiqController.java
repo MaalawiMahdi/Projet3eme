@@ -7,19 +7,22 @@ package HolidaysHiatus.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
  *
  * @author DELL
  */
-public class HomepageBackController implements Initializable {
+public class DetailsBoutiqController implements Initializable {
 
     @FXML
-    private Label id_ID;
+    private Button cat;
+    @FXML
+    private Button prod;
 
     /**
      * Initializes the controller class.
@@ -28,5 +31,9 @@ public class HomepageBackController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void handleButton(ActionEvent event) {
+    }
     
 }

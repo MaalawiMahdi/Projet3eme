@@ -5,10 +5,13 @@
  */
 package HolidaysHiatus.gui;
 
+import HolidaysHiatus.tools.MyConnection;
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +24,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author drwhoo
+ * @author DELL
  */
 public class HolidaysHiatus extends Application {
     
@@ -32,6 +35,7 @@ public class HolidaysHiatus extends Application {
         
             Parent root;
         try {
+            
             //root = FXMLLoader.load(getClass().getResource("HomepageBack.fxml"));
             root = FXMLLoader.load(getClass().getResource("HomepageBackSociete.fxml"));
       
@@ -49,6 +53,7 @@ public class HolidaysHiatus extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
     }
     
 }

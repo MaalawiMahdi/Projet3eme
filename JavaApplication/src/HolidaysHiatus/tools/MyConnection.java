@@ -15,11 +15,12 @@ import java.sql.SQLException;
  */
 public class MyConnection {
     
-    public  String url="jdbc:mysql://localhost:3306/pidev?serverTimezone=UTC";   
+    public  String url="jdbc:mysql://localhost:3308/holidayhiatusintegration?serverTimezone=UTC";   
     public  String pwd="";
     public  String login="root";
     public static MyConnection instance;
     public Connection cnx;
+    public Connection getCnx;
 
     public Connection getCnx() {
         return cnx;
@@ -32,6 +33,7 @@ public class MyConnection {
              cnx=  DriverManager.getConnection(url, login, pwd);
             System.out.println("Connexion établie !");
         } catch (SQLException ex) {
+                System.out.println("non!");
             System.out.println(ex.getMessage());
         }
         
