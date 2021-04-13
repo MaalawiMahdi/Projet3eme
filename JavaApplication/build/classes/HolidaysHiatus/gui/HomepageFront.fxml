@@ -44,7 +44,7 @@
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Hyperlink>
-                <Hyperlink fx:id="btn_accueil" focusTraversable="false" layoutX="584.0" layoutY="28.0" onAction="#envoiAccueil" prefHeight="29.0" prefWidth="69.0" text="Aides" textFill="#1b1a1a">
+                <Hyperlink fx:id="btn_aide" focusTraversable="false" layoutX="584.0" layoutY="28.0" onAction="#envoi_aide" prefHeight="29.0" prefWidth="51.0" text="Aides" textFill="#1b1a1a">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>

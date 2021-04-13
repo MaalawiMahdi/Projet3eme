@@ -4,14 +4,17 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="909.0" prefWidth="1177.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.HomepageFrontController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.AfficherCategorieAideFrontController">
     <stylesheets>
         <URL value="@homepage.css" />
     </stylesheets>
@@ -44,7 +47,7 @@
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Hyperlink>
-                <Hyperlink fx:id="btn_aide" focusTraversable="false" layoutX="584.0" layoutY="28.0" onAction="#envoi_aide" prefHeight="29.0" prefWidth="51.0" text="Aides" textFill="#1b1a1a">
+                <Hyperlink fx:id="btn_aide" focusTraversable="false" layoutX="584.0" layoutY="28.0" onAction="#envoi_aide" prefHeight="29.0" prefWidth="69.0" text="Aides" textFill="#1b1a1a">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
@@ -66,5 +69,14 @@
                 <Label layoutX="468.0" layoutY="8.0" styleClass="backgroundFooter" text="Copyright © 2018 Your Company - Design: Tooplate" textFill="WHITE" />
             </children>
         </AnchorPane>
+      <ScrollPane fx:id="scroll" layoutX="1.0" layoutY="264.0" prefHeight="605.0" prefWidth="1174.0">
+         <content>
+            <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
+               <columnConstraints>
+                  <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
     </children>
 </AnchorPane>
