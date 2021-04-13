@@ -14,13 +14,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="HolidaysHiatus.gui.AfficherAideFrontController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.AfficherAideFrontController">
     <stylesheets>
         <URL value="@homepage.css" />
     </stylesheets>
     <styleClass>
         <String fx:value="mainFxmlClass" />
-        <String fx:value="backgroundFront" />
+       
     </styleClass>
     <children>
         <Pane prefHeight="89.0" prefWidth="1174.0">
@@ -69,7 +69,7 @@
                 <Label layoutX="468.0" layoutY="8.0" styleClass="backgroundFooter" text="Copyright © 2018 Your Company - Design: Tooplate" textFill="WHITE" />
             </children>
         </AnchorPane>
-      <ScrollPane fx:id="scroll" layoutX="1.0" layoutY="264.0" prefHeight="605.0" prefWidth="1174.0">
+      <ScrollPane fx:id="scroll" layoutX="75.0" layoutY="348.0" prefHeight="521.0" prefWidth="1100.0" styleClass="backgroundFront">
          <content>
             <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
                <columnConstraints>
@@ -78,5 +78,10 @@
             </GridPane>
          </content>
       </ScrollPane>
+       <Pane layoutX="1.0" layoutY="264.0" prefHeight="76.0" prefWidth="1177.0" styleClass="avezvous" />
+      <Label layoutX="463.0" layoutY="293.0" prefHeight="30.0" prefWidth="259.0" text="Avez-vous besoin d'aide?" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
     </children>
 </AnchorPane>

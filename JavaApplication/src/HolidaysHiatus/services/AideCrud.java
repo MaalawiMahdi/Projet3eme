@@ -187,6 +187,34 @@ public class AideCrud {
         }
         return Aides;
     }
+        public Aide afficherAideDetailsFront(int id) {
+ 
+        String requete = "SELECT * FROM aide where id=?";
+        Aide a = new Aide();
+        try {
+            PreparedStatement pst = cn2.prepareStatement(requete);
+            pst.setInt(1,id);
+            ResultSet rs = pst.executeQuery();
+            
+            while (rs.next()) {
+               
+                a.setId(rs.getInt("id"));
+                a.setCategorie_id(rs.getInt("categorie_id"));
+                a.setTitre(rs.getString("titre"));
+                a.setDescription(rs.getString("description"));
+                a.setAdresse(rs.getString("adresse"));
+                a.setNum_tell(rs.getString("num_tell"));
+                a.setLien_image(rs.getString("lien_image"));
+            return a;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+       
+        return a;
+    }
+
 
 
     public List<Aide> rechercherAide(String besoin, String caractere) {

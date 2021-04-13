@@ -80,7 +80,7 @@ public class AfficherAideFrontController implements Initializable {
                 
                 FXMLLoader fxmlLoader = new FXMLLoader();
                
-                fxmlLoader.setLocation(getClass().getResource("card.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("Card.fxml"));
                 AnchorPane anchorPane=fxmlLoader.load();
                 CardController cardController= fxmlLoader.getController();
                 
