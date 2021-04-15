@@ -6,11 +6,9 @@
 package HolidaysHiatus.gui;
 
 import HolidaysHiatus.entities.Aide;
-import HolidaysHiatus.entities.CaptchaAide;
 import HolidaysHiatus.services.AideCrud;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,27 +16,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
-
-
-
-
-
 /**
  * FXML Controller class
  *
  * @author drwhoo
  */
-public class AfficherAideDetailsFrontController implements Initializable {
-    Random random = new Random();
-    CaptchaAide captcha ;
-    Aide aide;
+public class AfficherAideDetailsNoteController implements Initializable {
+     Aide aide;
     private static String aideId;
     @FXML
     private Hyperlink btn_aide;
@@ -48,42 +38,38 @@ public class AfficherAideDetailsFrontController implements Initializable {
     private AnchorPane home;
     @FXML
     private GridPane grid;
-      public String getAideId() {
+    public String getAideId() {
         return aideId;
     }
 
     public static void seAideId(String aideId) {
-        AfficherAideDetailsFrontController.aideId = aideId;
+        AfficherAideDetailsNoteController.aideId = aideId;
     }
-
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      int column=1;
+            int column=1;
         int row=0;   
         
        
             // TODO
             AideCrud a =new AideCrud();
             aide=a.afficherAideDetailsFront(Integer.parseInt(aideId));
-            captcha=a.getCaptchaSoin(random.nextInt(20)+1);
+            
          try {    
             FXMLLoader fxmlLoader = new FXMLLoader();
             
-            fxmlLoader.setLocation(getClass().getResource("Carddetails.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("CarddetailsNote.fxml"));
             AnchorPane anchorPane=fxmlLoader.load();
-            CarddetailsController cardController= fxmlLoader.getController();
+            CarddetailsNoteController cardController= fxmlLoader.getController();
+            
             
             
               grid.add(anchorPane,column,row);
                     
-                    
-            
-            
-            
-            cardController.setDataAide(aide,captcha);
+             cardController.setDataAide(aide);
         } catch (IOException ex) {
             Logger.getLogger(AfficherAideDetailsFrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -91,8 +77,7 @@ public class AfficherAideDetailsFrontController implements Initializable {
 
     @FXML
     private void envoi_aide(ActionEvent event) {
-            
-          try {
+         try {
               //récupération fichier fxml
               
               FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherCategorieAideFront.fxml"));
@@ -111,3 +96,4 @@ public class AfficherAideDetailsFrontController implements Initializable {
     }
     
 }
+  

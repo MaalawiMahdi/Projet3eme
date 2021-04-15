@@ -6,11 +6,18 @@
 package HolidaysHiatus.gui;
 
 import HolidaysHiatus.entities.Aide;
+import HolidaysHiatus.entities.CaptchaAide;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -43,20 +50,23 @@ public class CarddetailsController implements Initializable {
     @FXML
     private ImageView image;
     Aide dataAide;
+   
+    CaptchaAide dataCaptcha;
     @FXML
     private Button btn_captcha;
     
     
 
-    public void setDataAide(Aide dataAide) {
+    public void setDataAide(Aide dataAide,CaptchaAide dataCaptcha) {
         this.dataAide = dataAide;
         image.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\public\\uploads\\" + dataAide.getLien_image()));
         titre.setText(dataAide.getTitre());
         description.getChildren().add(new Text(dataAide.getDescription()));
         adresse.setText(dataAide.getAdresse());
         tell.setText(dataAide.getNum_tell());
-        btn_captcha.setId(Integer.toString(dataAide.getId()));
-
+        btn_captcha.setId(dataCaptcha.getValue()); 
+        espace.setId(Integer.toString(dataAide.getId()));
+        Captcha.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\public" + dataCaptcha.getLien_image_captcha()));
     }
 
     /**
@@ -69,6 +79,54 @@ public class CarddetailsController implements Initializable {
 
     @FXML
     private void envoi_aide_detail_note(ActionEvent event) {
+        String Captchatexte = Captchatext.getText();
+        if (Captchatexte.equals(btn_captcha.getId())) {
+            try {
+
+                AfficherAideDetailsNoteController.seAideId(espace.getId());
+
+                //récupération fichier fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherAideDetailsNote.fxml"));
+                //récupération du root  à partir du fichier fxml
+
+                Parent root = loader.load();
+                //récupération du controller lier au fichier fxml
+
+               // AfficherAideDetailsNoteController dpc = loader.getController();
+                //   dpc.setLbMessage(id_table.getSelectionModel().getSelectedItem().getId() + "");
+                espace.getScene().setRoot(root);
+
+            } catch (IOException ex) {
+                Logger.getLogger(CarddetailsController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            
+
+            alert.setContentText("Captcha n'est pas Valide !");
+            alert.showAndWait();
+            try {
+
+                AfficherAideDetailsFrontController.seAideId(espace.getId());
+
+                //récupération fichier fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherAideDetailsFront.fxml"));
+                //récupération du root  à partir du fichier fxml
+
+                Parent root = loader.load();
+                //récupération du controller lier au fichier fxml
+
+                AfficherAideDetailsFrontController dpc = loader.getController();
+                //   dpc.setLbMessage(id_table.getSelectionModel().getSelectedItem().getId() + "");
+                espace.getScene().setRoot(root);
+
+            } catch (IOException ex) {
+                Logger.getLogger(CardController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
     }
+
+    
     
 }

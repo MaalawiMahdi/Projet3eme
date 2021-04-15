@@ -6,6 +6,7 @@
 package HolidaysHiatus.services;
 
 import HolidaysHiatus.entities.Aide;
+import HolidaysHiatus.entities.CaptchaAide;
 import HolidaysHiatus.entities.CategorieAide;
 import HolidaysHiatus.tools.MyConnection;
 import java.sql.Connection;
@@ -90,6 +91,30 @@ public class AideCrud {
             System.out.println(ex.getMessage());
         }
         return titres;
+    }
+     public CaptchaAide getCaptchaSoin(int id) {
+
+        
+        String requete = "SELECT * FROM captcha where id= ?";
+            CaptchaAide c = new CaptchaAide();
+        try {
+            PreparedStatement pst = cn2.prepareStatement(requete);
+             pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+               
+                c.setId(rs.getInt("id"));
+                c.setValue(rs.getString("value"));
+                c.setLien_image_captcha(rs.getString("lien_image_captcha"));
+
+                return c;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return c;
     }
 
     public void modifierAide(Aide a) {
