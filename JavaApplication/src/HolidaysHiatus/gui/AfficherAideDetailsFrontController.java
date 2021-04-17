@@ -68,7 +68,7 @@ public class AfficherAideDetailsFrontController implements Initializable {
             // TODO
             AideCrud a =new AideCrud();
             aide=a.afficherAideDetailsFront(Integer.parseInt(aideId));
-            captcha=a.getCaptchaSoin(random.nextInt(20)+1);
+            captcha=a.getCaptchaAide(random.nextInt(20)+1);
          try {    
             FXMLLoader fxmlLoader = new FXMLLoader();
             

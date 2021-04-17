@@ -8,6 +8,7 @@ package HolidaysHiatus.services;
 import HolidaysHiatus.entities.Aide;
 import HolidaysHiatus.entities.CaptchaAide;
 import HolidaysHiatus.entities.CategorieAide;
+import HolidaysHiatus.entities.NoteAide;
 import HolidaysHiatus.tools.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +17,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.control.TableColumn;
 
 /**
@@ -92,7 +95,7 @@ public class AideCrud {
         }
         return titres;
     }
-     public CaptchaAide getCaptchaSoin(int id) {
+     public CaptchaAide getCaptchaAide(int id) {
 
         
         String requete = "SELECT * FROM captcha where id= ?";
@@ -141,14 +144,14 @@ public class AideCrud {
         }
     }
 
-    public void deleteAide(Aide a) {
+    public void deleteAide(int id) {
 
         String requete2 = "DELETE FROM aide WHERE id= ?";
 
         try {
 
             PreparedStatement pst = cn2.prepareStatement(requete2);
-            pst.setInt(1, a.getId());
+            pst.setInt(1, id);
             pst.executeUpdate();
             System.out.println("Aide supprimée");
 
@@ -242,14 +245,14 @@ public class AideCrud {
 
 
 
-    public List<Aide> rechercherAide(String besoin, String caractere) {
+    public List<Aide> rechercherAide(String beaide, String caractere) {
 
         ArrayList<Aide> Aides = new ArrayList<>();
-        String requete = "select * from aide where " + besoin + " LIKE '" + caractere + "%'";
+        String requete = "select * from aide where " + beaide + " LIKE '" + caractere + "%'";
 
         try {
             PreparedStatement pst2 = cn2.prepareStatement(requete);
-            //    pst2.setString(1, besoin);
+            //    pst2.setString(1, beaide);
 
             pst2.executeQuery();
             System.out.println("recherche done");
@@ -321,7 +324,138 @@ public class AideCrud {
         }
 
     }
+public void setAideNoteAvis(int val, String Avis, int userid, int aideid) {
+        if (val != 0) {
 
+            String requete = " INSERT INTO note ( `user_id`, `valeur`, `aide_id`)  VALUES(?,?,?) ";
+            try {
+
+                PreparedStatement pst = cn2.prepareStatement(requete);
+                pst.setInt(1, userid);
+                pst.setInt(2, val);
+                pst.setInt(3, aideid);
+
+                pst.executeUpdate();
+
+                System.out.println("Note insérée");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        if (Avis != "") {
+
+            String requete = " INSERT INTO note ( `user_id`, `avis`, `aide_id`)  VALUES(?,?,?)";
+            try {
+
+                PreparedStatement pst = cn2.prepareStatement(requete);
+                pst.setInt(1, userid);
+                pst.setString(2, Avis);
+                pst.setInt(3, aideid);
+
+                pst.executeUpdate();
+
+                System.out.println("avis insérer");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+    }
+
+    public NoteAide getAideNoteAvis(int userid, int aideid) {
+        NoteAide m = new NoteAide();
+        m=null;
+        
+        String requete = "Select * from note where user_id= ? AND aide_id= ?";
+        try {
+
+            PreparedStatement pst = cn2.prepareStatement(requete);
+            pst.setInt(1, userid);
+            pst.setInt(2, aideid);
+
+            pst.executeQuery();
+
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                NoteAide n = new NoteAide();
+        
+                n.setId(rs.getInt("id"));
+                n.setAide_id(rs.getInt("aide_id"));
+                n.setUser_id(rs.getInt("user_id"));
+                n.setAvis(rs.getString("Avis"));
+                n.setValeur(rs.getInt("Valeur"));
+             return n;
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return m;
+    }
+    
+    public void updateAideNoteAvis(int val, String Avis, int noteid) {
+        if (val != 0) {
+ 
+            String requete = "UPDATE note SET valeur = ?  WHERE id = ?";
+            try {
+
+                PreparedStatement pst = cn2.prepareStatement(requete);
+                pst.setInt(1, val);
+                pst.setInt(2, noteid);
+                
+
+                pst.executeUpdate();
+
+                System.out.println("note modifiée");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        if (Avis != "") {
+
+            String requete = "UPDATE note SET avis = ?  WHERE id = ?";
+            try {
+
+                PreparedStatement pst = cn2.prepareStatement(requete);
+                pst.setInt(2, noteid);
+                pst.setString(1, Avis);
+             
+                pst.executeUpdate();
+
+                System.out.println("avis modifier");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+    }
+    
+    public float MoyenneNotes(int aideId){
+        int s=0;
+        float m=0;
+        int i=0;
+
+        String requete= "Select valeur from note where aide_id= ?";
+        try {
+            PreparedStatement pst= cn2.prepareStatement(requete);
+            pst.setInt(1, aideId);
+            pst.executeQuery();
+            
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                s=s+rs.getInt("Valeur");
+                i=i+1;       
+            }
+            if (s!=0)
+            {m=s/i;  }
+          return m;
+        } catch (SQLException ex) {
+            Logger.getLogger(AideCrud.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return m;
+    }
   
 
 }

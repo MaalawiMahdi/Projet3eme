@@ -80,6 +80,7 @@ public class CarddetailsController implements Initializable {
     @FXML
     private void envoi_aide_detail_note(ActionEvent event) {
         String Captchatexte = Captchatext.getText();
+        
         if (Captchatexte.equals(btn_captcha.getId())) {
             try {
 

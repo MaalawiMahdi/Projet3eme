@@ -4,14 +4,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
@@ -59,25 +60,58 @@
             </children>
         </Pane>
      
-        <Pane layoutX="270.0" layoutY="72.0" prefHeight="894.0" prefWidth="915.0" styleClass="backgroundBack">
+        <Pane layoutX="270.0" layoutY="73.0" prefHeight="894.0" prefWidth="915.0" styleClass="backgroundBack">
             <children>
                 <Label layoutX="345.0" layoutY="57.0" scaleX="2.0" scaleY="2.0" text="Gestion des Catégories des Aides" textFill="#d11414" />
                 <Label layoutX="68.0" layoutY="123.0" scaleX="1.2" scaleY="1.2" text="Liste des Catégories des Aides :" />
-                <TableView fx:id="id_table" layoutX="50.0" layoutY="209.0" prefHeight="458.0" prefWidth="807.0">
-                    <columns>
-                        <TableColumn fx:id="id" prefWidth="182.0" text="Id" />
-                        <TableColumn fx:id="titre" onEditCommit="#edittitre" prefWidth="322.0" text="Titre" />
-                        <TableColumn fx:id="icone" onEditCommit="#editicon" prefWidth="302.0" text="Icone" />
-                        <TableColumn fx:id="ImageCatAide" prefWidth="302.0" text="Icone" />
-                    </columns>
-                    <effect>
-                        <DropShadow />
-                    </effect>
-                </TableView>
-                <Button fx:id="btn1" layoutX="49.0" layoutY="701.0" mnemonicParsing="false" onAction="#navigation_ajout" prefHeight="32.0" prefWidth="230.0" text="Ajouter Catégorie" textFill="WHITE" />
-                <Button fx:id="btn2" layoutX="628.0" layoutY="701.0" mnemonicParsing="false" onAction="#SupprimerCatAide" prefHeight="32.0" prefWidth="230.0" text="Supprimer Catégorie" textFill="WHITE" />
+                <Button fx:id="btn1" layoutX="51.0" layoutY="834.0" mnemonicParsing="false" onAction="#navigation_ajout" prefHeight="32.0" prefWidth="230.0" text="Ajouter Catégorie" textFill="WHITE" />
                 <TextField fx:id="id_recherche" layoutX="50.0" layoutY="161.0" prefHeight="26.0" prefWidth="807.0" promptText="Recherche" />
                 <Button fx:id="btn_pdf" layoutX="628.0" layoutY="116.0" mnemonicParsing="false" onAction="#GeneratePdf" prefHeight="32.0" prefWidth="230.0" text="Télécharger PDF" textFill="WHITE" />
+            <ScrollPane fx:id="scroll" layoutX="55.0" layoutY="273.0" prefHeight="555.0" prefWidth="600.0" styleClass="backgroundBack" translateX="120.0 ">
+               <content>
+                  <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+            <AnchorPane id="AnchorPane" layoutX="187.0" layoutY="195.0" prefHeight="78.0" prefWidth="552.0" styleClass="mainFxmlClass">
+               <stylesheets>
+                  <URL value="@homepage.css" />
+               </stylesheets>
+               <children>
+                  <Separator prefHeight="3.0" prefWidth="555.0" />
+                  <HBox layoutY="2.0" prefHeight="71.0" prefWidth="562.0" styleClass="tabletete">
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="47.0" prefWidth="6.0" />
+                        <Label prefHeight="45.0" prefWidth="75.0" text=" Image" textFill="#d11414">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Separator orientation="VERTICAL" prefHeight="74.0" prefWidth="0.0" />
+                        <Label prefHeight="17.0" prefWidth="93.0" />
+                        <Label prefHeight="45.0" prefWidth="67.0" text="Titre" textFill="#d11414">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="102.0" />
+                        <Separator orientation="VERTICAL" prefHeight="71.0" prefWidth="0.0" />
+                        <Label prefHeight="17.0" prefWidth="68.0" />
+                        <Label prefHeight="45.0" prefWidth="82.0" text=" Edit  " textFill="#d11414">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="59.0" />
+                        <Separator orientation="VERTICAL" prefHeight="71.0" prefWidth="1.0" />
+                     </children>
+                  </HBox>
+                  <Separator layoutY="75.0" prefHeight="3.0" prefWidth="555.0" />
+               </children>
+            </AnchorPane>
             </children>
         </Pane>
         <Pane layoutX="266.0" prefHeight="71.0" prefWidth="923.0" styleClass="backgroundBackNav">

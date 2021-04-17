@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -32,9 +32,9 @@ public class HolidaysHiatus extends Application {
         
             Parent root;
         try {
-            //root = FXMLLoader.load(getClass().getResource("HomepageBack.fxml"));
+            root = FXMLLoader.load(getClass().getResource("HomepageBack.fxml"));
             //root = FXMLLoader.load(getClass().getResource("HomepageBackSociete.fxml"));
-            root = FXMLLoader.load(getClass().getResource("HomepageFront.fxml"));
+            //root = FXMLLoader.load(getClass().getResource("HomepageFront.fxml"));
       
             Scene scene = new Scene(root);
             primaryStage.setTitle("HolidaysHiatus");

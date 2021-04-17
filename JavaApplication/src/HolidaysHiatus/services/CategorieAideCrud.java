@@ -72,14 +72,14 @@ public class CategorieAideCrud {
     }
   
 
-    public void deleteCategorieAide(CategorieAide c) {
+    public void deleteCategorieAide(int Id ) {
 
         String requete2 = "DELETE FROM categorie_aide WHERE id= ?";
 
         try {
 
             PreparedStatement pst = cn2.prepareStatement(requete2);
-            pst.setInt(1, c.getId());
+            pst.setInt(1, Id);
             pst.executeUpdate();
             System.out.println("Categorie Aide supprimée");
             
@@ -89,26 +89,21 @@ public class CategorieAideCrud {
     }
 
     public List<CategorieAide> afficherCategorieAide() {
-    Image Image = null;
+    
         ArrayList<CategorieAide> CategorieAides = new ArrayList<>();
         String requete = "SELECT * FROM categorie_aide";
 
         try {
             PreparedStatement pst = cn2.prepareStatement(requete);
+          
             ResultSet rs = pst.executeQuery();
-
+  System.out.println (rs);
             while (rs.next()) {
                 CategorieAide c = new CategorieAide();
                 c.setId(rs.getInt("id"));
                 c.setTitre(rs.getString("titre"));
                 c.setLien_icon(rs.getString("lien_icon"));
-                try {
-                    c.setImage(Image,rs.getString("lien_icon"));
-                } catch (BadElementException ex) {
-                    Logger.getLogger(CategorieAideCrud.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(CategorieAideCrud.class.getName()).log(Level.SEVERE, null, ex);
-                }
+             
               
 
                 CategorieAides.add(c);
