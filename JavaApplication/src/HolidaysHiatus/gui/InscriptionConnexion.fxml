@@ -35,7 +35,7 @@
             <Label layoutX="53.0" layoutY="119.0" text="Mot de passe " />
             <TextField fx:id="connexion_email" layoutX="226.0" layoutY="75.0" />
             <PasswordField fx:id="connexion_mot_de_passe" layoutX="226.0" layoutY="115.0" />
-            <Button layoutX="163.0" layoutY="160.0" mnemonicParsing="false" onAction="#connecter" style="-fx-alignment: center; -fx-background-color: #ee5057;" text="Se connceter" textFill="WHITE">
+            <Button fx:id="cnxbutton" layoutX="163.0" layoutY="160.0" mnemonicParsing="false" onAction="#connecter" style="-fx-alignment: center; -fx-background-color: #ee5057;" text="Se connceter" textFill="WHITE">
                <font>
                   <Font size="13.0" />
                </font>

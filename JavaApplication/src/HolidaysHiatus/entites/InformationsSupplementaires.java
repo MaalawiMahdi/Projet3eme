@@ -26,6 +26,14 @@ public class InformationsSupplementaires {
         this.image = image;
     }
 
+    public InformationsSupplementaires(int user_id, String nom, String prenom, String tell) {
+        this.user_id = user_id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.tell = tell;
+    }
+    
+
     public InformationsSupplementaires(int user_id, String nom, String prenom, String tell, String image) {
         this.user_id = user_id;
         this.nom = nom;

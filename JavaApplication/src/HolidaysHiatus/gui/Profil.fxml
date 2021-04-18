@@ -73,7 +73,7 @@
                 <Label layoutX="468.0" layoutY="8.0" styleClass="backgroundFooter" text="Copyright © 2018 Your Company - Design: Tooplate" textFill="WHITE" />
             </children>
         </AnchorPane>
-      <AnchorPane layoutX="359.0" layoutY="131.0" prefHeight="412.0" prefWidth="646.0" AnchorPane.bottomAnchor="369.0" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="131.0">
+      <AnchorPane fx:id="profildata" layoutX="359.0" layoutY="131.0" prefHeight="412.0" prefWidth="646.0" AnchorPane.bottomAnchor="369.0" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="131.0">
          <children>
             <ImageView fx:id="profilimage" fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="260.0" layoutY="29.0" prefHeight="21.0" prefWidth="104.0" text="Adresse Mail : ">
@@ -145,5 +145,6 @@
             </Label>
          </children>
       </AnchorPane>
+      <Hyperlink layoutX="1078.0" layoutY="119.0" onAction="#modifierlink" text="modifier" />
     </children>
 </AnchorPane>
