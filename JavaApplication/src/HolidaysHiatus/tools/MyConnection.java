@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class MyConnection {
     
-    public  String url="jdbc:mysql://localhost:3306/pidev?serverTimezone=UTC";   
+    public  String url="jdbc:mysql://localhost:3306/holidayhiatusintegration?serverTimezone=UTC";   
     public  String pwd="";
     public  String login="root";
     public static MyConnection instance;

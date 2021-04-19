@@ -83,7 +83,7 @@ public class ProfilController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      profilimage.setImage(new Image("file:C:\\Users\\ASUS\\Desktop\\integrationfinal\\Projet3eme\\SymfonyApplication\\public\\profil\\user.png"));
+      profilimage.setImage(new Image("file:C:\\Users\\mahdi\\Desktop\\Projet3eme\\SymfonyApplication\\public\\profil\\user.png"));
     User u = Session.StartSession().getSessionUser();
     InformationsSupplementairesService InforSupService = new InformationsSupplementairesService();
     InformationsSupplementaires information = InforSupService.chercherparidclient(u.getId());
@@ -93,7 +93,7 @@ public class ProfilController implements Initializable {
     typevalue.setText(u.getType());
     if(information.getImage()!=null){
    //   profilimage.setImage(new Image("file:C:\\Users\\ASUS\\Desktop\\integrationfinal\\Projet3eme\\SymfonyApplication\\public\\profil\\"+information.getImage()));    
-    profilimage.setImage(new Image("file:C:\\Users\\ASUS\\Desktop\\integrationfinal\\Projet3eme\\SymfonyApplication\\public\\profil\\"+information.getImage()));
+    profilimage.setImage(new Image("file:C:\\Users\\mahdi\\Desktop\\Projet3eme\\SymfonyApplication\\public\\profil"+information.getImage()));
     }
     if(information.getNom()!=null){
     nomvalue.setText(information.getNom());
@@ -131,7 +131,7 @@ public class ProfilController implements Initializable {
                 System.out.println(selectedFile.getPath());
                 String extension= FilenameUtils.getExtension(selectedFile.getAbsolutePath());
                Path tmp = Files.move(Paths.get(selectedFile.getPath()),
-                       Paths.get("C:\\Users\\ASUS\\Desktop\\integrationfinal\\Projet3eme\\SymfonyApplication\\public\\profil\\"+uniqueid+"."+extension));
+                       Paths.get("C:\\Users\\mahdi\\Desktop\\Projet3eme\\SymfonyApplication\\public\\profil"+uniqueid+"."+extension));
               System.out.print(tmp);
                information.setImage(uniqueid+"."+extension);
                InformationsSupplementairesService i_service = new InformationsSupplementairesService();

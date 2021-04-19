@@ -10,13 +10,13 @@ import HolidaysHiatus.entites.User;
 import HolidaysHiatus.services.InformationsSupplementairesService;
 import HolidaysHiatus.services.UserService;
 import HolidaysHiatus.tools.BCrypt;
-import HolidaysHiatus.tools.CronJob;
 import HolidaysHiatus.tools.Session;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -30,6 +30,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import org.apache.commons.validator.routines.EmailValidator;
 
 /**
@@ -51,18 +52,16 @@ public class InscriptionConnexionController implements Initializable {
     private PasswordField connexion_mot_de_passe;
     @FXML
     private Button cnxbutton;
+    private int falsepassword=3;
+    @FXML
+    private Text passwordfalsemessage;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    if(CronJob.flag==true){
-    cnxbutton.setDisable(false);
-    }else{
-    cnxbutton.setDisable(true);
     
-    }
     }    
 
     @FXML
@@ -144,20 +143,32 @@ public class InscriptionConnexionController implements Initializable {
             Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("compte introuvable"); 
         alert.setHeaderText("mot de passe incorrect");
-        alert.setContentText("mot de passe incorrect");
+        alert.setContentText("mot de passe incorrect \n nombre d'essai : "  + falsepassword);
         alert.showAndWait();
+        falsepassword--;
+        if(falsepassword==0){
         cnxbutton.setDisable(true);
-CronJob cj = new CronJob();
-      Timer timer;
-    timer = new Timer();
-    
-    timer.schedule(cj,new Date());
-    if(CronJob.flag==true){
-    cnxbutton.setDisable(false);
-    }else{
-    cnxbutton.setDisable(true);
-    
-    }
+        Timer chrono= new Timer();
+        
+        chrono.schedule(new TimerTask(){
+                               int time=60;
+              
+            @Override
+                public void run() {
+                   
+                        passwordfalsemessage.setText("Compte Verrouillé , \n Réessayez dans "+time+"s");
+
+                time--;
+                if(time==0){
+                cnxbutton.setDisable(false);
+                passwordfalsemessage.setText("");
+        chrono.cancel();
+                falsepassword=3;
+                }
+                }
+        
+        }, new Date(),1000);
+        }
         }else if(u.isBan()){
           Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("ban"); 
