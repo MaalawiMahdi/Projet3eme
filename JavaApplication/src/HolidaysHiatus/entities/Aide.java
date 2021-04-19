@@ -81,7 +81,17 @@ public class Aide {
     public Aide() {
     }
 
-    public Aide(int categorie_id, String titre, String description, String adresse,String num_tell, String lien_image) {
+    public Aide(int id, int categorie_id, String titre, String description, String adresse, String num_tell, String lien_image) {
+        this.id = id;
+        this.categorie_id = categorie_id;
+        this.titre = titre;
+        this.description = description;
+        this.adresse = adresse;
+        this.num_tell = num_tell;
+        this.lien_image = lien_image;
+    }
+
+    public Aide(int categorie_id, String titre, String description, String adresse,String num_tell) {
         this.categorie_id = categorie_id;
         this.titre = titre;
         this.description = description;

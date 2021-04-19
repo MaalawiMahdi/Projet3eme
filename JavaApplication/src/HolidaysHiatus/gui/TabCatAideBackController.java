@@ -62,24 +62,24 @@ public class TabCatAideBackController implements Initializable {
     @FXML
     private void envoi_modifier(ActionEvent event) {
       
-     /*       try {
+           try {
 
-                ModifierCategorieAideFrontController.setCatAideId(btn_supprimer.getId());
+                ModifierCategorieAideController.setCatAideId(btn_modifier.getId());
 
                 //récupération fichier fxml
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherAideFront.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierCategorieAide.fxml"));
                 //récupération du root  à partir du fichier fxml
 
                 Parent root = loader.load();
                 //récupération du controller lier au fichier fxml
 
-                AfficherAideFrontController dpc = loader.getController();
+                ModifierCategorieAideController dpc = loader.getController();
                 //   dpc.setLbMessage(id_table.getSelectionModel().getSelectedItem().getId() + "");
-                espace.getScene().setRoot(root);
+                btn_modifier.getScene().setRoot(root);
 
             } catch (IOException ex) {
                 Logger.getLogger(CardController.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
+            }
              
     }
 

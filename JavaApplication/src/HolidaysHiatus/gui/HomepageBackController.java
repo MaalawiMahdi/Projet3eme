@@ -31,6 +31,10 @@ public class HomepageBackController implements Initializable {
     private Hyperlink btn_Cat_Aide;
     @FXML
     private Hyperlink btn_aide;
+    @FXML
+    private Hyperlink cat_Stat;
+    @FXML
+    private Hyperlink stat_aide;
 
     /**
      * Initializes the controller class.
@@ -69,6 +73,41 @@ public class HomepageBackController implements Initializable {
             //   dpc.setLbMessage(id_table.getSelectionModel().getSelectedItem().getId() + "");
 
             btn_aide.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_cat_Stat(ActionEvent event) {
+          try {
+            //récupération fichier fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("StatistiqueCategorieAide.fxml"));
+            //récupération du root  à partir du fichier fxml
+            Parent root = loader.load();
+            //récupération du controller lier au fichier fxml
+            StatistiqueCategorieAideController dpc = loader.getController();
+            //   dpc.setLbMessage(id_table.getSelectionModel().getSelectedItem().getId() + "");
+
+            stat_aide.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_statAide(ActionEvent event) {
+    
+       try {
+            //récupération fichier fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("StatistiqueAide.fxml"));
+            //récupération du root  à partir du fichier fxml
+            Parent root = loader.load();
+            //récupération du controller lier au fichier fxml
+            StatistiqueAideController dpc = loader.getController();
+            //   dpc.setLbMessage(id_table.getSelectionModel().getSelectedItem().getId() + "");
+
+            stat_aide.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
         }

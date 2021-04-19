@@ -42,6 +42,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
@@ -72,6 +73,16 @@ public class AfficherAideController implements Initializable {
     @FXML
     private GridPane grid;
     private List<Aide> data;
+    @FXML
+    private Label titre;
+    @FXML
+    private Label categorie;
+    @FXML
+    private Label tell;
+    @FXML
+    private Hyperlink cat_Stat;
+    @FXML
+    private Hyperlink stat_aide;
     /**
      * Initializes the controller class.
      */
@@ -79,15 +90,18 @@ public class AfficherAideController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         // TODO
+       
         data = new ArrayList();
-
+       
         AideCrud Aides = new AideCrud();
+       
 
         Aides.afficherAide().forEach((a) -> {
 
             data.add(a);
 
         });
+       
         int column=1;
         int row=0;
           try {
@@ -116,6 +130,7 @@ public class AfficherAideController implements Initializable {
         } catch (IOException ex) {
                 Logger.getLogger(AfficherCategorieAideController.class.getName()).log(Level.SEVERE, null, ex);
             }
+          
 
     }
 
@@ -187,6 +202,87 @@ public class AfficherAideController implements Initializable {
             btn_aide.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(AfficherCategorieAideController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void  chercher(KeyEvent event) {
+        grid.getChildren().clear();
+        String search = id_recherche.getText();
+         data = new ArrayList();
+
+        AideCrud Aides = new AideCrud();
+
+        Aides.rechercherAide(search).forEach((a) -> {
+
+            data.add(a);
+           
+
+        });
+        int column=1;
+        int row=0;
+          try {
+        for(int i=0; i<data.size();i++){
+          
+         
+                
+                FXMLLoader fxmlLoader = new FXMLLoader();
+               
+                fxmlLoader.setLocation(getClass().getResource("TabAideBack.fxml"));
+                AnchorPane anchorPane=fxmlLoader.load();
+                TabAideBackController cardController= fxmlLoader.getController();
+                
+                
+                                                       
+
+                    cardController.setDataAide(data.get(i));
+                         row++;
+                    
+                    
+                    grid.add(anchorPane,column,row);
+                    
+                    GridPane.setMargin(anchorPane,new Insets(2));
+              
+            } 
+        } catch (IOException ex) {
+                Logger.getLogger(AfficherCategorieAideController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+      
+    }
+
+    @FXML
+    private void envoi_cat_Stat(ActionEvent event) {
+           try {
+            //récupération fichier fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("StatistiqueCategorieAide.fxml"));
+            //récupération du root  à partir du fichier fxml
+            Parent root = loader.load();
+            //récupération du controller lier au fichier fxml
+            StatistiqueCategorieAideController dpc = loader.getController();
+            //   dpc.setLbMessage(id_table.getSelectionModel().getSelectedItem().getId() + "");
+
+            stat_aide.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_statAide(ActionEvent event) {
+            
+       try {
+            //récupération fichier fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("StatistiqueAide.fxml"));
+            //récupération du root  à partir du fichier fxml
+            Parent root = loader.load();
+            //récupération du controller lier au fichier fxml
+            StatistiqueAideController dpc = loader.getController();
+            //   dpc.setLbMessage(id_table.getSelectionModel().getSelectedItem().getId() + "");
+
+            stat_aide.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

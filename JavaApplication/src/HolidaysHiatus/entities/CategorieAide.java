@@ -19,16 +19,10 @@ public class CategorieAide {
     public int id;
     public String titre;
     public String lien_icon;
-    public Image Image;
+ 
 
-    public Image getImage() {
-        return Image;
-    }
+   
 
-    public void setImage(Image Image,String lien) throws BadElementException, IOException {
-        this.Image.getInstance("C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\public\\uploads\\" + lien  );
-
-    }
     public int getId() {
         return id;
     }
@@ -52,6 +46,12 @@ public class CategorieAide {
     public void setLien_icon(String lien_icon) {
         this.lien_icon = lien_icon;
     }
+    public CategorieAide(int id ,String titre) {
+        this.titre = titre;
+        this.id = id;
+        this.lien_icon = lien_icon;
+    }
+
 
     public CategorieAide(String titre, String lien_icon) {
         this.titre = titre;

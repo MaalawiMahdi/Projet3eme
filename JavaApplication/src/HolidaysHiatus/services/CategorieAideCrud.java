@@ -50,15 +50,15 @@ public class CategorieAideCrud {
     
    public void modifierCategorieAide(CategorieAide c) {
 
-        String requete2 = "UPDATE categorie_aide SET titre = ?, lien_icon = ? WHERE id = ?";
-
+        String requete2 = "UPDATE categorie_aide SET titre = ? , lien_icon = ?  WHERE id = ?";
+// String requete2 = "UPDATE categorie_aide SET titre = ?, lien_icon = ? WHERE id = ?";
         try {
 
             PreparedStatement pst = cn2.prepareStatement(requete2);
 
             pst.setString(1,c.getTitre());
-
             pst.setString(2,c.getLien_icon());
+            //pst.setString(2,c.getLien_icon());
            
             pst.setInt(3, c.getId());
 
@@ -118,10 +118,10 @@ public class CategorieAideCrud {
 
       
 
-    public List<CategorieAide> rechercherCategorieAide(String besoin, String caractere) {
+    public List<CategorieAide> rechercherCategorieAide(String text) {
 
         ArrayList<CategorieAide> CategorieAides = new ArrayList<>();
-        String requete = "select * from categorie_aide where " + besoin + " LIKE '" + caractere + "%'";
+        String requete = "select * from categorie_aide where titre LIKE '%" + text + "%'";
 
         try {
             PreparedStatement pst2 = cn2.prepareStatement(requete);

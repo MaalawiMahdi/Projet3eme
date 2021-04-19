@@ -25,7 +25,7 @@
         <Pane layoutX="-5.0" layoutY="70.0" prefHeight="900.0" prefWidth="271.0" styleClass="backgroundBackNav">
             <children>
                 <Separator layoutX="-3.0" layoutY="71.0" prefHeight="26.0" prefWidth="269.0" />
-                <Separator layoutX="-3.0" layoutY="166.0" prefHeight="26.0" prefWidth="271.0" />
+                <Separator layoutX="1.0" layoutY="226.0" prefHeight="26.0" prefWidth="271.0" />
                 <Label layoutX="75.0" layoutY="863.0" prefHeight="17.0" prefWidth="110.0" text="A propos de SahtiTN" />
            
                 <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="6.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
@@ -56,6 +56,24 @@
                         <Font size="14.0" />
                     </font>
                 </Hyperlink>
+                      <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="5.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/statline.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="cat_Stat" layoutX="45.0" layoutY="198.0" onAction="#envoi_cat_Stat" prefHeight="29.0" prefWidth="222.0" text="Statistique des Categories Aides" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Hyperlink>
+            <Hyperlink fx:id="stat_aide" layoutX="44.0" layoutY="164.0" onAction="#envoi_statAide" prefHeight="34.0" prefWidth="185.0" text="Statistique des Aides" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Hyperlink>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="5.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/donut.PNG" />
+               </image>
+            </ImageView>
 
             </children>
         </Pane>
@@ -65,7 +83,7 @@
                 <Label layoutX="345.0" layoutY="57.0" scaleX="2.0" scaleY="2.0" text="Gestion des Catégories des Aides" textFill="#d11414" />
                 <Label layoutX="68.0" layoutY="123.0" scaleX="1.2" scaleY="1.2" text="Liste des Catégories des Aides :" />
                 <Button fx:id="btn1" layoutX="51.0" layoutY="834.0" mnemonicParsing="false" onAction="#navigation_ajout" prefHeight="32.0" prefWidth="230.0" text="Ajouter Catégorie" textFill="WHITE" />
-                <TextField fx:id="id_recherche" layoutX="50.0" layoutY="161.0" prefHeight="26.0" prefWidth="807.0" promptText="Recherche" />
+                <TextField fx:id="id_recherche" layoutX="50.0" layoutY="161.0" onKeyReleased="#chercher" prefHeight="26.0" prefWidth="807.0" promptText="Recherche" />
                 <Button fx:id="btn_pdf" layoutX="628.0" layoutY="116.0" mnemonicParsing="false" onAction="#GeneratePdf" prefHeight="32.0" prefWidth="230.0" text="Télécharger PDF" textFill="WHITE" />
             <ScrollPane fx:id="scroll" layoutX="55.0" layoutY="273.0" prefHeight="555.0" prefWidth="600.0" styleClass="backgroundBack" translateX="120.0 ">
                <content>
@@ -76,13 +94,13 @@
                   </GridPane>
                </content>
             </ScrollPane>
-            <AnchorPane id="AnchorPane" layoutX="187.0" layoutY="195.0" prefHeight="78.0" prefWidth="552.0" styleClass="mainFxmlClass">
+            <AnchorPane id="AnchorPane" layoutX="188.0" layoutY="231.0" prefHeight="42.0" prefWidth="562.0" styleClass="mainFxmlClass">
                <stylesheets>
                   <URL value="@homepage.css" />
                </stylesheets>
                <children>
                   <Separator prefHeight="3.0" prefWidth="555.0" />
-                  <HBox layoutY="2.0" prefHeight="71.0" prefWidth="562.0" styleClass="tabletete">
+                  <HBox layoutY="2.0" prefHeight="35.0" prefWidth="562.0" styleClass="tabletete">
                      <children>
                         <Separator orientation="VERTICAL" prefHeight="47.0" prefWidth="6.0" />
                         <Label prefHeight="45.0" prefWidth="75.0" text=" Image" textFill="#d11414">
@@ -109,7 +127,7 @@
                         <Separator orientation="VERTICAL" prefHeight="71.0" prefWidth="1.0" />
                      </children>
                   </HBox>
-                  <Separator layoutY="75.0" prefHeight="3.0" prefWidth="555.0" />
+                  <Separator layoutY="36.0" prefHeight="3.0" prefWidth="555.0" />
                </children>
             </AnchorPane>
             </children>

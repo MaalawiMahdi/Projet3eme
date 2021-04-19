@@ -49,7 +49,8 @@ public class TabAideBackController implements Initializable {
     @FXML
     private Label tell;
      Aide dataAide;
-
+    AideCrud c = new AideCrud();
+     
     /**
      * Initializes the controller class.
      */
@@ -61,7 +62,7 @@ public class TabAideBackController implements Initializable {
         this.dataAide = dataAide;
         image.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\public\\uploads\\" + dataAide.getLien_image()));
         titre.getChildren().add(new Text(dataAide.getTitre()));        
-        categorie.setText("");
+        categorie.setText(c.cherchercattitre(dataAide.getCategorie_id()));
         description.getChildren().add(new Text(dataAide.getDescription()));
         adresse.getChildren().add(new Text(dataAide.getAdresse()));
         tell.setText(dataAide.getNum_tell());
@@ -72,11 +73,27 @@ public class TabAideBackController implements Initializable {
 
     @FXML
     private void envoi_modifier(ActionEvent event) {
+        ModifierAideController.setAideId(Integer.parseInt(btn_modifier.getId()));
+            try {
+                //récupération fichier fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierAide.fxml"));
+                //récupération du root  à partir du fichier fxml
+
+                Parent root = loader.load();
+                //récupération du controller lier au fichier fxml
+
+                ModifierAideController dpc = loader.getController();
+                //   dpc.setLbMessage(id_table.getSelectionModel().getSelectedItem().getId() + "");
+                btn_supprimer.getScene().setRoot(root);
+
+            } catch (IOException ex) {
+                Logger.getLogger(TabCatAideBackController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     @FXML
     private void envoi_supprimer(ActionEvent event) {
-             AideCrud c = new AideCrud();
+            
      
        c.deleteAide(Integer.parseInt(btn_supprimer.getId()));
             try {

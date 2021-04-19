@@ -23,10 +23,7 @@
             <Separator orientation="VERTICAL" prefHeight="200.0" />
             <Label fx:id="categorie" prefHeight="17.0" prefWidth="130.0" />
             <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <TextFlow fx:id="description" prefHeight="81.0" prefWidth="127.0">
-               <children>
-                  <Separator prefHeight="5.0" prefWidth="813.0" />
-               </children></TextFlow>
+            <TextFlow fx:id="description" prefHeight="81.0" prefWidth="127.0" />
             <Separator orientation="VERTICAL" prefHeight="200.0" />
             <TextFlow fx:id="adresse" prefHeight="128.0" prefWidth="113.0" />
             <Separator orientation="VERTICAL" prefHeight="200.0" />
@@ -38,5 +35,6 @@
             <Separator orientation="VERTICAL" prefHeight="74.0" prefWidth="6.0" />
          </children>
       </HBox>
+      <Separator layoutX="5.0" layoutY="128.0" prefHeight="5.0" prefWidth="813.0" />
    </children>
 </AnchorPane>

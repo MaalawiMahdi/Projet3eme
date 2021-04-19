@@ -75,6 +75,27 @@ public class AideCrud {
         }
         return id_cat;
     }
+    public int CountAides(int id) {
+
+        int i = 0;
+        String requete = "SELECT * FROM aide where categorie_id= ?  ";
+
+        try {
+            PreparedStatement pst = cn2.prepareStatement(requete);
+            pst.setInt(1,id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+             i=i+1;
+            }
+          
+         return i; 
+         
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return i;
+    }
 
     public List<String> cherchercattitres() {
 
@@ -95,6 +116,31 @@ public class AideCrud {
         }
         return titres;
     }
+      
+       
+    
+    
+     public String cherchercattitre(int id) {
+
+        String titre = "";
+        String requete = "SELECT titre FROM categorie_aide where id= ?";
+
+        try {
+            PreparedStatement pst = cn2.prepareStatement(requete);
+             pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+               
+            while (rs.next()) {
+
+                titre=rs.getString("titre");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return titre;
+    }
+     
      public CaptchaAide getCaptchaAide(int id) {
 
         
@@ -245,10 +291,10 @@ public class AideCrud {
 
 
 
-    public List<Aide> rechercherAide(String beaide, String caractere) {
+    public List<Aide> rechercherAide(String text) {
 
         ArrayList<Aide> Aides = new ArrayList<>();
-        String requete = "select * from aide where " + beaide + " LIKE '" + caractere + "%'";
+        String requete =  "select * from aide where titre LIKE '" + text + "%' OR description LIKE '" + text + "%'  OR num_tell LIKE '" + text + "%'OR adresse LIKE '" + text + "%'";
 
         try {
             PreparedStatement pst2 = cn2.prepareStatement(requete);
@@ -267,14 +313,15 @@ public class AideCrud {
                 a.setDescription(rs.getString("description"));
                 a.setNum_tell(rs.getString("num_tell"));
                 a.setAdresse(rs.getString("adresse"));
-
+                a.setLien_image(rs.getString("lien_image"));
                 Aides.add(a);
             }
-
+        
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         return Aides;
+           
     }
 
     public void trierAide(String o) {
@@ -457,5 +504,30 @@ public void setAideNoteAvis(int val, String Avis, int userid, int aideid) {
         return m;
     }
   
+  
+   public CategorieAide chercherCatAide(int id) {
+ 
+        String requete = "SELECT * FROM categorie_aide where id=?";
+        CategorieAide a = new CategorieAide();
+        try {
+            PreparedStatement pst = cn2.prepareStatement(requete);
+            pst.setInt(1,id);
+            ResultSet rs = pst.executeQuery();
+            
+            while (rs.next()) {
+               
+                a.setId(rs.getInt("id"));
+            
+                a.setTitre(rs.getString("titre"));
+               
+                a.setLien_icon(rs.getString("lien_icon"));
+            return a;
+            }
 
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+       
+        return a;
+    }
 }

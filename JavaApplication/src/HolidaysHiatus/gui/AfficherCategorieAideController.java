@@ -43,6 +43,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
@@ -74,6 +75,10 @@ public class AfficherCategorieAideController implements Initializable {
     @FXML
     private GridPane grid;
     private List<CategorieAide> data;
+    @FXML
+    private Hyperlink cat_Stat;
+    @FXML
+    private Hyperlink stat_aide;
 
  
 
@@ -200,6 +205,86 @@ public class AfficherCategorieAideController implements Initializable {
             Logger.getLogger(AfficherCategorieAideController.class.getName()).log(Level.SEVERE, null, ex);
         }
      
+    }
+
+    @FXML
+    private void chercher(KeyEvent event) {
+        grid.getChildren().clear();
+        String text = id_recherche.getText();
+          data = new ArrayList();
+
+        CategorieAideCrud CategoriesAides = new CategorieAideCrud();
+
+        CategoriesAides.rechercherCategorieAide(text).forEach((c) -> {
+
+            data.add(c);
+
+        });
+      
+        int column=1;
+        int row=0;
+          try {
+        for(int i=0; i<data.size();i++){
+          
+         
+                
+                FXMLLoader fxmlLoader = new FXMLLoader();
+               
+                fxmlLoader.setLocation(getClass().getResource("TabCatAideBack.fxml"));
+                AnchorPane anchorPane=fxmlLoader.load();
+                TabCatAideBackController cardController= fxmlLoader.getController();
+                
+                
+                                                       
+
+                    cardController.setDataCat(data.get(i));
+                         row++;
+                    
+                    
+                    grid.add(anchorPane,column,row);
+                    
+                    GridPane.setMargin(anchorPane,new Insets(2));
+              
+            } 
+        } catch (IOException ex) {
+                Logger.getLogger(AfficherCategorieAideController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+    }
+
+    @FXML
+    private void envoi_cat_Stat(ActionEvent event) {
+           try {
+            //récupération fichier fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("StatistiqueCategorieAide.fxml"));
+            //récupération du root  à partir du fichier fxml
+            Parent root = loader.load();
+            //récupération du controller lier au fichier fxml
+            StatistiqueCategorieAideController dpc = loader.getController();
+            //   dpc.setLbMessage(id_table.getSelectionModel().getSelectedItem().getId() + "");
+
+            stat_aide.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_statAide(ActionEvent event) {
+            
+       try {
+            //récupération fichier fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("StatistiqueAide.fxml"));
+            //récupération du root  à partir du fichier fxml
+            Parent root = loader.load();
+            //récupération du controller lier au fichier fxml
+            StatistiqueAideController dpc = loader.getController();
+            //   dpc.setLbMessage(id_table.getSelectionModel().getSelectedItem().getId() + "");
+
+            stat_aide.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     
