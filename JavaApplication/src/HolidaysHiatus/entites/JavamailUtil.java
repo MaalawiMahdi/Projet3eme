@@ -27,7 +27,7 @@ import javax.mail.internet.MimeMessage;
  * @author Dimassi Abdelhak
  */
 public class JavamailUtil {
-    public static void sendMail(String recepient,String code) throws Exception{
+    public static void sendMail(String recepient,String subject,String messagevalue) throws Exception{
         System.out.println("Preparing to send:");
         Properties properties = new Properties();
         
@@ -55,21 +55,21 @@ public class JavamailUtil {
             }
         });
         
-        Message message = prepareMessage(session,myAccountEmail,recepient,code);
+        Message message = prepareMessage(session,myAccountEmail,recepient,subject,messagevalue);
         
         Transport.send(message);
         System.out.println("message send successfully");
     }
     
-   private static Message prepareMessage(Session session, String myAccountEmail,String recepient, String code){
+   private static Message prepareMessage(Session session, String myAccountEmail,String recepient,String subject,String messagevalue){
         try {
             
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject("Votre code est :  ");
+            message.setSubject(subject);
             
-            message.setText("Votre code de récupération est "+code);
+            message.setText(messagevalue);
             return message;
         } catch (MessagingException ex) {
             Logger.getLogger(JavamailUtil.class.getName()).log(Level.SEVERE, null, ex);

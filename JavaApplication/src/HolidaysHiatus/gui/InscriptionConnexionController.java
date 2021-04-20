@@ -268,10 +268,13 @@ public class InscriptionConnexionController implements Initializable {
       .limit(targetStringLength)
       .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
       .toString();
-              
+            String subject = "Votre code est :  ";
+            
+          String message= "Votre code de récupération est "+code;
+           
                 JavamailUtil mailing = new JavamailUtil();
                   try {
-                      mailing.sendMail(emailresetvalue.getText(), code);
+                      mailing.sendMail(emailresetvalue.getText(), subject,message);
                        codeveirform.setDisable(false);
               codeveirform.setOpacity(1);
               resetpasswordform.setOpacity(0);
