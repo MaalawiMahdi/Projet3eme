@@ -39,7 +39,6 @@ public class HolidaysHiatus extends Application {
             Scene scene = new Scene(root);
             primaryStage.setTitle("HolidaysHiatus");
             primaryStage.setScene(scene);
-            primaryStage.setMaximized(true);
             primaryStage.show();
           } catch (IOException ex) {
             Logger.getLogger(HolidaysHiatus.class.getName()).log(Level.SEVERE, null, ex);

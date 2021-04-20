@@ -6,6 +6,7 @@
 package HolidaysHiatus.gui;
 
 import HolidaysHiatus.entites.InformationsSupplementaires;
+import HolidaysHiatus.entites.JavamailUtil;
 import HolidaysHiatus.entites.User;
 import HolidaysHiatus.services.InformationsSupplementairesService;
 import HolidaysHiatus.services.UserService;
@@ -13,7 +14,9 @@ import HolidaysHiatus.tools.BCrypt;
 import HolidaysHiatus.tools.Session;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.Date;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -28,8 +31,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import org.apache.commons.validator.routines.EmailValidator;
 
@@ -55,6 +60,32 @@ public class InscriptionConnexionController implements Initializable {
     private int falsepassword=3;
     @FXML
     private Text passwordfalsemessage;
+    @FXML
+    private AnchorPane cnxform;
+    @FXML
+    private Hyperlink resetpassword;
+    @FXML
+    private AnchorPane resetpasswordform;
+    @FXML
+    private Button btn_crea_co;
+    @FXML
+    private TextField emailresetvalue;
+    @FXML
+    private AnchorPane doublepasswordform;
+    @FXML
+    private Button btn_crea_co1;
+    @FXML
+    private TextField resetpasswordvalue1;
+    @FXML
+    private TextField resetpasswordvalue2;
+    @FXML
+    private AnchorPane codeveirform;
+    @FXML
+    private Button btn_crea_co2;
+    private String code;
+    @FXML
+    private TextField codealpha;
+    private User resetUser;
 
     /**
      * Initializes the controller class.
@@ -143,7 +174,7 @@ public class InscriptionConnexionController implements Initializable {
             Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("compte introuvable"); 
         alert.setHeaderText("mot de passe incorrect");
-        alert.setContentText("mot de passe incorrect \n nombre d'essai : "  + falsepassword);
+        alert.setContentText("mot de passe incorrect \n nombre des essais : "  + falsepassword);
         alert.showAndWait();
         falsepassword--;
         if(falsepassword==0){
@@ -203,4 +234,118 @@ public class InscriptionConnexionController implements Initializable {
     }
     
 }
+
+    @FXML
+    private void resetpassword(ActionEvent event) {
+        cnxform.setDisable(true);
+        cnxform.setOpacity(0);
+        resetpasswordform.setOpacity(1);
+        resetpasswordform.setLayoutX(cnxform.getLayoutX());
+        
+        resetpasswordform.setLayoutY(cnxform.getLayoutY());
+        resetpasswordform.setDisable(false);
+    }
+
+    @FXML
+    private void RécuprationPwdUser(ActionEvent event) {
+              UserService us = new UserService();
+              if (us.ChercherParMail(emailresetvalue.getText())==null){
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("compte introuvable"); 
+        alert.setHeaderText("votre adresse mail est introuvable");
+        alert.setContentText("merci de remplir notre formulaire d'inscription ");
+        alert.showAndWait();
+        return; 
+        }else{
+       
+    int leftLimit = 48; // numeral '0'
+    int rightLimit = 122; // letter 'z'
+    int targetStringLength = 7;
+    Random random = new Random();
+
+     code = random.ints(leftLimit, rightLimit + 1)
+      .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
+      .limit(targetStringLength)
+      .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+      .toString();
+              
+                JavamailUtil mailing = new JavamailUtil();
+                  try {
+                      mailing.sendMail(emailresetvalue.getText(), code);
+                       codeveirform.setDisable(false);
+              codeveirform.setOpacity(1);
+              resetpasswordform.setOpacity(0);
+              resetpasswordform.setDisable(true);
+        codeveirform.setLayoutX(resetpasswordform.getLayoutX());
+        
+        codeveirform.setLayoutY(resetpasswordform.getLayoutY());
+        resetUser= us.ChercherParMail(emailresetvalue.getText());
+                  } catch (Exception ex) {
+                      Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+                  }
+              }
+             
+        
+        
+    }
+
+    @FXML
+    private void updatemotdepasse(ActionEvent event) {
+        if(resetpasswordvalue1.getText().compareTo("")==0){
+                Alert alert = new Alert(AlertType.INFORMATION);
+
+            alert.setTitle("probleme de verification de mot de passe"); 
+        alert.setHeaderText("probleme de verification de mot de passe");
+        alert.setContentText("le champs mot de passe est obligatoire !");
+        alert.showAndWait();
+        
+        }
+        else if(resetpasswordvalue1.getText().compareTo(resetpasswordvalue2.getText())!=0){
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("probleme de verification de mot de passe"); 
+        alert.setHeaderText("probleme de verification de mot de passe");
+        alert.setContentText("les champs ''mot de passe'' et ''repeter votre mot de passe'' doivent être identiques  !");
+        alert.showAndWait();
+        resetpasswordvalue1.clear();
+        resetpasswordvalue2.clear(); 
+        }else{
+                      UserService us = new UserService();
+        resetUser.setPassword( BCrypt.hashpw(resetpasswordvalue1.getText(),BCrypt.gensalt()));
+        us.UpdateUser(resetUser);
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("mot de passe modifié "); 
+        alert.setHeaderText("mot de passe modifié ");
+        alert.setContentText("mot de passe modifié  !");
+        alert.showAndWait();
+         connexion_email.setText(resetUser.getMail());
+        resetUser = new User();
+        
+        doublepasswordform.setDisable(true);
+        doublepasswordform.setOpacity(0);
+        cnxform.setDisable(false);
+        cnxform.setOpacity(1);
+           
+        }
+    }
+
+    @FXML
+    private void verifcode(ActionEvent event) {
+        if(codealpha.getText().compareTo(code)!=0){
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("code invalid"); 
+        alert.setHeaderText("code non valid ");
+        alert.setContentText(" ");
+        alert.showAndWait();
+        return; 
+        
+        }else{
+                        codeveirform.setDisable(true);
+              codeveirform.setOpacity(0);
+              doublepasswordform.setLayoutX(codeveirform.getLayoutX());
+        
+        doublepasswordform.setLayoutY(codeveirform.getLayoutY());
+        doublepasswordform.setOpacity(1);
+        doublepasswordform.setDisable(false);
+        }
+    }
 }

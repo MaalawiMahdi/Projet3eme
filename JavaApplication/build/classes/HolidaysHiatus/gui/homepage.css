@@ -25,7 +25,8 @@
     -fx-color: white;
 }
 .button {
-    -fx-background-color: linear-gradient( #91B0D9, #91B0D9);
+    -fx-background-color:  #ee5057;
+    -fx-text-fill:white;
 }
 .backgroundBackSocieteNav
 { 

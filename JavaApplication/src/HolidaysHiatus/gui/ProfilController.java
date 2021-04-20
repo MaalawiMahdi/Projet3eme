@@ -117,8 +117,10 @@ public class ProfilController implements Initializable {
                     .addAll(extFilterJPG, extFilterjpg, extFilterPNG, extFilterpng);
 */
         Button button = new Button("Select File");
-        button.setLayoutX(profilimage.getLayoutX());
-        button.setLayoutY(profilimage.getLayoutY()+100);
+        button.setLayoutX(profilimage.getLayoutX()+10);
+        button.setLayoutY(profilimage.getLayoutY()+profilimage.getFitHeight()+10);
+        button.setMaxWidth(profilimage.getImage().getWidth());
+        
         button.setOnAction(e -> {
             File selectedFile = fileChooser.showOpenDialog(new Stage());
                 try {
@@ -135,7 +137,7 @@ public class ProfilController implements Initializable {
               System.out.print(tmp);
                information.setImage(uniqueid+"."+extension);
                InformationsSupplementairesService i_service = new InformationsSupplementairesService();
-               i_service.update(information);
+               i_service.updateImage(information);
                 
                 } catch (IOException ex) {
                     System.out.print(ex.getMessage());
@@ -211,6 +213,7 @@ public class ProfilController implements Initializable {
         TextField telvalueinput = new TextField();
         telvalueinput.setLayoutX(telvalue.getLayoutX());
         telvalueinput.setLayoutY(telvalue.getLayoutY());
+        telvalueinput.setText(telvalue.getText());
         profildata.getChildren().addAll(mailvalueinput,motdepasseinput,nomvalueinput,prenomvalueinput,telvalueinput);
         Button modifierbutton = new Button("modifier votre compte");
         modifierbutton.setLayoutX(660);

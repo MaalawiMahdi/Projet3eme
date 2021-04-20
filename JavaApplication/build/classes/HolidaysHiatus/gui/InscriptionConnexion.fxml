@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -30,7 +31,7 @@
                </font></Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="696.0" layoutY="193.0" prefHeight="320.0" prefWidth="414.0">
+      <AnchorPane fx:id="cnxform" layoutX="696.0" layoutY="193.0" prefHeight="271.0" prefWidth="414.0">
          <children>
             <Label layoutX="53.0" layoutY="79.0" text="E-mail " />
             <Label layoutX="53.0" layoutY="119.0" text="Mot de passe " />
@@ -47,6 +48,7 @@
                </font>
             </Label>
             <Text fx:id="passwordfalsemessage" fill="#ff0404" layoutX="53.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Hyperlink fx:id="resetpassword" layoutX="226.0" layoutY="203.0" onAction="#resetpassword" prefHeight="29.0" prefWidth="187.0" text="Mot de passe oublié" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="150.0" fitWidth="434.0" layoutX="371.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -54,5 +56,28 @@
             <Image url="@../images/logo.png" />
          </image>
       </ImageView>
+      <AnchorPane fx:id="resetpasswordform" disable="true" layoutX="465.0" layoutY="513.0" opacity="0.0" prefHeight="200.0" prefWidth="351.0">
+         <children>
+            <Button fx:id="btn_crea_co" layoutX="12.0" layoutY="144.0" mnemonicParsing="false" onAction="#RécuprationPwdUser" prefHeight="31.0" prefWidth="327.0" style="-fx-background-color: #ee5057;" text="Confirmer" textFill="WHITE" />
+            <TextField fx:id="emailresetvalue" layoutX="12.0" layoutY="69.0" prefHeight="31.0" prefWidth="327.0" promptText="Votre mail" />
+            <Label layoutX="14.0" layoutY="37.0" text="Saisir votre adresse mail" />
+            <Label layoutX="12.0" layoutY="111.0" prefHeight="21.0" prefWidth="327.0" text="Un mail contenant un code vous sera envoyé. " />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="doublepasswordform" disable="true" layoutX="856.0" layoutY="513.0" opacity="0.0" prefHeight="200.0" prefWidth="351.0">
+         <children>
+            <Button fx:id="btn_crea_co1" layoutX="12.0" layoutY="155.0" mnemonicParsing="false" onAction="#updatemotdepasse" prefHeight="31.0" prefWidth="327.0" style="-fx-background-color: #ee5057;" text="Confirmer" textFill="WHITE" />
+            <PasswordField fx:id="resetpasswordvalue1" accessibleRole="PASSWORD_FIELD" layoutX="12.0" layoutY="46.0" prefHeight="31.0" prefWidth="327.0" promptText="votre mot de passe" />
+            <Label layoutX="14.0" layoutY="14.0" text="Saisir un nouveau mot de passe " />
+            <PasswordField fx:id="resetpasswordvalue2" accessibleRole="PASSWORD_FIELD" layoutX="12.0" layoutY="100.0" prefHeight="31.0" prefWidth="327.0" promptText="Repeter mot de passe" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="codeveirform" disable="true" layoutX="44.0" layoutY="528.0" opacity="0.0" prefHeight="200.0" prefWidth="351.0">
+         <children>
+            <Button fx:id="btn_crea_co2" layoutX="12.0" layoutY="144.0" mnemonicParsing="false" onAction="#verifcode" prefHeight="31.0" prefWidth="327.0" style="-fx-background-color: #ee5057;" text="Confirmer" textFill="WHITE" />
+            <TextField fx:id="codealpha" layoutX="12.0" layoutY="69.0" prefHeight="31.0" prefWidth="327.0" promptText="code alphanumérique de longeur 6" />
+            <Label layoutX="14.0" layoutY="37.0" text="Saisir le code" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

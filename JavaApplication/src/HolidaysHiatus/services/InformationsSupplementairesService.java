@@ -66,14 +66,25 @@ if (Information_list.size()>0){
 
     }
        public void update(InformationsSupplementaires s){
-        String sql="Update informations_supplementaires set nom=?,prenom=?,tell=?,image=? where user_id = ?";
+        String sql="Update informations_supplementaires set nom=?,prenom=?,tell=? where user_id = ?";
      try{
      ste=cnx.prepareStatement(sql);
           ste.setString(1,s.getNom());
  ste.setString(2,s.getPrenom());
  ste.setString(3,s.getTell());
- ste.setString(4,s.getImage());
- ste.setInt(5,s.getUser_id());
+ ste.setInt(4,s.getUser_id());
+ 
+ste.executeUpdate();
+     } catch(SQLException ex){
+        System.out.print(ex.getMessage());
+    }
+       }
+       public void updateImage(InformationsSupplementaires s){
+        String sql="Update informations_supplementaires set image=? where user_id = ?";
+     try{
+     ste=cnx.prepareStatement(sql);
+ ste.setString(1,s.getImage());
+ ste.setInt(2,s.getUser_id());
  
 ste.executeUpdate();
      } catch(SQLException ex){
