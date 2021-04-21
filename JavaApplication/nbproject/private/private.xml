@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/drwhoo/Desktop/projet-webjava/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/TabAideBackController.java</file>
-            <file>file:/C:/Users/drwhoo/Desktop/projet-webjava/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherCategorieAide.fxml</file>
-            <file>file:/C:/Users/drwhoo/Desktop/projet-webjava/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherAide.fxml</file>
-            <file>file:/C:/Users/drwhoo/Desktop/projet-webjava/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/TabAideBack.fxml</file>
+            <file>file:/C:/Users/drwhoo/Desktop/projet-webjava/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/ModifierCategorieAideController.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/projet-webjava/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AjouterAideController.java</file>
             <file>file:/C:/Users/drwhoo/Desktop/projet-webjava/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherAideController.java</file>
-            <file>file:/C:/Users/drwhoo/Desktop/projet-webjava/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/TabCatAideBackController.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/projet-webjava/Projet3eme/JavaApplication/src/HolidaysHiatus/tools/JavamailUtil.java</file>
         </group>
     </open-files>
 </project-private>

@@ -8,6 +8,7 @@ package HolidaysHiatus.gui;
 import HolidaysHiatus.entities.Aide;
 import HolidaysHiatus.entities.NoteAide;
 import HolidaysHiatus.services.AideCrud;
+import HolidaysHiatus.tools.JavamailUtil;
 import java.io.IOException;
 
 import java.net.URL;
@@ -76,7 +77,8 @@ public class CarddetailsNoteController implements Initializable {
     @FXML
     private ComboBox<ImageView> Combo_Note;
     AideCrud a = new AideCrud();
-
+    String usermail="mohamedmarwen.maalawi@esprit.tn";
+    String username="marwen";
     private ImageView imagev1 = new ImageView("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\1star.PNG");
     private ImageView imagev2 = new ImageView("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\2star.PNG");
     private ImageView imagev3 = new ImageView("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\3star.PNG");
@@ -162,7 +164,7 @@ public class CarddetailsNoteController implements Initializable {
     }
 
     @FXML
-    private void Envoi_Note(ActionEvent event) {
+    private void Envoi_Note(ActionEvent event) throws Exception {
       int valeur = Combo_Note.getSelectionModel().getSelectedIndex();
       NoteAide noteAide=a.getAideNoteAvis(userid,Integer.parseInt(espace.getId()));
       if (noteAide==null){
@@ -174,6 +176,8 @@ public class CarddetailsNoteController implements Initializable {
                 new com.twilio.type.PhoneNumber("+14062045814"),
                 "merci d'avoir noté l'aide " +dataAide.getTitre())
             .create();*/
+             JavamailUtil mailing = new JavamailUtil();
+                mailing.sendMail(usermail,dataAide.getTitre(),username);
         try {
             AfficherAideDetailsNoteController.seAideId(espace.getId());
 
@@ -199,6 +203,8 @@ public class CarddetailsNoteController implements Initializable {
                 new com.twilio.type.PhoneNumber("+14062045814"),
                 "merci d'avoir modifer la note l'aide " +dataAide.getTitre())
             .create();*/
+              JavamailUtil mailing = new JavamailUtil();
+                mailing.sendMail(usermail,dataAide.getTitre(),username);
        
         try {
             AfficherAideDetailsNoteController.seAideId(espace.getId());
