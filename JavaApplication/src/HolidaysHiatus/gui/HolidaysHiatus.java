@@ -33,8 +33,8 @@ public class HolidaysHiatus extends Application {
             Parent root;
         try {
             //root = FXMLLoader.load(getClass().getResource("HomepageBack.fxml"));
-            //root = FXMLLoader.load(getClass().getResource("AfficherSujet.fxml"));
-           root = FXMLLoader.load(getClass().getResource("AfficherSujetUser.fxml"));
+            root = FXMLLoader.load(getClass().getResource("AfficherSujet.fxml"));
+    //        root = FXMLLoader.load(getClass().getResource("AffichageSujetsParBoard.fxml"));
 
             Scene scene = new Scene(root);
             primaryStage.setTitle("HolidaysHiatus");

@@ -7,8 +7,14 @@ package HolidaysHiatus.gui;
 
 import HolidaysHiatus.entities.Sujet;
 import HolidaysHiatus.services.SujetService;
+import HolidaysHiatus.tools.PDFutil;
+import com.lowagie.text.DocumentException;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +26,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -28,6 +35,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -67,6 +75,14 @@ public class AfficherSujetController implements Initializable {
     private Button btnmod;
     @FXML
     private Label id_ID;
+    @FXML
+    private Button btnmodimg;
+    @FXML
+    private TextField textlien;
+    @FXML
+    private Button btnimpression;
+
+    String imageDirectory = "C:\\Users\\hp\\Projet3eme\\SymfonyApplication\\public\\im\\";
 
     /**
      * Initializes the controller class.
@@ -74,6 +90,10 @@ public class AfficherSujetController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        textlien.setVisible(false);
+        idsupp.setVisible(false);
+        idmod.setVisible(false);
+        colID.setVisible(false);
         SujetService ss = new SujetService();
         for (int i = 0; i < ss.afficherSujetParBoard(boardid).size(); i++) {
             list.add(ss.afficherSujetParBoard(boardid).get(i));
@@ -87,13 +107,15 @@ public class AfficherSujetController implements Initializable {
     @FXML
     private void addS(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterSujet.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddSujet.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
-            AjouterSujetController as = loader.getController();
+            AddSujetController as = loader.getController();
+
+            as.setBoardid(boardid);
             as.btnajt.setOnAction((ActionEvent event2) -> {
                 as.addSujet(event);
                 stage.close();
@@ -130,10 +152,11 @@ public class AfficherSujetController implements Initializable {
     @FXML
     private void modifier(ActionEvent event) {
         SujetService ss = new SujetService();
-        String titre = "";
-        String description = "";
+        String titre = titremod.getText();
+        String description = descmod.getText();
+        String lien_image = this.textlien.getText();
         int id = Integer.parseInt(idmod.getText());
-        if (!titremod.getText().equals("") && !descmod.getText().equals("")) {
+        /*if (!titremod.getText().equals("") && !descmod.getText().equals("")) {
             titre = titremod.getText();
             description = descmod.getText();
         } else {
@@ -145,10 +168,25 @@ public class AfficherSujetController implements Initializable {
                 titre = titremod.getText();
                 description = ss.rechercheSujet(id).getDescription();
             }
+        }*/
+        if (titre.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Condition de saisie");
+            alert.setHeaderText(null);
+            alert.setContentText("le titre ne peut pas etre vide");
+            alert.showAndWait();
+        } else if (description.length() < 15) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Condition de saisie");
+            alert.setHeaderText(null);
+            alert.setContentText("la description doit contenir au moins 15 caracteres");
+            alert.showAndWait();
+        } else {
+            Sujet s = new Sujet(id, boardid, titre, description, lien_image);
+            ss.modifierSujet(s);
+            this.refresh(event);
+
         }
-        Sujet s = new Sujet(id, titre, description);
-        ss.modifierSujet(s);
-        this.refresh(event);
     }
 
     @FXML
@@ -156,11 +194,45 @@ public class AfficherSujetController implements Initializable {
         int id = Table.getSelectionModel().getSelectedItems().get(0).getId();
         String titre = Table.getSelectionModel().getSelectedItems().get(0).getTitre();
         String desc = Table.getSelectionModel().getSelectedItems().get(0).getDescription();
+        String lien = Table.getSelectionModel().getSelectedItems().get(0).getLien_image();
         this.idsupp.setText(String.valueOf(id));
         this.idmod.setText(String.valueOf(id));
         this.titremod.setText(titre);
         this.descmod.setText(desc);
+        this.textlien.setText(lien);
 
+    }
+
+    @FXML
+    private void updateimg(ActionEvent event) {
+        FileChooser filechooser = new FileChooser();
+        Stage stage = new Stage();
+        File file = filechooser.showOpenDialog(stage);
+        int i = file.getAbsolutePath().indexOf(".");
+        int l = file.getAbsolutePath().toString().length();
+        String extension = file.getAbsolutePath().toString().substring(i, l);
+        Random r = new Random();
+        Random r2 = new Random();
+        String nom = r.toString().substring(18, r.toString().length()) + r2.toString().substring(18, r2.toString().length());
+        boolean sc = file.renameTo(new File(imageDirectory + nom + extension));
+        this.textlien.setText(nom + extension);
+    }
+
+    public void setBoardid(int bd) {
+        this.boardid = bd;
+    }
+
+    @FXML
+    private void GeneratePdf(ActionEvent event) throws SQLException, IOException {
+        PDFutil pdf = new PDFutil();
+        pdf.setBoardid(boardid);
+        try {
+            pdf.listSujet();
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (DocumentException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
 }

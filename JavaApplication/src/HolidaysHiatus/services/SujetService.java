@@ -76,9 +76,9 @@ public class SujetService {
     public void supprimerSujet(Sujet s) {
         String sql = "DELETE FROM sujet WHERE id=?";
         try {
-            PreparedStatement ps = cnx.prepareStatement(sql);
-            ps.setInt(1, s.getId());
-            ps.executeUpdate();
+            ste = cnx.prepareStatement(sql);
+            ste.setInt(1, s.getId());
+            ste.executeUpdate();
             System.out.println("supprimée");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -169,17 +169,16 @@ public class SujetService {
         }
     }
 
-    public List<Sujet> Chercher(String val,int valboard) {
-        String sql = "select * from sujet where (id=?) or (titre like ?) or (description like ?) and (board_id = ?) ";
+    public List<Sujet> Chercher(String val, int valboard) {
+        String sql = "select * from sujet WHERE board_id =? AND ((titre like ?) OR (description like ?))";
+
         List<Sujet> l = new ArrayList();
         try {
             ste = cnx.prepareStatement(sql);
-            ste.setString(1, val);
+            ste.setInt(1, valboard);
             val = "%" + val + "%";
             ste.setString(2, val);
             ste.setString(3, val);
-            ste.setInt(4, valboard);
-
             ResultSet rs = ste.executeQuery();
             while (rs.next()) {
                 l.add(new Sujet(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5)));
@@ -189,17 +188,15 @@ public class SujetService {
         }
         return l;
     }
-    
-    public int NoteMoyenne(Sujet s)
-    {
+
+    public int NoteMoyenne(Sujet s) {
         float x = 0;
         String sql = "SELECT AVG(value) From notesujet WHERE sujet_id = ?";
-        try{
+        try {
             ste = cnx.prepareStatement(sql);
             ste.setInt(1, s.getId());
             ResultSet rs = ste.executeQuery();
-            while (rs.next())
-            {
+            while (rs.next()) {
                 x = rs.getInt(1);
             }
         } catch (SQLException ex) {

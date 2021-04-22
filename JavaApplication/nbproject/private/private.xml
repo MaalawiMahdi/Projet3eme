@@ -3,9 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hp/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherSujetUserController.java</file>
+            <file>file:/C:/Users/hp/Projet3eme/JavaApplication/src/HolidaysHiatus/services/SujetService.java</file>
+            <file>file:/C:/Users/hp/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/ConsulterSujetController.java</file>
+            <file>file:/C:/Users/hp/Projet3eme/JavaApplication/src/HolidaysHiatus/entities/Sujet.java</file>
             <file>file:/C:/Users/hp/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HolidaysHiatus.java</file>
+            <file>file:/C:/Users/hp/Projet3eme/JavaApplication/src/HolidaysHiatus/entities/JavamailUtil.java</file>
+            <file>file:/C:/Users/hp/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AffichageSujetsParBoardController.java</file>
+            <file>file:/C:/Users/hp/Projet3eme/JavaApplication/src/HolidaysHiatus/services/CommentaireService.java</file>
             <file>file:/C:/Users/hp/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherSujetController.java</file>
+            <file>file:/C:/Users/hp/Projet3eme/JavaApplication/src/HolidaysHiatus/tools/PDFutil.java</file>
+            <file>file:/C:/Users/hp/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AddSujetController.java</file>
+            <file>file:/C:/Users/hp/Projet3eme/JavaApplication/src/HolidaysHiatus/tools/MyConnection.java</file>
         </group>
     </open-files>
 </project-private>

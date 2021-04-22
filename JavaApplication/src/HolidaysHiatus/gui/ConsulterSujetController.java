@@ -5,8 +5,10 @@
  */
 package HolidaysHiatus.gui;
 
+import HolidaysHiatus.entities.JavamailUtil;
 import HolidaysHiatus.entities.Commentaire;
 import HolidaysHiatus.entities.NoteSujet;
+import HolidaysHiatus.entities.Sujet;
 import HolidaysHiatus.services.CommentaireService;
 import HolidaysHiatus.services.SujetService;
 import java.io.IOException;
@@ -36,10 +38,12 @@ import javafx.scene.control.Separator;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
+import javafx.scene.image.Image;
 
 /**
  * FXML Controller class
@@ -70,6 +74,10 @@ public class ConsulterSujetController implements Initializable {
     int sujetid;
     int currentuserid;
     CommentaireService cs = new CommentaireService();
+    @FXML
+    private ImageView image;
+
+    String imageDirectory = "C:\\Users\\hp\\Projet3eme\\SymfonyApplication\\public\\im\\";
 
     /**
      * Initializes the controller class.
@@ -77,14 +85,7 @@ public class ConsulterSujetController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO        
-        /*
-        rating.ratingProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                //NoteSujet n = new NoteSujet(sujetid, currentuserid, (int) newValue);
-                System.out.println(newValue);
-            }
-        });*/
+        
     }
 
     public void setSujetid(int id) {
@@ -139,6 +140,9 @@ public class ConsulterSujetController implements Initializable {
 
                 Button btn_modifier = new Button("Modifier");
                 Button btn_supprimer = new Button("Supprimer");
+                btn_modifier.setStyle("-fx-background-color:#ee5057; -fx-text-fill: white;");
+                btn_supprimer.setStyle("-fx-background-color:#ee5057; -fx-text-fill: white;");
+
                 String ch = "";
                 ch += cs.comuser(liste.get(i).getUser_id()) + " :" + "\n";
                 ch += liste.get(i).getCom() + "\n" + "\n";
@@ -191,7 +195,7 @@ public class ConsulterSujetController implements Initializable {
                             }
                         });
                     } catch (IOException ex) {
-                        Logger.getLogger(AfficherSujetUserController.class.getName()).log(Level.SEVERE, null, ex);
+                        ex.getMessage();
                     }
                 });
             } else {
@@ -222,6 +226,23 @@ public class ConsulterSujetController implements Initializable {
                 listelement.getItems().clear();
                 listelement.getItems().add(this.newcom);
                 listelement.getItems().add(this.combtn);
+                for (int i = 0; i < liste.size(); i++) {
+                    if (liste.get(i).getUser_id() != currentuserid) {
+                        System.out.println(cs.comuser(liste.get(i).getUser_id()));
+                        String subject = "Un nouveau commentaire ";
+
+                        String message = "Un nouveau commentaire dans le sujet " + labeltitre.getText();
+
+                        JavamailUtil mailing = new JavamailUtil();
+                        try {
+                            mailing.sendMail(cs.comuser(liste.get(i).getUser_id()), subject, message);
+                        } catch (Exception ex) {
+                            // Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+                            System.out.println(ex.getMessage());
+                        }
+                    }
+
+                }
                 CRUDcommentaire();
             }
         });
@@ -244,6 +265,12 @@ public class ConsulterSujetController implements Initializable {
                 }
             }
         });
+    }
+
+    public void affImg() {
+        SujetService ss = new SujetService();
+        image.setImage(new Image("file:"+imageDirectory + ss.rechercheSujet(sujetid).getLien_image()));
+        System.out.println(ss.rechercheSujet(sujetid).getLien_image());
     }
 
 }

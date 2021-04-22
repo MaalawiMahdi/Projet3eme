@@ -35,35 +35,48 @@
                 </ImageView>
             <AnchorPane id="AnchorPane" layoutX="28.0" layoutY="174.0" prefHeight="624.0" prefWidth="903.0" styleClass="mainFxmlClass" stylesheets="&#10;    ">
                <children>
-                  <TableView fx:id="Table" layoutY="-2.0" onMouseClicked="#clickS" prefHeight="631.0" prefWidth="497.0">
+                  <TableView fx:id="Table" layoutY="-2.0" onMouseClicked="#clickS" prefHeight="631.0" prefWidth="472.0">
                      <columns>
                         <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
                         <TableColumn fx:id="ColTitre" prefWidth="75.0" text="Titre" />
                         <TableColumn fx:id="ColDesc" prefWidth="318.0" text="Description" />
                      </columns>
                   </TableView>
-                  <Button fx:id="btnajts" layoutX="737.0" layoutY="527.0" mnemonicParsing="false" onAction="#addS" text="Ajouter" textFill="#009746" />
-                  <Button fx:id="btnref" layoutX="636.0" layoutY="527.0" mnemonicParsing="false" onAction="#refresh" text="Refresh" />
-                  <Label layoutX="592.0" layoutY="74.0" text="ID :" />
-                  <TextField fx:id="idsupp" layoutX="651.0" layoutY="69.0" />
-                  <Text layoutX="592.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supression :" wrappingWidth="196.97509765625">
+                  <Button fx:id="btnajts" layoutX="781.0" layoutY="477.0" mnemonicParsing="false" onAction="#addS" style="-fx-background-color: #ee5057;" text="Ajouter" textFill="WHITE" />
+                  <Button fx:id="btnref" layoutX="781.0" layoutY="584.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #ee5057;" text="Refresh" textFill="WHITE" />
+                  <TextField fx:id="idsupp" layoutX="554.0" layoutY="139.0" />
+                  <Text layoutX="592.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supression :" wrappingWidth="196.97509765625">
                      <font>
                         <Font name="System Bold" size="27.0" />
                      </font>
                   </Text>
-                  <Button fx:id="btndelete" layoutX="749.0" layoutY="116.0" mnemonicParsing="false" onAction="#delete" text="Supprimer" textFill="RED" />
-                  <Text layoutX="592.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modification :">
+                  <Button fx:id="btndelete" layoutX="789.0" layoutY="95.0" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: #ee5057;" text="Supprimer" textFill="WHITE" />
+                  <Text layoutX="567.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modification :">
                      <font>
                         <Font name="System Bold" size="27.0" />
                      </font>
                   </Text>
-                  <Label layoutX="597.0" layoutY="224.0" text="ID :" />
-                  <Label layoutX="586.0" layoutY="315.0" text="Description :" />
-                  <Label layoutX="590.0" layoutY="258.0" text="Titre :" />
-                  <TextField fx:id="idmod" layoutX="656.0" layoutY="219.0" />
-                  <TextField fx:id="titremod" layoutX="656.0" layoutY="253.0" />
-                  <TextArea fx:id="descmod" layoutX="681.0" layoutY="300.0" prefHeight="92.0" prefWidth="200.0" />
-                  <Button fx:id="btnmod" layoutX="755.0" layoutY="426.0" mnemonicParsing="false" onAction="#modifier" text="Modifier" textFill="#2b02f5" />
+                  <Label layoutX="578.0" layoutY="347.0" text="Description :" />
+                  <Label layoutX="582.0" layoutY="290.0" text="Titre :" />
+                  <TextField fx:id="idmod" layoutX="648.0" layoutY="251.0" />
+                  <TextField fx:id="titremod" layoutX="648.0" layoutY="285.0" />
+                  <TextArea fx:id="descmod" layoutX="673.0" layoutY="332.0" prefHeight="57.0" prefWidth="200.0" />
+                  <Button fx:id="btnmod" layoutX="772.0" layoutY="401.0" mnemonicParsing="false" onAction="#modifier" style="-fx-background-color: #ee5057;" text="Modifier" textFill="WHITE" />
+                  <Button fx:id="btnmodimg" layoutX="629.0" layoutY="401.0" mnemonicParsing="false" onAction="#updateimg" style="-fx-background-color: #ee5057;" text="Modifier Image" textFill="WHITE" />
+                  <TextField fx:id="textlien" layoutX="669.0" layoutY="530.0" />
+                  <Button fx:id="btnimpression" layoutX="826.0" layoutY="15.0" mnemonicParsing="false" onAction="#GeneratePdf" style="-fx-background-color: #ee5057;" text="PDF" textFill="WHITE" />
+                  <Label layoutX="553.0" layoutY="100.0" text="Sélectionnez le sujet à supprimer" />
+                  <Label layoutX="560.0" layoutY="230.0" text="Sélectionnez le sujet à modifier" />
+                  <Text layoutX="656.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajout :">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="589.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Impression :" wrappingWidth="160.97509765625">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
          </children></Pane>

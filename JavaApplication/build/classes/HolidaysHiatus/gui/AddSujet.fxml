@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.AddSujetController">
+   <children>
+      <Label layoutX="89.0" layoutY="101.0" text="Titre :" />
+      <Label layoutX="89.0" layoutY="200.0" text="Description :" />
+      <TextField fx:id="titre" layoutX="240.0" layoutY="96.0" />
+      <TextArea fx:id="desc" layoutX="240.0" layoutY="158.0" prefHeight="110.0" prefWidth="351.0" />
+      <Button fx:id="btnajt" layoutX="519.0" layoutY="338.0" mnemonicParsing="false" onAction="#addSujet" style="-fx-background-color: #ee5057;" text="Valider" textFill="WHITE" />
+      <Button fx:id="btnimg" layoutX="321.0" layoutY="338.0" mnemonicParsing="false" onAction="#addImg" style="-fx-background-color: #ee5057;" text="Choisissez une image" textFill="WHITE" />
+      <TextField fx:id="lien" layoutX="20.0" layoutY="338.0" prefHeight="31.0" prefWidth="256.0" />
+   </children>
+</AnchorPane>
