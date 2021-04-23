@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="970.0" prefWidth="1189.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.InscriptionSocieteController">
+    <stylesheets>
+        <URL value="@homepage.css" />
+    </stylesheets>
+    <styleClass>
+        <String fx:value="mainFxmlClass" />
+        <String fx:value="backgroundFront" />
+    </styleClass>
+    <children>
+        <Pane prefHeight="95.0" prefWidth="1189.0">
+            <children>
+                <ImageView fitHeight="73.0" fitWidth="269.0" layoutX="32.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/Logo.png" />
+                    </image>
+                </ImageView>
+                <Hyperlink focusTraversable="false" layoutX="715.0" layoutY="25.0" prefHeight="34.0" prefWidth="69.0" text="Boards" textFill="#1b1a1a">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Hyperlink>
+                <Hyperlink focusTraversable="false" layoutX="791.0" layoutY="22.0" onAction="#inscriptionbusiness" prefHeight="40.0" prefWidth="259.0" text="Démarrer avec un compte Business" textFill="#1b1a1a">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Hyperlink>
+                <Separator layoutX="698.0" layoutY="1.0" orientation="VERTICAL" prefHeight="92.0" prefWidth="8.0" />
+                <Separator layoutX="783.0" layoutY="2.0" orientation="VERTICAL" prefHeight="92.0" prefWidth="8.0" />
+                <Separator layoutX="614.0" layoutY="2.0" orientation="VERTICAL" prefHeight="89.0" prefWidth="8.0" />
+            <MenuButton layoutX="1068.0" layoutY="16.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="121.0" style="-fx-background-color: none; -fx-border-style: none; -fx-alignment: center;" text="Compte" textAlignment="CENTER">
+               <items>
+                  <MenuItem fx:id="profil" mnemonicParsing="false" onAction="#profil" text="Profil" />
+                  <MenuItem fx:id="deconnecter" mnemonicParsing="false" onAction="#deconnecter" text="Se déconnecter" />
+               </items>
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/user.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </MenuButton>
+            <Hyperlink fx:id="Acceuil" layoutX="32.0" layoutY="10.0" onAction="#envoiAccueil" prefHeight="64.0" prefWidth="269.0" />
+            <Hyperlink fx:id="btn_aide" focusTraversable="false" layoutX="633.0" layoutY="25.0" onAction="#envoi_aide" prefHeight="34.0" prefWidth="51.0" text="Aides" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+
+            </children>
+        </Pane>
+        <ImageView fitHeight="171.0" fitWidth="1189.0" layoutY="93.0" pickOnBounds="true">
+            <image>
+                <Image url="@../images/photo.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="id_ID" layoutX="701.0" layoutY="105.0" scaleX="2.0" scaleY="2.0" text="id_user" visible="false" />
+        <AnchorPane fx:id="home" layoutY="930.0" prefHeight="40.0" prefWidth="1189.0" styleClass="backgroundFooter">
+            <children>
+                <Label layoutX="468.0" layoutY="8.0" styleClass="backgroundFooter" text="Copyright © 2018 Your Company - Design: Tooplate" textFill="WHITE" />
+            </children>
+        </AnchorPane>
+      <Pane fx:id="form" layoutX="267.0" layoutY="339.0" prefHeight="473.0" prefWidth="655.0">
+         <children>
+            <Label layoutX="95.0" layoutY="160.0" prefHeight="30.0" prefWidth="219.0" text="numregistre">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="95.0" layoutY="208.0" prefHeight="30.0" prefWidth="219.0" text="Adresse">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="95.0" layoutY="246.0" prefHeight="30.0" prefWidth="219.0" text="type">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="95.0" layoutY="111.0" prefHeight="30.0" prefWidth="219.0" text="nom">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nomsociete" layoutX="342.0" layoutY="114.0" prefHeight="25.0" prefWidth="219.0" />
+            <TextField fx:id="numregistresociete" layoutX="342.0" layoutY="160.0" prefHeight="25.0" prefWidth="219.0" />
+            <TextField fx:id="adressesociete" layoutX="342.0" layoutY="211.0" prefHeight="25.0" prefWidth="219.0" />
+            <TextField fx:id="typesociete" layoutX="342.0" layoutY="249.0" prefHeight="25.0" prefWidth="219.0" />
+            <Text fx:id="message" fill="#ee5057" layoutX="133.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Démarrer avec un compte Business">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Text>
+            <Button fx:id="inscription" layoutX="240.0" layoutY="341.0" mnemonicParsing="false" onAction="#insciptionsociete" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #ee5057;" text="S'inscrire" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="modifiersocite" layoutX="240.0" layoutY="301.0" mnemonicParsing="false" onAction="#modifiersocite" opacity="0.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #ee5057;" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Text fx:id="message1" fill="#ee5057" layoutX="34.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous pouvez maintenant créer votre board">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>

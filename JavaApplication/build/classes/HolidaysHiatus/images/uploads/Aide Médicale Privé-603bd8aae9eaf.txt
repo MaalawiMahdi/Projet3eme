@@ -1,0 +1,55 @@
+Cliniques
+1/ nom:Carthagene
+adresse:Centre urbain nord 1082 , Tunis , Tunisia.
+tel:+21631336336
+email:carthagene@ihct.com.tn
+Description:La polyclinique CARTHAGENE jouit d’une implantation privilégiée en plein cœur du grand Tunis et à 5min de l’aéroport Tunis-Carthage.La chirurgie et la médecine constituent les deux principaux pôles d’activité de la clinique.
+
+2/nom:Clinique Internationale Hannibal
+adresse:Cité les pins , les berges du lac 2 , Tunis , Tunisia.
+tel:+21671137412
+email:contact@taoufikhospitalsgroup.com
+Description:La Clinique Internationale Hannibal CIH est l'un des plus importants établissements de la santé privée en Tunisie depuis juin 2011.
+
+3/nom:Clinique les jasmins
+adresse:Centre Urbain Nord Lot E 18 1003 Tunis
+tel:+21636089000
+email:cliniquelesjasmins.com.tn
+Description:Polyclinique Les Jasmins est un centre médico-chirurgical, animé par des praticiens aux compétences reconnues et s’appuyant sur un plateau technique hautement performant.
+
+4/nom:Clinique Ennasr
+adresse:50 Avenue de l’Ere Nouvelle ENNASR II - 2037 Ariana - TUNISIE
+tel:+21670831000
+email:info@clinique-ennasr.com.tn
+Description:La Clinique ENNASR est une institution de santé multidisciplinaire en Tunisie.
+Spécialisée en Médecine et Chirurgie Générale,Radiothérapie,Chimiothérapie,
+Explorations Radiologique et Endoscopique.
+
+
+/Dr Marwen Maalawi 
+Description:
+Ophtalmologue 
+Spécialiste en ophtalmologie et ancien praticien des hôpitaux de Tunis et de la fondation ophtalmologique Adolphe Rothschild à Paris. Responsable scientifique à la clinique internationale d’ophtalmologie de Tunis
+adresse: Centre Maghreb Médical : Av. du Roi Abdelaziz Al Saoud, App.A.2- 2ème Etage (Pres du Kiosque Mobil) Manar
+El Manar 3 2092 Tunis Tunisie
+telephone :+21650102365
+/Dr Mahdi Maalawi
+Dentiste
+Implantologie dentaire, esthétique dentaire (facettes , blanchiment...) allignement des dents (gouttières transparentes) détartrage et soins dentaire.
+
+adresse
+2 Bis Rue d'argentine, Immeuble Argentina, Tunis Belvédère
+Tunis Belvédère 1002 Tunis Tunisie
+telephone :+21622366551
+
+/Dr Mohamed Amara
+Médecin spécialiste en cardiologie
+Diplome en cardiologie interventionnelle
+Master en Echographie cardiaque et Doppler
+CEC en réadaptation cardiaque
+adresse:
+ Route Raoued, Ghazela, Rue Fethi Zouahier , Résidence DONIA, Etage 4, A4-2
+Raoued 2056 Ariana Tunisie
+telephone:+21692234232
+
+

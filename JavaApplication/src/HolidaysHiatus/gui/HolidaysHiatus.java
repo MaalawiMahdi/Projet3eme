@@ -32,9 +32,10 @@ public class HolidaysHiatus extends Application {
         
             Parent root;
         try {
-            //root = FXMLLoader.load(getClass().getResource("HomepageBack.fxml"));
-            root = FXMLLoader.load(getClass().getResource("HomepageBackSociete.fxml"));
-      
+          // root = FXMLLoader.load(getClass().getResource("HomepageBack.fxml"));
+           // root = FXMLLoader.load(getClass().getResource("HomepageBackSociete.fxml"));
+            root = FXMLLoader.load(getClass().getResource("InscriptionConnexion.fxml"));
+           
             Scene scene = new Scene(root);
             primaryStage.setTitle("HolidaysHiatus");
             primaryStage.setScene(scene);

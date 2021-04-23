@@ -25,9 +25,18 @@
     -fx-color: white;
 }
 .button {
-    -fx-background-color: linear-gradient( #91B0D9, #91B0D9);
+    -fx-background-color: linear-gradient( #D11414, #D11414);
 }
 .backgroundBackSocieteNav
 { 
     -fx-background-color: #EA486B;
+}
+.avezvous
+{
+    -fx-background-color:#EE5057;
+}
+
+.tabletete
+{
+    -fx-background-color:whitesmoke;
 }
