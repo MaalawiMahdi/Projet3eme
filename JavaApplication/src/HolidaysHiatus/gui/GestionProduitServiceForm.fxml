@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.ProduitServiceFormController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="-3.0" layoutY="3.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="valider" layoutX="270.0" layoutY="308.0" mnemonicParsing="false" onAction="#valider" text="valider" />
+            <ToolBar layoutX="16.0" layoutY="14.0" prefHeight="40.0" prefWidth="330.0" style="-fx-background-color: none;" />
+            <Label layoutX="101.0" layoutY="79.0" text="Titre" />
+            <Label layoutX="101.0" layoutY="105.0" text="Description" />
+            <Label layoutX="101.0" layoutY="135.0" text="Type" />
+            <Label layoutX="101.0" layoutY="168.0" text="PrixUnitaire" />
+            <Label layoutX="101.0" layoutY="212.0" text="Categorie id " />
+            <TextField fx:id="titre" layoutX="272.0" layoutY="71.0" />
+            <TextField fx:id="description" layoutX="272.0" layoutY="101.0" />
+            <TextField fx:id="type" layoutX="272.0" layoutY="131.0" />
+            <TextField fx:id="prixunitaire" layoutX="272.0" layoutY="167.0" />
+            <TextField fx:id="catid" layoutX="272.0" layoutY="209.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

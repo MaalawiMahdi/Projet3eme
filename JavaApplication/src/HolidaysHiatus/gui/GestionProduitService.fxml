@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.GestionProduitServiceController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="-3.0" layoutY="3.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="btnmodif" disable="true" layoutX="434.0" layoutY="259.0" mnemonicParsing="false" onAction="#modifierProduit" text="Modifier" />
+            <Button fx:id="btnsupp" disable="true" layoutX="513.0" layoutY="259.0" mnemonicParsing="false" onAction="#supprimerProduit" text="Supprimer" />
+            <TableView fx:id="tabproduit" layoutX="16.0" layoutY="92.0" prefHeight="157.0" prefWidth="569.0">
+              <columns>
+                  <TableColumn fx:id="id" prefWidth="106.0" text="id" />
+                  <TableColumn fx:id="categorie_id" prefWidth="94.0" text="categorie_id" />
+                  <TableColumn fx:id="titre" prefWidth="56.0" text="titre" />
+                  <TableColumn fx:id="description" prefWidth="96.0" text="description" />
+                  <TableColumn fx:id="type" prefWidth="54.0" text="type" />
+                  <TableColumn fx:id="prix_unitaire" prefWidth="151.0" text="prix_unitaire" />
+              </columns>
+            </TableView>
+            <TextField fx:id="chercher" layoutX="16.0" layoutY="61.0" onKeyReleased="#chercher" prefHeight="25.0" prefWidth="569.0" promptText="chercher" />
+            <ToolBar layoutX="16.0" layoutY="14.0" prefHeight="40.0" prefWidth="330.0" style="-fx-background-color: none;">
+              <items>
+                  <Button mnemonicParsing="false" text="Gestion Produit Service" />
+                <Button mnemonicParsing="false" onAction="#gestioncat" text="Gestion Categorie Produit" />
+              </items>
+            </ToolBar>
+            <Button fx:id="btnpanier" disable="true" layoutX="95.0" layoutY="284.0" mnemonicParsing="false" onAction="#ajouterPanier" text="Ajouter au panier" />
+            <TextField fx:id="quantite" layoutX="74.0" layoutY="259.0" />
+            <TableView fx:id="tvPanier" layoutX="238.0" layoutY="324.0" prefHeight="70.0" prefWidth="154.0">
+              <columns>
+                <TableColumn fx:id="total" prefWidth="75.0" text="prix total" />
+                <TableColumn fx:id="titrePanier" prefWidth="75.0" text="titre" />
+              </columns>
+            </TableView>
+            <TextField fx:id="prix" layoutX="400.0" layoutY="359.0" />
+            <Label layoutX="285.0" layoutY="309.0" text="Mon Panier" />
+            <Button fx:id="supp" layoutX="28.0" layoutY="359.0" mnemonicParsing="false" onAction="#suppPanier" text="Supprimer produit de mon panier" />
+            <Button fx:id="pdf" layoutX="487.0" layoutY="297.0" mnemonicParsing="false" onAction="#Pdf" text="obtenir la liste" />
+            <Label layoutX="558.0" layoutY="363.0" text="Total " />
+            <Label layoutX="28.0" layoutY="263.0" text="Qte" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

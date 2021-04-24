@@ -20,7 +20,6 @@ public class MyConnection {
     public  String login="root";
     public static MyConnection instance;
     public Connection cnx;
-    public Connection getCnx;
 
     public Connection getCnx() {
         return cnx;
