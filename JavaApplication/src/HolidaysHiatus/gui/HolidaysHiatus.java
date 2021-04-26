@@ -5,6 +5,10 @@
  */
 package HolidaysHiatus.gui;
 
+import com.restfb.DefaultFacebookClient;
+import com.restfb.FacebookClient;
+import com.restfb.Parameter;
+import com.restfb.types.FacebookType;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,12 +32,16 @@ public class HolidaysHiatus extends Application {
     @Override
     public void start(Stage primaryStage) {
        
-        
-        
+          /*   String accessToken="EAA1QYFl4OYABAAsXhgAe08F8mhTf52ZBPBY9lefCubIjuPJxbaNxg9MiCRuWbhCor33p6ETDOovoZBZAKwlRiWjpLqm5FdHDwsRZBv0emuwsO6zG5TmYfMMzJZCuo0ad7d6ChADIFN8V1HfJ9ZCyb3KizKDnBZBjqJgjdZAQh4jujwoooJ2SznAWTabPaU0SV3foZCnDH0CeBNOaKb77ZBSCZCdwa1mw6jsS7wSDCvJRJCUqgZDZD";
+          FacebookClient fbClient=new DefaultFacebookClient(accessToken);
+              FacebookType response=fbClient.publish("me/feed", FacebookType.class,Parameter.with("message", "Java Graph Api test"));
+          System.out.println("fb.com/"+response);
+     
+        */  
             Parent root;
         try {
             //root = FXMLLoader.load(getClass().getResource("HomepageBack.fxml"));
-            root = FXMLLoader.load(getClass().getResource("AjouterCategorie.fxml"));
+            root = FXMLLoader.load(getClass().getResource("AfficherBoardClient.fxml"));
       
             Scene scene = new Scene(root);
             primaryStage.setTitle("HolidaysHiatus");

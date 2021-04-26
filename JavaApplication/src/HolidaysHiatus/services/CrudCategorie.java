@@ -85,7 +85,22 @@ public class CrudCategorie {
         }    
     }
 
-    
+    public String getNameOf(int cat_id)
+    {
+             String sql="select * from categorie_board  WHERE categorie_id LIKE'"+cat_id+"%'";
+String name="";
+              try{
+     ste=cnx.prepareStatement(sql);
+     ResultSet result= ste.executeQuery();
+     while(result.next()){
+      name=result.getString(1);
+         
+     }
+     } catch(SQLException ex){
+        System.out.print(ex.getMessage());
+    }
+     return name;
+    }
     public void modifier(CategorieBoard b) {
   String sql = "UPDATE categorie_board SET titre=?,lien_icon=? WHERE id=?";
   try {                        
@@ -100,4 +115,72 @@ public class CrudCategorie {
         } catch(SQLException ex) {
             System.err.println(ex.getMessage());
         }    }
+     public double calculer_nombre(int cat_id)
+   {
+       double nbr=0;   
+       String sql="select * from Board where categorie_id LIKE '"+cat_id+"%'";
+              List <Board> Boards  = new ArrayList();
+     try{
+     ste=cnx.prepareStatement(sql);
+     ResultSet result= ste.executeQuery();
+     while(result.next()){
+         nbr++;}
+     }catch(SQLException ex){
+        System.out.print(ex.getMessage());
+    }
+  
+     return nbr;
+   }
+     
+     public int calculer_nombreint(int cat_id)
+   {
+       int nbr=0;   
+       String sql="select * from Board where categorie_id LIKE '"+cat_id+"%'";
+              List <Board> Boards  = new ArrayList();
+     try{
+     ste=cnx.prepareStatement(sql);
+     ResultSet result= ste.executeQuery();
+     while(result.next()){
+         nbr++;}
+     }catch(SQLException ex){
+        System.out.print(ex.getMessage());
+    }
+  
+     return nbr;
+   }
+        public ResultSet actualiser()
+      {
+           //combobox
+      String sql="select * from categorie_board ";
+     List <Board> Boards  = new ArrayList();
+     try{
+     ste=cnx.prepareStatement(sql);
+     ResultSet result= ste.executeQuery();
+         return result;
+
+         
+     }
+      catch(SQLException ex){
+        System.out.print(ex.getMessage());
+    }
+        return null;
+      
+      }
+
+      public ResultSet actualiserC()
+      {
+           //combobox
+      String sql="select * from categorie_board ";
+     List <Board> Boards  = new ArrayList();
+     try{
+     ste=cnx.prepareStatement(sql);
+     ResultSet result= ste.executeQuery();
+         return result;
+ }
+      catch(SQLException ex){
+        System.out.print(ex.getMessage());
+    }
+        return null;
+      
+      }
 }

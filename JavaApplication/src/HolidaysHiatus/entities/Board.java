@@ -14,7 +14,23 @@ public class Board {
     public int categorie_id;
     public String titre;
     public String pic;
+    public int nbr_vue; 
 
+    public Board(int id, int categorie_id, String titre, String pic, int nbr_vue) {
+        this.id = id;
+        this.categorie_id = categorie_id;
+        this.titre = titre;
+        this.pic = pic;
+        this.nbr_vue = nbr_vue;
+    }
+
+    public int getNbr_vue() {
+        return nbr_vue;
+    }
+
+    public void setNbr_vue(int nbr_vue) {
+        this.nbr_vue = nbr_vue;
+    }
     public Board()
     {
     }
@@ -62,7 +78,9 @@ public class Board {
 
     @Override
     public String toString() {
-        return "Board{" + "id=" + id + ", categorie_id=" + categorie_id + ", titre=" + titre + ", pic=" + pic + '}';
+        return "Board{" + "id=" + id + ", categorie_id=" + categorie_id + ", titre=" + titre + ", pic=" + pic + ", nbr_vue=" + nbr_vue + '}';
     }
+
+    
     
 }

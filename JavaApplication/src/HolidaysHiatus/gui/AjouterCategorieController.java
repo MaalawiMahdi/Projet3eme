@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -42,9 +43,15 @@ public class AjouterCategorieController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         // TODO
+        
+        
     }    
 
+    
+    
+    
     @FXML
     private void addAction(ActionEvent event) {
         try{    
@@ -57,6 +64,9 @@ public class AjouterCategorieController implements Initializable {
  Parent root= loader.load();
   AfficherCategorieController ac=loader.getController();
             Titre.getScene().setRoot(root);
+            Notifications.create().text("Categorie Ajouter")
+                    .text("La categorie " +titre+" a ete ajouter\n "+ lien_pic)
+                    .darkStyle().showWarning();
              } catch (IOException ex) {
             Logger.getLogger(AjouterBoardController.class.getName()).log(Level.SEVERE, null, ex);
         }

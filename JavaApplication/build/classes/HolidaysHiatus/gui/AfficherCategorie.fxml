@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@HomePage.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="HolidaysHiatus.gui.AfficherCategorieController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@HomePage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.AfficherCategorieController">
     <styleClass>
         <String fx:value="mainFxmlClass" />
         <String fx:value="backgroundBack" />
@@ -71,7 +71,7 @@
               <columns>
                 <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="titre" prefWidth="75.0" text="Titre" />
-                  <TableColumn fx:id="Pic" prefWidth="75.0" text="Pic" />
+                  <TableColumn fx:id="Pic" prefWidth="138.0" text="Description" />
               </columns>
             </TableView>
             <Button fx:id="gsuppspe" layoutX="221.0" layoutY="720.0" mnemonicParsing="false" onAction="#SupprimerSpecialite" prefHeight="31.0" prefWidth="150.0" text="Supprimer" />
@@ -81,7 +81,7 @@
             <TextField fx:id="pic" layoutX="714.0" layoutY="448.0" />
             <TextField fx:id="idCat" layoutX="714.0" layoutY="320.0" />
             <Label layoutX="646.0" layoutY="393.0" text="Titre" />
-            <Label layoutX="648.0" layoutY="453.0" text="Pic" />
+            <Label layoutX="633.0" layoutY="453.0" text="Description" />
             <Label layoutX="657.0" layoutY="331.0" prefHeight="18.0" prefWidth="28.0" text="ID" />
          </children></Pane>
           <Pane layoutX="266.0" prefHeight="71.0" prefWidth="923.0" styleClass="backgroundBackNav">

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@HomePage.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="HolidaysHiatus.gui.AjouterCategorieController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@HomePage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.AjouterCategorieController">
    <styleClass>
         <String fx:value="mainFxmlClass" />
         <String fx:value="backgroundBack" />
@@ -67,7 +67,7 @@
             <TextField fx:id="Titre" layoutX="390.0" layoutY="339.0" />
             <TextField fx:id="pic" layoutX="390.0" layoutY="399.0" />
             <Label layoutX="277.0" layoutY="343.0" text="Titre" />
-            <Label layoutX="277.0" layoutY="403.0" text="Pic" />
+            <Label layoutX="277.0" layoutY="403.0" text="Description" />
             <Button fx:id="ajouter" layoutX="437.0" layoutY="480.0" mnemonicParsing="false" onAction="#addAction" text="Ajouter" />
          </children></Pane>
           <Pane layoutX="266.0" prefHeight="71.0" prefWidth="923.0" styleClass="backgroundBackNav">

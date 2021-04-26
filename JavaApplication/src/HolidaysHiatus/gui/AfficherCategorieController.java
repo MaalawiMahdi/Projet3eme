@@ -15,12 +15,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -54,6 +56,8 @@ public class AfficherCategorieController implements Initializable {
     private TableColumn<CategorieBoard, String> titre;
     @FXML
     private TextField pic;
+    @FXML
+    private Label id_ID;
 
     /**
      * Initializes the controller class.
@@ -74,22 +78,41 @@ public class AfficherCategorieController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         afficher();
-Actualisercombox();
-    }    
+        Actualisercombox();
+        ObservableList selectedCells = Tableboard.getSelectionModel().getSelectedCells();
+        selectedCells.addListener(new ListChangeListener() {
+            @Override
+            public void onChanged(ListChangeListener.Change c) {
+CategorieBoard CategorieBoardSelected =  Tableboard.getSelectionModel().getSelectedItem();
+                System.out.println("selected Board value " + CategorieBoardSelected);
+                         CrudBoard b= new CrudBoard();      
+
+                if(CategorieBoardSelected!=null){
+                    
+                     gmofiersp.setDisable(false);
+                    String a=String.valueOf(CategorieBoardSelected.getId());
+                    idCat.setText(a);
+                    Titre.setText(CategorieBoardSelected.getTitre());
+                        pic.setText(CategorieBoardSelected.getPic());
+                       // afficher();
+
+                }else{
+                gmofiersp.setDisable(true);
+                idCat.clear();
+                Titre.clear();
+               pic.clear();
+    }    }
+        });
+                }
 public void Actualisercombox()
     {
-        //combobox
-        String dbUsername = "root";
-        String dbPassword = "";
-        String dbURL ="jdbc:mysql://localhost:3306/holidayhiatus?useTimezone=true&serverTimezone=UTC";
-          Connection cn;
-     
+                        CrudCategorie sp = new CrudCategorie();
+
            ObservableList <Integer> options = FXCollections.observableArrayList();
         try {
-            cn = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
             options = FXCollections.observableArrayList();
             // Execute query and store result in a resultset
-            ResultSet rs = cn.createStatement().executeQuery("SELECT * FROM categorie_board");
+            ResultSet rs = sp.actualiser();
             while (rs.next()) {
                 //get string from db,whichever way 
                 

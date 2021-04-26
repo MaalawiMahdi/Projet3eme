@@ -3,18 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/entities/Board.java</file>
-            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherCategorie.fxml</file>
-            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AjouterCategorie.fxml</file>
+            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/BoardController.java</file>
+            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherBoardController.java</file>
+            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/services/CrudCategorie.java</file>
+            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherCategorieController.java</file>
+            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/BoardStatController.java</file>
+            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherBoardClientController.java</file>
+            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherBoard.fxml</file>
             <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AjouterBoardController.java</file>
+            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HomepageBackSociete.fxml</file>
             <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HolidaysHiatus.java</file>
             <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HomepageBack.fxml</file>
             <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/services/CrudBoard.java</file>
             <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AjouterCategorieController.java</file>
-            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherBoardController.java</file>
-            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/services/CrudCategorie.java</file>
-            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/entities/CategorieBoard.java</file>
-            <file>file:/D:/Desktop/javafx/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherCategorieController.java</file>
         </group>
     </open-files>
 </project-private>

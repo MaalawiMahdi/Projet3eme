@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="HolidaysHiatus.gui.AjouterBoardController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.AjouterBoardController">
    <stylesheets>
         <URL value="@homepage.css" />
     </stylesheets>
@@ -30,13 +30,13 @@
                         <Image url="@../images/Logo.png" />
                     </image>
                 </ImageView>
-            <TextField fx:id="Titre" layoutX="414.0" layoutY="310.0" />
-            <TextField fx:id="pic" layoutX="414.0" layoutY="370.0" />
+            <TextField fx:id="Titre" layoutX="414.0" layoutY="309.0" />
             <Label layoutX="301.0" layoutY="314.0" text="Titre" />
             <Label layoutX="301.0" layoutY="374.0" text="Pic" />
             <Button fx:id="ajouter" layoutX="461.0" layoutY="451.0" mnemonicParsing="false" onAction="#addAction" text="Ajouter" />
             <Label layoutX="299.0" layoutY="264.0" text="Categorie" />
             <ComboBox fx:id="Categorie" layoutX="414.0" layoutY="259.0" prefHeight="31.0" prefWidth="187.0" />
+            <Button fx:id="img" layoutX="414.0" layoutY="369.0" mnemonicParsing="false" onAction="#insert_image" prefHeight="31.0" prefWidth="187.0" text="Ajouter une image" />
          </children></Pane>
         <Separator layoutX="262.0" layoutY="113.0" orientation="VERTICAL" prefHeight="812.0" prefWidth="11.0" />
         <Pane layoutX="-5.0" layoutY="70.0" prefHeight="900.0" prefWidth="297.0" styleClass="backgroundBackSocieteNav">
