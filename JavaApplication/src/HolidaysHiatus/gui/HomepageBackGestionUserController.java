@@ -75,6 +75,10 @@ public class HomepageBackGestionUserController implements Initializable {
     private Hyperlink stat_aide;
     @FXML
     private Hyperlink gestionuser;
+    @FXML
+    private Hyperlink btn_Board;
+    @FXML
+    private Hyperlink btn_cat_Board;
 
     /**
      * Initializes the controller class.
@@ -277,9 +281,11 @@ public class HomepageBackGestionUserController implements Initializable {
 
     }
 
+    
+
     @FXML
     private void editPassword(TableColumn.CellEditEvent<User, String> event) {
-         System.out.print(event.getRowValue());
+          System.out.print(event.getRowValue());
         System.out.print(event.getNewValue());
         UserService us = new UserService();
         event.getRowValue().setPassword(BCrypt.hashpw(event.getNewValue(),BCrypt.gensalt()));
@@ -293,6 +299,28 @@ public class HomepageBackGestionUserController implements Initializable {
         event.getRowValue().setMail(event.getNewValue());
         us.UpdateUser(event.getRowValue());
         refrech();
+    }
+
+    @FXML
+    private void envoi_gestion_board(ActionEvent event) {
+                 try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherBoard.fxml"));
+     Parent root= loader.load();
+            deconnecter.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_gestion_cat_board(ActionEvent event) {
+                try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherCategorie.fxml"));
+     Parent root= loader.load();
+            deconnecter.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     

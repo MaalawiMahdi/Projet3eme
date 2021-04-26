@@ -8,6 +8,7 @@ package HolidaysHiatus.gui;
 import HolidaysHiatus.entities.CategorieAide;
 import HolidaysHiatus.services.AideCrud;
 import HolidaysHiatus.services.CategorieAideCrud;
+import HolidaysHiatus.tools.Session;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -69,6 +70,12 @@ public class AjouterCategorieAideController implements Initializable {
     private Hyperlink gestionsociete;
     @FXML
     private Hyperlink btn_aide;
+    @FXML
+    private Hyperlink deconnecter;
+    @FXML
+    private Hyperlink btn_Board;
+    @FXML
+    private Hyperlink btn_cat_Board;
 
     /**
      * Initializes the controller class.
@@ -245,6 +252,43 @@ public class AjouterCategorieAideController implements Initializable {
             Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
      
     }
+    }
+
+  
+    @FXML
+     private void deconneecter(ActionEvent event) {
+                                            Session.getSession().clearSession();
+              try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("InscriptionConnexion.fxml"));
+     Parent root= loader.load();
+            deconnecter.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+  @FXML
+    private void envoi_gestion_board(ActionEvent event) {
+               try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherBoard.fxml"));
+     Parent root= loader.load();
+            deconnecter.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
+    @FXML
+    private void envoi_gestion_cat_board(ActionEvent event) {
+              try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherCategorie.fxml"));
+     Parent root= loader.load();
+            deconnecter.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
 }

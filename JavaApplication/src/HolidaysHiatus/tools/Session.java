@@ -7,6 +7,7 @@ package HolidaysHiatus.tools;
 
 import HolidaysHiatus.entites.Societe;
 import HolidaysHiatus.entites.User;
+import HolidaysHiatus.entities.Board;
 
 /**
  *
@@ -16,6 +17,7 @@ public final class Session {
      private static Session instance;
      private User SessionUser;
      private Societe SessionSociete;
+     private Board ConnectedBoard;
 
    
      private Session() {
@@ -42,6 +44,9 @@ public final class Session {
     }
       public  void clearSession() {
       SessionUser=null;
+      SessionSociete=null;
+      ConnectedBoard=null;
+      
       }
       public void setSessionUser(User SessionUser){
       this.SessionUser=SessionUser;
@@ -61,6 +66,15 @@ public final class Session {
     this.SessionUser=SessionUser;
     
     }
+
+    public Board getConnectedBoard() {
+        return ConnectedBoard;
+    }
+
+    public void setConnectedBoard(Board ConnectedBoard) {
+        this.ConnectedBoard = ConnectedBoard;
+    }
+    
       
       
      

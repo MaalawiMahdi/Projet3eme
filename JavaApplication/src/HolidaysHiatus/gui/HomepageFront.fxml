@@ -22,14 +22,14 @@
         <String fx:value="backgroundFront" />
     </styleClass>
     <children>
-        <Pane prefHeight="95.0" prefWidth="1189.0">
+        <Pane prefHeight="95.0" prefWidth="1201.0">
             <children>
                 <ImageView fitHeight="73.0" fitWidth="269.0" layoutX="32.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../images/Logo.png" />
                     </image>
                 </ImageView>
-                <Hyperlink focusTraversable="false" layoutX="728.0" layoutY="25.0" prefHeight="34.0" prefWidth="69.0" text="Boards" textFill="#1b1a1a">
+                <Hyperlink fx:id="btn_board" focusTraversable="false" layoutX="725.0" layoutY="29.0" onAction="#envoi_board" prefHeight="29.0" prefWidth="69.0" text="Boards" textFill="#1b1a1a">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
@@ -67,13 +67,13 @@
 
             </children>
         </Pane>
-        <ImageView fitHeight="171.0" fitWidth="1189.0" layoutY="93.0" pickOnBounds="true">
+        <ImageView fitHeight="171.0" fitWidth="1201.0" layoutY="93.0" pickOnBounds="true">
             <image>
                 <Image url="@../images/photo.png" />
             </image>
         </ImageView>
         <Label fx:id="id_ID" layoutX="701.0" layoutY="105.0" scaleX="2.0" scaleY="2.0" text="id_user" visible="false" />
-        <AnchorPane fx:id="home" layoutY="930.0" prefHeight="40.0" prefWidth="1189.0" styleClass="backgroundFooter">
+        <AnchorPane fx:id="home" layoutY="930.0" prefHeight="40.0" prefWidth="1201.0" styleClass="backgroundFooter">
             <children>
                 <Label layoutX="468.0" layoutY="8.0" styleClass="backgroundFooter" text="Copyright © 2018 Your Company - Design: Tooplate" textFill="WHITE" />
             </children>

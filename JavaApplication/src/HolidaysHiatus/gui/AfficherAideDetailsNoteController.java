@@ -48,6 +48,8 @@ public class AfficherAideDetailsNoteController implements Initializable {
     private MenuItem deconnecter;
     @FXML
     private Hyperlink Acceuil;
+    @FXML
+    private Hyperlink btn_board;
     public String getAideId() {
         return aideId;
     }
@@ -60,7 +62,16 @@ public class AfficherAideDetailsNoteController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-            int column=1;
+        
+        //config hyperlink
+         if(Session.getSession().getSessionSociete()!=null){
+        if(Session.getSession().getConnectedBoard()!=null){
+                     comptebusinneslink.setText("Consulter votre board");
+        }else{
+                    comptebusinneslink.setText("Créer votre board");}
+        }
+        //end config 
+        int column=1;
         int row=0;   
         
        
@@ -118,6 +129,28 @@ public class AfficherAideDetailsNoteController implements Initializable {
 
     @FXML
     private void inscriptionbusiness(ActionEvent event) {                                                                                                   
+              if(Session.getSession().getSessionSociete()!=null){
+        if(Session.getSession().getConnectedBoard()!=null){
+          try {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageBackSociete.fxml"));
+           Parent root= loader.load();
+            Acceuil.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+     
+    }
+        }else{
+            try {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterBoard.fxml"));
+           Parent root= loader.load();
+            Acceuil.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+     
+    }
+        
+        }
+        }else{
             try {
            FXMLLoader loader = new FXMLLoader(getClass().getResource("InscriptionSociete.fxml"));
            Parent root= loader.load();
@@ -126,6 +159,7 @@ public class AfficherAideDetailsNoteController implements Initializable {
             Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
      
     }
+        }
     }
 
     @FXML
@@ -144,6 +178,17 @@ public class AfficherAideDetailsNoteController implements Initializable {
     private void profil(ActionEvent event) {
        try {
      FXMLLoader loader = new FXMLLoader(getClass().getResource("profil.fxml"));
+     Parent root= loader.load();
+            Acceuil.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_board(ActionEvent event) {
+           try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherBoardClient.fxml"));
      Parent root= loader.load();
             Acceuil.getScene().setRoot(root);
             } catch (IOException ex) {

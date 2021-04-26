@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/drwhoo/Desktop/projet%20webjava%20integration/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HomepageFront.fxml</file>
-            <file>file:/C:/Users/drwhoo/Desktop/projet%20webjava%20integration/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HomepageBackController.java</file>
-            <file>file:/C:/Users/drwhoo/Desktop/projet%20webjava%20integration/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HomepageFrontController.java</file>
-            <file>file:/C:/Users/drwhoo/Desktop/projet%20webjava%20integration/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherAideDetailsNoteController.java</file>
-            <file>file:/C:/Users/drwhoo/Desktop/projet%20webjava%20integration/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/CarddetailsNoteController.java</file>
-            <file>file:/C:/Users/drwhoo/Desktop/projet%20webjava%20integration/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HomepageBackGestionUserController.java</file>
-            <file>file:/C:/Users/drwhoo/Desktop/projet%20webjava%20integration/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/ModifierCategorieAideController.java</file>
-            <file>file:/C:/Users/drwhoo/Desktop/projet%20webjava%20integration/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherAideDetailsFrontController.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherProduitFrontController.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/services/ProduitServiceCRUD.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/entites/ProduitService.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherProduitFront.fxml</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/CardProduitController.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/GestionProduitServiceController.java</file>
         </group>
     </open-files>
 </project-private>

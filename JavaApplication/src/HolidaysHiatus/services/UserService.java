@@ -146,4 +146,14 @@ ste.executeUpdate();
     }
      return Users;
     }
+
+    public void setUserToSociete(int useraccount_id) {
+    String sql="Update user set type='societe'  where id = ?";
+     try{
+     ste=cnx.prepareStatement(sql);
+          ste.setInt(1,useraccount_id);
+     ste.executeUpdate();
+     } catch(SQLException ex){
+        System.out.print(ex.getMessage());
+    }    }
 }

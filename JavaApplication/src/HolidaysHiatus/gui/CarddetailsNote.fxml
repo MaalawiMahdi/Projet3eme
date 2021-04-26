@@ -18,7 +18,7 @@
        <children>
       <VBox layoutX="374.0" layoutY="-3.0" prefHeight="487.0" prefWidth="348.0">
          <children>
-            <ImageView fx:id="moyenneImage" fitHeight="54.0" fitWidth="349.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="noteImage" fitHeight="50.0" fitWidth="349.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="titre" prefHeight="40.0" prefWidth="356.0" text="" />
             <TextFlow fx:id="description" prefHeight="95.0" prefWidth="348.0" />
             <Label fx:id="adresse" prefHeight="34.0" prefWidth="356.0" text="" textAlignment="CENTER" />
@@ -34,7 +34,7 @@
             </Label>
             <ComboBox fx:id="Combo_Note" onAction="#Envoi_Note" prefHeight="33.0" prefWidth="204.0" promptText="Noter !" />
             <Label fx:id="espace2" prefHeight="45.0" prefWidth="349.0" />
-            <ImageView fx:id="noteImage" fitHeight="50.0" fitWidth="349.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="moyenneImage" fitHeight="54.0" fitWidth="349.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </VBox>
       <ImageView fx:id="image" fitHeight="178.0" fitWidth="304.0" layoutX="14.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />

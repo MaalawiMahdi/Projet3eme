@@ -38,13 +38,14 @@ public class CrudBoard {
     cnx=MyConnection.getInstance().getCnx();
     }
     public void AjoutereBoard(Board b){
-     String sql="insert into board (categorie_id,titre,pic) values(?,?,?)";     
+     String sql="insert into board (categorie_id,societe_id,titre,pic) values(?,?,?,?)";     
      try{
               ste=cnx.prepareStatement(sql);
 
      ste.setInt(1,b.getCategorie_id());
-     ste.setString(2,b.getTitre());
-     ste.setString(3,b.getPic());
+     ste.setInt(2,b.getSociete_id());
+     ste.setString(3,b.getTitre());
+     ste.setString(4,b.getPic());
 
      ste.executeUpdate();
      } catch(SQLException ex){
@@ -72,7 +73,7 @@ public class CrudBoard {
      ste=cnx.prepareStatement(sql);
      ResultSet result= ste.executeQuery();
      while(result.next()){
-     Boards.add(new Board(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getInt(6)));
+     Boards.add(new Board(result.getInt(1),result.getInt(2),result.getString(4),result.getString(5),result.getInt(6)));
      
          
      }
@@ -204,4 +205,22 @@ String name="";
         return null;
       
       }
+      public Board getBoardBySocieteId(int id){
+      
+         String sql="select * from board where (societe_id=?) ";
+     
+    Board Boardselected ;
+     try{
+     ste=cnx.prepareStatement(sql);
+     ste.setInt(1, id);
+     ResultSet result= ste.executeQuery();
+     while(result.next()){
+     Boardselected = new Board(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6));
+     return Boardselected;
+     }
+     } catch(SQLException ex){
+        System.out.print(ex.getMessage());
+    }
+     return null;
+    }
 }

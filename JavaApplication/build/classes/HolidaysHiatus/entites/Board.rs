@@ -1,0 +1,1 @@
+HolidaysHiatus.entities.Board

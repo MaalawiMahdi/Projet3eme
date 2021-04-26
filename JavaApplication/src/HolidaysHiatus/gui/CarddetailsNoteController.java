@@ -9,6 +9,7 @@ import HolidaysHiatus.entities.Aide;
 import HolidaysHiatus.entities.NoteAide;
 import HolidaysHiatus.services.AideCrud;
 import HolidaysHiatus.tools.JavamailUtil;
+import HolidaysHiatus.tools.Session;
 import java.io.IOException;
 
 import java.net.URL;
@@ -47,7 +48,7 @@ import java.lang.String;
  */
 public class CarddetailsNoteController implements Initializable {
 
-    int userid = 7;
+    int userid= Session.getSession().getSessionUser().getId();
     float moyenne = 0;
     String Avi = "";
     int val = 0;
@@ -79,17 +80,18 @@ public class CarddetailsNoteController implements Initializable {
     AideCrud a = new AideCrud();
     String usermail="mohamedmarwen.maalawi@esprit.tn";
     String username="marwen";
-    private ImageView imagev1 = new ImageView("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\1star.PNG");
-    private ImageView imagev2 = new ImageView("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\2star.PNG");
-    private ImageView imagev3 = new ImageView("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\3star.PNG");
-    private ImageView imagev4 = new ImageView("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\4star.PNG");
-    private ImageView imagev5 = new ImageView("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\5star.PNG");
+    private ImageView imagev1 = new ImageView("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\1star.PNG");
+    private ImageView imagev2 = new ImageView("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\2star.PNG");
+    private ImageView imagev3 = new ImageView("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\3star.PNG");
+    private ImageView imagev4 = new ImageView("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\4star.PNG");
+    private ImageView imagev5 = new ImageView("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\5star.PNG");
 
     ObservableList<ImageView> Stars = FXCollections.observableArrayList();
 
     List<Integer> lista = new ArrayList();
 
     public void setDataAide(Aide dataAide) {
+        userid= Session.getSession().getSessionUser().getId();
         this.dataAide = dataAide;
         image.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\public\\uploads\\" + dataAide.getLien_image()));
         titre.setText(dataAide.getTitre());
@@ -103,48 +105,48 @@ public class CarddetailsNoteController implements Initializable {
         moyenne = a.MoyenneNotes(dataAide.getId());
   
         if (round(moyenne) == 0) {
-            moyenneImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\0star.PNG"));
+            moyenneImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\0star.PNG"));
 
         }
         if (round(moyenne) == 1) {
-            moyenneImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\1star.PNG"));
+            moyenneImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\1star.PNG"));
         }
         if (round(moyenne) == 2) {
-            moyenneImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\2star.PNG"));
+            moyenneImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\2star.PNG"));
         }
         if (round(moyenne) == 3) {
-            moyenneImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\3star.PNG"));
+            moyenneImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\3star.PNG"));
         }
         if (round(moyenne) == 4) {
-            moyenneImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\4star.PNG"));
+            moyenneImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\4star.PNG"));
         }
         if (round(moyenne) == 5) {
-            moyenneImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\5star.PNG"));
+            moyenneImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\5star.PNG"));
         }
         NoteAide noteAide = a.getAideNoteAvis(userid, dataAide.getId());
 
         if (noteAide != null) {
             val = noteAide.getValeur();
             if (val == 0) {
-                noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\0star.PNG"));
+                noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\0star.PNG"));
             }
             if (val == 1) {
-                noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\1star.PNG"));
+                noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\1star.PNG"));
             }
             if (val == 2) {
-                noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\2star.PNG"));
+                noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\2star.PNG"));
             }
             if (val == 3) {
-                noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\3star.PNG"));
+                noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\3star.PNG"));
             }
             if (val == 4) {
-                noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\4star.PNG"));
+                noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\4star.PNG"));
             }
             if (val == 5) {
-                noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\5star.PNG"));
+                noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\5star.PNG"));
             }
         } else {
-            noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\0star.PNG"));
+            noteImage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\stars\\0star.PNG"));
         }
         if (noteAide != null) {
             if (noteAide.getAvis() != null) {
@@ -177,7 +179,7 @@ public class CarddetailsNoteController implements Initializable {
                 "merci d'avoir noté l'aide " +dataAide.getTitre())
             .create();*/
              JavamailUtil mailing = new JavamailUtil();
-                mailing.sendMail(usermail,dataAide.getTitre(),username);
+                mailing.sendMailaide(usermail,dataAide.getTitre(),username);
         try {
             AfficherAideDetailsNoteController.seAideId(espace.getId());
 
@@ -204,7 +206,7 @@ public class CarddetailsNoteController implements Initializable {
                 "merci d'avoir modifer la note l'aide " +dataAide.getTitre())
             .create();*/
               JavamailUtil mailing = new JavamailUtil();
-                mailing.sendMail(usermail,dataAide.getTitre(),username);
+                mailing.sendMailaide(usermail,dataAide.getTitre(),username);
        
         try {
             AfficherAideDetailsNoteController.seAideId(espace.getId());

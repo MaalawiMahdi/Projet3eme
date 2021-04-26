@@ -66,6 +66,8 @@ public class InscriptionSocieteController implements Initializable {
     private Hyperlink Acceuil;
     @FXML
     private Hyperlink btn_aide;
+    @FXML
+    private Hyperlink btn_board;
 
     /**
      * Initializes the controller class.
@@ -208,6 +210,17 @@ public class InscriptionSocieteController implements Initializable {
               Logger.getLogger(AfficherAideDetailsFrontController.class.getName()).log(Level.SEVERE, null, ex);
           }
        
+    }
+
+    @FXML
+    private void envoi_board(ActionEvent event) {
+           try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherBoardClient.fxml"));
+     Parent root= loader.load();
+            Acceuil.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
     

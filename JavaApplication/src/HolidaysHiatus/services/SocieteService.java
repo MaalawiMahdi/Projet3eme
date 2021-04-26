@@ -115,4 +115,15 @@ if (Societe.size()>0){
     }
      return Societes;
     }
+    public void SupprimerSociete(int id){
+     String sql="delete from societe where id = ?";
+     try{
+     ste=cnx.prepareStatement(sql);
+     ste.setInt(1,id);
+     ste.executeUpdate();
+     } catch(SQLException ex){
+        System.out.print(ex.getMessage());
+    }
+     
+    }
 }

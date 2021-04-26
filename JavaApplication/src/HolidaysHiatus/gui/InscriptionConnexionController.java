@@ -6,7 +6,7 @@
 package HolidaysHiatus.gui;
 
 import HolidaysHiatus.entites.InformationsSupplementaires;
-import HolidaysHiatus.entites.JavamailUtil;
+import HolidaysHiatus.tools.JavamailUtil;
 import HolidaysHiatus.entites.User;
 import HolidaysHiatus.services.InformationsSupplementairesService;
 import HolidaysHiatus.services.UserService;

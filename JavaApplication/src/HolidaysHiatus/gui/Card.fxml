@@ -9,12 +9,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane id="AnchorPane" prefHeight="442.0" prefWidth="519.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.CardController">
+<AnchorPane id="AnchorPane" prefHeight="365.0" prefWidth="412.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.CardController">
     <stylesheets>
         <URL value="@card.css" />
     </stylesheets>
    <children>
-      <VBox layoutX="99.0" layoutY="199.0" prefHeight="241.0" prefWidth="348.0">
+      <VBox layoutX="72.0" layoutY="154.0" prefHeight="202.0" prefWidth="269.0">
          <children>
             <Label fx:id="espace" prefHeight="31.0" prefWidth="356.0" textAlignment="CENTER">
                <font>
@@ -23,15 +23,15 @@
             </Label>
             <Label fx:id="titre" prefHeight="40.0" prefWidth="356.0" text="" />
             <TextFlow fx:id="description" prefHeight="72.0" prefWidth="348.0" />
-            <Label fx:id="adresse" prefHeight="34.0" prefWidth="356.0" text="" textAlignment="CENTER" />
-            <Label fx:id="tell" prefHeight="31.0" prefWidth="356.0" textAlignment="CENTER">
+            <Label fx:id="type" prefHeight="34.0" prefWidth="356.0" text="" textAlignment="CENTER" />
+            <Label fx:id="prix" prefHeight="31.0" prefWidth="356.0" textAlignment="CENTER">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Button fx:id="b" mnemonicParsing="false" onAction="#envoi_aide" prefHeight="25.0" prefWidth="386.0" text="Consulter" textFill="WHITE" />
+            <Button fx:id="b" mnemonicParsing="false" onAction="#envoi_aide" prefHeight="0.0" prefWidth="362.0" text="Ajouter au panier" textFill="WHITE" />
          </children>
       </VBox>
-      <ImageView fx:id="image" fitHeight="178.0" fitWidth="348.0" layoutX="95.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image" fitHeight="142.0" fitWidth="196.0" layoutX="108.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

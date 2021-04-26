@@ -13,6 +13,7 @@
 .backgroundFront
 { 
     -fx-background-color: white;
+   
 }
 .backgroundAdmin
 { 
@@ -25,7 +26,8 @@
     -fx-color: white;
 }
 .button {
-    -fx-background-color: linear-gradient( #D11414, #D11414);
+    -fx-background-color:  #ee5057;
+    -fx-text-fill:white;
 }
 .backgroundBackSocieteNav
 { 

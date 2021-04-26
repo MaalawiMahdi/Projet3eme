@@ -26,6 +26,7 @@ import HolidaysHiatus.entities.CategorieAide;
 import HolidaysHiatus.entities.Aide;
 import HolidaysHiatus.entities.Board;
 import HolidaysHiatus.entities.CategorieBoard;
+import HolidaysHiatus.entities.Sujet;
 import com.lowagie.text.pdf.PdfCell;
 
 import java.awt.Color;
@@ -51,7 +52,11 @@ public class PDFutil {
 
     Connection cn2;
     Statement ste;
-
+    int boardid;
+    String imageDirectory = "C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\public\\im\\";
+    public void setBoardid(int bd) {
+        this.boardid = bd;
+    }
     public PDFutil() {
         cn2 = MyConnection.getInstance().getCnx();
     }
@@ -66,7 +71,7 @@ public class PDFutil {
         PdfWriter.getInstance(doc, new FileOutputStream("./CategoriesAides.pdf"));
 
         doc.open();
-        Image image = Image.getInstance("C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\logo.png");
+        Image image = Image.getInstance("C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\logo.png");
 
         //document.add(new Paragraph("test\n  test")); 
         doc.add(image);
@@ -116,7 +121,7 @@ public class PDFutil {
         PdfWriter.getInstance(doc, new FileOutputStream("./Aides.pdf"));
 
         doc.open();
-        Image image = Image.getInstance("C:\\Users\\drwhoo\\Desktop\\projet-webjava\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\logo.png");
+        Image image = Image.getInstance("C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\logo.png");
 
         //document.add(new Paragraph("test\n  test")); 
         doc.add(image);
@@ -191,7 +196,7 @@ public class PDFutil {
         PdfWriter.getInstance(doc, new FileOutputStream("./CategoriesBoard.pdf"));
 
         doc.open();
-        Image image = Image.getInstance("C:\\Users\\AMINE\\Projet3eme\\SymfonyApplication\\public\\logo.png");
+        Image image = Image.getInstance("C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\logo.png");
 
         //document.add(new Paragraph("test\n  test")); 
         doc.add(image);
@@ -223,7 +228,7 @@ public class PDFutil {
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 
             table.addCell(cell);
-            Image image1 = Image.getInstance("C:\\Users\\AMINE\\Projet3eme\\SymfonyApplication\\public\\" + c.getPic());
+            Image image1 = Image.getInstance("C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\public\\" + c.getPic());
             PdfPCell cell1 = new PdfPCell(image1, true);
 
             table.addCell(cell1);
@@ -240,7 +245,7 @@ public class PDFutil {
         PdfWriter.getInstance(doc, new FileOutputStream("./Boards.pdf"));
 
         doc.open();
-        Image image = Image.getInstance("C:\\Users\\AMINE\\Projet3eme\\SymfonyApplication\\public\\logo.png");
+        Image image = Image.getInstance("C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\logo.png");
 
         //document.add(new Paragraph("test\n  test")); 
         doc.add(image);
@@ -268,10 +273,10 @@ cell = new PdfPCell(new Phrase("Nombre de vue", FontFactory.getFont("Comic Sans 
 
             Board a = new Board();
 
-            a.setTitre(rs.getString(3));
+            a.setTitre(rs.getString(4));
        
             a.setNbr_vue(rs.getInt(6));
-            a.setPic(rs.getString(4));
+            a.setPic(rs.getString(5));
             
             cell = new PdfPCell(new Phrase(a.getTitre(), FontFactory.getFont("Comic Sans MS", 12)));
             cell.setHorizontalAlignment(Element.ALIGN_LEFT);
@@ -280,8 +285,7 @@ cell = new PdfPCell(new Phrase("Nombre de vue", FontFactory.getFont("Comic Sans 
             cell = new PdfPCell(new Phrase(Integer.toString(a.getNbr_vue()), FontFactory.getFont("Comic Sans MS", 12)));
             cell.setHorizontalAlignment(Element.ALIGN_LEFT);
             table.addCell(cell);
-            
-            Image image1 = Image.getInstance("C:\\Users\\AMINE\\Projet3eme\\SymfonyApplication\\public\\" + a.getPic());
+            Image image1 = Image.getInstance("C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\public\\" + a.getPic());
             PdfPCell cell1 = new PdfPCell(image1, true);
 
             table.addCell(cell1);
@@ -291,6 +295,68 @@ cell = new PdfPCell(new Phrase("Nombre de vue", FontFactory.getFont("Comic Sans 
         doc.add(table);
         doc.close();
         Desktop.getDesktop().open(new File("./Boards.pdf"));
+    }
+      public void listSujet() throws SQLException, FileNotFoundException, DocumentException, IOException {
+        ste = cn2.createStatement();
+        ResultSet rs = ste.executeQuery("SELECT * from sujet WHERE board_id =" + boardid);
+        PdfWriter.getInstance(doc, new FileOutputStream("./Sujets.pdf"));
+        doc.open();
+        Image image = Image.getInstance("C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\src\\HolidaysHiatus\\images\\logo.png");
+
+        //document.add(new Paragraph("test\n  test")); 
+        doc.add(image);
+        doc.add(new Paragraph("   "));
+        doc.add(new Paragraph("  Liste des sujets  "));
+        doc.add(new Paragraph("   "));
+
+        PdfPTable table = new PdfPTable(3);
+        table.setWidthPercentage(100);
+        PdfPCell cell;
+
+        cell = new PdfPCell(new Phrase("Titre", FontFactory.getFont("Comic Sans MS", 15)));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(cell);
+
+        cell = new PdfPCell(new Phrase("Description", FontFactory.getFont("Comic Sans MS", 15)));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(cell);
+
+        cell = new PdfPCell(new Phrase("Image", FontFactory.getFont("Comic Sans MS", 15)));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(cell);
+
+        while (rs.next()) {
+
+            Sujet a = new Sujet();
+
+            a.setTitre(rs.getString(3));
+            a.setDescription(rs.getString(4));
+            a.setLien_image(rs.getString(5));
+
+            cell = new PdfPCell(new Phrase(a.getTitre(), FontFactory.getFont("Comic Sans MS", 12)));
+            cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+            table.addCell(cell);
+
+            cell = new PdfPCell(new Phrase(a.getDescription(), FontFactory.getFont("Comic Sans MS", 12)));
+            cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+            table.addCell(cell);
+
+            if (!(a.getLien_image().equals(""))) {
+                Image image1 = Image.getInstance(imageDirectory + a.getLien_image());
+                PdfPCell cell1 = new PdfPCell(image1, true);
+                table.addCell(cell1);
+
+            } else {
+                cell = new PdfPCell(new Phrase("Pas d'image", FontFactory.getFont("Comic Sans MS", 12)));
+                cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+                table.addCell(cell);
+            }
+
+        }
+
+        doc.add(table);
+        doc.close();
+        Desktop.getDesktop().open(new File("./Sujets.pdf"));
     }
      
 

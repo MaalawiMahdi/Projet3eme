@@ -12,6 +12,7 @@ package HolidaysHiatus.entities;
 public class Board {
     public int id;
     public int categorie_id;
+    public int societe_id;
     public String titre;
     public String pic;
     public int nbr_vue; 
@@ -23,6 +24,7 @@ public class Board {
         this.pic = pic;
         this.nbr_vue = nbr_vue;
     }
+    
 
     public int getNbr_vue() {
         return nbr_vue;
@@ -76,11 +78,29 @@ public class Board {
         this.pic = pic;
     }
 
-    @Override
-    public String toString() {
-        return "Board{" + "id=" + id + ", categorie_id=" + categorie_id + ", titre=" + titre + ", pic=" + pic + ", nbr_vue=" + nbr_vue + '}';
+    public Board(int id, int categorie_id, int societe_id, String titre, String pic, int nbr_vue) {
+        this.id = id;
+        this.categorie_id = categorie_id;
+        this.societe_id = societe_id;
+        this.titre = titre;
+        this.pic = pic;
+        this.nbr_vue = nbr_vue;
     }
 
+    public int getSociete_id() {
+        return societe_id;
+    }
+
+    public void setSociete_id(int societe_id) {
+        this.societe_id = societe_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Board{" + "id=" + id + ", categorie_id=" + categorie_id + ", societe_id=" + societe_id + ", titre=" + titre + ", pic=" + pic + ", nbr_vue=" + nbr_vue + '}';
+    }
     
+    
+
     
 }

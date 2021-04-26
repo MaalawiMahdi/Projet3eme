@@ -81,13 +81,27 @@ public class ProfilController implements Initializable {
     private Hyperlink Acceuil;
     @FXML
     private Hyperlink btn_aide;
+    @FXML
+    private Hyperlink btn_board;
+    @FXML
+    private Hyperlink comptebusinneslink;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      profilimage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet webjava integration\\Projet3eme\\SymfonyApplication\\public\\profil\\user.png"));
+        
+        
+        //config hyperlink
+         if(Session.getSession().getSessionSociete()!=null){
+        if(Session.getSession().getConnectedBoard()!=null){
+                     comptebusinneslink.setText("Consulter votre board");
+        }else{
+                    comptebusinneslink.setText("Créer votre board");}
+        }
+        //end config 
+      profilimage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\public\\profil\\user.png"));
     User u = Session.StartSession().getSessionUser();
     InformationsSupplementairesService InforSupService = new InformationsSupplementairesService();
     InformationsSupplementaires information = InforSupService.chercherparidclient(u.getId());
@@ -97,7 +111,7 @@ public class ProfilController implements Initializable {
     typevalue.setText(u.getType());
     if(information.getImage()!=null){
    //   profilimage.setImage(new Image("file:C:\\Users\\ASUS\\Desktop\\integrationfinal\\Projet3eme\\SymfonyApplication\\public\\profil\\"+information.getImage()));    
-    profilimage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\projet webjava integration\\Projet3eme\\SymfonyApplication\\public\\profil"+information.getImage()));
+    profilimage.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\public\\profil\\"+information.getImage()));
     }
     if(information.getNom()!=null){
     nomvalue.setText(information.getNom());
@@ -137,7 +151,7 @@ public class ProfilController implements Initializable {
                 System.out.println(selectedFile.getPath());
                 String extension= FilenameUtils.getExtension(selectedFile.getAbsolutePath());
                Path tmp = Files.move(Paths.get(selectedFile.getPath()),
-                       Paths.get("C:\\Users\\drwhoo\\Desktop\\projet webjava integration\\Projet3eme\\SymfonyApplication\\public\\profil"+uniqueid+"."+extension));
+                       Paths.get("C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\public\\profil\\"+uniqueid+"."+extension));
               System.out.print(tmp);
                information.setImage(uniqueid+"."+extension);
                InformationsSupplementairesService i_service = new InformationsSupplementairesService();
@@ -167,6 +181,28 @@ public class ProfilController implements Initializable {
     }}
     @FXML
      private void inscriptionbusiness(ActionEvent event) {
+            if(Session.getSession().getSessionSociete()!=null){
+        if(Session.getSession().getConnectedBoard()!=null){
+          try {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageBackSociete.fxml"));
+           Parent root= loader.load();
+            Acceuil.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+     
+    }
+        }else{
+            try {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterBoard.fxml"));
+           Parent root= loader.load();
+            Acceuil.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+     
+    }
+        
+        }
+        }else{
             try {
            FXMLLoader loader = new FXMLLoader(getClass().getResource("InscriptionSociete.fxml"));
            Parent root= loader.load();
@@ -175,6 +211,7 @@ public class ProfilController implements Initializable {
             Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
      
     }
+        }
     }
 
     @FXML
@@ -228,8 +265,8 @@ public class ProfilController implements Initializable {
         telvalueinput.setText(telvalue.getText());
         profildata.getChildren().addAll(mailvalueinput,motdepasseinput,nomvalueinput,prenomvalueinput,telvalueinput);
         Button modifierbutton = new Button("modifier votre compte");
-        modifierbutton.setLayoutX(660);
-        modifierbutton.setLayoutY(500);
+        modifierbutton.setLayoutX(600);
+        modifierbutton.setLayoutY(400);
         profildata.getChildren().add(modifierbutton);
         modifierbutton.setOnAction(new EventHandler<ActionEvent>() {
         @Override
@@ -280,5 +317,16 @@ public class ProfilController implements Initializable {
               Logger.getLogger(AfficherAideDetailsFrontController.class.getName()).log(Level.SEVERE, null, ex);
           }
        
+    }
+
+    @FXML
+    private void envoi_board(ActionEvent event) {
+           try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherBoardClient.fxml"));
+     Parent root= loader.load();
+            Acceuil.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

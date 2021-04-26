@@ -5,7 +5,12 @@
  */
 package HolidaysHiatus.gui;
 
+import HolidaysHiatus.entites.Societe;
 import HolidaysHiatus.entites.User;
+import HolidaysHiatus.entities.Board;
+import HolidaysHiatus.services.CrudBoard;
+import HolidaysHiatus.services.SocieteService;
+import HolidaysHiatus.services.UserService;
 import HolidaysHiatus.tools.Session;
 import java.io.IOException;
 import java.net.URL;
@@ -43,6 +48,8 @@ public class HomepageFrontController implements Initializable {
     private Hyperlink Acceuil;
     @FXML
     private Hyperlink btn_aide;
+    @FXML
+    private Hyperlink btn_board;
 
     /**
      * Initializes the controller class.
@@ -52,9 +59,23 @@ public class HomepageFrontController implements Initializable {
     User u  = Session.getSession().getSessionUser();
     System.out.print(u);
     if (u.getType().compareTo("societe")==0){
-        comptebusinneslink.setText("Votre board ");
-    
+       // comptebusinneslink.setText("Votre board ");
+       SocieteService S_service = new SocieteService();
+      Societe s = S_service.chercherparidclient(u.getId());
+      Session.getSession().setSessionSociete(s);
+      CrudBoard cboard = new CrudBoard();
+      //Board b = cboard.getBoardBySocieteId(s.getId());
+
+      if(cboard.getBoardBySocieteId(s.getId())!=null){
+          Board b = cboard.getBoardBySocieteId(s.getId());
+      Session.getSession().setConnectedBoard(b);
+            comptebusinneslink.setText("Consulter votre board");
+      }else{
+            comptebusinneslink.setText("Créer votre board");
+      
+      }
     }
+   
     
     }    
 
@@ -71,7 +92,29 @@ public class HomepageFrontController implements Initializable {
     }}
 
     @FXML
-    private void inscriptionbusiness(ActionEvent event) {                                                                                                   
+    private void inscriptionbusiness(ActionEvent event) {    
+        if(Session.getSession().getSessionSociete()!=null){
+        if(Session.getSession().getConnectedBoard()!=null){
+          try {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageBackSociete.fxml"));
+           Parent root= loader.load();
+            Acceuil.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+     
+    }
+        }else{
+            try {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterBoard.fxml"));
+           Parent root= loader.load();
+            Acceuil.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+     
+    }
+        
+        }
+        }else{
             try {
            FXMLLoader loader = new FXMLLoader(getClass().getResource("InscriptionSociete.fxml"));
            Parent root= loader.load();
@@ -80,6 +123,7 @@ public class HomepageFrontController implements Initializable {
             Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
      
     }
+        }
     }
 
     @FXML
@@ -123,6 +167,17 @@ public class HomepageFrontController implements Initializable {
               Logger.getLogger(AfficherAideDetailsFrontController.class.getName()).log(Level.SEVERE, null, ex);
           }
        
+    }
+
+    @FXML
+    private void envoi_board(ActionEvent event) {
+           try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherBoardClient.fxml"));
+     Parent root= loader.load();
+            Acceuil.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

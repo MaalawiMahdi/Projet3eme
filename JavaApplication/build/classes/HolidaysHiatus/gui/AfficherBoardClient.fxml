@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="970.0" prefWidth="1189.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.AfficherBoardClientController">
+     <stylesheets>
+        <URL value="@homepage.css" />
+    </stylesheets>
+    <styleClass>
+        <String fx:value="mainFxmlClass" />
+        <String fx:value="backgroundFront" />
+    </styleClass>
+    <children>
+         <TextField fx:id="rechercher" layoutX="156.0" layoutY="273.0" onKeyReleased="#multiC" prefHeight="35.0" prefWidth="796.0" promptText="rechercher" />
+            <ToolBar fx:id="navbar" cacheShape="false" layoutX="166.0" layoutY="316.0" prefHeight="48.0" prefWidth="633.0" style="-fx-background-color: none;" />
+      <Button fx:id="btnStat" layoutX="915.0" layoutY="756.0" mnemonicParsing="false" onAction="#StatAction" prefHeight="35.0" prefWidth="109.0" text="Statistique" textFill="WHITE" />
+        <ImageView fitHeight="171.0" fitWidth="1203.0" layoutY="97.0" pickOnBounds="true">
+            <image>
+                <Image url="@../images/photo.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="id_ID" layoutX="701.0" layoutY="105.0" scaleX="2.0" scaleY="2.0" text="id_user" visible="false" />
+        <AnchorPane fx:id="home" layoutY="930.0" prefHeight="40.0" prefWidth="1203.0" styleClass="backgroundFooter">
+            <children>
+                <Label layoutX="468.0" layoutY="8.0" styleClass="backgroundFooter" text="Copyright © 2018 Your Company - Design: Tooplate" textFill="WHITE" />
+            </children>
+        </AnchorPane>
+      <ScrollPane fx:id="scroll" layoutX="28.0" layoutY="371.0" prefHeight="361.0" prefWidth="1173.0">
+         <content>
+            <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="95.0" />
+              </columnConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Button fx:id="pdf" layoutX="765.0" layoutY="756.0" mnemonicParsing="false" onAction="#GeneratePdf" prefHeight="35.0" prefWidth="109.0" text="Print PDF" textFill="WHITE" />
+      <Pane layoutY="2.0" prefHeight="95.0" prefWidth="1201.0" styleClass="backgroundFront">
+         <children>
+            <ImageView fitHeight="65.0" fitWidth="259.0" layoutX="25.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Logo.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="btn_board" focusTraversable="false" layoutX="724.0" layoutY="26.0" onAction="#envoi_board" prefHeight="29.0" prefWidth="69.0" text="Boards" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="btn_aide" focusTraversable="false" layoutX="642.0" layoutY="26.0" onAction="#envoi_aide" prefHeight="29.0" prefWidth="69.0" text="Aides" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Separator layoutX="707.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="92.0" prefWidth="8.0" />
+            <Separator layoutX="792.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="92.0" prefWidth="8.0" />
+            <Separator layoutX="620.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="89.0" prefWidth="8.0" />
+            <Hyperlink fx:id="comptebusinneslink" focusTraversable="false" layoutX="800.0" layoutY="24.0" onAction="#inscriptionbusiness" prefHeight="34.0" prefWidth="259.0" text="Démarrer avec un compte Business" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <MenuButton layoutX="1059.0" layoutY="21.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="121.0" style="-fx-background-color: none; -fx-border-style: none; -fx-alignment: center;" text="Compte" textAlignment="CENTER">
+               <items>
+                  <MenuItem fx:id="profil" mnemonicParsing="false" onAction="#profil" text="Profil" />
+                  <MenuItem fx:id="deconnecter" mnemonicParsing="false" onAction="#deconnecter" text="Se déconnecter" />
+               </items>
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/user.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </MenuButton>
+            <Hyperlink fx:id="Acceuil" layoutX="25.0" layoutY="16.0" onAction="#envoiAccueil" prefHeight="64.0" prefWidth="259.0" />
+         </children>
+      </Pane>
+    </children>
+</AnchorPane>

@@ -90,6 +90,10 @@ public class AfficherAideController implements Initializable {
     private Hyperlink btn_Cat_Aide;
     @FXML
     private Hyperlink deconnecter;
+    @FXML
+    private Hyperlink btn_Board;
+    @FXML
+    private Hyperlink btn_cat_Board;
     /**
      * Initializes the controller class.
      */
@@ -316,17 +320,42 @@ public class AfficherAideController implements Initializable {
         }
     }
 
+    
     @FXML
-    private void deconneecter(ActionEvent event) {
-                                      Session.getSession().clearSession();
+    private void envoi_gestion_board(ActionEvent event) {
+               try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherBoard.fxml"));
+     Parent root= loader.load();
+            deconnecter.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
+    @FXML
+    private void envoi_gestion_cat_board(ActionEvent event) {
+              try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherCategorie.fxml"));
+     Parent root= loader.load();
+            deconnecter.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
+    @FXML
+    private void deconnecter(ActionEvent event) {
+                                                  Session.getSession().clearSession();
               try {
      FXMLLoader loader = new FXMLLoader(getClass().getResource("InscriptionConnexion.fxml"));
      Parent root= loader.load();
             deconnecter.getScene().setRoot(root);
             } catch (IOException ex) {
             Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+        
+    }}
 
 
    

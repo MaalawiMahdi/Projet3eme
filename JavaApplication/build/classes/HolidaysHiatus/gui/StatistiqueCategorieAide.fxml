@@ -24,7 +24,26 @@
          <children>
             <PieChart fx:id="chart" layoutX="226.0" layoutY="152.0" />
          </children></Pane>
-      <Pane layoutX="-3.0" layoutY="70.0" prefHeight="900.0" prefWidth="271.0" styleClass="backgroundBackNav">
+      <Pane layoutX="263.0" prefHeight="71.0" prefWidth="947.0" styleClass="backgroundBackNav">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="877.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="deconnecter" layoutX="850.0" layoutY="45.0" onAction="#deconnecter" text="se deconnecter" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Pane layoutX="-1.0" prefHeight="71.0" prefWidth="269.0" styleClass="backgroundAdmin">
+         <children>
+            <Hyperlink focusTraversable="false" layoutX="76.0" layoutY="18.0" prefHeight="35.0" prefWidth="110.0" scaleX="1.2" scaleY="1.2" text="AdminPanel" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </Pane>
+      <Pane layoutX="-2.0" layoutY="69.0" prefHeight="900.0" prefWidth="271.0" styleClass="backgroundBackNav">
          <children>
             <Separator layoutX="-3.0" layoutY="71.0" prefHeight="26.0" prefWidth="269.0" />
             <Label layoutX="69.0" layoutY="863.0" prefHeight="17.0" prefWidth="110.0" text="A propos de SahtiTN" />
@@ -85,25 +104,27 @@
                   <Image url="@../images/donut.PNG" />
                </image>
             </ImageView>
-         </children>
-      </Pane>
-      <Pane layoutX="263.0" prefHeight="71.0" prefWidth="947.0" styleClass="backgroundBackNav">
-         <children>
-            <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="877.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/user.png" />
-               </image>
-            </ImageView>
-            <Hyperlink fx:id="deconnecter" layoutX="850.0" layoutY="45.0" onAction="#deconnecter" text="se deconnecter" textFill="WHITE" />
-         </children>
-      </Pane>
-      <Pane layoutX="-1.0" prefHeight="71.0" prefWidth="269.0" styleClass="backgroundAdmin">
-         <children>
-            <Hyperlink focusTraversable="false" layoutX="76.0" layoutY="18.0" prefHeight="35.0" prefWidth="110.0" scaleX="1.2" scaleY="1.2" text="AdminPanel" textAlignment="CENTER" textFill="WHITE">
+            <Hyperlink fx:id="btn_Board" layoutX="46.0" layoutY="251.0" onAction="#envoi_gestion_board" prefHeight="35.0" prefWidth="185.0" text="Gestion des Board" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font size="15.0" />
                </font>
             </Hyperlink>
+            <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="6.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/391-3911156_johnny-cash-clipart.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="btn_cat_Board" layoutX="46.0" layoutY="285.0" onAction="#envoi_gestion_cat_board" prefHeight="35.0" prefWidth="203.0" text="Gestion des Categorie Board" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Hyperlink>
+            <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="6.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/391-3911156_johnny-cash-clipart.png" />
+               </image>
+            </ImageView>
+            <Separator layoutY="320.0" prefHeight="26.0" prefWidth="271.0" />
          </children>
       </Pane>
     </children>
