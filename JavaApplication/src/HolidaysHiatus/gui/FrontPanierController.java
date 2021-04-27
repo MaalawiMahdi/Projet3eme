@@ -6,14 +6,18 @@
 package HolidaysHiatus.gui;
 
 import HolidaysHiatus.entites.ArticlePanier;
+import HolidaysHiatus.entites.Commande;
 import HolidaysHiatus.entites.Panier;
 import HolidaysHiatus.entites.ProduitService;
 import HolidaysHiatus.entites.Societe;
 import HolidaysHiatus.entites.User;
 import HolidaysHiatus.entities.Board;
+import HolidaysHiatus.services.CommandeService;
 import HolidaysHiatus.services.CrudBoard;
 import HolidaysHiatus.services.SocieteService;
 import HolidaysHiatus.tools.Session;
+import com.itextpdf.text.Document;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -26,6 +30,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -34,6 +40,9 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -71,6 +80,10 @@ public class FrontPanierController implements Initializable {
     private TextField prix_total_promotion;
     @FXML
     private Label promotion;
+    @FXML
+    private TextField AdresseCommande;
+    @FXML
+    private Button confirmerCommande;
     
     /**
      * Initializes the controller class.
@@ -250,5 +263,63 @@ public class FrontPanierController implements Initializable {
 
     @FXML
     private void envoi_commande(ActionEvent event) {
+      /*   
+        Stage s = new Stage();
+        s.setTitle("JavaFX Google Map ");
+
+        WebView webView = new WebView();
+        File f = new File("C:\\Users\\drwhoo\\Desktop\\Projet3eme\\JavaApplication\\map1.html");
+        webView.getEngine().load(f.toURI().toString()); 
+
+        VBox vBox = new VBox(webView);
+        Scene scene = new Scene(vBox, 960, 600);
+
+        s.setScene(scene);
+        s.show();
+*/
+      AdresseCommande.setOpacity(1);
+confirmerCommande.setOpacity(1);
+      
+    }
+
+    @FXML
+    private void ConfirmerCommande(ActionEvent event) {
+        if(AdresseCommande.getText().compareTo("")!=0){
+        if(Session.getSession().getConnectedPanier().total>150){
+        Session.getSession().getConnectedPanier().total=(float)(Session.getSession().getConnectedPanier().total*0.8);
+        }
+        
+CommandeService CS = new CommandeService();
+CS.ajouterCommande(new Commande(Session.getSession().getSessionUser().getId(),Session.getSession().getConnectedPanier().total,AdresseCommande.getText()));
+Commande c = CS.GetLastRow();
+System.out.print(c);
+
+Panier p = Session.getSession().getConnectedPanier();
+int i;
+for(i=0;i<p.articles.size();i++){
+CS.ajouterCommandeProduitService(c, p.articles.get(i).getP(),p.articles.get(i).getQuantite());
+}
+Session.getSession().setConnectedPanier(new Panier());
+ Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Commande Ajoutée avec succes "); 
+        alert.setHeaderText(" Commande Ajoutée avec succes");
+        alert.setContentText("Commande Ajoutée avec succes!");
+        alert.showAndWait();
+try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FrontPanier.fxml"));
+            Parent root = loader.load();
+            Acceuil.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+    }else{
+       Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("le champs Adresse est obligatoire "); 
+        alert.setHeaderText("le champs Adresse est obligatoire ");
+        alert.setContentText("le champs Adresse est obligatoire  !");
+        alert.showAndWait();      
+        }
     }
 }

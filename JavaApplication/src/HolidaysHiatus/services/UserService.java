@@ -155,5 +155,25 @@ ste.executeUpdate();
      ste.executeUpdate();
      } catch(SQLException ex){
         System.out.print(ex.getMessage());
-    }    }
+    }    
+    }
+    public User GetUserById(int id){
+     String sql="select * from user where id = ?";
+    
+     try{
+     ste=cnx.prepareStatement(sql);
+     ste.setInt(1, id);
+     ResultSet result= ste.executeQuery();
+     while(result.next()){
+    User u = new User(result.getInt(1),result.getString(2),result.getString(3),result.getString(4),result.getBoolean(5),result.getBoolean(6));
+     return u;
+     }
+     } catch(SQLException ex){
+        System.out.print(ex.getMessage());
+    }
+     return null;
+    }
+    
 }
+    
+

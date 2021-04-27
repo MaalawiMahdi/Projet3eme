@@ -133,4 +133,24 @@ public class ProduitServiceCRUD {
         return myList;
     }
 
+    public ProduitService getProduitServiceById(int id) {
+        List<ProduitService> myList = new ArrayList<>();
+        try {
+            String requete = "SELECT * FROM produit_service where id = ?";
+            ste = cnx.prepareStatement(requete);
+            ste.setInt(1, id);
+            ResultSet rs = ste.executeQuery();
+            while (rs.next()) {
+                ProduitService p = new ProduitService(rs.getInt("id"), rs.getInt("categorie_id"), rs.getString("titre"), rs.getString("description"), rs.getString("type"), rs.getFloat("prix_unitaire"));
+                p.setLien_image(rs.getString("lien_image"));
+            return p;  
+            }
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
+        }
+        return null;
+
+    }
+
 }

@@ -102,6 +102,8 @@
       <Button fx:id="btn_cmd" layoutX="21.0" layoutY="466.0" mnemonicParsing="false" onAction="#envoi_commande" prefHeight="25.0" prefWidth="195.0" text="Passer une Commande" />
       <TextField fx:id="prix_total_promotion" layoutX="21.0" layoutY="417.0" opacity="0.0" prefHeight="25.0" prefWidth="195.0" />
       <Label fx:id="promotion" layoutX="22.0" layoutY="381.0" opacity="0.0" prefHeight="17.0" prefWidth="195.0" text="Promotion de 20% " />
+      <TextField fx:id="AdresseCommande" layoutX="21.0" layoutY="512.0" opacity="0.0" prefHeight="25.0" prefWidth="195.0" promptText="adresse" />
+      <Button fx:id="confirmerCommande" layoutX="22.0" layoutY="548.0" mnemonicParsing="false" onAction="#ConfirmerCommande" opacity="0.0" prefHeight="25.0" prefWidth="195.0" text="Confirmer" />
     </children>
  
 </AnchorPane>

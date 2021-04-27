@@ -1,41 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@HomePage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.HomepageBackController">
+<AnchorPane id="AnchorPane" prefHeight="971.0" prefWidth="1185.0" styleClass="mainFxmlClass" stylesheets="@HomePage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.CommandeBackController">
      <styleClass>
         <String fx:value="mainFxmlClass" />
         <String fx:value="backgroundBack" />
     </styleClass>
     <children>
         <Separator layoutX="262.0" layoutY="113.0" orientation="VERTICAL" prefHeight="812.0" prefWidth="11.0" />
-        <Label fx:id="id_ID" layoutX="701.0" layoutY="105.0" scaleX="2.0" scaleY="2.0" text="id_user" visible="false" />
-        <Pane layoutX="267.0" layoutY="73.0" prefHeight="894.0" prefWidth="941.0" styleClass="backgroundBack">
+        <Label fx:id="id_ID" layoutX="675.0" layoutY="37.0" scaleX="2.0" scaleY="2.0" text="id_user" visible="false" />
+        <Pane layoutX="266.0" layoutY="107.0" prefHeight="721.0" prefWidth="930.0" styleClass="backgroundBack">
          <children>
-                <ImageView fitHeight="210.0" fitWidth="526.0" layoutX="187.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../images/Logo.png" />
-                    </image>
-                </ImageView>
-         </children></Pane>
-          <Pane layoutX="261.0" prefHeight="71.0" prefWidth="947.0" styleClass="backgroundBackNav">
-         <children>
-                <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="877.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../images/user.png" />
-                    </image>
-                </ImageView>
-            <Hyperlink fx:id="deconnecter" layoutX="850.0" layoutY="45.0" onAction="#deconneecter" text="se deconnecter" textFill="WHITE" />
+            <TableView fx:id="tableview" layoutX="68.0" layoutY="145.0" prefHeight="177.0" prefWidth="790.0">
+              <columns>
+                <TableColumn fx:id="id" prefWidth="75.0" text="id" />
+                <TableColumn fx:id="user_id" prefWidth="226.0" text="user_id" />
+                  <TableColumn fx:id="livraison_id" prefWidth="218.0" text="livraison_id" />
+                  <TableColumn fx:id="prix" prefWidth="90.0" text="prix" />
+                  <TableColumn fx:id="adresse" prefWidth="180.0" text="adresse" />
+              </columns>
+            </TableView>
+            <ButtonBar layoutX="768.0" layoutY="463.0" prefHeight="40.0" prefWidth="195.0" />
+            <TextField fx:id="recherche" layoutX="68.0" layoutY="101.0" onKeyReleased="#chercher" prefHeight="31.0" prefWidth="790.0" promptText="Chercher" />
+            <Button fx:id="affectation" disable="true" layoutX="68.0" layoutY="329.0" mnemonicParsing="false" onAction="#Affecter" text="Affecter a une livraison" />
+            <ComboBox fx:id="livraison_list_id" layoutX="225.0" layoutY="329.0" prefWidth="150.0" />
+            <Button fx:id="supprimer" disable="true" layoutX="394.0" layoutY="329.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="20.0" prefWidth="169.0" text="Supprimer" />
+            <WebView fx:id="map" layoutX="68.0" layoutY="373.0" prefHeight="312.0" prefWidth="790.0" />
          </children>
-        </Pane>
+      </Pane>
       <Pane layoutX="-3.0" prefHeight="71.0" prefWidth="269.0" styleClass="backgroundAdmin">
          <children>
             <Hyperlink focusTraversable="false" layoutX="76.0" layoutY="18.0" prefHeight="35.0" prefWidth="110.0" scaleX="1.2" scaleY="1.2" text="AdminPanel" textAlignment="CENTER" textFill="WHITE">
@@ -44,7 +52,7 @@
                </font></Hyperlink>
          </children>
       </Pane>
-      <Pane layoutX="-4.0" layoutY="69.0" prefHeight="900.0" prefWidth="271.0" styleClass="backgroundBackNav">
+      <Pane layoutX="-6.0" layoutY="71.0" prefHeight="900.0" prefWidth="271.0" styleClass="backgroundBackNav">
          <children>
             <Separator layoutX="-3.0" layoutY="71.0" prefHeight="26.0" prefWidth="269.0" />
             <Label layoutX="69.0" layoutY="863.0" prefHeight="17.0" prefWidth="110.0" text="A propos de SahtiTN" />
@@ -53,7 +61,7 @@
                   <Image url="@../images/users.png" />
                </image>
             </ImageView>
-            <Hyperlink fx:id="gestionuser" focusTraversable="false" layoutX="62.0" layoutY="11.0" onAction="#gestionuser" prefHeight="26.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des Utilisateurs" textFill="WHITE" />
+            <Hyperlink fx:id="gestionuser" focusTraversable="false" layoutX="60.0" layoutY="11.0" onAction="#gestionuser" prefHeight="26.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des Utilisateurs" textFill="WHITE" />
             <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="5.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/users.png" />
@@ -126,18 +134,28 @@
                </image>
             </ImageView>
             <Separator layoutY="320.0" prefHeight="26.0" prefWidth="271.0" />
-            <Hyperlink focusTraversable="false" layoutX="48.0" layoutY="341.0" onAction="#gestionCommande" prefHeight="29.0" prefWidth="222.0" text="Gestion Commande" textFill="WHITE" />
-            <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="9.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
+            <Hyperlink focusTraversable="false" layoutX="45.0" layoutY="346.0" onAction="#gestionCommande" prefHeight="29.0" prefWidth="222.0" text="Gestion Commande" textFill="WHITE" />
+            <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="6.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/391-3911156_johnny-cash-clipart.png" />
                </image>
             </ImageView>
-            <Hyperlink focusTraversable="false" layoutX="50.0" layoutY="376.0" onAction="#gestionLivraison" prefHeight="29.0" prefWidth="235.0" text="Gestion Livraison" textFill="WHITE" />
-            <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="9.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true">
+            <Hyperlink focusTraversable="false" layoutX="47.0" layoutY="381.0" onAction="#gestionLivraison" prefHeight="29.0" prefWidth="235.0" text="Gestion Livraison" textFill="WHITE" />
+            <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="6.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/391-3911156_johnny-cash-clipart.png" />
                </image>
             </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="265.0" prefHeight="71.0" prefWidth="947.0" styleClass="backgroundBackNav">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="877.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="deconnecter" layoutX="850.0" layoutY="45.0" onAction="#deconneecter" text="se deconnecter" textFill="WHITE" />
          </children>
       </Pane>
     </children>

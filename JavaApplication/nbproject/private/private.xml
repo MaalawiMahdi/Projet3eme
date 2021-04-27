@@ -3,11 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherProduitFrontController.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/LivraisonBackController.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/services/UserService.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/services/CommandeService.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/FrontPanierController.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/entites/Livraison.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/entites/Commande.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/tools/JavamailUtil.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/services/LivraisonService.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/services/PanierService.java</file>
             <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/services/ProduitServiceCRUD.java</file>
-            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/entites/ProduitService.java</file>
-            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/AfficherProduitFront.fxml</file>
-            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/CardProduitController.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HomepageBackController.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/CommandeBackController.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/InscriptionConnexionController.java</file>
+            <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/entites/Panier.java</file>
             <file>file:/C:/Users/drwhoo/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/GestionProduitServiceController.java</file>
         </group>
     </open-files>
