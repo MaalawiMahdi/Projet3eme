@@ -23,8 +23,8 @@ import java.util.Map;
  *
  * @author DELL
  */
-public class PanierServiceImp implements PanierService {
-
+public class PanierServiceImp  {
+/*
      Connection cnx;
     PreparedStatement ste;
 
@@ -42,12 +42,12 @@ System.out.println(qte) ;
 
 
 }
-
+*/
     /**
      *
      * @param article
      */
-     public void supprimerArticle(ArticlePanier article){
+   /*  public void supprimerArticle(ArticlePanier article){
 p.articles.remove(article);
 }
 
@@ -85,5 +85,5 @@ public List<ProduitService> displayProduitService(int idboard){
        return myList;
     }
 
-    
+    */
 }

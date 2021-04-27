@@ -5,6 +5,7 @@
  */
 package HolidaysHiatus.tools;
 
+import HolidaysHiatus.entites.Panier;
 import HolidaysHiatus.entites.Societe;
 import HolidaysHiatus.entites.User;
 import HolidaysHiatus.entities.Board;
@@ -18,6 +19,7 @@ public final class Session {
      private User SessionUser;
      private Societe SessionSociete;
      private Board ConnectedBoard;
+     private Panier ConnectedPanier;
 
    
      private Session() {
@@ -73,6 +75,14 @@ public final class Session {
 
     public void setConnectedBoard(Board ConnectedBoard) {
         this.ConnectedBoard = ConnectedBoard;
+    }
+
+    public Panier getConnectedPanier() {
+        return ConnectedPanier;
+    }
+
+    public void setConnectedPanier(Panier ConnectedPanier) {
+        this.ConnectedPanier = ConnectedPanier;
     }
     
       

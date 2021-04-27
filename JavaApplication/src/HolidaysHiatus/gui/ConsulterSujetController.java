@@ -227,9 +227,9 @@ public class ConsulterSujetController implements Initializable {
                 for (int i = 0; i < liste.size(); i++) {
                     if (liste.get(i).getUser_id() != currentuserid) {
                         System.out.println(cs.comuser(liste.get(i).getUser_id()));
-                        String subject = "Un nouveau commentaire ";
+                        String subject = "Un nouveau commentaire ajouté ";
 
-                        String message = "Un nouveau commentaire dans le sujet " + labeltitre.getText();
+                        String message = "Une personne à ajouté un nouveau commentaire dans le sujet " + labeltitre.getText() + ", vous pouvez le consulter.";
 
                         JavamailUtil mailing = new JavamailUtil();
                         try {

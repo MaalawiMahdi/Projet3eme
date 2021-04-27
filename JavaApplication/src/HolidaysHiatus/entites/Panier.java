@@ -5,8 +5,10 @@
  */
 package HolidaysHiatus.entites;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -16,14 +18,23 @@ import java.util.Map.Entry;
  */
 public class Panier {
 
-public Map<ProduitService, Integer> articles;
+public List<ArticlePanier> articles;
+public float total;
+
 
 
 
 
 public Panier() {
-this.articles = new HashMap<ProduitService, Integer>();
+this.articles = new ArrayList();
+total=0;
+
 }
+
+    @Override
+    public String toString() {
+        return "Panier{" + "articles=" + articles + ", total=" + total + '}';
+    }
 
 
 

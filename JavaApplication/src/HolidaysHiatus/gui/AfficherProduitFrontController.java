@@ -131,7 +131,8 @@ public class AfficherProduitFrontController implements Initializable {
                     
                     GridPane.setMargin(anchorPane,new Insets(2));
               
-            } 
+            }
+        
         } catch (IOException ex) {
                 Logger.getLogger(AfficherCategorieAideFrontController.class.getName()).log(Level.SEVERE, null, ex);
             } 

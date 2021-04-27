@@ -5,6 +5,7 @@
  */
 package HolidaysHiatus.gui;
 
+import HolidaysHiatus.entites.Panier;
 import HolidaysHiatus.entites.Societe;
 import HolidaysHiatus.entites.User;
 import HolidaysHiatus.entities.Board;

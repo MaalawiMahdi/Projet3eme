@@ -5,44 +5,35 @@
  */
 package HolidaysHiatus.gui;
 
-import HolidaysHiatus.entites.ArticlePanier;
 import HolidaysHiatus.entites.Panier;
 import HolidaysHiatus.entites.ProduitService;
 import HolidaysHiatus.tools.Session;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author drwhoo
+ * @author DELL
  */
-public class CardProduitController implements Initializable {
-
-    @FXML
-    private Label espace;
+public class CardPanierController implements Initializable {
+ProduitService dataProduit;
     @FXML
     private Label titre;
-    @FXML
-    private Button b;
     @FXML
     private TextFlow description;
     @FXML
@@ -50,8 +41,11 @@ public class CardProduitController implements Initializable {
     @FXML
     private Label prix;
     @FXML
+    private Button b;
+    @FXML
     private ImageView image;
-    ProduitService dataProduit;
+    @FXML
+    private Label quantite;
     /**
      * Initializes the controller class.
      */
@@ -59,40 +53,38 @@ public class CardProduitController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    public void setDataProduit(ProduitService dataProduit) {
-        this.dataProduit = dataProduit;
+       public void setDataProduit(ProduitService dataProduit,int quantitevalue) {
+       
+           this.dataProduit = dataProduit;
         image.setImage(new Image("file:C:\\Users\\drwhoo\\Desktop\\Projet3eme\\SymfonyApplication\\public\\img\\" + dataProduit.getLien_image()));
         titre.setText(dataProduit.getTitre());
-      
-                
+      quantite.setText(quantite.getText()+" "+String.valueOf(quantitevalue));
         description.getChildren().add(new Text(dataProduit.getDescription()));
         type.setText(dataProduit.getType());
         prix.setText("          "+Float.toString(dataProduit.getPrix_unitaire())+ "TND");
         b.setId(Integer.toString(dataProduit.getId()));
 
     }
+
     @FXML
-    private void ajout_panier(ActionEvent event) throws IOException {
-     Panier p = Session.getSession().getConnectedPanier();
-    int i ;
-    boolean found=false; 
-    for (i= 0 ; i<p.articles.size(); i++)
-    {
-    if(p.articles.get(i).p.getId()==dataProduit.getId()){
-    found=true;
-    p.articles.get(i).quantite++;
+    private void supprimer_produit(ActionEvent event) {
+        Panier p = Session.getSession().getConnectedPanier();
+        int i ; 
+        for(i=0;i<p.articles.size();i++){
+        if(p.articles.get(i).getP().getId()==dataProduit.getId()){
+        p.total=p.total-(p.articles.get(i).getQuantite()*p.articles.get(i).getP().getPrix_unitaire());
+        p.articles.remove(i);
+        
+        Session.getSession().setConnectedPanier(p);
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FrontPanier.fxml"));
+            Parent root = loader.load();
+            quantite.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(CardPanierController.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        }
+        }
     }
-    }
-    if(found==false){
-        ArticlePanier Ap = new ArticlePanier(dataProduit,1);
-    p.articles.add(Ap);
-    }
-    //mise a jour Total 
-    float total= (float) p.articles.stream().mapToDouble(v->v.getP().getPrix_unitaire()*v.getQuantite()).sum();
-    p.total=total;
-    System.out.println("Panier \n " + Session.getSession().getConnectedPanier());
     
-     
-    }
 }

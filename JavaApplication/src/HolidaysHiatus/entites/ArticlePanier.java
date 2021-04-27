@@ -11,52 +11,37 @@ package HolidaysHiatus.entites;
  */
 public class ArticlePanier {
   public  ProduitService p ; 
-   public Float t ;
-   public String saif ;
+   public int quantite ;
    //public Float prix ;
 
-    public ArticlePanier(ProduitService p, Float t, String saif) {
+    public ArticlePanier(ProduitService p, int quantite) {
         this.p = p;
-        this.t = t;
-        this.saif = saif;
-    }
-
-    /*public Float getPrix() {
-        return prix;
-    }*/
-
-    /*public ArticlePanier(ProduitService p, Float t, String saif, Float prix) {
-        this.p = p;
-        this.t = t;
-        this.saif = saif;
-        this.prix = prix;
-    }*/
-
-    public String getSaif() {
-        return saif;
-    }
-
-    public ArticlePanier() {
-    }
-
-    public ArticlePanier(ProduitService p, Float t) {
-        this.p = p;
-        this.t = t;
+        this.quantite = quantite;
     }
 
     public ProduitService getP() {
         return p;
     }
 
-    public Float getT() {
-        return t;
+    public void setP(ProduitService p) {
+        this.p = p;
     }
-   
-   
-   
-   
-   
+
+    public int getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
+
+    @Override
+    public String toString() {
+        return "ArticlePanier{" + "p=" + p + ", quantite=" + quantite + '}';
+    }
+
 }
+
 
 
 

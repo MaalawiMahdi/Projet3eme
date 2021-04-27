@@ -209,7 +209,7 @@ Stage stage = new Stage();
     }
 
     
-
+/*
     @FXML
     private void ajouterPanier(ActionEvent event) throws IOException {
     ProduitService produitselected = (ProduitService) tabproduit.getSelectionModel().getSelectedItem();
@@ -285,7 +285,7 @@ Stage stage = new Stage();
          
     
     }
-
+*/
     @FXML
     private void Pdf(ActionEvent event) throws SQLException, IOException {
             Pdf pdf = new Pdf();

@@ -119,6 +119,8 @@ public class AfficherBoardClientController implements Initializable {
     private Hyperlink Acceuil;
     @FXML
     private Hyperlink btn_board;
+    @FXML
+    private MenuItem btn_panier;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -394,6 +396,16 @@ public class AfficherBoardClientController implements Initializable {
     private void envoi_board(ActionEvent event) {
            try {
      FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherBoardClient.fxml"));
+     Parent root= loader.load();
+            Acceuil.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+       @FXML
+    private void envoi_panier(ActionEvent event) {
+                  try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("FrontPanier.fxml"));
      Parent root= loader.load();
             Acceuil.getScene().setRoot(root);
             } catch (IOException ex) {

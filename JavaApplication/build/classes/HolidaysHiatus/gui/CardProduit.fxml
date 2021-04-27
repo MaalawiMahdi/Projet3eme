@@ -16,7 +16,7 @@
       <children>
       <VBox layoutX="94.0" layoutY="113.0" prefHeight="197.0" prefWidth="242.0">
          <children>
-            <Label fx:id="espace" prefHeight="31.0" prefWidth="356.0" textAlignment="CENTER">
+            <Label fx:id="espace" prefHeight="31.0" prefWidth="356.0" textAlignment="CENTER" textFill="#6b0000">
                <font>
                   <Font size="17.0" />
                </font>

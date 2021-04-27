@@ -80,6 +80,7 @@
             <MenuButton layoutX="1059.0" layoutY="21.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="121.0" style="-fx-background-color: none; -fx-border-style: none; -fx-alignment: center;" text="Compte" textAlignment="CENTER">
                <items>
                   <MenuItem fx:id="profil" mnemonicParsing="false" onAction="#profil" text="Profil" />
+                  <MenuItem fx:id="btn_panier" mnemonicParsing="false" onAction="#envoi_panier" text="panier" />
                   <MenuItem fx:id="deconnecter" mnemonicParsing="false" onAction="#deconnecter" text="Se déconnecter" />
                </items>
                <graphic>

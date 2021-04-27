@@ -5,6 +5,8 @@
  */
 package HolidaysHiatus.entites;
 
+import java.util.Objects;
+
 /**
  *
  * @author DELL
@@ -138,4 +140,30 @@ public class ProduitService {
     public String toString() {
         return "produit_service{" + "id=" + id + ", id_categorie=" + id_categorie + ", titre=" + titre + ", description=" + description + ", lien_image=" + lien_image + ", type=" + type+ ", prix_unitaire=" + prix_unitaire + '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ProduitService other = (ProduitService) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+    
 }

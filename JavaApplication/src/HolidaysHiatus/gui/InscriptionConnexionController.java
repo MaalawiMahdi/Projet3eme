@@ -6,6 +6,7 @@
 package HolidaysHiatus.gui;
 
 import HolidaysHiatus.entites.InformationsSupplementaires;
+import HolidaysHiatus.entites.Panier;
 import HolidaysHiatus.tools.JavamailUtil;
 import HolidaysHiatus.entites.User;
 import HolidaysHiatus.services.InformationsSupplementairesService;
@@ -210,6 +211,8 @@ public class InscriptionConnexionController implements Initializable {
         }else{
             u.setActive(true);
             Session.StartSession().SetSessionUser(u);
+                Session.getSession().setConnectedPanier(new Panier());
+
             
             if(u.getType().compareTo("client")==0||u.getType().compareTo("societe")==0){
                  try {

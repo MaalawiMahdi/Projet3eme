@@ -9,14 +9,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane id="AnchorPane" prefHeight="323.0" prefWidth="439.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.CardProduitController">
+<AnchorPane id="AnchorPane" prefHeight="337.0" prefWidth="414.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HolidaysHiatus.gui.CardPanierController">
     <stylesheets>
-        <URL value="@cardproduit.css" />
+        <URL value="@cardpanier.css" />
     </stylesheets>
+        
       <children>
       <VBox layoutX="94.0" layoutY="113.0" prefHeight="197.0" prefWidth="242.0">
          <children>
-            <Label fx:id="espace" prefHeight="31.0" prefWidth="356.0" textAlignment="CENTER" textFill="#6b0000">
+            <Label fx:id="quantite" prefHeight="31.0" prefWidth="356.0" text="Quantité :" textAlignment="CENTER" textFill="#6b0000">
                <font>
                   <Font size="17.0" />
                </font>
@@ -32,9 +33,9 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Button fx:id="b" mnemonicParsing="false" onAction="#ajout_panier" prefHeight="25.0" prefWidth="386.0" text="ajouter au panier" textFill="WHITE" />
+            <Button fx:id="b" mnemonicParsing="false" onAction="#supprimer_produit" prefHeight="25.0" prefWidth="386.0" text="supprimer" textFill="WHITE" />
          </children>
       </VBox>
-      <ImageView fx:id="image" fitHeight="106.0" fitWidth="150.0" layoutX="140.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image" fitHeight="106.0" fitWidth="150.0" layoutX="132.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

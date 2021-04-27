@@ -54,7 +54,7 @@ p.titre="ahlem" ;
 
 
         //total.setCellValueFactory(new PropertyValueFactory<>("total"));
-     PService.displayProduitService(1);
+ //    PService.displayProduitService(1);
     }    
     
 }
