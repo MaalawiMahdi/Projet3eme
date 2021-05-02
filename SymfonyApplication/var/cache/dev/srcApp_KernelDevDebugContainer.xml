@@ -5955,6 +5955,12 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.BvcyOg1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="normalizer" type="service" id="serializer"/>
+      </argument>
+    </service>
     <service id=".service_locator.wf.M68N" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6037,6 +6043,13 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.9GiGIpz" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="client" type="service" id="twilio.client"/>
+        <argument key="mailer" type="service" id="mailer.mailer"/>
+      </argument>
+    </service>
     <service id=".service_locator.M4nb6.8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6062,7 +6075,7 @@
         <argument key="mailer" type="service" id="mailer.mailer"/>
       </argument>
     </service>
-    <service id=".service_locator.UEB1xGc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.LY5bOXd" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::index" type="service" id=".service_locator.o3htLhs"/>
@@ -6076,6 +6089,7 @@
         <argument key="App\Controller\AideController::listAide" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\AideController::listAides" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\AideController::modifierAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController::normalize" type="service" id=".service_locator.BvcyOg1"/>
         <argument key="App\Controller\AideController::temporaryUploadAction" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\AideController::videoAide" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\BoardController::AjouterBoard" type="service" id=".service_locator.o3htLhs"/>
@@ -6128,6 +6142,7 @@
         <argument key="App\Controller\LivraisonController::show" type="service" id=".service_locator.2Nhxx_8"/>
         <argument key="App\Controller\LivraisonController::tri" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\NoteController::ajouterNote" type="service" id=".service_locator.RPHEguS"/>
+        <argument key="App\Controller\NoteController::ajouterNoteJson" type="service" id=".service_locator.9GiGIpz"/>
         <argument key="App\Controller\ProduitServiceController::addProduitAction" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ProduitServiceController::index" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ProduitServiceController::indexx" type="service" id=".service_locator.wf.M68N"/>
@@ -6175,6 +6190,7 @@
         <argument key="App\Controller\AideController:listAide" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\AideController:listAides" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\AideController:modifierAide" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\AideController:normalize" type="service" id=".service_locator.BvcyOg1"/>
         <argument key="App\Controller\AideController:temporaryUploadAction" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\AideController:videoAide" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\BoardController:AjouterBoard" type="service" id=".service_locator.o3htLhs"/>
@@ -6227,6 +6243,7 @@
         <argument key="App\Controller\LivraisonController:show" type="service" id=".service_locator.2Nhxx_8"/>
         <argument key="App\Controller\LivraisonController:tri" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\NoteController:ajouterNote" type="service" id=".service_locator.RPHEguS"/>
+        <argument key="App\Controller\NoteController:ajouterNoteJson" type="service" id=".service_locator.9GiGIpz"/>
         <argument key="App\Controller\ProduitServiceController:addProduitAction" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ProduitServiceController:index" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ProduitServiceController:indexx" type="service" id=".service_locator.wf.M68N"/>
@@ -6861,12 +6878,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.UEB1xGc"/>
+      <argument type="service" id=".service_locator.LY5bOXd"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.UEB1xGc"/>
+      <argument type="service" id=".service_locator.LY5bOXd"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -7282,7 +7299,7 @@
     <service id="Gregwar\CaptchaBundle\Controller\CaptchaController" alias="gregwar_captcha.controller" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.UEB1xGc"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.LY5bOXd"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

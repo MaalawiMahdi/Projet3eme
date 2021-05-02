@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\CategorieAide;
 use App\Form\CategorieAideType;
@@ -26,6 +27,23 @@ class CategorieAideController extends AbstractController
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return Response
+     * @Route("Api/CategorieAide/Afficher", name="AfficherCategorieAideApi")
+     */
+    public function listCategoriesAideJson(Request $request): Response
+    {$categoriesAide = $this->getDoctrine()->getRepository(CategorieAide::class)->findAll();
+        $jsonContent= Array();
+        foreach ($categoriesAide as $key=>$Cat){
+            $jsonContent[$key]['id']= $Cat->getId();
+            $jsonContent[$key]['titre']= $Cat->getTitre();
+            $jsonContent[$key]['lien_icon']=$Cat->getLienIcon();
+
+
+        }
+          return new JsonResponse($jsonContent);
+        }
     /**
      * @param Request $request
      * @return Response

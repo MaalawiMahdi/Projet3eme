@@ -140,18 +140,25 @@
                </image>
             </ImageView>
             <Separator layoutY="320.0" prefHeight="26.0" prefWidth="271.0" />
-            <Hyperlink focusTraversable="false" layoutX="45.0" layoutY="346.0" onAction="#gestionCommande" prefHeight="29.0" prefWidth="222.0" text="Gestion Commande" textFill="WHITE" />
+            <Hyperlink focusTraversable="false" layoutX="45.0" layoutY="346.0" onAction="#gestionCommande" prefHeight="29.0" prefWidth="222.0" text="Gestion Commande" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Hyperlink>
             <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="6.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/391-3911156_johnny-cash-clipart.png" />
                </image>
             </ImageView>
-            <Hyperlink focusTraversable="false" layoutX="47.0" layoutY="381.0" onAction="#gestionLivraison" prefHeight="29.0" prefWidth="235.0" text="Gestion Livraison" textFill="WHITE" />
+            <Hyperlink focusTraversable="false" layoutX="47.0" layoutY="381.0" onAction="#gestionLivraison" prefHeight="29.0" prefWidth="211.0" text="Gestion Livraison" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Hyperlink>
             <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="6.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/391-3911156_johnny-cash-clipart.png" />
                </image>
             </ImageView>
+            <Separator layoutX="1.0" layoutY="417.0" prefHeight="26.0" prefWidth="271.0" />
          </children>
       </Pane>
       <Pane layoutX="266.0" prefHeight="71.0" prefWidth="947.0" styleClass="backgroundBackNav">

@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '9e5d8d82f1341b03f5be5a3056fcb067fa4382e9',
+    'reference' => 'b1e35c0145a43ec52ee08e197f52f17d97615b6b',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '9e5d8d82f1341b03f5be5a3056fcb067fa4382e9',
+      'reference' => 'b1e35c0145a43ec52ee08e197f52f17d97615b6b',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -1124,12 +1124,12 @@
     ),
     'symfony/serializer' => 
     array (
-      'pretty_version' => 'v4.4.19',
-      'version' => '4.4.19.0',
+      'pretty_version' => 'v4.4.20',
+      'version' => '4.4.20.0',
       'aliases' => 
       array (
       ),
-      'reference' => '6b383bc45777d14857b634e9f8fa2b8a2e69b66d',
+      'reference' => '9fa36329a06282e1fc856b84f645472a410c3922',
     ),
     'symfony/service-contracts' => 
     array (

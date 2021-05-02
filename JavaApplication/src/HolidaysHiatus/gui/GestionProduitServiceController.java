@@ -82,26 +82,14 @@ public class GestionProduitServiceController implements Initializable {
     private TableColumn<ProduitService, Float> prix_unitaire;
     @FXML
     private TableColumn<ProduitService, Integer> id;
-    @FXML
     private Button btnpanier;
-    @FXML
-    private TextField quantite;
-    @FXML
-    private TableView<ArticlePanier> tvPanier;
-    @FXML
-    private TableColumn<ArticlePanier, String> titrePanier;
-    @FXML
-    private TableColumn<ArticlePanier, Float> total;
 
     /**
      * Initializes the controller class.
      */
               ObservableList<ArticlePanier> list = FXCollections.observableArrayList();
     private TableView<String> tvtotal;
-    @FXML
-    private TextField prix;
          private static String px;
-    @FXML
     private Button supp;
     @FXML
     private Button pdf;
@@ -303,7 +291,7 @@ Stage stage = new Stage();
          try{
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("GestionCategorie.fxml"));
            Parent root= loader.load();
-            supp.getScene().setRoot(root);
+            emailAdresse.getScene().setRoot(root);
             } catch (IOException ex) {
             Logger.getLogger(GestionProduitServiceController.class.getName()).log(Level.SEVERE, null, ex);
      
@@ -315,7 +303,7 @@ Stage stage = new Stage();
           try{
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("GestionProduitService.fxml"));
            Parent root= loader.load();
-            supp.getScene().setRoot(root);
+            emailAdresse.getScene().setRoot(root);
             } catch (IOException ex) {
             Logger.getLogger(GestionProduitServiceController.class.getName()).log(Level.SEVERE, null, ex);
      

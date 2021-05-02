@@ -61,8 +61,6 @@ public class AfficherCategorieAideController implements Initializable {
   
     @FXML
     private TextField id_recherche;
-    @FXML
-    private Button btn_pdf;
   
     
 
@@ -164,20 +162,6 @@ public class AfficherCategorieAideController implements Initializable {
       
     }
 
-     @FXML
-    public void GeneratePdf() throws SQLException, IOException {
-        PDFutil pdf = new PDFutil();
-       
-        try {
-            pdf.listCategorieAide();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AfficherCategorieAideController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DocumentException ex) {
-            Logger.getLogger(AfficherCategorieAideController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-         
-    }
 
 
 
@@ -356,6 +340,29 @@ public class AfficherCategorieAideController implements Initializable {
             } catch (IOException ex) {
             Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+      @FXML
+    private void gestionCommande(ActionEvent event) {
+     try {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("CommandeBack.fxml"));
+           Parent root= loader.load();
+            gestionsociete.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(CommandeBackController.class.getName()).log(Level.SEVERE, null, ex);
+     
+    }
+    }
+
+    @FXML
+    private void gestionLivraison(ActionEvent event) {
+         try {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("LivraisonBack.fxml"));
+           Parent root= loader.load();
+            gestionsociete.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(CommandeBackController.class.getName()).log(Level.SEVERE, null, ex);
+     
+    }
     }
 
     

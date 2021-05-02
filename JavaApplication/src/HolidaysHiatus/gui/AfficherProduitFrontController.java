@@ -71,6 +71,8 @@ public class AfficherProduitFrontController implements Initializable {
         AfficherProduitFrontController.boardid = boardid;
     }
         private List<ProduitService> data;
+    @FXML
+    private MenuItem btn_panier;
 
     /**
      * Initializes the controller class.
@@ -244,5 +246,16 @@ public class AfficherProduitFrontController implements Initializable {
             Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
+
+    @FXML
+    private void envoi_panier(ActionEvent event) {
+                          try {
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("FrontPanier.fxml"));
+     Parent root= loader.load();
+            Acceuil.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(InscriptionConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

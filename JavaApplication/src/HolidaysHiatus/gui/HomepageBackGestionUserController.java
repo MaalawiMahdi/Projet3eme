@@ -283,23 +283,7 @@ public class HomepageBackGestionUserController implements Initializable {
 
     
 
-    @FXML
-    private void editPassword(TableColumn.CellEditEvent<User, String> event) {
-          System.out.print(event.getRowValue());
-        System.out.print(event.getNewValue());
-        UserService us = new UserService();
-        event.getRowValue().setPassword(BCrypt.hashpw(event.getNewValue(),BCrypt.gensalt()));
-        us.UpdateUser(event.getRowValue());
-        refrech();
-    }
-
-    @FXML
-    private void editmail(TableColumn.CellEditEvent<User, String> event) {
-         UserService us = new UserService();
-        event.getRowValue().setMail(event.getNewValue());
-        us.UpdateUser(event.getRowValue());
-        refrech();
-    }
+    
 
     @FXML
     private void envoi_gestion_board(ActionEvent event) {
@@ -323,6 +307,47 @@ public class HomepageBackGestionUserController implements Initializable {
         }
     }
 
+    @FXML
+    private void gestionCommande(ActionEvent event) {
+     try {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("CommandeBack.fxml"));
+           Parent root= loader.load();
+            gestionsociete.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(CommandeBackController.class.getName()).log(Level.SEVERE, null, ex);
+     
+    }
+    }
+
+    @FXML
+    private void gestionLivraison(ActionEvent event) {
+         try {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("LivraisonBack.fxml"));
+           Parent root= loader.load();
+            gestionsociete.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(CommandeBackController.class.getName()).log(Level.SEVERE, null, ex);
+     
+    }
+    }
+
+    @FXML
+    private void editPassword(TableColumn.CellEditEvent<User, String> event) {
+             System.out.print(event.getRowValue());
+        System.out.print(event.getNewValue());
+        UserService us = new UserService();
+        event.getRowValue().setPassword(BCrypt.hashpw(event.getNewValue(),BCrypt.gensalt()));
+        us.UpdateUser(event.getRowValue());
+        refrech();
+    }
+
+    @FXML
+    private void editmail(TableColumn.CellEditEvent<User, String> event) {
+           UserService us = new UserService();
+        event.getRowValue().setMail(event.getNewValue());
+        us.UpdateUser(event.getRowValue());
+        refrech();
+    }
     
    
 }

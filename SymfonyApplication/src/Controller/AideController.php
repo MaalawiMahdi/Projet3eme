@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Form\AideType;
 use App\Form\SearchAidesType;
 use mysql_xdevapi\Exception;
+use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Scalar\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DomCrawler\Field\TextareaFormField;
@@ -27,8 +28,11 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-
-
+use Symfony\Component\Serializer\Normalizer\NormalizableInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class AideController extends AbstractController
 {
@@ -45,11 +49,63 @@ class AideController extends AbstractController
 
     /**
      * @param Request $request
+     * @return Response
+     * @Route("Api/Aide/Afficher/{id}/{iduser}", name="ApiAfficherAides")
+     */
+    public function listAidesjson($id,$iduser): Response
+    {
+        $Aide = $this->getDoctrine()->getRepository(Aide::class)->findBy(array('categorie'=>$id));
+        $jsonContent= Array();
+        foreach ($Aide as $key=>$aide){
+            $jsonContent[$key]['id']= $aide->getId();
+            $jsonContent[$key]['categorie_id']= $aide->getCategorie()->getTitre();
+            $jsonContent[$key]['titre']= $aide->getTitre();
+            $jsonContent[$key]['description']= $aide->getDescription();
+            $jsonContent[$key]['adresse']= $aide->getAdresse();
+            $jsonContent[$key]['num_tell']= $aide->getNumTell();
+            $jsonContent[$key]['lien_image']=$aide->getLienImage();
+            $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
+            $note=0;
+            $Moyenne=0;
+            $aviss="";
+            $Aidesfind = $this->getDoctrine()->getRepository(Aide::class)->find($aide->getId());
+            $Notes=$this->getDoctrine()->getRepository(Note::class)->findBy(array('aide'=>$Aidesfind));
+            $x = $this->getDoctrine()->getRepository(Note::class)->findBy(array('aide'=>$Aidesfind,'user'=>$iduser));
+            if (!(empty($x))){
+                $Valeur=$x[0]->getValeur();
+                $Avis=$x[0]->getAvis();}
+            else {$Valeur=0;
+                $Avis="";}
+            if (!(empty($Notes)))
+            {
+                $total=0;
+                for ($i =0; $i <= (count($Notes)-1); $i++)
+                {
+                    $total=$total+($Notes[$i]->getValeur());
+                }
+                $Moyenne=$total/(count($Notes));
+            }
+            $jsonContent[$key]['note']= $Valeur;
+            $jsonContent[$key]['avis']= $Avis;
+            $jsonContent[$key]['moyenne']=$Moyenne;
+
+        }
+
+        return new JsonResponse($jsonContent);
+
+
+
+    }
+
+
+
+    /**
+     * @param Request $request
      * @param Request $requests
      * @return Response
      * @Route("/AfficherAide", name="AfficherAide")
      */
-    public function listAide(Request $request,SessionInterface $session): Response
+    public function listAide(Request $request,SessionInterface $session ): Response
     {if(is_null($session->get('user'))||$session->get('user')->getType()!="admin"){
         return $this->redirectToRoute('user_inscription');
     }
@@ -408,6 +464,8 @@ class AideController extends AbstractController
     }
 
 
-
-
+    public function normalize(NormalizerInterface $normalizer, $format = null, array $context = [])
+    {
+        // TODO: Implement normalize() method.
+    }
 }

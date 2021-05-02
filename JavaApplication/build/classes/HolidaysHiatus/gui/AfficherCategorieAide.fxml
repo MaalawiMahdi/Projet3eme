@@ -29,7 +29,6 @@
                 <Label layoutX="68.0" layoutY="123.0" scaleX="1.2" scaleY="1.2" text="Liste des Catégories des Aides :" />
                 <Button fx:id="btn1" layoutX="51.0" layoutY="834.0" mnemonicParsing="false" onAction="#navigation_ajout" prefHeight="32.0" prefWidth="230.0" text="Ajouter Catégorie" textFill="WHITE" />
                 <TextField fx:id="id_recherche" layoutX="50.0" layoutY="161.0" onKeyReleased="#chercher" prefHeight="26.0" prefWidth="807.0" promptText="Recherche" />
-                <Button fx:id="btn_pdf" layoutX="628.0" layoutY="116.0" mnemonicParsing="false" onAction="#GeneratePdf" prefHeight="32.0" prefWidth="230.0" text="Télécharger PDF" textFill="WHITE" />
             <ScrollPane fx:id="scroll" layoutX="55.0" layoutY="273.0" prefHeight="555.0" prefWidth="600.0" styleClass="backgroundBack" translateX="120.0 ">
                <content>
                   <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
@@ -178,6 +177,25 @@
                </image>
             </ImageView>
             <Separator layoutY="320.0" prefHeight="26.0" prefWidth="271.0" />
+             <Hyperlink focusTraversable="false" layoutX="48.0" layoutY="341.0" onAction="#gestionCommande" prefHeight="29.0" prefWidth="222.0" text="Gestion Commande" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Hyperlink>
+            <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="9.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/391-3911156_johnny-cash-clipart.png" />
+               </image>
+            </ImageView>
+            <Hyperlink focusTraversable="false" layoutX="50.0" layoutY="376.0" onAction="#gestionLivraison" prefHeight="29.0" prefWidth="214.0" text="Gestion Livraison" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font></Hyperlink>
+            <ImageView fitHeight="20.0" fitWidth="35.0" layoutX="9.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/391-3911156_johnny-cash-clipart.png" />
+               </image>
+            </ImageView>
+            <Separator layoutY="413.0" prefHeight="26.0" prefWidth="271.0" />
          </children>
       </Pane>
     </children>

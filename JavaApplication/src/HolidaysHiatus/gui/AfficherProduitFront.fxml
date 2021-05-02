@@ -48,6 +48,7 @@
             <MenuButton layoutX="1068.0" layoutY="19.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="121.0" style="-fx-background-color: none; -fx-border-style: none; -fx-alignment: center;" text="Compte" textAlignment="CENTER">
               <items>
                 <MenuItem fx:id="profil" mnemonicParsing="false" onAction="#profil" text="Profil" />
+                  <MenuItem fx:id="btn_panier" mnemonicParsing="false" onAction="#envoi_panier" text="panier" />
                 <MenuItem fx:id="deconnecter" mnemonicParsing="false" onAction="#deconnecter" text="Se déconnecter" />
               </items>
                <graphic>
@@ -81,7 +82,7 @@
                 <Label layoutX="468.0" layoutY="8.0" styleClass="backgroundFooter" text="Copyright © 2018 Your Company - Design: Tooplate" textFill="WHITE" />
             </children>
         </AnchorPane>
-      <ScrollPane fx:id="scroll" layoutX="56.0" layoutY="293.0" prefHeight="608.0" prefWidth="1092.0" >
+      <ScrollPane fx:id="scroll" layoutX="56.0" layoutY="293.0" prefHeight="608.0" prefWidth="1092.0">
          <content>
             <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
               <columnConstraints>

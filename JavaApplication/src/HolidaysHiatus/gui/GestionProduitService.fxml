@@ -31,9 +31,18 @@
                <children>
                   <Separator layoutX="-3.0" layoutY="28.0" prefHeight="26.0" prefWidth="304.0" />
                   <Separator layoutX="-3.0" layoutY="124.0" prefHeight="26.0" prefWidth="304.0" />
-                  <Hyperlink focusTraversable="false" layoutX="47.0" layoutY="12.0" onAction="#GestionSujet" prefHeight="26.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des Sujets" textFill="WHITE" />
-                  <Hyperlink fx:id="GestionDesCategoriesProduitsServices" focusTraversable="false" layoutX="55.0" layoutY="92.0" onAction="#GestionDesCategoriesProduitsServices" prefHeight="29.0" prefWidth="237.0" scaleX="1.2" scaleY="1.2" text="Gestion des Categories Produits/Services" textFill="WHITE" />
-                  <Hyperlink fx:id="backSocieteProduitService" layoutX="33.0" layoutY="56.0" onAction="#backSocieteProduitService" text="Gestion des produits" textFill="WHITE" />
+                  <Hyperlink focusTraversable="false" layoutX="47.0" layoutY="12.0" onAction="#GestionSujet" prefHeight="26.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des Sujets" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font></Hyperlink>
+                  <Hyperlink fx:id="GestionDesCategoriesProduitsServices" focusTraversable="false" layoutX="55.0" layoutY="92.0" onAction="#GestionDesCategoriesProduitsServices" prefHeight="29.0" prefWidth="237.0" scaleX="1.2" scaleY="1.2" text="Gestion des Categories Produits/Services" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font></Hyperlink>
+                  <Hyperlink fx:id="backSocieteProduitService" layoutX="33.0" layoutY="56.0" onAction="#backSocieteProduitService" text="Gestion des produits" textFill="WHITE">
+                     <font>
+                        <Font size="11.0" />
+                     </font></Hyperlink>
                   <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="6.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/users.png" />
@@ -86,20 +95,7 @@
                     </columns>
                   </TableView>
                   <TextField fx:id="chercher" layoutX="16.0" layoutY="61.0" onKeyReleased="#chercher" prefHeight="31.0" prefWidth="783.0" promptText="chercher" />
-                  <Button fx:id="btnpanier" disable="true" layoutX="249.0" layoutY="404.0" mnemonicParsing="false" onAction="#ajouterPanier" prefHeight="31.0" prefWidth="187.0" text="Ajouter au panier" />
-                  <TextField fx:id="quantite" layoutX="249.0" layoutY="359.0" />
-                  <TableView fx:id="tvPanier" layoutX="28.0" layoutY="384.0" prefHeight="70.0" prefWidth="154.0">
-                    <columns>
-                      <TableColumn fx:id="total" prefWidth="75.0" text="prix total" />
-                      <TableColumn fx:id="titrePanier" prefWidth="75.0" text="titre" />
-                    </columns>
-                  </TableView>
-                  <TextField fx:id="prix" layoutX="28.0" layoutY="462.0" />
-                  <Label layoutX="28.0" layoutY="353.0" text="Mon Panier" />
-                  <Button fx:id="supp" layoutX="28.0" layoutY="535.0" mnemonicParsing="false" onAction="#suppPanier" text="Supprimer produit de mon panier" />
                   <Button fx:id="pdf" layoutX="601.0" layoutY="298.0" mnemonicParsing="false" onAction="#Pdf" prefHeight="31.0" prefWidth="187.0" text="obtenir la liste" />
-                  <Label layoutX="230.0" layoutY="467.0" text="Total " />
-                  <Label layoutX="203.0" layoutY="364.0" text="Qte" />
                   <TextField fx:id="emailAdresse" layoutX="28.0" layoutY="275.0" onKeyReleased="#EnvoyerButtonOn" promptText="Email @" />
                   <Button fx:id="envoyerList" disable="true" layoutX="236.0" layoutY="275.0" mnemonicParsing="false" onAction="#envoyerList" text="Envoyer la list" />
                   <Button layoutX="455.0" layoutY="259.0" mnemonicParsing="false" onAction="#AjouterProduit" prefHeight="25.0" prefWidth="118.0" text="Ajouter un produit" />

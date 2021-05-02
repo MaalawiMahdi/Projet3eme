@@ -516,6 +516,29 @@ public class AfficherBoardController implements Initializable {
             Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+      @FXML
+    private void gestionCommande(ActionEvent event) {
+     try {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("CommandeBack.fxml"));
+           Parent root= loader.load();
+            gestionsociete.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(CommandeBackController.class.getName()).log(Level.SEVERE, null, ex);
+     
+    }
+    }
+
+    @FXML
+    private void gestionLivraison(ActionEvent event) {
+         try {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("LivraisonBack.fxml"));
+           Parent root= loader.load();
+            gestionsociete.getScene().setRoot(root);
+            } catch (IOException ex) {
+            Logger.getLogger(CommandeBackController.class.getName()).log(Level.SEVERE, null, ex);
+     
+    }
+    }
 
 
  

@@ -11,6 +11,8 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\MinLength;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 
 /**
@@ -22,24 +24,28 @@ class Aide
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="le champs Titre est obligatoire *"))
+     * @Groups("post:read")
      */
     private $titre;
 
     /**
      * @ORM\Column(type="string", length=500)
      * @Assert\NotBlank(message="le champs Description est obligatoire * "))
+     * @Groups("post:read")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
      * @Assert\NotBlank(message="le champs adresse est obligatoire * "))
+     * @Groups("post:read")
      */
     private $adresse;
 
@@ -47,11 +53,13 @@ class Aide
      * @ORM\Column(type="string", length=20, nullable=true)
      * @Assert\NotBlank(message="le champs numero de telephone obligatoire * "))
      * @Assert\Length(min=8,minMessage="votre numero de telephne doit contenir au minimum 8 caractères.",max=15,maxMessage="votre numero de telephne ne doit depasser 15 caractères."))
+     * @Groups("post:read")
      */
     private $num_tell;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Groups("post:read")
      */
     private $lien_image;
 
