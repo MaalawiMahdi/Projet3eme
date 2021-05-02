@@ -4,21 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/InscriptionSocieteController.java</file>
-            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HomepageBackController.java</file>
+            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/tools/GenerateExcel.java</file>
             <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/services/UserService.java</file>
             <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/InscriptionConnexionController.java</file>
-            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/InscriptionConnexion.fxml</file>
+            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/entites/InformationsSupplementaires.java</file>
             <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/ProfilController.java</file>
-            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/GestionUser.fxml</file>
-            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HomepageBackGestionUserController.java</file>
+            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/GestionUserController.java</file>
+            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/services/SocieteService.java</file>
+            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HomepageBackSocieteController.java</file>
             <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HomepageBackGestionSocieteController.java</file>
             <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/entites/JavamailUtil.java</file>
-            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/tools/MyConnection.java</file>
-            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/homepage.css</file>
-            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HolidaysHiatus.java</file>
-            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/GestionUserController.java</file>
-            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/services/InformationsSupplementairesService.java</file>
-            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HomepageBackSocieteController.java</file>
+            <file>file:/C:/Users/mahdi/Desktop/Projet3eme/JavaApplication/src/HolidaysHiatus/gui/HomepageFrontController.java</file>
         </group>
     </open-files>
 </project-private>

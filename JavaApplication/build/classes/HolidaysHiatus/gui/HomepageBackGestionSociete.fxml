@@ -3,6 +3,7 @@
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -84,6 +85,8 @@
                </buttons>
             </ButtonBar>
             <TextField fx:id="recherche" layoutX="184.0" layoutY="105.0" onKeyReleased="#chercher" prefHeight="25.0" prefWidth="446.0" promptText="Chercher" />
+            <Button layoutX="184.0" layoutY="472.0" mnemonicParsing="false" onAction="#excel" text="Enregistrer une version excel" />
+            <CheckBox fx:id="emailfile" layoutX="184.0" layoutY="522.0" mnemonicParsing="false" text="Envoyer une version sur mon adresse mail " />
          </children></Pane>
           <Pane layoutX="266.0" prefHeight="71.0" prefWidth="1100.0" styleClass="backgroundBackNav">
          <children>

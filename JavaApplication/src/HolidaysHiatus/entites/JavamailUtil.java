@@ -6,15 +6,22 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.Authenticator;
+import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -60,29 +67,14 @@ public class JavamailUtil {
         Transport.send(message);
         System.out.println("message send successfully");
     }
-    
-   private static Message prepareMessage(Session session, String myAccountEmail,String recepient,String subject,String messagevalue){
-        try {
-            
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(myAccountEmail));
-            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject(subject);
-            
-            message.setText(messagevalue);
-            return message;
-        } catch (MessagingException ex) {
-            Logger.getLogger(JavamailUtil.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
-   /* public static void sendMailActivite(String recepient) throws Exception{
+     public static void sendMailWithFile(String recepient,String subject,String messagevalue,String filename) throws Exception{
         System.out.println("Preparing to send:");
         Properties properties = new Properties();
         
+
         
-        String myAccountEmail ="amin.benmoussa@esprit.tn";
-        String password ="Amin25001";
+        String myAccountEmail ="holidayhiatuspidev@gmail.com";
+        String password ="esprit2021";
         
         properties.put("com.hof.email.starttime","20170519094544");
         properties.put("mail.smtp.auth","true");
@@ -103,24 +95,69 @@ public class JavamailUtil {
             }
         });
         
-        Message message = prepareMessage(session,myAccountEmail,recepient);
+        Message message = prepareMessageWithFile(session,myAccountEmail,recepient,subject,messagevalue,filename);
         
         Transport.send(message);
         System.out.println("message send successfully");
     }
     
-    private static Message prepareMessage(Session session, String myAccountEmail,String recepient){
+   private static Message prepareMessage(Session session, String myAccountEmail,String recepient,String subject,String messagevalue){
         try {
-            ActiviteCrud Act = new ActiviteCrud();
+            
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject("La listes des activités");
-            message.setText(Act.listActivite());
+            message.setSubject(subject);
+            
+            message.setText(messagevalue);
             return message;
         } catch (MessagingException ex) {
             Logger.getLogger(JavamailUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-    }*/
+    
+   }
+ private static Message prepareMessageWithFile(Session session, String myAccountEmail,String recepient,String subject,String messagevalue,String file){
+     try{  
+     Message message = new MimeMessage(session);
+
+         // Set From: header field of the header.
+         message.setFrom(new InternetAddress(myAccountEmail));
+
+         // Set To: header field of the header.
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
+
+         // Set Subject: header field
+         message.setSubject(subject);
+
+         // Create the message part
+         BodyPart messageBodyPart = new MimeBodyPart();
+
+         // Now set the actual message
+         messageBodyPart.setText(messagevalue);
+
+         // Create a multipar message
+         Multipart multipart = new MimeMultipart();
+
+         // Set text message part
+         multipart.addBodyPart(messageBodyPart);
+
+         // Part two is attachment
+         messageBodyPart = new MimeBodyPart();
+         String filename = file;
+         DataSource source = new FileDataSource(filename);
+         messageBodyPart.setDataHandler(new DataHandler(source));
+         messageBodyPart.setFileName(filename);
+         multipart.addBodyPart(messageBodyPart);
+
+         // Send the complete message parts
+         message.setContent(multipart);
+
+return message;
+  
+      } catch (MessagingException e) {
+            Logger.getLogger(JavamailUtil.class.getName()).log(Level.SEVERE, null, e);
+      }
+     return null;
+    }  
 }

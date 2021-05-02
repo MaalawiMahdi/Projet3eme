@@ -7,6 +7,7 @@ package HolidaysHiatus.gui;
 
 import HolidaysHiatus.entites.Societe;
 import HolidaysHiatus.services.SocieteService;
+import HolidaysHiatus.tools.GenerateExcel;
 import HolidaysHiatus.tools.Session;
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +23,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -67,6 +69,8 @@ public class HomepageBackGestionSocieteController implements Initializable {
     private Button Confirmer;
     @FXML
     private Hyperlink gestionuser;
+    @FXML
+    private CheckBox emailfile;
      /**
      * Initializes the controller class.
      */
@@ -128,6 +132,14 @@ public class HomepageBackGestionSocieteController implements Initializable {
               
     @FXML
     private void supprimer(ActionEvent event) {
+        Societe SocieteSelected =  tableview.getSelectionModel().getSelectedItem();
+                System.out.println("selected societe value " + SocieteSelected);
+                if(SocieteSelected!=null){
+                SocieteService S_Service = new SocieteService();
+                SocieteSelected.setEtat(true);
+                S_Service.Supprimer(SocieteSelected.getId());
+                refresh();
+                }
     }
 
 
@@ -175,6 +187,25 @@ public class HomepageBackGestionSocieteController implements Initializable {
       tableview.setItems(list);
       System.out.print("list societe value \n " + list);
          }
+
+    @FXML
+    private void excel(ActionEvent event) {
+        GenerateExcel GE = new GenerateExcel();
+        String[] columns = { "Numero De registre ", "Nom ", "Type ",
+    "Adresse" };
+        SocieteService S_Service = new SocieteService();
+        /*
+      row.createCell(0).setCellValue(Scoeite.getNumregistre());
+      row.createCell(1).setCellValue(Scoeite.getNom());
+      row.createCell(2).setCellValue(Scoeite.getType());
+      row.createCell(3).setCellValue(Scoeite.getAdresse());*/
+        
+        if(emailfile.isSelected())
+        GE.createExcelAndSendToMail(Session.getSession().getSessionUser().getMail(),S_Service.AfficherSocietes(), columns);
+        else
+                    GE.createExcel(S_Service.AfficherSocietes(), columns);
+
+    }
 
     
 }

@@ -418,5 +418,62 @@ class UserController extends AbstractController
 
     }
 
+    /**
+     * @Route("/Api/User/AfficherUsers", name="AfficherUsersMobile")
+     */
+    public function AfficherUsersMobile(): Response
+    {
+        $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+        $jsonContent= Array();
+        foreach ($users as $key=>$user){
+            $jsonContent[$key]['id']= $user->getId();
+            $jsonContent[$key]['password']= $user->getPassword();
+            $jsonContent[$key]['type']= $user->getType();
+            $jsonContent[$key]['mail']= $user->getMail();
+            $jsonContent[$key]['active']= $user->getActive();
+            $jsonContent[$key]['ban']= $user->getBan();
+
+        }
+        return new JsonResponse($jsonContent);
+    }
+
+    /**
+     * @Route("/Api/User/AddUserMobile/{mail}/{password}", name="AddUsersMobile")
+     */
+    public function AddUserMobile($mail,$password)
+    {   $user = new User();
+        $user->setMail($mail);
+        $user->setPassword(password_hash ($password,PASSWORD_BCRYPT,['cost' => 12]));
+        $user->setType("client");
+        $user->setActive(true);
+        $user->setBan(false);
+        $em = $this->getDoctrine()->getManager();
+
+        $em->persist($user);
+        $em->flush();
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+        return $response;
+         }
+
+    /**
+     * @Route("/Api/User/ConnexionUserMobile/{mail}/{password}", name="ConnexionUsersMobile")
+     */
+    public function Connexion($mail,$password)
+    {
+        $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(["mail"=>$mail]);
+        if(password_verify($password,$user->getPassword())==false){
+            $response = new JsonResponse(['resultat'=>"falsePassword"]);
+            return $response;
+        }else if($user->getBan()) {
+            $response = new JsonResponse(['resultat'=>"banned"]);
+            return $response;
+        }else{
+            $response = new JsonResponse(['resultat'=>"true"]);
+            return $response;
+        }
+    }
+
+
 
 }
