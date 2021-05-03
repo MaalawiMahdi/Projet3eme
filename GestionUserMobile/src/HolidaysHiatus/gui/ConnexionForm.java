@@ -7,6 +7,7 @@ package HolidaysHiatus.gui;
 
 import HolidaysHiatus.entites.User;
 import HolidaysHiatus.services.UserService;
+import HolidaysHiatus.tools.Session;
 import com.codename1.ui.Button;
 import com.codename1.ui.Container;
 import com.codename1.ui.Dialog;
@@ -66,7 +67,11 @@ public class ConnexionForm extends Form {
                           
            }else{
                                           Dialog.show("Welcome","","ok",null);
-
+                   Session.StartSession();
+                   Session.getSession().SetSessionUser(us.getUser(Email.getText()));
+                   System.out.print(Session.getSession().getSessionUser());
+                   Form profil = new ProfilForm(theme);
+                   profil.show();
                    } 
          }
         

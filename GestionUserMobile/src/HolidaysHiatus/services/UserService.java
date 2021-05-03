@@ -126,5 +126,16 @@ public class UserService {
         NetworkManager.getInstance().addToQueueAndWait(req);
         return resultatCnx.get("resultat").toString();
     }
+     public User getUser(String text) {
+        List<User> l = getUsers();
+        boolean test = false;
+        int i;
+        for (i = 0; i < l.size(); i++) {
+            if (l.get(i).getMail().compareTo(text) == 0) {
+               return  l.get(i);
+            }
+        }
+        return null;
+    }
 
 }

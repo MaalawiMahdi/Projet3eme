@@ -2,6 +2,7 @@ package com.mycompany.myapp;
 
 
 import HolidaysHiatus.gui.ConnexionForm;
+import HolidaysHiatus.gui.HomePageFrom;
 import HolidaysHiatus.gui.InscriptionForm;
 import static com.codename1.ui.CN.*;
 import com.codename1.ui.Display;
@@ -24,7 +25,7 @@ import com.codename1.ui.Container;
 public class MyApplication {
 
     private Form current;
-    private Resources theme;
+    private static Resources theme;
 
     public void init(Object context) {
         // use two network threads instead of one
@@ -51,20 +52,15 @@ public class MyApplication {
     
     public void start() {
         
-        Form f = new InscriptionForm(theme);
-    Form f2 = new ConnexionForm(theme);
+    
     
         if(current != null){
 
             current.show();
             return;
         }
-        current = new Form();
-        current.setLayout(BoxLayout.y());
-        current.add(f);
-        current.add(f2);
-        current.show();
-        
+      Form F = new HomePageFrom(theme);
+      F.show();
     }
 
     public void stop() {
@@ -76,6 +72,14 @@ public class MyApplication {
     }
     
     public void destroy() {
+    }
+
+    public static Resources getTheme() {
+        return theme;
+    }
+
+    public void setTheme(Resources theme) {
+        this.theme = theme;
     }
 
 }
