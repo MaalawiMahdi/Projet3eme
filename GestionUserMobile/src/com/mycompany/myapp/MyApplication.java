@@ -76,7 +76,7 @@ public class MyApplication {
 
     public static Resources getTheme() {
         return theme;
-    }
+    } 
 
     public void setTheme(Resources theme) {
         this.theme = theme;

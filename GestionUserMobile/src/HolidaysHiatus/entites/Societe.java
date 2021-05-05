@@ -38,7 +38,6 @@ public class Societe {
     }
 
     public Societe() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId() {
@@ -101,7 +100,13 @@ public class Societe {
     public String toString() {
         return "Societe{" + "id=" + id + ", useraccount_id=" + useraccount_id + ", numregistre=" + numregistre + ", adresse=" + adresse + ", type=" + type + ", etat=" + etat + ", nom=" + nom + '}';
     }
-    
+      public void setEtat(String etat) {
+       if(etat.compareTo("true")==0||etat.compareTo("1")==0){
+       this.etat=true;
+       }else if(etat.compareTo("false")==0||etat.compareTo("0")==0){
+       this.etat=false;
+       }
+    }
     
 
 }

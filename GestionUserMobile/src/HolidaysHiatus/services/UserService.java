@@ -116,8 +116,8 @@ public class UserService {
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {
-                
-               //Users = parseUsers(new String(req.getResponseData()));
+
+                //Users = parseUsers(new String(req.getResponseData()));
                 resultatCnx = parseConnexion(new String(req.getResponseData()));
                 req.removeResponseListener(this);
 
@@ -126,16 +126,37 @@ public class UserService {
         NetworkManager.getInstance().addToQueueAndWait(req);
         return resultatCnx.get("resultat").toString();
     }
-     public User getUser(String text) {
+
+    public User getUser(String text) {
         List<User> l = getUsers();
         boolean test = false;
         int i;
         for (i = 0; i < l.size(); i++) {
             if (l.get(i).getMail().compareTo(text) == 0) {
-               return  l.get(i);
+                return l.get(i);
             }
         }
         return null;
     }
 
+    public void update(int id, String mail, String password) {
+        String url = Statics.BASE_URL_User + "/UpdateUserMobile/" + id + "/" + mail + "/" + password;
+        System.out.print(url);
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+
+        NetworkManager.getInstance().addToQueueAndWait(req);
+
+    }
+
+    public User getUser(int id) {
+        List<User> l = getUsers();
+        int i;
+        for (i = 0; i < l.size(); i++) {
+            if (l.get(i).getId() == id) {
+                return l.get(i);
+            }
+        }
+        return null;
+    }
 }

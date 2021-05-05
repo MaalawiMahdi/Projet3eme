@@ -13,6 +13,7 @@ import com.codename1.ui.Button;
 import com.codename1.ui.Container;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.EncodedImage;
+import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;
@@ -103,12 +104,13 @@ public class ProfilForm extends Form {
         });
         
         if(Session.getSession().getSessionUser().getType().compareTo("client")==0){
+            
         this.getToolbar().addCommandToSideMenu("Démarrer avec un compte Business", null, (evt) -> {
         Form InscriptionSociete = new InscriptionSocieteForm(theme);
         InscriptionSociete.show();
         });
         }
-           this.getToolbar().addCommandToSideMenu("Se Déconnecter", null, (evt) -> {
+        this.getToolbar().addMaterialCommandToSideMenu("Se Déconnecter", FontImage.MATERIAL_LOGOUT, (evt) -> {
         Session.getSession().clearSession();
        Form HomaPage = new HomePageFrom(theme);
       HomaPage.show();
@@ -116,6 +118,10 @@ public class ProfilForm extends Form {
     }
 
     private void addaction() {
+    Modifier.addActionListener( (evt)->{
+    Form EditForm = new ProfilEditForm(theme);
+    EditForm.show();
+    });
     }
     
     
