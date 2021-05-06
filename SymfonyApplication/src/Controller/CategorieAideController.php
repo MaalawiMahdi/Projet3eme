@@ -29,6 +29,52 @@ class CategorieAideController extends AbstractController
 
     /**
      * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @Route ("Api/CategorieAide/modifier/{id}/{titre}" , name="modifierCategorieAidejson")
+     */
+    public function modifierCategorieAidejson($id,$titre)
+    {
+        $CategorieAidefind = $this->getDoctrine()->getRepository(CategorieAide::class)->findBy(['id' => $id])[0];
+        $CategorieAidefind->setTitre($titre);
+        $CategorieAidefind->setLienIcon("categorie.png");
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+
+        return new JsonResponse("categorie modifiée");
+    }
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route ("Api/CategorieAide/supprimer/{id}" , name="supprimerCategorieAidejson")
+     */
+    public function SupprimerCategorieAidejson($id)
+    {
+        $CategorieAidefind = $this->getDoctrine()->getRepository(CategorieAide::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($CategorieAidefind);
+        $em->flush();
+        return new JsonResponse("Categorie supprimer");
+
+    }
+    /**
+     * @param $titre
+     * @return JsonResponse
+     * @Route ("Api/CategorieAide/Ajouter/{titre}" , name="ajouterCategorieAidejson")
+     */
+    public function ajouterCategorieAidejson($titre)
+    {
+        $CategorieAide= new CategorieAide();
+            $CategorieAide->setTitre($titre);
+            $CategorieAide->setLienIcon("categorie.png");
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($CategorieAide);
+            $em-> flush();
+
+   return new JsonResponse("Categorie Ajouter") ;
+    }
+    /**
+     * @param Request $request
      * @return Response
      * @Route("Api/CategorieAide/Afficher", name="AfficherCategorieAideApi")
      */

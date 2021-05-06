@@ -22,8 +22,17 @@ public class Aide {
     public String lien_image;
     private float moyenne;
     private float valeur;
-    private String avis;
+    private String avis; 
+    public String categorie_titre;
 
+    public String getCategorie_titre() {
+        return categorie_titre;
+    }
+
+    public void setCategorie_titre(String categorie_titre) {
+        this.categorie_titre = categorie_titre;
+    }
+    
     public float getMoyenne() {
         return moyenne;
     }

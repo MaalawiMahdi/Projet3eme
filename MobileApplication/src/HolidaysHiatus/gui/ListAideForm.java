@@ -10,10 +10,12 @@ import HolidaysHiatus.entities.Aide;
 import HolidaysHiatus.entities.NoteAide;
 import HolidaysHiatus.services.AideService;
 import com.codename1.components.ImageViewer;
+import com.codename1.components.MultiButton;
 import com.codename1.components.SpanLabel;
 import static com.codename1.push.PushContent.setTitle;
 import com.codename1.ui.Button;
 import com.codename1.ui.Command;
+import com.codename1.ui.Component;
 import com.codename1.ui.Container;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
@@ -63,7 +65,7 @@ public class ListAideForm extends Form {
     public ListAideForm(int id, int iduser) {
     this.iduser=iduser;
     this.idcat=id;
-        setTitle("Liste Aide");
+        setTitle("Liste des Aides");
         // SpanLabel sp = new SpanLabel();
         listContainer = GetAides();
         listContainer.setLayout(BoxLayout.y());
@@ -74,6 +76,7 @@ public class ListAideForm extends Form {
         add(listContainer);
 
         getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new ListCategorieAideForm(iduser).showBack());
+      
 
     }
     private void initStarRankStyle(Style s, Image star) {
@@ -172,7 +175,7 @@ public class ListAideForm extends Form {
             
             EncodedImage placeHolder = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
 
-            String url = "http://localhost/public/uploads/" + a.getLien_image();
+            String url = "http://127.0.0.1:8000/uploads/" + a.getLien_image();
             Image img = URLImage.createToStorage(placeHolder, url, url);
             ImageViewer image = new ImageViewer(img);
             

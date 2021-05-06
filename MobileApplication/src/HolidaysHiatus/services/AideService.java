@@ -60,6 +60,7 @@ public class AideService {
                 a.setMoyenne(Float.parseFloat(obj.get("moyenne").toString()));
                 a.setValeur(Float.parseFloat(obj.get("note").toString()));
                 a.setAvis(obj.get("avis").toString());
+                a.setCategorie_titre(obj.get("categorie_titre").toString());
                
                 aides.add(a);
             }
@@ -113,5 +114,89 @@ public class AideService {
     return resultOK; 
 }
 
+        public Boolean addAide(String titre ,String Description,String adresse,String telephone,int categorie) {
+     
+        
+               
+     
+        String url = Statics.BASE_URL_Aide + "/Ajouter" + "/"+ titre + "/"+Description + "/"+ adresse+"/"+ telephone +"/"+ categorie;
+    
+   
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        
+        NetworkManager.getInstance().addToQueueAndWait(req);
+   
+    
+    
+    return resultOK; 
+  } 
+           public Boolean updateAide(int id ,String titre ,String Description,String adresse,String telephone,int categorie) {
+     
+        
+               
+     
+        String url = Statics.BASE_URL_Aide + "/Modifier" +"/"+ id + "/"+ titre + "/"+Description + "/"+ adresse+"/"+ telephone +"/"+ categorie;
+    
+   
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        
+        NetworkManager.getInstance().addToQueueAndWait(req);
+   
+    
+    
+    return resultOK; 
+  } 
+       public ArrayList<Aide> getAllAidesBack(){
+        
+        String url = Statics.BASE_URL_Aide + "/Afficher";
+
+         ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.setPost(false);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                aides = parseAides(new String(req.getResponseData()));
+           req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+
+        return aides;
+    }
+       
+       public Boolean deleteAide(int id) {
+        String url = Statics.BASE_URL_Aide + "/supprimer" + "/"+ id;
+    
+   
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        
+        NetworkManager.getInstance().addToQueueAndWait(req);
+    return resultOK; 
+}
 
 }

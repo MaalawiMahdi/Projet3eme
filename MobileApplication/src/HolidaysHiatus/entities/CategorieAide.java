@@ -70,7 +70,7 @@ public class CategorieAide {
 
     @Override
     public String toString() {
-        return "CategorieAide{" + "id=" + id + ", titre=" + titre + ", lien_icon=" + lien_icon + '}';
+        return  titre ;
     }
 
     @Override

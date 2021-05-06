@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\CategorieAide;
 use App\Form\AideType;
 use App\Form\SearchAidesType;
 use mysql_xdevapi\Exception;
@@ -45,6 +46,101 @@ class AideController extends AbstractController
         return $this->render('aide/index.html.twig', [
             'controller_name' => 'AideController',
         ]);
+    }
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @Route ("Api/Aide/Ajouter/{titre}/{description}/{adresse}/{telephone}/{categorie}" , name="ajouterAideJson")
+     */
+    public function ajouterAideJson($titre,$description,$adresse,$telephone,$categorie)
+    {  $categoriefind=$this->getDoctrine()->getRepository(CategorieAide::class)->find(array('id'=>$categorie));
+        $Aide = new Aide();
+        $Aide->setTitre($titre);
+        $Aide->setDescription($description);
+        $Aide->setAdresse($adresse);
+        $Aide->setNumTell($telephone);
+        $Aide->setCategorie($categoriefind);
+
+        $Aide->setLienImage("doctor-1010903_1920-603a6b258fe8c.jpeg");
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($Aide);
+            $em->flush();
+
+
+
+        return new JsonResponse("aide ajouter");
+    }
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @Route ("Api/Aide/Modifier/{id}/{titre}/{description}/{adresse}/{telephone}/{categorie}" , name="modifierAideJson")
+     */
+    public function modifierAideJson($id,$titre,$description,$adresse,$telephone,$categorie)
+    {  $Aide=$this->getDoctrine()->getRepository(Aide::class)->find(Array('id'=>$id));
+
+        $categoriefind=$this->getDoctrine()->getRepository(CategorieAide::class)->find(array('id'=>$categorie));
+       $Aide->setTitre($titre);
+      
+       $Aide->setDescription($description);
+        
+        $Aide->setAdresse($adresse);
+        
+       $Aide->setNumTell($telephone);
+        
+      $Aide->setCategorie($categoriefind);
+        $Aide->setLienImage("doctor-1010903_1920-603a6b258fe8c.jpeg");
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+
+
+
+        return new JsonResponse("aide modifier");
+    }
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route ("Api/Aide/supprimer/{id}" , name="supprimerAidejson")
+     */
+    public function SupprimerAideJson($id)
+    {
+        $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->find(array('id'=>$id));
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($Aidefind);
+        $em->flush();
+        return new JsonResponse("aide supprimée");
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     * @Route("Api/Aide/Afficher", name="ApiAfficherAidesJson")
+     */
+    public function listAideJson(): Response
+    {
+        $Aide = $this->getDoctrine()->getRepository(Aide::class)->findAll();
+        $jsonContent= Array();
+        foreach ($Aide as $key=>$aide){
+            $jsonContent[$key]['id']= $aide->getId();
+            $jsonContent[$key]['categorie_id']= $aide->getCategorie()->getId();
+            $jsonContent[$key]['titre']= $aide->getTitre();
+            $jsonContent[$key]['description']= $aide->getDescription();
+            $jsonContent[$key]['adresse']= $aide->getAdresse();
+            $jsonContent[$key]['num_tell']= $aide->getNumTell();
+            $jsonContent[$key]['lien_image']=$aide->getLienImage();
+            $jsonContent[$key]['categorie_titre']= $aide->getCategorie()->getTitre();
+            $note=0;
+            $Moyenne=0;
+            $aviss="null";
+
+            $jsonContent[$key]['note']= $note;
+            $jsonContent[$key]['avis']= $aviss;
+            $jsonContent[$key]['moyenne']=$Moyenne;
+
+        }
+
+        return new JsonResponse($jsonContent);
     }
 
     /**

@@ -47,7 +47,7 @@ public class ListCategorieAideForm extends Form {
     private int iduser;
     public ListCategorieAideForm(int iduser) {
     this.iduser=iduser;
-        setTitle("Liste CategorieAide");
+        setTitle("Liste des Categories Aide");
         // SpanLabel sp = new SpanLabel();
         listContainer = GetCategorieAide();
         listContainer.setLayout(BoxLayout.y());
@@ -88,7 +88,7 @@ public class ListCategorieAideForm extends Form {
             
             EncodedImage placeHolder = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false).scaledEncoded(400, 300);
             
-            String url = "http://localhost/public/uploads/" + c.getLien_icon();
+            String url = "http://127.0.0.1:8000/uploads/" + c.getLien_icon();
             Image img = URLImage.createToStorage(placeHolder, url, url);
             
             ImageViewer image = new ImageViewer(img);
