@@ -24,6 +24,7 @@ import com.codename1.ui.TextArea;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
+import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 
 import java.util.List;
@@ -37,16 +38,16 @@ public class ListCatAideBackForm extends Form {
     Form current;
     private CategorieAideService sv;
     List<CategorieAide> cat;
-    
+
     public ListCatAideBackForm() {
         current = this;
         sv = new CategorieAideService();
-       
+
         setTitle("Liste des Categories Aide");
         setLayout(BoxLayout.y());
         Button add = new Button("Ajouter une Categorie Aide");
-         cat = sv.getAllCatAides();
-  
+        cat = sv.getAllCatAides();
+
         add(add);
         for (int i = 0; i < cat.size(); i++) {
             add(addCatItem(cat.get(i)));
@@ -69,19 +70,27 @@ public class ListCatAideBackForm extends Form {
                 Button b = new Button("Ajouter");
                 f.addAll(espace, image, lbtitre, titre, b);
                 f.show();
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addMaterialCommandToSideMenu("Categorie Aide", FontImage.MATERIAL_CATEGORY, (event) -> {new ListCatAideBackForm().show();});
-                f.getToolbar().addMaterialCommandToSideMenu(" Aide", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {new ListAideBackForm().show();});
+                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+                });
+                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+                });
+                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+                });
+                f.getToolbar().addMaterialCommandToSideMenu("Categorie Aide", FontImage.MATERIAL_CATEGORY, (event) -> {
+                    new ListCatAideBackForm().show();
+                });
+                f.getToolbar().addMaterialCommandToSideMenu(" Aide", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {
+                    new ListAideBackForm().show();
+                });
                 b.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
-                         if (titre.getText().length() == 0) {
-                    Dialog.show("Alert", "Veuillez remplir tous les champs.", new Command("OK"));
-                }else {
-                        CategorieAideService.getInstance().addCategorieAide(titre.getText());
-                        new ListCatAideBackForm().show(); }                       
+                        if (titre.getText().length() == 0) {
+                            Dialog.show("Alert", "Veuillez remplir tous les champs.", new Command("OK"));
+                        } else {
+                            CategorieAideService.getInstance().addCategorieAide(titre.getText());
+                            new ListCatAideBackForm().show();
+                        }
                     }
                 });
             }
@@ -117,7 +126,7 @@ public class ListCatAideBackForm extends Form {
         Label espace2 = new Label("espace");
         espace2.setVisible(false);
         details.addAll(lbtitre, buttons, espace2);
-       
+
         EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false).scaledEncoded(200, 200);
 
         Image img = URLImage.createToStorage(enc, "http://127.0.0.1:8000/uploads/" + Categorie.getLien_icon(), "http://127.0.0.1:8000/uploads/" + Categorie.getLien_icon());
@@ -129,17 +138,17 @@ public class ListCatAideBackForm extends Form {
         Dell.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-               CategorieAideService.getInstance().deleteCategorieAide(Categorie.getId());
-               new ListCatAideBackForm().showBack();
+                CategorieAideService.getInstance().deleteCategorieAide(Categorie.getId());
+                new ListCatAideBackForm().showBack();
             }
         });
         Edit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                 
-                        EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
 
-                Image img = URLImage.createToStorage(enc, "http://127.0.0.1:8000/uploads/" + Categorie.getLien_icon(), "http://127.0.0.1:8000/uploads"  + Categorie.getLien_icon());
+                EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
+
+                Image img = URLImage.createToStorage(enc, "http://127.0.0.1:8000/uploads/" + Categorie.getLien_icon(), "http://127.0.0.1:8000/uploads" + Categorie.getLien_icon());
 
                 ImageViewer image = new ImageViewer(img);
                 Label espace = new Label("espace");
@@ -152,16 +161,23 @@ public class ListCatAideBackForm extends Form {
                 Button b = new Button("Modifier");
                 f.addAll(espace, image, lbtitre, titre, b);
                 f.show();
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addMaterialCommandToSideMenu("Categorie Aide", FontImage.MATERIAL_CATEGORY, (event) -> {new ListCatAideBackForm().show();});
-                f.getToolbar().addMaterialCommandToSideMenu(" Aide", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {new ListAideBackForm().show();});
+                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+                });
+                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+                });
+                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+                });
+                f.getToolbar().addMaterialCommandToSideMenu("Categorie Aide", FontImage.MATERIAL_CATEGORY, (event) -> {
+                    new ListCatAideBackForm().show();
+                });
+                f.getToolbar().addMaterialCommandToSideMenu(" Aide", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {
+                    new ListAideBackForm().show();
+                });
                 b.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
-                        CategorieAideService.getInstance().editCategorieAide(Categorie.getId(),titre.getText());
-                        new ListCatAideBackForm().show();                        
+                        CategorieAideService.getInstance().editCategorieAide(Categorie.getId(), titre.getText());
+                        new ListCatAideBackForm().show();
                     }
                 });
             }

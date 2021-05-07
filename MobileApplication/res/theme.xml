@@ -44,6 +44,8 @@
     <image name="Dialog.borderTopL_1.png" type="multi"  />
     <image name="Dialog.borderTopR_1.png" type="multi"  />
     <image name="empty.PNG"  />
+    <image name="full.PNG"  />
+    <image name="logo.png"  />
     <image name="Menu.borderBottom_1.png" type="multi"  />
     <image name="Menu.borderBottomL_1.png" type="multi"  />
     <image name="Menu.borderBottomR_1.png" type="multi"  />
@@ -123,12 +125,12 @@
         <gradient key="Button.press#bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
         <val key="Button.press#bgType" value="0" />
         <border key="Button.press#border" type="image" i1="Button.borderTop_1.png" i2="Button.borderBottom_1.png" i3="Button.borderLeft_1.png" i4="Button.borderRight_1.png" i5="Button.borderTopL_1.png" i6="Button.borderTopR_1.png" i7="Button.borderBottomL_1.png" i8="Button.borderBottomR_1.png" i9="Button.borderCenter_1.png" />
-        <val key="Button.press#fgColor" value="999999" />
+        <val key="Button.press#fgColor" value="ffffff" />
         <font key="Button.press#font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <val key="Button.press#marUnit" value="2,2,2,2" />
-        <val key="Button.press#margin" value="1,1,1,1" />
+        <val key="Button.press#margin" value="1.0,1.0,1.0,1.0" />
         <val key="Button.press#padUnit" value="2,2,2,2" />
-        <val key="Button.press#padding" value="1,1,1,1" />
+        <val key="Button.press#padding" value="1.0,1.0,1.0,1.0" />
         <val key="Button.press#transparency" value="0" />
         <val key="Button.sel#align" value="4" />
         <gradient key="Button.sel#bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
@@ -232,12 +234,15 @@
         <val key="CheckBox.sel#padding" value="1,1,1,1" />
         <val key="CheckBox.sel#transparency" value="0" />
         <val key="CheckBox.transparency" value="0" />
+        <val key="ComboBox.bgImage" value="back-command.png" />
+        <val key="ComboBox.bgType" value="1" />
         <border key="ComboBox.border" type="image" i1="ComboBox.borderTop_1.png" i2="ComboBox.borderBottom_1.png" i3="ComboBox.borderLeft_1.png" i4="ComboBox.borderRight_1.png" i5="ComboBox.borderTopL_1.png" i6="ComboBox.borderTopR_1.png" i7="ComboBox.borderBottomL_1.png" i8="ComboBox.borderBottomR_1.png" i9="ComboBox.borderCenter_1.png" />
+        <val key="ComboBox.fgColor" value="0" />
         <font key="ComboBox.font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <val key="ComboBox.marUnit" value="2,2,2,2" />
-        <val key="ComboBox.margin" value="1,1,1,1" />
+        <val key="ComboBox.margin" value="1.0,1.0,1.0,1.0" />
         <val key="ComboBox.padUnit" value="2,2,2,2" />
-        <val key="ComboBox.padding" value="1,1,1,1" />
+        <val key="ComboBox.padding" value="1.0,1.0,1.0,1.0" />
         <border key="ComboBox.press#border" type="image" i1="ComboBox.sel#borderTop_2.png" i2="ComboBox.sel#borderBottom_2.png" i3="ComboBox.sel#borderLeft_2.png" i4="ComboBox.sel#borderRight_2.png" i5="ComboBox.sel#borderTopL_2.png" i6="ComboBox.sel#borderTopR_2.png" i7="ComboBox.sel#borderBottomL_2.png" i8="ComboBox.sel#borderBottomR_2.png" i9="ComboBox.sel#borderCenter_2.png" />
         <font key="ComboBox.press#font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <val key="ComboBox.press#marUnit" value="2,2,2,2" />
@@ -252,6 +257,7 @@
         <val key="ComboBox.sel#padUnit" value="2,2,2,2" />
         <val key="ComboBox.sel#padding" value="1,1,1,1" />
         <val key="ComboBox.sel#transparency" value="0" />
+        <val key="ComboBoxFocus.fgColor" value="0" />
         <val key="ComboBoxFocus.transparency" value="0" />
         <val key="ComboBoxItem.fgColor" value="0" />
         <font key="ComboBoxItem.font" type="ttf" face="0" style="1" size="0" name="native:MainThin" family="native:MainThin" sizeSettings="3" actualSize="3.0" />
@@ -590,6 +596,8 @@
         <val key="SideNavigationPanel.margin" value="0,0,0,0" />
         <val key="SideNavigationPanel.padding" value="0,0,0,0" />
         <val key="SideNavigationPanel.transparency" value="255" />
+        <val key="SidemenuTop.bgImage" value="logo.png" />
+        <val key="SidemenuTop.bgType" value="1" />
         <gradient key="Slider.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
         <val key="Slider.bgType" value="0" />
         <border key="Slider.border" type="imageH" i1="sliderEmptyLeft.png" i2="sliderEmptyRight.png" i3="sliderEmpty.png" />
