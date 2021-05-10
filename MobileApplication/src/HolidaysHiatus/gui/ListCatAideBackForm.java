@@ -8,13 +8,17 @@ package HolidaysHiatus.gui;
 import HolidaysHiatus.MyApplication;
 import HolidaysHiatus.entities.CategorieAide;
 import HolidaysHiatus.services.CategorieAideService;
+import com.codename1.capture.Capture;
 import static com.codename1.push.PushContent.setTitle;
 import com.codename1.components.ImageViewer;
+import com.codename1.components.ToastBar;
+import com.codename1.io.Log;
 import com.codename1.ui.Button;
 import com.codename1.ui.ComboBox;
 import com.codename1.ui.Command;
 import com.codename1.ui.Container;
 import com.codename1.ui.Dialog;
+import com.codename1.ui.Display;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
@@ -26,6 +30,9 @@ import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.util.ImageIO;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 import java.util.List;
 
@@ -34,11 +41,12 @@ import java.util.List;
  * @author drwhoo
  */
 public class ListCatAideBackForm extends Form {
-
+    String jobPic;
     Form current;
     private CategorieAideService sv;
     List<CategorieAide> cat;
-
+  Image imginsert;
+    
     public ListCatAideBackForm() {
         current = this;
         sv = new CategorieAideService();
@@ -55,10 +63,10 @@ public class ListCatAideBackForm extends Form {
         add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
+                EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false).scaledEncoded(200, 200);
 
-                Image img = URLImage.createToStorage(enc, "http://127.0.0.1:8000/uploads/categorie.png", "http://127.0.0.1:8000/uploads/categorie.png");
-
+                Image img = URLImage.createToStorage(enc, "http://127.0.0.1:8000/uploads/placeholder-image.png", "http://127.0.0.1:8000/uploads/placeholder-image.png");
+               
                 ImageViewer image = new ImageViewer(img);
                 Label espace = new Label("espace");
                 espace.setVisible(false);
@@ -68,7 +76,16 @@ public class ListCatAideBackForm extends Form {
                 Label lbtitre = new Label("Titre:");
                 TextArea titre = new TextArea();
                 Button b = new Button("Ajouter");
-                f.addAll(espace, image, lbtitre, titre, b);
+                Button obIcon = new Button ("Inserer une Image ");
+                obIcon.addActionListener((ActionEvent en) -> 
+                 {jobPic=uploadImage();
+                 if(jobPic!=null){
+                 imginsert=URLImage.createToStorage(enc,jobPic,jobPic);
+                         image.setImage(imginsert);}
+                         
+                         
+                 });
+                f.addAll(espace, image,obIcon, lbtitre, titre, b);
                 f.show();
                 f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
                 });
@@ -95,7 +112,12 @@ public class ListCatAideBackForm extends Form {
                         if (titre.getText().length() == 0) {
                             Dialog.show("Alert", "Veuillez remplir tous les champs.", new Command("OK"));
                         } else {
-                            CategorieAideService.getInstance().addCategorieAide(titre.getText());
+                            String ImageData;
+                            if (jobPic!=null){
+                            ImageData=jobPic.substring(jobPic.lastIndexOf("/")+1);
+                            } else  {ImageData="placeholder-image.png";}
+                            
+                            CategorieAideService.getInstance().addCategorieAide(titre.getText(),ImageData);
                             new ListCatAideBackForm().show();
                         }
                     }
@@ -163,7 +185,7 @@ public class ListCatAideBackForm extends Form {
                 EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
 
                 Image img = URLImage.createToStorage(enc, "http://127.0.0.1:8000/uploads/" + Categorie.getLien_icon(), "http://127.0.0.1:8000/uploads" + Categorie.getLien_icon());
-
+                
                 ImageViewer image = new ImageViewer(img);
                 Label espace = new Label("espace");
                 espace.setVisible(false);
@@ -173,7 +195,18 @@ public class ListCatAideBackForm extends Form {
                 Label lbtitre = new Label("Titre:");
                 TextArea titre = new TextArea(Categorie.getTitre());
                 Button b = new Button("Modifier");
-                f.addAll(espace, image, lbtitre, titre, b);
+                Button obIcon = new Button ("Inserer une Image ");
+              
+                obIcon.addActionListener((ActionEvent en) -> 
+                 {
+                     jobPic=uploadImage();
+                 if (jobPic!=null){
+                     imginsert=URLImage.createToStorage(enc,jobPic,jobPic);
+                         image.setImage(imginsert);}
+                         
+                         
+                 });
+                f.addAll(espace, image,obIcon, lbtitre, titre, b);
                 f.show();
                 f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
                 });
@@ -197,13 +230,56 @@ public class ListCatAideBackForm extends Form {
                 b.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
-                        CategorieAideService.getInstance().editCategorieAide(Categorie.getId(), titre.getText());
+                       if (titre.getText().length() == 0) {
+                            Dialog.show("Alert", "Veuillez remplir tous les champs.", new Command("OK"));
+                        } else {
+                        String ImageData;
+                            if (jobPic!=null){
+                            ImageData=jobPic.substring(jobPic.lastIndexOf("/")+1);
+                            } else  {ImageData="null";}
+                        CategorieAideService.getInstance().editCategorieAide(Categorie.getId(), titre.getText(),ImageData);
                         new ListCatAideBackForm().show();
-                    }
+                    }}
                 });
             }
         });
         return holder;
     }
+    
+    
+    
+         
+    public String uploadImage ()
+    
+    {Dialog d = new Dialog();
+    
+        if(d.show("", "Voulez-vous ajouter une image ?", "Ajouter","Annuler" )) {
+           
+             jobPic =Capture.capturePhoto();
+             
+                if(jobPic != null) {
+                    try {
+                      Image img = Image.createImage(jobPic);
+                      ImageIO imgIO= ImageIO.getImageIO();
+                      ByteArrayOutputStream out = new ByteArrayOutputStream();
+                      imgIO.save(img, out,ImageIO.FORMAT_JPEG, 1);
+                     
+                       
+                      byte[] bytesdata = out.toByteArray();
+                     // jobIcon.setIcon(img);
+ 
+                d.remove();
+                    } catch(IOException err) {
+                        ToastBar.showErrorMessage("An error occured while loading the image: " + err);
+                        Log.e(err);
+                    }
+                }
+                
 
+             
+            
+    System.out.println(jobPic);
+} return jobPic;
+    }
+ 
 }

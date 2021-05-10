@@ -114,12 +114,12 @@ public class AideService {
     return resultOK; 
 }
 
-        public Boolean addAide(String titre ,String Description,String adresse,String telephone,int categorie) {
+        public Boolean addAide(String titre ,String Description,String adresse,String telephone,int categorie,String ImageData) {
      
         
                
      
-        String url = Statics.BASE_URL_Aide + "/Ajouter" + "/"+ titre + "/"+Description + "/"+ adresse+"/"+ telephone +"/"+ categorie;
+        String url = Statics.BASE_URL_Aide + "/Ajouter" + "/"+ titre + "/"+Description + "/"+ adresse+"/"+ telephone +"/"+ categorie +"/" + ImageData;
     
    
         ConnectionRequest req = new ConnectionRequest();
@@ -138,12 +138,12 @@ public class AideService {
     
     return resultOK; 
   } 
-           public Boolean updateAide(int id ,String titre ,String Description,String adresse,String telephone,int categorie) {
+           public Boolean updateAide(int id ,String titre ,String Description,String adresse,String telephone,int categorie,String ImageData) {
      
         
                
      
-        String url = Statics.BASE_URL_Aide + "/Modifier" +"/"+ id + "/"+ titre + "/"+Description + "/"+ adresse+"/"+ telephone +"/"+ categorie;
+        String url = Statics.BASE_URL_Aide + "/Modifier" +"/"+ id + "/"+ titre + "/"+Description + "/"+ adresse+"/"+ telephone +"/"+ categorie+ "/" + ImageData;
     
    
         ConnectionRequest req = new ConnectionRequest();

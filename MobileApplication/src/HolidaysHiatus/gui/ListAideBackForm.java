@@ -10,9 +10,12 @@ import HolidaysHiatus.entities.Aide;
 import HolidaysHiatus.entities.CategorieAide;
 import HolidaysHiatus.services.AideService;
 import HolidaysHiatus.services.CategorieAideService;
+import com.codename1.capture.Capture;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.MultiButton;
 import com.codename1.components.SpanLabel;
+import com.codename1.components.ToastBar;
+import com.codename1.io.Log;
 import com.codename1.ui.Button;
 import com.codename1.ui.ComboBox;
 import com.codename1.ui.Command;
@@ -29,6 +32,9 @@ import com.codename1.ui.URLImage;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.util.ImageIO;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -43,6 +49,8 @@ Form current;
       List<CategorieAide> cat;
     private CategorieAideService svCat;
     ComboBox<CategorieAide> ComboCat;
+     Image imginsert;
+  String jobPic;
     
     public ListAideBackForm() {
         current = this;
@@ -64,9 +72,18 @@ Form current;
             public void actionPerformed(ActionEvent evt) {
                 EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
 
-                Image img = URLImage.createToStorage(enc, "http://127.0.0.1:8000/uploads/doctor-1010903_1920-603a6b258fe8c.jpeg", "http://127.0.0.1:8000/uploads/doctor-1010903_1920-603a6b258fe8c.jpeg");
-
+                Image img = URLImage.createToStorage(enc, "http://127.0.0.1:8000/uploads/placeholder-image.png", "http://127.0.0.1:8000/uploads/placeholder-image.png");
+                
                 ImageViewer image = new ImageViewer(img);
+                Button obIcon = new Button ("Inserer une Image ");
+                obIcon.addActionListener((ActionEvent en) -> 
+                 {jobPic=uploadImage();
+                 if(jobPic!=null){
+                 imginsert=URLImage.createToStorage(enc,jobPic,jobPic);
+                         image.setImage(imginsert);}
+                         
+                         
+                 });
                 ComboCat=new ComboBox();
                 Label lbCat = new Label ("Categorie Aide :");
                 for (CategorieAide a : cat ){ComboCat.addItem(a);}
@@ -84,7 +101,7 @@ Form current;
                 Label lbtel = new Label("Telephone:");
                 TextArea tel = new TextArea();
                 Button b = new Button("Ajouter");
-                f.addAll(espace, image, lbtitre, titre,lbCat,ComboCat,lbdescription,description,lbadresse,adresse,lbtel,tel, b);
+                f.addAll(espace, image,obIcon, lbtitre, titre,lbCat,ComboCat,lbdescription,description,lbadresse,adresse,lbtel,tel, b);
                 f.show();
                 f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
                 f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
@@ -101,10 +118,16 @@ Form current;
                 b.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
+                        
                          if ((titre.getText().length() == 0) || (description.getText().length() == 0) || (adresse.getText().length()== 0)|| (tel.getText().length() == 0)) {
                     Dialog.show("Alert", "Veuillez remplir tous les champs.", new Command("OK"));
                 }
-                         else{     AideService.getInstance().addAide(titre.getText(),description.getText(),adresse.getText(),tel.getText(),ComboCat.getSelectedItem().getId());
+                         else{
+                              String ImageData;
+                            if (jobPic!=null){
+                            ImageData=jobPic.substring(jobPic.lastIndexOf("/")+1);
+                            } else  {ImageData="placeholder-image.png";}
+                             AideService.getInstance().addAide(titre.getText(),description.getText(),adresse.getText(),tel.getText(),ComboCat.getSelectedItem().getId(),ImageData);
                         new ListAideBackForm().show();}                        
                     }
                 });
@@ -194,7 +217,18 @@ Form current;
                 Label lbtel = new Label("Telephone:");
                 TextArea tel = new TextArea(Aide.getNum_tell());
                 Button b = new Button("Modifier");
-                f.addAll(espace, image, lbtitre, titre,lbCat,ComboCat,lbdescription,description,lbadresse,adresse,lbtel,tel, b);
+                  Button obIcon = new Button ("Inserer une Image ");
+              
+                obIcon.addActionListener((ActionEvent en) -> 
+                 {
+                     jobPic=uploadImage();
+                 if (jobPic!=null){
+                     imginsert=URLImage.createToStorage(enc,jobPic,jobPic);
+                         image.setImage(imginsert);}
+                         
+                         
+                 });
+                f.addAll(espace, image,obIcon, lbtitre, titre,lbCat,ComboCat,lbdescription,description,lbadresse,adresse,lbtel,tel, b);
                 f.show();
                 f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
                 f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
@@ -213,13 +247,48 @@ Form current;
                          if ((titre.getText().length() == 0) || (description.getText().length() == 0) || (adresse.getText().length()== 0)|| (tel.getText().length() == 0)) {
                     Dialog.show("Alert", "Veuillez remplir tous les champs.", new Command("OK"));
                 }
-                         else{     AideService.getInstance().updateAide(Aide.getId(),titre.getText(),description.getText(),adresse.getText(),tel.getText(),ComboCat.getSelectedItem().getId());
+                         else{     String ImageData;
+                            if (jobPic!=null){
+                            ImageData=jobPic.substring(jobPic.lastIndexOf("/")+1);
+                            } else  {ImageData="null"; }  
+                             AideService.getInstance().updateAide(Aide.getId(),titre.getText(),description.getText(),adresse.getText(),tel.getText(),ComboCat.getSelectedItem().getId(),ImageData);
                         new ListAideBackForm().show();}                         
                     }
                 });
             }
         });
         return holder;
+    }
+                 public String uploadImage ()
+    
+    {Dialog d = new Dialog();
+    
+        if(d.show("", "Voulez-vous ajouter une image?", "Ajouter","Annuler" )) {
+           
+             jobPic =Capture.capturePhoto();
+             
+                if(jobPic != null) {
+                    try {
+                      Image img = Image.createImage(jobPic);
+                      ImageIO imgIO= ImageIO.getImageIO();
+                      ByteArrayOutputStream out = new ByteArrayOutputStream();
+                      imgIO.save(img, out,ImageIO.FORMAT_JPEG, 1);
+                     
+                       
+                      byte[] bytesdata = out.toByteArray();
+                     // jobIcon.setIcon(img);
+ 
+                d.remove();
+                    } catch(IOException err) {
+                        ToastBar.showErrorMessage("An error occured while loading the image: " + err);
+                        Log.e(err);
+                    }
+                }
+                
+
+             
+            
+} return jobPic;
     }
 
 }

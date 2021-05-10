@@ -10,6 +10,7 @@ use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Scalar\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DomCrawler\Field\TextareaFormField;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,6 +47,16 @@ class AideController extends AbstractController
         return $this->render('aide/index.html.twig', [
             'controller_name' => 'AideController',
         ]);
+    }
+    /**
+     * @Route("upload/{url}", name="uploadJson")
+     */
+    public function uploadJson($url,Request $request)
+
+    {   $urle="C:/Users/drwhoo/AppData/Local/Temp/".$url;
+       $fileSystem = new Filesystem();
+       $fileSystem->copy($urle,$this->getParameter('kernel.project_dir').'/public/uploads/'.$url);
+        return new JsonResponse($url);
     }
     /**
      * @return Response
@@ -85,10 +96,15 @@ class AideController extends AbstractController
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
-     * @Route ("Api/Aide/Ajouter/{titre}/{description}/{adresse}/{telephone}/{categorie}" , name="ajouterAideJson")
+     * @Route ("Api/Aide/Ajouter/{titre}/{description}/{adresse}/{telephone}/{categorie}/{url}" , name="ajouterAideJson")
      */
-    public function ajouterAideJson($titre,$description,$adresse,$telephone,$categorie)
-    {  $categoriefind=$this->getDoctrine()->getRepository(CategorieAide::class)->find(array('id'=>$categorie));
+    public function ajouterAideJson($titre,$description,$adresse,$telephone,$categorie,$url)
+    {  if ($url != "placeholder-image.png") {
+        $urle = "C:/Users/drwhoo/AppData/Local/Temp/" . $url;
+        $fileSystem = new Filesystem();
+        $fileSystem->copy($urle, $this->getParameter('kernel.project_dir') . '/public/uploads/' . $url);
+    }
+        $categoriefind=$this->getDoctrine()->getRepository(CategorieAide::class)->find(array('id'=>$categorie));
         $Aide = new Aide();
         $Aide->setTitre($titre);
         $Aide->setDescription($description);
@@ -96,7 +112,7 @@ class AideController extends AbstractController
         $Aide->setNumTell($telephone);
         $Aide->setCategorie($categoriefind);
 
-        $Aide->setLienImage("doctor-1010903_1920-603a6b258fe8c.jpeg");
+        $Aide->setLienImage($url);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($Aide);
@@ -109,14 +125,19 @@ class AideController extends AbstractController
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
-     * @Route ("Api/Aide/Modifier/{id}/{titre}/{description}/{adresse}/{telephone}/{categorie}" , name="modifierAideJson")
+     * @Route ("Api/Aide/Modifier/{id}/{titre}/{description}/{adresse}/{telephone}/{categorie}/{url}" , name="modifierAideJson")
      */
-    public function modifierAideJson($id,$titre,$description,$adresse,$telephone,$categorie)
+    public function modifierAideJson($id,$titre,$description,$adresse,$telephone,$categorie,$url)
     {  $Aide=$this->getDoctrine()->getRepository(Aide::class)->find(Array('id'=>$id));
 
         $categoriefind=$this->getDoctrine()->getRepository(CategorieAide::class)->find(array('id'=>$categorie));
-       $Aide->setTitre($titre);
-      
+        if($url!=("null")){
+            $urle="C:/Users/drwhoo/AppData/Local/Temp/".$url;
+            $fileSystem = new Filesystem();
+            $fileSystem->copy($urle,$this->getParameter('kernel.project_dir').'/public/uploads/'.$url);
+            $Aide->setLienImage($url);  }
+        $Aide->setTitre($titre);
+
        $Aide->setDescription($description);
         
         $Aide->setAdresse($adresse);
@@ -124,7 +145,7 @@ class AideController extends AbstractController
        $Aide->setNumTell($telephone);
         
       $Aide->setCategorie($categoriefind);
-        $Aide->setLienImage("doctor-1010903_1920-603a6b258fe8c.jpeg");
+
         $em = $this->getDoctrine()->getManager();
         $em->flush();
 

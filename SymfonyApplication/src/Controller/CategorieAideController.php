@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,13 +31,17 @@ class CategorieAideController extends AbstractController
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
-     * @Route ("Api/CategorieAide/modifier/{id}/{titre}" , name="modifierCategorieAidejson")
+     * @Route ("Api/CategorieAide/modifier/{id}/{titre}/{url}" , name="modifierCategorieAidejson")
      */
-    public function modifierCategorieAidejson($id,$titre)
+    public function modifierCategorieAidejson($id,$titre,$url)
     {
         $CategorieAidefind = $this->getDoctrine()->getRepository(CategorieAide::class)->findBy(['id' => $id])[0];
         $CategorieAidefind->setTitre($titre);
-        $CategorieAidefind->setLienIcon("categorie.png");
+        if($url!=("null")){
+            $urle="C:/Users/drwhoo/AppData/Local/Temp/".$url;
+            $fileSystem = new Filesystem();
+            $fileSystem->copy($urle,$this->getParameter('kernel.project_dir').'/public/uploads/'.$url);
+        $CategorieAidefind->setLienIcon($url);}
         $em = $this->getDoctrine()->getManager();
         $em->flush();
 
@@ -60,13 +65,16 @@ class CategorieAideController extends AbstractController
     /**
      * @param $titre
      * @return JsonResponse
-     * @Route ("Api/CategorieAide/Ajouter/{titre}" , name="ajouterCategorieAidejson")
+     * @Route ("Api/CategorieAide/Ajouter/{titre}/{url}" , name="ajouterCategorieAidejson")
      */
-    public function ajouterCategorieAidejson($titre)
-    {
-        $CategorieAide= new CategorieAide();
+    public function ajouterCategorieAidejson($titre,$url)
+    { if ($url != "placeholder-image.png") {
+        $urle = "C:/Users/drwhoo/AppData/Local/Temp/" . $url;
+        $fileSystem = new Filesystem();
+        $fileSystem->copy($urle, $this->getParameter('kernel.project_dir') . '/public/uploads/' . $url);
+    } $CategorieAide= new CategorieAide();
             $CategorieAide->setTitre($titre);
-            $CategorieAide->setLienIcon("categorie.png");
+            $CategorieAide->setLienIcon($url);
             $em=$this->getDoctrine()->getManager();
             $em->persist($CategorieAide);
             $em-> flush();

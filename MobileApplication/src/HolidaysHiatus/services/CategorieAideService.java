@@ -81,12 +81,12 @@ public class CategorieAideService {
 
         return cataides;
     }
-          public Boolean addCategorieAide(String Titre) {
+          public Boolean addCategorieAide(String Titre,String urlimg ) {
      
         
                
      
-        String url = Statics.BASE_URL_CatAide + "/Ajouter" + "/"+ Titre;
+        String url = Statics.BASE_URL_CatAide + "/Ajouter" + "/"+ Titre +"/"+ urlimg;
     
    
         ConnectionRequest req = new ConnectionRequest();
@@ -128,12 +128,12 @@ public class CategorieAideService {
     return resultOK; 
 }
   
-  public Boolean editCategorieAide(int idcat, String titre) {
+  public Boolean editCategorieAide(int idcat, String titre,String urlimg) {
      
         
                
      
-        String url = Statics.BASE_URL_CatAide + "/modifier" + "/"+ idcat+"/"+titre;
+        String url = Statics.BASE_URL_CatAide + "/modifier" + "/"+ idcat+"/"+titre +"/" +urlimg;
     
    
         ConnectionRequest req = new ConnectionRequest();
