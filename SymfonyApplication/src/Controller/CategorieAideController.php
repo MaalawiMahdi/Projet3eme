@@ -80,12 +80,14 @@ class CategorieAideController extends AbstractController
      */
     public function listCategoriesAideJson(Request $request): Response
     {$categoriesAide = $this->getDoctrine()->getRepository(CategorieAide::class)->findAll();
-        $jsonContent= Array();
+
+    $jsonContent= Array();
         foreach ($categoriesAide as $key=>$Cat){
             $jsonContent[$key]['id']= $Cat->getId();
             $jsonContent[$key]['titre']= $Cat->getTitre();
+            $categoriesAidefind = $this->getDoctrine()->getRepository(CategorieAide::class)->find($Cat->getId());
             $jsonContent[$key]['lien_icon']=$Cat->getLienIcon();
-
+            $jsonContent[$key]['aides']=count($categoriesAidefind->getAides());
 
         }
           return new JsonResponse($jsonContent);

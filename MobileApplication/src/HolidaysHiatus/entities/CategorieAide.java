@@ -18,7 +18,15 @@ public class CategorieAide {
     public int id;
     public String titre;
     public String lien_icon;
- 
+    public int nbaide;
+
+    public int getNbaide() {
+        return nbaide;
+    }
+
+    public void setNbaide(int nbaide) {
+        this.nbaide = nbaide;
+    }
 
    
 

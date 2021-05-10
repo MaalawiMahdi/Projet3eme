@@ -48,6 +48,41 @@ class AideController extends AbstractController
         ]);
     }
     /**
+     * @return Response
+     * @Route("Api/Aide/Stat", name="StatAideJson")
+     */
+    public function StatAideJson(): Response
+    {
+
+        $Aidefind = $this->getDoctrine()->getRepository(Aide::class)->findAll();
+
+        $jsonContent= Array();
+        foreach ($Aidefind as $key=>$aide){
+            $jsonContent[$key]['titre']= $aide->getTitre();
+            $note=0;
+            $Moyenne=0;
+            $aviss="";
+            $Aidesfind = $this->getDoctrine()->getRepository(Aide::class)->find($aide->getId());
+            $Notes=$this->getDoctrine()->getRepository(Note::class)->findBy(array('aide'=>$Aidesfind));
+            if (!(empty($x))){
+                $Valeur=$x[0]->getValeur();
+                $Avis=$x[0]->getAvis();}
+            else {$Valeur=0;
+                $Avis="";}
+            if (!(empty($Notes)))
+            {
+                $total=0;
+                for ($i =0; $i <= (count($Notes)-1); $i++)
+                {
+                    $total=$total+($Notes[$i]->getValeur());
+                }
+                $Moyenne=$total/(count($Notes));
+            }
+            $jsonContent[$key]['moyenne']=$Moyenne;
+        }
+        return new JsonResponse($jsonContent);
+    }
+    /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @Route ("Api/Aide/Ajouter/{titre}/{description}/{adresse}/{telephone}/{categorie}" , name="ajouterAideJson")

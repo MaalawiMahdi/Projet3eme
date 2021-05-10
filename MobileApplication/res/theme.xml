@@ -638,6 +638,8 @@
         <val key="SliderFull.sel#padding" value="0,0,4,4" />
         <val key="SliderFull.sel#transparency" value="0" />
         <val key="SliderFull.transparency" value="0" />
+        <font key="StatAideForm.font" type="ttf" face="0" style="0" size="8" name="native:MainThin" family="native:MainThin" sizeSettings="0" actualSize="12.0" />
+        <val key="StatAideForm.textDecoration" value="1" />
         <val key="Tab.bgColor" value="ff3333" />
         <border key="Tab.border" type="line" millimeters="false" thickness="1.0" color="16777215" />
         <val key="Tab.fgColor" value="ffffff" />
@@ -746,6 +748,8 @@
         <border key="border" type="empty" />
         <val key="fgColor" value="0" />
         <font key="font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
+        <font key="labelstat.font" type="ttf" face="32" style="2" size="8" name="native:MainLight" family="native:MainLight" sizeSettings="0" actualSize="12.0" />
+        <val key="labelstat.textDecoration" value="1" />
         <border key="press#border" type="empty" />
         <border key="sel#border" type="empty" />
         <val key="transparency" value="0" />

@@ -82,6 +82,13 @@ public class ListCatAideBackForm extends Form {
                 f.getToolbar().addMaterialCommandToSideMenu(" Aide", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {
                     new ListAideBackForm().show();
                 });
+                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques Aide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
+                    new StatAideForm().show();
+                });
+                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques catAide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
+                    new StatCategorieAideForm().show();
+                });
+
                 b.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
@@ -109,6 +116,13 @@ public class ListCatAideBackForm extends Form {
         getToolbar().addMaterialCommandToSideMenu(" Aide", FontImage.MATERIAL_ASSISTANT_DIRECTION, (evt) -> {
             new ListAideBackForm().show();
         });
+        getToolbar().addMaterialCommandToSideMenu(" Statistiques Aide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
+            new StatAideForm().show();
+        });
+        getToolbar().addMaterialCommandToSideMenu(" Statistiques catAide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
+            new StatCategorieAideForm().show();
+        });
+
     }
 
     public Container addCatItem(CategorieAide Categorie) {
@@ -173,6 +187,13 @@ public class ListCatAideBackForm extends Form {
                 f.getToolbar().addMaterialCommandToSideMenu(" Aide", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {
                     new ListAideBackForm().show();
                 });
+                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques Aide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
+                    new StatAideForm().show();
+                });
+                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques catAide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
+                    new StatCategorieAideForm().show();
+                });
+
                 b.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {

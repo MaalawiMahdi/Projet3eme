@@ -198,5 +198,49 @@ public class AideService {
         NetworkManager.getInstance().addToQueueAndWait(req);
     return resultOK; 
 }
+        
+       public ArrayList<Aide>statdata() {
+        
+        String url = Statics.BASE_URL_Aide + "/Stat";
+         
+   
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                aides = parseStat(new String(req.getResponseData()));
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        
+        NetworkManager.getInstance().addToQueueAndWait(req);
+
+    return aides; 
+  } 
+  public ArrayList<Aide> parseStat(String jsonText){
+        try {
+            aides=new ArrayList<>();
+            JSONParser j = new JSONParser();
+            Map<String,Object> tasksListJson = j.parseJSON(new CharArrayReader(jsonText.toCharArray()));
+            
+            List<Map<String,Object>> list = (List<Map<String,Object>>)tasksListJson.get("root");
+            for(Map<String,Object> obj : list){
+                Aide s = new Aide();
+                
+             
+                s.setTitre(obj.get("titre").toString());
+        
+                s.setMoyenne(Float.parseFloat(obj.get("moyenne").toString()));
+       
+                aides.add(s);
+            }
+            
+        } catch (IOException ex) {
+            
+        }
+        return aides;
+            }
 
 }

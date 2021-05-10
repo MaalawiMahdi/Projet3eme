@@ -53,6 +53,7 @@ public class CategorieAideService {
                 c.setId(((int)Float.parseFloat( obj.get("id").toString())));
                 c.setTitre(obj.get("titre").toString());
                 c.setLien_icon(obj.get("lien_icon").toString());
+                c.setNbaide((int)Float.parseFloat( obj.get("aides").toString()));
                
                 cataides.add(c);
             }
