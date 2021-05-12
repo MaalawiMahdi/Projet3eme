@@ -210,12 +210,13 @@ class AideController extends AbstractController
         $jsonContent= Array();
         foreach ($Aide as $key=>$aide){
             $jsonContent[$key]['id']= $aide->getId();
-            $jsonContent[$key]['categorie_id']= $aide->getCategorie()->getTitre();
+            $jsonContent[$key]['categorie_id']= $aide->getCategorie()->getId();
             $jsonContent[$key]['titre']= $aide->getTitre();
             $jsonContent[$key]['description']= $aide->getDescription();
             $jsonContent[$key]['adresse']= $aide->getAdresse();
             $jsonContent[$key]['num_tell']= $aide->getNumTell();
             $jsonContent[$key]['lien_image']=$aide->getLienImage();
+            $jsonContent[$key]['categorie_titre']= $aide->getCategorie()->getTitre();
             $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
             $note=0;
             $Moyenne=0;

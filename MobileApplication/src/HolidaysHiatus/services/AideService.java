@@ -47,7 +47,7 @@ public class AideService {
             aides=new ArrayList<>();
             JSONParser j = new JSONParser();
             Map<String,Object> tasksListJson = j.parseJSON(new CharArrayReader(jsonText.toCharArray()));
-            
+     
             List<Map<String,Object>> list = (List<Map<String,Object>>)tasksListJson.get("root");
             for(Map<String,Object> obj : list){
                 Aide a = new Aide();
@@ -80,8 +80,9 @@ public class AideService {
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {
+  
                 aides = parseAides(new String(req.getResponseData()));
-                 
+
                 req.removeResponseListener(this);
             }
         });
