@@ -116,4 +116,12 @@ public class SocieteService {
         return null;
     }
 
+    public void update(Societe s) {
+        String url = Statics.BASE_URL_Societe + "/EditSocieteMobile/" + s.getId()+ "/" + s.getNumregistre() + "/" + s.getNom() + "/" + s.getType() + "/" + s.getAdresse();
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        NetworkManager.getInstance().addToQueueAndWait(req);
+   
+    }
+
 }

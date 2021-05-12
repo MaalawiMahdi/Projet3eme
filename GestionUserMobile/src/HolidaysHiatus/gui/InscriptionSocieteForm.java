@@ -80,6 +80,8 @@ private Button modifier;
         Form InscriptionSociete = new InscriptionSocieteForm(theme);
         InscriptionSociete.show();
         });
+        }else{
+        //Ba3ed l'integration
         }
         this.getToolbar().addMaterialCommandToSideMenu("Se Déconnecter", FontImage.MATERIAL_LOGOUT, (evt) -> {
         Session.getSession().clearSession();
@@ -92,7 +94,7 @@ private Button modifier;
         
        inscription.addActionListener(evt->{
          if(nom.getText().compareTo("")==0||numregistre.getText().compareTo("")==0||adresse.getText().compareTo("")==0||type.getText().compareTo("")==0){
-        Dialog.show("un ou plusieurs champs sont manquants ","les champs e-mail et mot de passe sont obligatoires !", "ok",null);
+        Dialog.show("un ou plusieurs champs sont manquants ","les champs nom,numregistre,adresse et type sont obligatoires !", "ok",null);
 
         }else{
                Societe s = new Societe(Session.getSession().getSessionUser().getId(),numregistre.getText(),adresse.getText(),type.getText(),false,nom.getText());
@@ -100,8 +102,24 @@ private Button modifier;
            S_Service.addSociete(s);
            InscriptionSocieteForm inscrit = new InscriptionSocieteForm(theme);
            inscrit.show();
-           
          }
         });
+       modifier.addActionListener((evt)->{
+       if(nom.getText().compareTo("")==0||numregistre.getText().compareTo("")==0||adresse.getText().compareTo("")==0||type.getText().compareTo("")==0){
+        Dialog.show("un ou plusieurs champs sont manquants ","les champs nom,numregistre,adresse et type sont obligatoires !", "ok",null);
+
+        }else{
+                  SocieteService S_Service = new SocieteService();
+                  Societe s = S_Service.getSocieteByUserId(Session.getSession().getSessionUser().getId());
+                  s.setAdresse(adresse.getText());
+                  s.setNom(nom.getText());
+                  s.setNumregistre(numregistre.getText());
+                  s.setType(type.getText());
+                  S_Service.update(s);
+           InscriptionSocieteForm inscrit = new InscriptionSocieteForm(theme);
+           inscrit.show();
+     
+       }
+       });
     }
 }

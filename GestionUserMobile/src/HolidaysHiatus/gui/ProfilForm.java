@@ -59,7 +59,10 @@ public class ProfilForm extends Form {
             EncodedImage placeHolder = EncodedImage.createFromImage(MyApplication.getTheme().getImage("placeholder-image.png"), false).scaledEncoded(400, 300);
             String url;
             if(profildata.getImage().compareTo("")!=0){
-            url = "http://127.0.0.1:8000/profil/" + profildata.getImage();
+                if(profildata.getImage().contains("https://graph.facebook.com/")){
+                url=profildata.getImage();
+                }else
+                { url = "http://127.0.0.1:8000/profil/" + profildata.getImage(); }
             }
             else{
              url="http://127.0.0.1:8000/profil/user.png";
@@ -109,6 +112,8 @@ public class ProfilForm extends Form {
         Form InscriptionSociete = new InscriptionSocieteForm(theme);
         InscriptionSociete.show();
         });
+        }else{
+        //5alaha lya 
         }
         this.getToolbar().addMaterialCommandToSideMenu("Se Déconnecter", FontImage.MATERIAL_LOGOUT, (evt) -> {
         Session.getSession().clearSession();

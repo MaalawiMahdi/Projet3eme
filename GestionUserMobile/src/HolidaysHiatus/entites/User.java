@@ -17,6 +17,10 @@ public class User {
     private boolean active;
     private boolean ban; 
 
+    public User(String mail) {
+        this.mail = mail;
+    }
+
     public User() {
     }
 

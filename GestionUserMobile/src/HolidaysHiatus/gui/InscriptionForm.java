@@ -7,6 +7,7 @@ package HolidaysHiatus.gui;
 
 import HolidaysHiatus.entites.User;
 import HolidaysHiatus.services.UserService;
+import HolidaysHiatus.tools.Session;
 import com.codename1.components.Switch;
 import com.codename1.messaging.Message;
 import com.codename1.ui.Button;
@@ -49,7 +50,13 @@ public class InscriptionForm extends Form {
 
     }
     private void AddGUI(){
-         Email = new TextField("", "Email");
+        Session.StartSession();
+        if(Session.getSession().getFacebookInscription().getMail().compareTo("")==0){
+         Email = new TextField("", "Email");}
+        else{
+         Email = new TextField(Session.getSession().getFacebookInscription().getMail(), "Email");}
+        
+        
          Password = new TextField("", "Mot de passe", 20, TextField.PASSWORD);
          RepeatPassword = new TextField("", "Répéter mot de passe", 20, TextField.PASSWORD);
          inscription = new Button("S'inscrire");
@@ -83,13 +90,23 @@ Dialog.show("Adresse mail non valid","Adresse mail non valid", "ok",null);
                     Email.clear();
 
     }else{
+        if(Session.getSession().getFacebookInscription().getMail().compareTo("")==0){
         User u = new User(Email.getText(),Password.getText());
         us.addUser(u);
         Email.clear();
         Password.clear();
        
          Dialog.show("Inscription terminée ","Bienvenue dans notre application, vous pouvez maintenant vous connecter", "ok",null);
-                  
+        }else{
+         User u = new User(Email.getText(),Password.getText());
+        us.addUser(u,Session.getSession().getFacebookData());
+        Email.clear();
+        Password.clear();
+       
+         Dialog.show("Inscription terminée ","Les informations mentionnées ci-dessous ont été enregistrées via votre compte Facebook : "
+                 + "Nom , Prenom , email , Image de Profil", "ok",null);
+      
+        }
 
     
     }

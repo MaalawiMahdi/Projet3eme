@@ -22,7 +22,8 @@ import org.apache.commons.validator.routines.EmailValidator;
  * @author mahdi
  */
 public class ConnexionForm extends Form {
-     private TextField Email;
+
+    private TextField Email;
     private TextField Password;
     private Button Connexion;
     private Resources theme;
@@ -36,47 +37,54 @@ public class ConnexionForm extends Form {
         addaction();
 
     }
-    private void AddGUI(){
-         Email = new TextField("", "Email");
-         Password = new TextField("", "Mot de passe", 20, TextField.PASSWORD);
-         Connexion = new Button("Se Connecter");
 
-    Container ct = new Container(BoxLayout.y());
-    ct.addAll(Email,Password,Connexion);
-    this.add(ct);
-    
+    private void AddGUI() {
+        Email = new TextField("", "Email");
+        Password = new TextField("", "Mot de passe", 20, TextField.PASSWORD);
+        Connexion = new Button("Se Connecter");
+
+        Container ct = new Container(BoxLayout.y());
+        ct.addAll(Email, Password, Connexion);
+        this.add(ct);
+
     }
-    private void addaction(){
-    UserService us = new UserService();
- 
-        EmailValidator validator = EmailValidator.getInstance();
-        Connexion.addActionListener((evt)->{
-        if(Email.getText().compareTo("")==0||Password.getText().compareTo("")==0){
-   
-        Dialog.show("un ou plusieurs champs sont manquants ","les champs e-mail et mot de passe sont obligatoires !", "ok",null);
 
-        }else if(us.isExiste(Email.getText())==false){
-                    Dialog.show("compte introuvable","votre adresse mail est introuvable,merci de remplir notre formulaire d'inscription ", "ok",null);
-                    Email.clear();
-    }else{
-           String cnxResultat=us.connect(Email.getText(), Password.getText());
-           if(cnxResultat.compareTo("falsePassword")==0){
-             Dialog.show("compte introuvable","mot de passe incorrect", "ok",null);
-           }else if(cnxResultat.compareTo("banned")==0){
-                               Dialog.show("Vous avez été banni","" ,"ok",null);
-                          
-           }else{
-                                          Dialog.show("Welcome","","ok",null);
-                   Session.StartSession();
-                   Session.getSession().SetSessionUser(us.getUser(Email.getText()));
-                   System.out.print(Session.getSession().getSessionUser());
-                   Form profil = new ProfilForm(theme);
-                   profil.show();
-                   } 
-         }
-        
+    private void addaction() {
+        UserService us = new UserService();
+
+        EmailValidator validator = EmailValidator.getInstance();
+        Connexion.addActionListener((evt) -> {
+            if (Email.getText().compareTo("") == 0 || Password.getText().compareTo("") == 0) {
+
+                Dialog.show("un ou plusieurs champs sont manquants ", "les champs e-mail et mot de passe sont obligatoires !", "ok", null);
+
+            } else if (us.isExiste(Email.getText()) == false) {
+                Dialog.show("compte introuvable", "votre adresse mail est introuvable,merci de remplir notre formulaire d'inscription ", "ok", null);
+                Email.clear();
+            } else {
+                String cnxResultat = us.connect(Email.getText(), Password.getText());
+                if (cnxResultat.compareTo("falsePassword") == 0) {
+                    Dialog.show("compte introuvable", "mot de passe incorrect", "ok", null);
+                } else if (cnxResultat.compareTo("banned") == 0) {
+                    Dialog.show("Vous avez été banni", "", "ok", null);
+
+                } else {
+                    Dialog.show("Welcome", "", "ok", null);
+                    Session.StartSession();
+                    Session.getSession().SetSessionUser(us.getUser(Email.getText()));
+                    System.out.print(Session.getSession().getSessionUser());
+                    if (Session.getSession().getSessionUser().getType().compareTo("client") == 0 || Session.getSession().getSessionUser().getType().compareTo("societe") == 0) {
+                        Form profil = new ProfilForm(theme);
+                        profil.show();
+                    } else {
+                        //cnx admin 
+
+                    }
+
+                }
+            }
+
         });
     }
-        
-    
+
 }

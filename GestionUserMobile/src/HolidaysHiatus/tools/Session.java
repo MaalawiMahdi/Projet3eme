@@ -5,6 +5,7 @@
  */
 package HolidaysHiatus.tools;
 
+import HolidaysHiatus.entites.InformationsSupplementaires;
 import HolidaysHiatus.entites.Societe;
 import HolidaysHiatus.entites.User;
 
@@ -16,6 +17,17 @@ public final class Session {
      private static Session instance;
      private User SessionUser;
      private Societe SessionSociete;
+     private User FacebookInscription = new User("");
+     private InformationsSupplementaires FacebookData = new InformationsSupplementaires();
+
+    public InformationsSupplementaires getFacebookData() {
+        return FacebookData;
+    }
+
+    public void setFacebookData(InformationsSupplementaires FacebookData) {
+        this.FacebookData = FacebookData;
+    }
+     
 
    
      private Session() {
@@ -60,6 +72,14 @@ public final class Session {
     public void SetSessionUser(User SessionUser ){
     this.SessionUser=SessionUser;
     
+    }
+
+    public User getFacebookInscription() {
+        return FacebookInscription;
+    }
+
+    public void setFacebookInscription(User FacebookInscription) {
+        this.FacebookInscription = FacebookInscription;
     }
       
       

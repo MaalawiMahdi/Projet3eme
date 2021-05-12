@@ -5,6 +5,7 @@
  */
 package HolidaysHiatus.services;
 
+import HolidaysHiatus.entites.InformationsSupplementaires;
 import HolidaysHiatus.entites.User;
 import HolidaysHiatus.tools.Statics;
 import com.codename1.io.CharArrayReader;
@@ -93,6 +94,15 @@ public class UserService {
         NetworkManager.getInstance().addToQueueAndWait(req);
 
     }
+    public void addUser(User u, InformationsSupplementaires facebookData) {
+        String url = Statics.BASE_URL_User + "/AddUserMobileByFacebbok/" + u.getMail() + "/" + u.getPassword()+ "/" +facebookData.getNom() 
+                + "/" + facebookData.getPrenom() + "?linkimage=" + facebookData.getImage();
+        
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);   
+                NetworkManager.getInstance().addToQueueAndWait(req);
+
+    }
 
     public Map<String, Object> parseConnexion(String jsonText) {
         User u = new User();
@@ -110,6 +120,24 @@ public class UserService {
 
     public String connect(String mail, String password) {
         String url = Statics.BASE_URL_User + "/ConnexionUserMobile/" + mail + "/" + password;
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.setPost(false);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+
+                //Users = parseUsers(new String(req.getResponseData()));
+                resultatCnx = parseConnexion(new String(req.getResponseData()));
+                req.removeResponseListener(this);
+
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return resultatCnx.get("resultat").toString();
+    }
+    public String connect(String mail) {
+      String url = Statics.BASE_URL_User + "/ConnexionUserMobileViaFacebook/" + mail ;
         ConnectionRequest req = new ConnectionRequest();
         req.setUrl(url);
         req.setPost(false);
@@ -159,4 +187,8 @@ public class UserService {
         }
         return null;
     }
+
+    
+
+    
 }
