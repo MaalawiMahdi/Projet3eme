@@ -17,6 +17,10 @@ public class User {
     private boolean active;
     private boolean ban; 
 
+    public User(String mail) {
+        this.mail = mail;
+    }
+
     public User() {
     }
 
@@ -101,12 +105,27 @@ public class User {
         this.ban = ban;
     }
 
- 
-    
+   public void setBan(String ban) {
+       if(ban.compareTo("true")==0||ban.compareTo("1")==0){
+       this.ban=true;
+       }else if(ban.compareTo("false")==0||ban.compareTo("0")==0){
+       this.ban=false;
+       }
+    }
+
+    public void setActive(String active) {
+       if(active.compareTo("true")==0||active.compareTo("1")==0){
+       this.active=true;
+       }else if(active.compareTo("false")==0||active.compareTo("0")==0){
+       this.active=false;
+       }
+    }
+
     @Override
     public String toString() {
         return "User{" + "id=" + id + ", password=" + password + ", mail=" + mail + ", type=" + type + ", active=" + active + ", ban=" + ban + '}';
     }
-    
+
+  
     
 }

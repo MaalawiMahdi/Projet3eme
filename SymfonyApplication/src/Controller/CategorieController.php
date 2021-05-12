@@ -13,10 +13,54 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 class CategorieController extends AbstractController
 {
+    /**
+     * @Route("/Api/CategorieBoard/AfficherCategorieMobile/", name="AfficherCategorieMobile")
+     */
+    public function afficherCategorieMobile(): Response
+    {
+        $Catboard = $this->getDoctrine()->getRepository(CategorieBoard::class)->findAll();
+        $jsonContent= Array();
+        foreach ($Catboard as $key=>$CatBoard){
+            $jsonContent[$key]['id']= $CatBoard->getId();
+            $jsonContent[$key]['titre']= $CatBoard->getTitre();
+            $jsonContent[$key]['lien_icon']= $CatBoard->getLienIcon();
+        }
+        return new JsonResponse($jsonContent);
+    }
+    /**
+     * @Route("/Api/CategorieBoard/SupprimerCategorieMobile/{id}", name="SupprimerCategorieMobile")
+     */
+    public function SupprimerBoardMobile($id)
+    {
+        $em = $this->getDoctrine()->getmanager();
+        $board= $em->getRepository(CategorieBoard::class)->find($id);
+        $em->remove($board);
+        $em->flush();
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+        return $response;
+    }
+    /**
+     * @Route("/Api/CategorieBoard/ModifierCategorieBoard/{titre}/{pic}/{id}", name="ModifierCategorieBoard")
+     */
+    public function ModifierCategorieBoard ($titre,$pic,$id)
+    {
+        $em = $this->getDoctrine()->getmanager();
+        $board= $em->getRepository(CategorieBoard::class)->find($id);
+        $board->setTitre($titre);
+        $board->setLienIcon($pic);
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+        return $response;
+    }
+
     /**
      * @Route("/categorie", name="categorie")
      */

@@ -5,6 +5,7 @@
  */
 package HolidaysHiatus.gui;
 
+import HolidaysHiatus.MyApplication;
 import HolidaysHiatus.entities.CategorieAide;
 import HolidaysHiatus.gui.ListAideBackForm;
 import HolidaysHiatus.gui.ListCatAideBackForm;
@@ -123,6 +124,12 @@ public StatCategorieAideForm() {
         getToolbar().addMaterialCommandToSideMenu(" Statistiques catAide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
             new StatCategorieAideForm().show();
         });
+         getToolbar().addMaterialCommandToSideMenu("Categorie Boards", FontImage.MATERIAL_CATEGORY, (event) -> {
+            FormCatBoard f = new FormCatBoard("Tous les Categories",MyApplication.theme);
+
+            f.show();
+        });
+
 
 }
     

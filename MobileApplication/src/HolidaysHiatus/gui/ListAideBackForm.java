@@ -6,10 +6,12 @@
 package HolidaysHiatus.gui;
 
 import HolidaysHiatus.MyApplication;
+import static HolidaysHiatus.MyApplication.theme;
 import HolidaysHiatus.entities.Aide;
 import HolidaysHiatus.entities.CategorieAide;
 import HolidaysHiatus.services.AideService;
 import HolidaysHiatus.services.CategorieAideService;
+import HolidaysHiatus.tools.Session;
 import com.codename1.capture.Capture;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.MultiButton;
@@ -41,28 +43,28 @@ import java.util.List;
  *
  * @author drwhoo
  */
-public class ListAideBackForm extends Form{
-    
-Form current;
+public class ListAideBackForm extends Form {
+
+    Form current;
     private AideService sv;
     List<Aide> Aide;
-      List<CategorieAide> cat;
+    List<CategorieAide> cat;
     private CategorieAideService svCat;
     ComboBox<CategorieAide> ComboCat;
-     Image imginsert;
-  String jobPic;
-    
+    Image imginsert;
+    String jobPic;
+
     public ListAideBackForm() {
         current = this;
         sv = new AideService();
         svCat = new CategorieAideService();
-         cat=svCat.getAllCatAides();
-       
+        cat = svCat.getAllCatAides();
+
         setTitle("Liste des Aides");
         setLayout(BoxLayout.y());
         Button add = new Button("Ajouter une Aide");
-         Aide = sv.getAllAidesBack();
-         
+        Aide = sv.getAllAidesBack();
+
         add(add);
         for (int i = 0; i < Aide.size(); i++) {
             add(addCatItem(Aide.get(i)));
@@ -73,20 +75,23 @@ Form current;
                 EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
 
                 Image img = URLImage.createToStorage(enc, "http://127.0.0.1:8000/uploads/placeholder-image.png", "http://127.0.0.1:8000/uploads/placeholder-image.png");
-                
+
                 ImageViewer image = new ImageViewer(img);
-                Button obIcon = new Button ("Inserer une Image ");
-                obIcon.addActionListener((ActionEvent en) -> 
-                 {jobPic=uploadImage();
-                 if(jobPic!=null){
-                 imginsert=URLImage.createToStorage(enc,jobPic,jobPic);
-                         image.setImage(imginsert);}
-                         
-                         
-                 });
-                ComboCat=new ComboBox();
-                Label lbCat = new Label ("Categorie Aide :");
-                for (CategorieAide a : cat ){ComboCat.addItem(a);}
+                Button obIcon = new Button("Inserer une Image ");
+                obIcon.addActionListener((ActionEvent en)
+                        -> {
+                    jobPic = uploadImage();
+                    if (jobPic != null) {
+                        imginsert = URLImage.createToStorage(enc, jobPic, jobPic);
+                        image.setImage(imginsert);
+                    }
+
+                });
+                ComboCat = new ComboBox();
+                Label lbCat = new Label("Categorie Aide :");
+                for (CategorieAide a : cat) {
+                    ComboCat.addItem(a);
+                }
                 Label espace = new Label("espace");
                 espace.setVisible(false);
                 Form f = new Form();
@@ -101,34 +106,57 @@ Form current;
                 Label lbtel = new Label("Telephone:");
                 TextArea tel = new TextArea();
                 Button b = new Button("Ajouter");
-                f.addAll(espace, image,obIcon, lbtitre, titre,lbCat,ComboCat,lbdescription,description,lbadresse,adresse,lbtel,tel, b);
+                f.addAll(espace, image, obIcon, lbtitre, titre, lbCat, ComboCat, lbdescription, description, lbadresse, adresse, lbtel, tel, b);
                 f.show();
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addMaterialCommandToSideMenu("Categorie Aide", FontImage.MATERIAL_CATEGORY, (event) -> {new ListCatAideBackForm().show();});
-                f.getToolbar().addMaterialCommandToSideMenu(" Aide", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {new ListAideBackForm().show();});
-                   f.getToolbar().addMaterialCommandToSideMenu(" Statistiques Aide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
-            new StatAideForm().show();
-        });
-        f.getToolbar().addMaterialCommandToSideMenu(" Statistiques catAide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
-            new StatCategorieAideForm().show();
+                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+                });
+                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+                });
+                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+                });
+                f.getToolbar().addMaterialCommandToSideMenu("Categorie Aide", FontImage.MATERIAL_CATEGORY, (event) -> {
+                    new ListCatAideBackForm().show();
+                });
+                f.getToolbar().addMaterialCommandToSideMenu(" Aide", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {
+                    new ListAideBackForm().show();
+                });
+                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques Aide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
+                    new StatAideForm().show();
+                });
+                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques catAide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
+                    new StatCategorieAideForm().show();
+                });
+                     f.getToolbar().addMaterialCommandToSideMenu("Categorie Boards", FontImage.MATERIAL_CATEGORY, (event) -> {
+             new FormCatBoard("Tous les Categories", theme).show();
+
         });
 
+
+    
+
+                //overFlow menu    
+                f.getToolbar().addMaterialCommandToOverflowMenu("Se Déconnecter", FontImage.MATERIAL_LOGOUT, (event) -> {
+                    Session.getSession().clearSession();
+                    Form HomaPage = new HomePageFrom(theme);
+                    HomaPage.show();
+                });
+              
                 b.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
-                        
-                         if ((titre.getText().length() == 0) || (description.getText().length() == 0) || (adresse.getText().length()== 0)|| (tel.getText().length() == 0)) {
-                    Dialog.show("Alert", "Veuillez remplir tous les champs.", new Command("OK"));
-                }
-                         else{
-                              String ImageData;
-                            if (jobPic!=null){
-                            ImageData=jobPic.substring(jobPic.lastIndexOf("/")+1);
-                            } else  {ImageData="placeholder-image.png";}
-                             AideService.getInstance().addAide(titre.getText(),description.getText(),adresse.getText(),tel.getText(),ComboCat.getSelectedItem().getId(),ImageData);
-                        new ListAideBackForm().show();}                        
+
+                        if ((titre.getText().length() == 0) || (description.getText().length() == 0) || (adresse.getText().length() == 0) || (tel.getText().length() == 0)) {
+                            Dialog.show("Alert", "Veuillez remplir tous les champs.", new Command("OK"));
+                        } else {
+                            String ImageData;
+                            if (jobPic != null) {
+                                ImageData = jobPic.substring(jobPic.lastIndexOf("/") + 1);
+                            } else {
+                                ImageData = "placeholder-image.png";
+                            }
+                            AideService.getInstance().addAide(titre.getText(), description.getText(), adresse.getText(), tel.getText(), ComboCat.getSelectedItem().getId(), ImageData);
+                            new ListAideBackForm().show();
+                        }
                     }
                 });
             }
@@ -147,15 +175,26 @@ Form current;
         getToolbar().addMaterialCommandToSideMenu(" Aide", FontImage.MATERIAL_ASSISTANT_DIRECTION, (evt) -> {
             new ListAideBackForm().show();
         });
-           getToolbar().addMaterialCommandToSideMenu(" Statistiques Aide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
+        getToolbar().addMaterialCommandToSideMenu(" Statistiques Aide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
             new StatAideForm().show();
         });
         getToolbar().addMaterialCommandToSideMenu(" Statistiques catAide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
             new StatCategorieAideForm().show();
         });
+            
+             getToolbar().addMaterialCommandToSideMenu("Categorie Boards", FontImage.MATERIAL_CATEGORY, (event) -> {
+             new FormCatBoard("Tous les Categories", theme).show();
 
+        });
 
-   
+                //overFlow menu    
+                getToolbar().addMaterialCommandToOverflowMenu("Se Déconnecter", FontImage.MATERIAL_LOGOUT, (event) -> {
+                    Session.getSession().clearSession();
+                    Form HomaPage = new HomePageFrom(theme);
+                    HomaPage.show();
+                });
+            
+
     }
 
     public Container addCatItem(Aide Aide) {
@@ -174,8 +213,8 @@ Form current;
         espace.setVisible(false);
         Label espace2 = new Label("espace");
         espace2.setVisible(false);
-        details.addAll(lbtitre,lbdescription,lbadresse,lbtel, buttons, espace2);
-       
+        details.addAll(lbtitre, lbdescription, lbadresse, lbtel, buttons, espace2);
+
         EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false).scaledEncoded(200, 200);
 
         Image img = URLImage.createToStorage(enc, "http://127.0.0.1:8000/uploads/" + Aide.getLien_image(), "http://127.0.0.1:8000/uploads/" + Aide.getLien_image());
@@ -187,28 +226,30 @@ Form current;
         Dell.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-               AideService.getInstance().deleteAide(Aide.getId());
-               new ListAideBackForm().showBack();
+                AideService.getInstance().deleteAide(Aide.getId());
+                new ListAideBackForm().showBack();
             }
         });
         Edit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                 
-                        EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
 
-                Image img = URLImage.createToStorage(enc, "http://127.0.0.1:8000/uploads/"+Aide.getLien_image(), "http://127.0.0.1:8000/uploads/"+Aide.getLien_image());
+                EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
+
+                Image img = URLImage.createToStorage(enc, "http://127.0.0.1:8000/uploads/" + Aide.getLien_image(), "http://127.0.0.1:8000/uploads/" + Aide.getLien_image());
 
                 ImageViewer image = new ImageViewer(img);
-                ComboCat=new ComboBox();
-                Label lbCat = new Label ("Categorie Aide :");
-                for (CategorieAide a : cat ){ComboCat.addItem(a);}
+                ComboCat = new ComboBox();
+                Label lbCat = new Label("Categorie Aide :");
+                for (CategorieAide a : cat) {
+                    ComboCat.addItem(a);
+                }
                 Label espace = new Label("espace");
                 espace.setVisible(false);
                 Form f = new Form();
                 f.setTitle("Modifier une Aide");
                 f.setLayout(BoxLayout.y());
-                  Label lbtitre = new Label("Titre:");
+                Label lbtitre = new Label("Titre:");
                 TextArea titre = new TextArea(Aide.getTitre());
                 Label lbdescription = new Label("Description:");
                 TextArea description = new TextArea(Aide.getDescription());
@@ -217,78 +258,98 @@ Form current;
                 Label lbtel = new Label("Telephone:");
                 TextArea tel = new TextArea(Aide.getNum_tell());
                 Button b = new Button("Modifier");
-                  Button obIcon = new Button ("Inserer une Image ");
-              
-                obIcon.addActionListener((ActionEvent en) -> 
-                 {
-                     jobPic=uploadImage();
-                 if (jobPic!=null){
-                     imginsert=URLImage.createToStorage(enc,jobPic,jobPic);
-                         image.setImage(imginsert);}
-                         
-                         
-                 });
-                f.addAll(espace, image,obIcon, lbtitre, titre,lbCat,ComboCat,lbdescription,description,lbadresse,adresse,lbtel,tel, b);
+                Button obIcon = new Button("Inserer une Image ");
+
+                obIcon.addActionListener((ActionEvent en)
+                        -> {
+                    jobPic = uploadImage();
+                    if (jobPic != null) {
+                        imginsert = URLImage.createToStorage(enc, jobPic, jobPic);
+                        image.setImage(imginsert);
+                    }
+
+                });
+                f.addAll(espace, image, obIcon, lbtitre, titre, lbCat, ComboCat, lbdescription, description, lbadresse, adresse, lbtel, tel, b);
                 f.show();
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addMaterialCommandToSideMenu("Categorie Aide", FontImage.MATERIAL_CATEGORY, (event) -> {new ListCatAideBackForm().show();});
-                f.getToolbar().addMaterialCommandToSideMenu(" Aide", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {new ListAideBackForm().show();});
-                        f.getToolbar().addMaterialCommandToSideMenu(" Statistiques Aide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
-            new StatAideForm().show();
-        });
-        f.getToolbar().addMaterialCommandToSideMenu(" Statistiques catAide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
-            new StatCategorieAideForm().show();
-        });
+                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+                });
+                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+                });
+                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+                });
+                f.getToolbar().addMaterialCommandToSideMenu("Categorie Aide", FontImage.MATERIAL_CATEGORY, (event) -> {
+                    new ListCatAideBackForm().show();
+                });
+                f.getToolbar().addMaterialCommandToSideMenu(" Aide", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {
+                    new ListAideBackForm().show();
+                });
+                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques Aide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
+                    new StatAideForm().show();
+                });
+                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques catAide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
+                    new StatCategorieAideForm().show();
+                });
+                    
+                //overFlow menu    
+                f.getToolbar().addMaterialCommandToOverflowMenu("Se Déconnecter", FontImage.MATERIAL_LOGOUT, (event) -> {
+                    Session.getSession().clearSession();
+                    Form HomaPage = new HomePageFrom(theme);
+                    HomaPage.show();
+                });
+                     f.getToolbar().addMaterialCommandToSideMenu("Categorie Boards", FontImage.MATERIAL_CATEGORY, (event) -> {
+             new FormCatBoard("Tous les Categories", theme).show();
+
+                   });
+
+             
                 b.addActionListener(new ActionListener() {
                     @Override
-                        public void actionPerformed(ActionEvent evt) {
-                         if ((titre.getText().length() == 0) || (description.getText().length() == 0) || (adresse.getText().length()== 0)|| (tel.getText().length() == 0)) {
-                    Dialog.show("Alert", "Veuillez remplir tous les champs.", new Command("OK"));
-                }
-                         else{     String ImageData;
-                            if (jobPic!=null){
-                            ImageData=jobPic.substring(jobPic.lastIndexOf("/")+1);
-                            } else  {ImageData="null"; }  
-                             AideService.getInstance().updateAide(Aide.getId(),titre.getText(),description.getText(),adresse.getText(),tel.getText(),ComboCat.getSelectedItem().getId(),ImageData);
-                        new ListAideBackForm().show();}                         
+                    public void actionPerformed(ActionEvent evt) {
+                        if ((titre.getText().length() == 0) || (description.getText().length() == 0) || (adresse.getText().length() == 0) || (tel.getText().length() == 0)) {
+                            Dialog.show("Alert", "Veuillez remplir tous les champs.", new Command("OK"));
+                        } else {
+                            String ImageData;
+                            if (jobPic != null) {
+                                ImageData = jobPic.substring(jobPic.lastIndexOf("/") + 1);
+                            } else {
+                                ImageData = "null";
+                            }
+                            AideService.getInstance().updateAide(Aide.getId(), titre.getText(), description.getText(), adresse.getText(), tel.getText(), ComboCat.getSelectedItem().getId(), ImageData);
+                            new ListAideBackForm().show();
+                        }
                     }
                 });
             }
         });
         return holder;
     }
-                 public String uploadImage ()
-    
-    {Dialog d = new Dialog();
-    
-        if(d.show("", "Voulez-vous ajouter une image?", "Ajouter","Annuler" )) {
-           
-             jobPic =Capture.capturePhoto();
-             
-                if(jobPic != null) {
-                    try {
-                      Image img = Image.createImage(jobPic);
-                      ImageIO imgIO= ImageIO.getImageIO();
-                      ByteArrayOutputStream out = new ByteArrayOutputStream();
-                      imgIO.save(img, out,ImageIO.FORMAT_JPEG, 1);
-                     
-                       
-                      byte[] bytesdata = out.toByteArray();
-                     // jobIcon.setIcon(img);
- 
-                d.remove();
-                    } catch(IOException err) {
-                        ToastBar.showErrorMessage("An error occured while loading the image: " + err);
-                        Log.e(err);
-                    }
-                }
-                
 
-             
-            
-} return jobPic;
+    public String uploadImage() {
+        Dialog d = new Dialog();
+
+        if (d.show("", "Voulez-vous ajouter une image?", "Ajouter", "Annuler")) {
+
+            jobPic = Capture.capturePhoto();
+
+            if (jobPic != null) {
+                try {
+                    Image img = Image.createImage(jobPic);
+                    ImageIO imgIO = ImageIO.getImageIO();
+                    ByteArrayOutputStream out = new ByteArrayOutputStream();
+                    imgIO.save(img, out, ImageIO.FORMAT_JPEG, 1);
+
+                    byte[] bytesdata = out.toByteArray();
+                    // jobIcon.setIcon(img);
+
+                    d.remove();
+                } catch (IOException err) {
+                    ToastBar.showErrorMessage("An error occured while loading the image: " + err);
+                    Log.e(err);
+                }
+            }
+
+        }
+        return jobPic;
     }
 
 }

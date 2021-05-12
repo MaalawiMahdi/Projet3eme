@@ -18,9 +18,71 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-
+use Symfony\Component\HttpFoundation\JsonResponse;
 class BoardController extends AbstractController
 {
+    /**
+     * @Route("/Api/Board/AjouterBoardMobile/{titre}/{catid}/{pic}", name="AjouterBoardMobile")
+     */
+    public function AjouterBoardMobile($titre,$catid,$pic)
+    {   $board = new Board();
+        $board->setTitre($titre);
+        $cat=$this->getDoctrine()->getRepository(CategorieBoard::class)->find($catid);
+        $board->setCategorie($cat);
+        $board->setPic($pic);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($board);
+        $em->flush();
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+        return $response;
+    }
+    /**
+     * @Route("/Api/Board/ModifierBoardMobile/{titre}/{catid}/{pic}/{id}", name="ModifierBoardMobile")
+     */
+    public function ModifierBoardMobile($titre,$catid,$pic,$id)
+    {
+        $em = $this->getDoctrine()->getmanager();
+        $board= $em->getRepository(Board::class)->find($id);
+        $board->setTitre($titre);
+        $cat=$this->getDoctrine()->getRepository(CategorieBoard::class)->find($catid);
+        $board->setCategorie($cat);
+        $board->setPic($pic);
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+        return $response;
+    }
+    /**
+     * @Route("/Api/Board/SupprimerBoardMobile/{id}", name="SupprimerBoardMobile")
+     */
+    public function SupprimerBoardMobile($id)
+    {
+        $em = $this->getDoctrine()->getmanager();
+        $board= $em->getRepository(Board::class)->find($id);
+        $em->remove($board);
+        $em->flush();
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+        return $response;
+    }
+    /**
+     * @Route("/Api/Board/AfficherBoardMobile/{idCat}", name="AfficherBoardMobile")
+     */
+    public function afficherBoardMobile($idCat): Response
+    {
+        $board = $this->getDoctrine()->getRepository(Board::class)->findBy(array('categorie' => $idCat));
+        $jsonContent= Array();
+        foreach ($board as $key=>$board){
+            $jsonContent[$key]['id']= $board->getId();
+            $jsonContent[$key]['categorie_id']= $board->getId();
+            $jsonContent[$key]['titre']= $board->getTitre();
+            $jsonContent[$key]['pic']= $board->getPic();
+            //$jsonContent[$key]['nbr_vue']= $board->getnb();
+        }
+        return new JsonResponse($jsonContent);
+    }
     /**
      * @Route("/board", name="board")
      */

@@ -14,9 +14,67 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class CommentaireController extends AbstractController
 {
+    /**
+     * @Route("/Api/Commentaire/AfficherCommentaireMobile/{idsujet}", name="AfficherCommentaireMobile")
+     */
+    public function afficherCmntMobile($idsujet): Response
+    {
+        $commentaire = $this->getDoctrine()->getRepository(Commentaire::class)->findBy(array('sujet' => $idsujet));
+        $jsonContent= Array();
+        foreach ($commentaire as $key=>$cmnt){
+            $jsonContent[$key]['id']= $cmnt->getId();
+            $jsonContent[$key]['user_id']= $cmnt->getUser()->getId();
+            $jsonContent[$key]['user_mail']= $cmnt->getUser()->getMail();
+            $jsonContent[$key]['sujet_id']= $cmnt->getSujet()->getId();
+            $jsonContent[$key]['com']= $cmnt->getCom();
+        }
+        return new JsonResponse($jsonContent);
+    }
+
+    /**
+     * @Route("/Api/Commentaire/addCommentaireMobile/{idsujet}/{iduser}/{com}", name="addCommentaireMobile")
+     */
+    public function addCmntMobile($idsujet,$iduser,$com): Response
+    {
+        $cmn = new Commentaire();
+        $em = $this->getDoctrine()->getManager();
+        $suj = $this->getDoctrine()->getRepository(Sujet::class)->find($idsujet);
+        $user = $this->getDoctrine()->getRepository(User::class)->find($iduser);
+        $cmn->setSujet($suj);
+        $cmn->setUser($user);
+        $cmn->setCom($com);
+        $em->persist($cmn);
+        $em->flush();
+        return new JsonResponse([],200);
+    }
+
+    /**
+     * @Route("/Api/Commentaire/deleteCommentaireMobile/{idc}", name="deleteCommentaireMobile")
+     */
+    public function deleteCmntMobile($idc): Response
+    {
+        $c = $this->getDoctrine()->getRepository(Commentaire::class)->find($idc);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($c);
+        $em->flush();
+        return new JsonResponse([],200);
+    }
+
+    /**
+     * @Route("/Api/Commentaire/updateCommentaireMobile/{idc}/{com}", name="updateCommentaireMobile")
+     */
+    public function updateCmntMobile($idc,$com): Response
+    {
+        $c = $this->getDoctrine()->getRepository(Commentaire::class)->find($idc);
+        $c->setCom($com);
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+        return new JsonResponse([],200);
+    }
     /**
      * @Route("/commentaire", name="commentaire")
      */

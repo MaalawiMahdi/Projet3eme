@@ -12,10 +12,68 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 class SocieteController extends AbstractController
 {
+    /**
+     * @Route("/Api/Societe/AddSocieteMobile/{useraccountid}/{numregister}/{nom}/{type}/{adresse}", name="AddSocieteMobile")
+     */
+    public function AddSocieteMobile($useraccountid,$numregister,$nom,$type,$adresse): Response
+    {   $societe = new Societe();
+        $user=$this->getDoctrine()->getRepository(User::class)->find($useraccountid);
+        $societe->setUseraccount($user);
+        $societe->setNumregistre($numregister);
+        $societe->setNom($nom);
+
+        $societe->setType($type);
+        $societe->setAdresse($adresse);
+        $societe->setEtat(false);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($societe);
+        $entityManager->flush();
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+        return $response;
+    }
+    /**
+     * @Route("/Api/Societe/EditSocieteMobile/{id}/{numregister}/{nom}/{type}/{adresse}", name="EditSocieteMobile")
+     */
+    public function EditSocieteMobile($id,$numregister,$nom,$type,$adresse): Response
+    {
+        $societe=$this->getDoctrine()->getRepository(Societe::class)->find($id);
+        $societe->setNumregistre($numregister);
+        $societe->setNom($nom);
+        $societe->setType($type);
+        $societe->setAdresse($adresse);
+        $societe->setEtat(false);
+        $this->getDoctrine()->getManager()->flush();
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+        return $response;
+    }
+    /**
+     * @Route("/Api/Societe/AfficherSocietesMobile", name="AfficherSocieteMobile")
+     */
+    public function AfficherSocieteMobile(): Response
+    {
+        $societes = $this->getDoctrine()->getRepository(Societe::class)->findAll();
+        $jsonContent= Array();
+        foreach ($societes as $key=>$societe){
+            $jsonContent[$key]['id']= $societe->getId();
+            $jsonContent[$key]['useraccount_id']= $societe->getUseraccount()->getId();
+            $jsonContent[$key]['numregistre']= $societe->getNumregistre();
+            $jsonContent[$key]['adresse']= $societe->getAdresse();
+
+            $jsonContent[$key]['type']= $societe->getType();
+            $jsonContent[$key]['etat']= $societe->getEtat();
+            $jsonContent[$key]['nom']= $societe->getNom();
+
+        }
+        return new JsonResponse($jsonContent);
+
+    }
     /**
      * @Route("/societe_demandes", name="societe_demandes")
      */

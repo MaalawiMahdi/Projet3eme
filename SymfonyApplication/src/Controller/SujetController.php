@@ -34,8 +34,69 @@ use Symfony\Component\HttpFoundation\Files;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Symfony\Component\HttpFoundation\JsonResponse;
 class SujetController extends AbstractController
 {
+    /**
+     * @Route("/Api/Sujet/AfficherSujetMobile/{idboard}", name="AfficherSujetMobile")
+     */
+    public function afficherMobile($idboard,Request $request, PaginatorInterface $paginator): Response
+    {
+        $sujets = $this->getDoctrine()->getRepository(Sujet::class)->findBy(array('board' => $idboard));
+
+        $jsonContent= Array();
+        foreach ($sujets as $key=>$sujet){
+            $jsonContent[$key]['id']= $sujet->getId();
+            $jsonContent[$key]['board_id']= $sujet->getBoard()->getId();
+            $jsonContent[$key]['titre']= $sujet->getTitre();
+            $jsonContent[$key]['description']= $sujet->getDescription();
+            $jsonContent[$key]['lien_image']=$sujet->getLienImage();
+        }
+        return new JsonResponse($jsonContent);
+    }
+
+    /**
+     * @Route("/Api/Sujet/addSujetMobile/{idboard}/{titre}/{desc}/{lien}", name="addSujetMobile")
+     */
+    public function addSujetMobile($idboard,$titre,$desc,$lien): Response
+    {
+        $s = new Sujet();
+        $b=$this->getDoctrine()->getRepository(Board::class)->find($idboard);
+        $s->setBoard($b);
+        $s->setTitre($titre);
+        $s->setDescription($desc);
+        $s->setLienImage($lien);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($s);
+        $em->flush();
+        return new JsonResponse([],200);
+    }
+
+
+    /**
+     * @Route("/Api/Sujet/deleteSujetMobile/{id}", name="deleteSujetMobile")
+     */
+    public function deleteSujetMobile($id): Response
+    {
+        $c = $this->getDoctrine()->getRepository(Sujet::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($c);
+        $em->flush();
+        return new JsonResponse([],200);
+    }
+
+    /**
+     * @Route("/Api/Sujet/updateSujetMobile/{id}/{titre}/{desc}", name="updateSujetMobile")
+     */
+    public function updateSmobile($id,$titre,$desc): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $c = $this->getDoctrine()->getRepository(Sujet::class)->find($id);
+        $c->setTitre($titre);
+        $c->setDescription($desc);
+        $em->flush();
+        return new JsonResponse([],200);
+    }
     /**
      * @Route("/main", name="main")
      */

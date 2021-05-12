@@ -22,7 +22,11 @@ public CategorieBoard()
         this.titre = titre;
         this.pic = pic;
     }
- 
+    public CategorieBoard(CategorieBoard a) {
+        this.id = id;
+        this.titre = titre;
+        this.pic = pic;
+    }
     public int getId() {
         return id;
     }

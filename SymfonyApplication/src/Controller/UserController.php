@@ -35,6 +35,165 @@ class UserController extends AbstractController
 {
 
     /**
+     * @Route("/Api/User/AfficherUsers", name="AfficherUsersMobile")
+     */
+    public function AfficherUsersMobile(): Response
+    {
+        $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+        $jsonContent= Array();
+        foreach ($users as $key=>$user){
+            $jsonContent[$key]['id']= $user->getId();
+            $jsonContent[$key]['password']= $user->getPassword();
+            $jsonContent[$key]['type']= $user->getType();
+            $jsonContent[$key]['mail']= $user->getMail();
+            $jsonContent[$key]['active']= $user->getActive();
+            $jsonContent[$key]['ban']= $user->getBan();
+
+        }
+        return new JsonResponse($jsonContent);
+    }
+
+    /**
+     * @Route("/Api/User/AddUserMobile/{mail}/{password}", name="AddUsersMobile")
+     */
+    public function AddUserMobile($mail,$password)
+    {   $user = new User();
+        $user->setMail($mail);
+        $user->setPassword(password_hash ($password,PASSWORD_BCRYPT,['cost' => 12]));
+        $user->setType("client");
+        $user->setActive(true);
+        $user->setBan(false);
+        $info = new InformationsSupplementaires();
+        $info->setUser($user);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->persist($info);
+        $em->flush();
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+        return $response;
+    }
+    /**
+     * @Route("/Api/User/ConnexionUserMobile/{mail}/{password}", name="ConnexionUsersMobile")
+     */
+    public function Connexion($mail,$password)
+    {
+        $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(["mail"=>$mail]);
+        if(password_verify($password,$user->getPassword())==false){
+            $response = new JsonResponse(['resultat'=>"falsePassword"]);
+            return $response;
+        }else if($user->getBan()) {
+            $response = new JsonResponse(['resultat'=>"banned"]);
+            return $response;
+        }else{
+            $response = new JsonResponse(['resultat'=>"true"]);
+            return $response;
+        }
+    }
+    /**
+     * @Route("/Api/User/ProfilUserMobile/{id}", name="ProfilUserMobile")
+     */
+    public function ProfilMobile($id)
+    {
+        $user=$this->getDoctrine()->getRepository(User::class)->find($id);
+        $info= $user->getInformationsSupplementaires();
+
+        // $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(["mail"=>$mail]);
+        if(is_null($info->getNom())){
+            $info->setNom("");
+        }
+        if(is_null($info->getPrenom())){
+            $info->setPrenom("");
+        }
+
+        if(is_null($info->getTell())){
+            $info->setTell("");
+        }
+
+        if(is_null($info->getImage())){
+            $info->setImage("");
+        }
+        $response = new JsonResponse(['id'=>$info->getId(),
+            'user_id'=>$info->getUser()->getId(),
+            'nom'=>$info->getNom(),
+            'prenom'=>$info->getPrenom(),
+            'tell'=>$info->getTell(),
+            'image'=>$info->getImage(),
+
+        ]);
+
+        return $response;
+
+    }
+
+    /**
+     * @Route("/Api/User/UpdateUserMobile/{id}/{mail}/{password}", name="UpdateUserMobile")
+     */
+    public function UpdateUserMobile($id,$mail,$password)
+    {   $user = $this->getDoctrine()->getRepository(User::class)->find($id);
+        $user->setMail($mail);
+        $user->setPassword(password_hash ($password,PASSWORD_BCRYPT,['cost' => 12]));
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+        return $response;
+    }
+    /**
+     * @Route("/Api/User/UpdateProfilMobile/{id}/{nom}/{prenom}/{tell}", name="UpdateProfilMobile")
+     */
+    public function UpdateProfilMobile($id,$nom,$prenom,$tell)
+    {  $user=$this->getDoctrine()->getRepository(User::class)->find($id);
+        $information_supp= $user->getInformationsSupplementaires();
+        $information_supp->setNom($nom);
+        $information_supp->setPrenom($prenom);
+        $information_supp->setTell($tell);
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+        return $response;
+    }
+
+    /**
+     * @Route("/Api/User/AddUserMobileByFacebbok/{mail}/{password}/{nom}/{prenom}", name="AddUserMobileByFacebbok")
+     */
+    public function AddUserMobileByFacebbok(Request $request,$mail,$password,$nom,$prenom)
+    {   $user = new User();
+        $user->setMail($mail);
+        $user->setPassword(password_hash ($password,PASSWORD_BCRYPT,['cost' => 12]));
+        $user->setType("client");
+        $user->setActive(true);
+        $user->setBan(false);
+        $info = new InformationsSupplementaires();
+        $info->setUser($user);
+        $info->setNom($nom);
+        $info->setPrenom($prenom);
+        $info->setImage($request->query->get('linkimage'));
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->persist($info);
+        $em->flush();
+        $response = new JsonResponse();
+        $response->setStatusCode(200);
+        return $response;
+    }
+    /**
+     * @Route("/Api/User/ConnexionUserMobileViaFacebook/{mail}", name="ConnexionUserMobileViaFacebook")
+     */
+    public function ConnexionViaFacebook($mail)
+    {
+        $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(["mail"=>$mail]);
+        if($user->getBan()) {
+            $response = new JsonResponse(['resultat'=>"banned"]);
+            return $response;
+        }else{
+            $response = new JsonResponse(['resultat'=>"true"]);
+            return $response;
+        }
+    }
+
+    /**
      * @Route("/user/deconnexion", name="deconnecter", methods={"GET"})
      */
     public function logout(SessionInterface $session): Response

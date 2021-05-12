@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <resource majorVersion="1" minorVersion="11" useXmlUI="false">
+    <image name="anonimo.jpg"  />
     <image name="back-command.png" type="multi"  />
+    <image name="BlueButton.PNG"  />
     <image name="border.png"  />
     <image name="Button.borderBottom_1.png" type="multi"  />
     <image name="Button.borderBottomL_1.png" type="multi"  />
@@ -746,6 +748,16 @@
         <val key="ToastBarMessage.padding" value="2,2,1,1" />
         <val key="bgColor" value="ffffff" />
         <border key="border" type="empty" />
+        <val key="fbinsc.align" value="4" />
+        <val key="fbinsc.bgColor" value="336699" />
+        <val key="fbinsc.bgImage" value="BlueButton.PNG" />
+        <val key="fbinsc.bgType" value="1" />
+        <val key="fbinsc.fgColor" value="ffffff" />
+        <val key="fbinsc.press#align" value="4" />
+        <val key="fbinsc.press#bgColor" value="336699" />
+        <val key="fbinsc.press#bgImage" value="BlueButton.PNG" />
+        <val key="fbinsc.press#bgType" value="1" />
+        <val key="fbinsc.press#fgColor" value="ffffff" />
         <val key="fgColor" value="0" />
         <font key="font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <font key="labelstat.font" type="ttf" face="32" style="2" size="8" name="native:MainLight" family="native:MainLight" sizeSettings="0" actualSize="12.0" />

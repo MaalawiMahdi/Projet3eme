@@ -6,6 +6,7 @@
 package HolidaysHiatus.gui;
 
 import CubicChart.CubicChart;
+import HolidaysHiatus.MyApplication;
 import HolidaysHiatus.entities.Aide;
 import HolidaysHiatus.entities.CategorieAide;
 import HolidaysHiatus.services.AideService;
@@ -93,6 +94,12 @@ public StatAideForm() {
         });
         getToolbar().addMaterialCommandToSideMenu(" Statistiques catAide", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
             new StatCategorieAideForm().show();
+        });
+
+         getToolbar().addMaterialCommandToSideMenu("Categorie Boards", FontImage.MATERIAL_CATEGORY, (event) -> {
+            FormCatBoard f = new FormCatBoard("Tous les Categories", MyApplication.theme);
+
+            f.show();
         });
 
 }

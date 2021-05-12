@@ -3,6 +3,7 @@ package HolidaysHiatus;
 
 import HolidaysHiatus.entities.CategorieAide;
 import HolidaysHiatus.entities.Aide;
+import HolidaysHiatus.gui.HomePageFrom;
 import HolidaysHiatus.gui.ListCatAideBackForm;
 import HolidaysHiatus.gui.ListCategorieAideForm;
 import HolidaysHiatus.services.AideService;
@@ -60,9 +61,9 @@ public class MyApplication {
     
     public void start() {
 
-           Form f = new ListCatAideBackForm();
+           //Form f = new ListCatAideBackForm();
            //Form f = new ListCategorieAideForm(iduser);
-           
+           Form f = new HomePageFrom(theme);
            f.show();
            
     }

@@ -6,9 +6,11 @@
 package HolidaysHiatus.gui;
 
 import HolidaysHiatus.MyApplication;
+import static HolidaysHiatus.MyApplication.theme;
 import HolidaysHiatus.entities.Aide;
 import HolidaysHiatus.entities.NoteAide;
 import HolidaysHiatus.services.AideService;
+import HolidaysHiatus.tools.Session;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.MultiButton;
 import com.codename1.components.SpanLabel;
@@ -61,10 +63,12 @@ public class ListAideForm extends Form {
     private List list;
     private ContainerList listContainer;
     private int iduser;
-    private int idcat; 
+    private int idcat;
+
     public ListAideForm(int id, int iduser) {
-    this.iduser=iduser;
-    this.idcat=id;
+        this.iduser = iduser;
+        this.idcat = id;
+
         setTitle("Liste des Aides");
         // SpanLabel sp = new SpanLabel();
         listContainer = GetAides();
@@ -75,10 +79,22 @@ public class ListAideForm extends Form {
         //sp.setText(ServiceIngredient.getInstance().getAllIngredients().toString());
         add(listContainer);
 
-        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new ListCategorieAideForm(iduser).showBack());
-      
+        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new ListCategorieAideForm().showBack());
+       
+        //overFlow menu    
+        getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_FACE, (event) -> {
+
+            new ProfilForm(theme).show();
+
+        });
+        getToolbar().addMaterialCommandToOverflowMenu("Se Déconnecter", FontImage.MATERIAL_LOGOUT, (event) -> {
+            Session.getSession().clearSession();
+            Form HomaPage = new HomePageFrom(theme);
+            HomaPage.show();
+        });
 
     }
+
     private void initStarRankStyle(Style s, Image star) {
         s.setBackgroundType(Style.BACKGROUND_IMAGE_TILE_BOTH);
         s.setBorder(Border.createEmpty());
@@ -134,11 +150,10 @@ public class ListAideForm extends Form {
         return starRank;
     }
 
-
     public ContainerList GetAides() {
 
         ContainerList list2 = new ContainerList();
-       
+
         for (Aide a : AideService.getInstance().getAllAides(idcat, iduser)) {
 
             Container container = new Container(BoxLayout.y());
@@ -162,23 +177,23 @@ public class ListAideForm extends Form {
             c_id.add(new Label("id :"));
             c_id.add(new Label(Integer.toString(a.getId())));
             c_id.setVisible(false);
-            
+
             Container espace = new Container(BoxLayout.x());
             espace.add(new Label("id :"));
             espace.add(new Label(Integer.toString(a.getId())));
             espace.setVisible(false);
-            
+
             Container espaceimg = new Container(BoxLayout.x());
             espaceimg.add(new Label("id :"));
             espaceimg.add(new Label(Integer.toString(a.getId())));
             espaceimg.setVisible(false);
-            
+
             EncodedImage placeHolder = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
 
             String url = "http://127.0.0.1:8000/uploads/" + a.getLien_image();
             Image img = URLImage.createToStorage(placeHolder, url, url);
             ImageViewer image = new ImageViewer(img);
-            
+
             Button boutonNote = new Button("Noter");
 
             boutonNote.addActionListener(new ActionListener() {
@@ -193,11 +208,10 @@ public class ListAideForm extends Form {
                     avis.setText(a.getAvis());
                     f.addAll(Rate, lb, avis);
                     Dialog d = new Dialog();
-                    
+
                     d.show("Noter", f, new Command("ok"));
 
-                    
-                   NoteAide notes = new NoteAide();
+                    NoteAide notes = new NoteAide();
                     if (avis.getText().equals("")) {
                         avis.setText("null");
                     }
@@ -205,10 +219,10 @@ public class ListAideForm extends Form {
                     notes.setAvis(avis.getText());
 
                     AideService.getInstance().addNote(notes, iduser, a.getId());
-                 
+
                     f.refreshTheme();
                     new ListAideForm(idcat, iduser).showBack();
-                   
+
                     /*Command[] cmds = new Command[2];
                     cmds[0] = new Command("OK") {
                         public void actionPerformed(ActionEvent evt) {
@@ -219,11 +233,12 @@ public class ListAideForm extends Form {
                         public void actionPerformed(ActionEvent evt) {
                             //do Option2
                         }
-                    };*/}
+                    };*/
+                }
 
-                });
-                     
-            container.addAll(FlowLayout.encloseCenter(createStarRankSlider(a.getMoyenne())),image, c_titre, c_description, c_adresse, c_numtel, c_id,boutonNote,espaceimg);
+            });
+
+            container.addAll(FlowLayout.encloseCenter(createStarRankSlider(a.getMoyenne())), image, c_titre, c_description, c_adresse, c_numtel, c_id, boutonNote, espaceimg);
             list2.add(container);
 
         }
