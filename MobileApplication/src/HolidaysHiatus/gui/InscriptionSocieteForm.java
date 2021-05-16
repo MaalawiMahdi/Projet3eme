@@ -6,6 +6,7 @@
 package HolidaysHiatus.gui;
 
 import HolidaysHiatus.entities.Societe;
+import HolidaysHiatus.services.BoardService;
 import HolidaysHiatus.services.SocieteService;
 import HolidaysHiatus.tools.Session;
 import com.codename1.components.SpanLabel;
@@ -81,15 +82,29 @@ private Button modifier;
             getToolbar().addMaterialCommandToSideMenu("Consulter les Aides ",FontImage.MATERIAL_HELP, (event) -> {
                 new ListCategorieAideForm().show();
             });
+                 
+           getToolbar().addMaterialCommandToSideMenu("Consulter les Boards ",FontImage.MATERIAL_BUSINESS, (event) -> {
+                 new FormBoard("Modifier Board",theme,22).show();
+            });
         if (Session.getSession().getSessionUser().getType().compareTo("client") == 0) {
 
             getToolbar().addMaterialCommandToSideMenu("Démarrer un compte Business",FontImage.MATERIAL_BUSINESS, (event) -> {
                 Form InscriptionSociete = new InscriptionSocieteForm(theme);
                 InscriptionSociete.show();
             });
-        } else {
+        } else {  BoardService SB = new BoardService();
+           if(SB.haveAboard(Session.getSession().getSessionSociete().getId())){
+           Session.getSession().setConnectedBoard(SB.GetBoardByIdSociete(Session.getSession().getSessionSociete().getId()));
+             getToolbar().addMaterialCommandToSideMenu("Consulter Votre Board",FontImage.MATERIAL_BUSINESS, (event) -> {
+               new SujetsSocieteForm(theme,Session.getSession().getConnectedBoard().getId()).show();
+
+            });
+           }else{
+             getToolbar().addMaterialCommandToSideMenu("Creér Votre Board ",FontImage.MATERIAL_BUSINESS, (event) -> {
+               new AjouterBoardForm("Creér Votre Board ",theme).show();
+            });
             //5alaha lya 
-        }
+        }}
 
         //overFlow menu    
         getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_FACE, (evt) -> {

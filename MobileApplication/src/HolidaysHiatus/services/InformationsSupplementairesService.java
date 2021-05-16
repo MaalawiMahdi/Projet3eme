@@ -62,7 +62,7 @@ public class InformationsSupplementairesService {
     public void update(int id, String nom, String prenom, String tell) {
       
         String url = Statics.BASE_URL_User + "/UpdateProfilMobile/" + id + "/" + nom + "/" + prenom + "/" + tell;
-        System.out.print(url);
+      
         ConnectionRequest req = new ConnectionRequest();
         req.setUrl(url);
 

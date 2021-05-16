@@ -69,21 +69,19 @@ public class CategorieBoardService {
             @Override
             public void actionPerformed(NetworkEvent evt) {
             	Catboards = parseCatBoard(new String(req.getResponseData()));
-                for (CategorieBoard a : Catboards) {
-                    System.out.println(a);
-                }
+            
 
                 req.removeResponseListener(this);
             }
         });
         NetworkManager.getInstance().addToQueueAndWait(req);
-        System.out.println(Catboards);
+   
         return Catboards;
     }
     public void SupprimerCategorieBoard(CategorieBoard c) {	
         String url = Statics.BASE_URL_Categorie_Board + "/SupprimerCategorieMobile/" +c.getId();
         
-        System.out.print(url);
+       
         ConnectionRequest req = new ConnectionRequest();
         req.setUrl(url);
 
@@ -93,7 +91,7 @@ public class CategorieBoardService {
     public void ModifierCategorieBoard(CategorieBoard b) {	
         String url = Statics.BASE_URL_Categorie_Board + "/ModifierCategorieBoard/" + b.getTitre() + "/" +b.getPic()+"/"+b.getId();
         
-        System.out.print(url);
+      
         ConnectionRequest req = new ConnectionRequest();
         req.setUrl(url);
 

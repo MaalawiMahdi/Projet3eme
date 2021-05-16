@@ -14,6 +14,18 @@ public class Commentaire {
     private int user_id;
     private int sujet_id;
     private String com;
+    private String user_mail;
+
+    public String getUser_mail() {
+        return user_mail;
+    }
+
+    
+    public void setUser_mail(String toString) {
+        this.user_mail = toString;
+    }
+      
+  
 
     public Commentaire(int id, int user_id, int sujet_id, String com) {
         this.id = id;
@@ -33,8 +45,10 @@ public class Commentaire {
 
     @Override
     public String toString() {
-        return "Commentaire{" + "id=" + id + ", user_id=" + user_id + ", sujet_id=" + sujet_id + ", com=" + com + '}';
+        return "Commentaire{" + "id=" + id + ", user_id=" + user_id + ", sujet_id=" + sujet_id + ", com=" + com + ", user_mail=" + user_mail + '}';
     }
+
+   
 
     public int getId() {
         return id;
@@ -76,6 +90,7 @@ public class Commentaire {
     public void setCom(String com) {
         this.com = com;
     }
+
     
     
 }

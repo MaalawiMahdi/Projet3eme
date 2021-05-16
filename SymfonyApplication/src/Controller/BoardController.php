@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Societe;
 use App\Entity\Student;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,14 +23,16 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class BoardController extends AbstractController
 {
     /**
-     * @Route("/Api/Board/AjouterBoardMobile/{titre}/{catid}/{pic}", name="AjouterBoardMobile")
+     * @Route("/Api/Board/AjouterBoardMobile/{titre}/{catid}/{pic}/{societ_id}", name="AjouterBoardMobile")
      */
-    public function AjouterBoardMobile($titre,$catid,$pic)
+    public function AjouterBoardMobile($titre,$catid,$pic,$societ_id)
     {   $board = new Board();
         $board->setTitre($titre);
         $cat=$this->getDoctrine()->getRepository(CategorieBoard::class)->find($catid);
         $board->setCategorie($cat);
         $board->setPic($pic);
+        $societe=$this->getDoctrine()->getRepository(Societe::class)->find($societ_id);
+        $board->setSociete($societe);
         $em = $this->getDoctrine()->getManager();
         $em->persist($board);
         $em->flush();
@@ -81,6 +84,30 @@ class BoardController extends AbstractController
             $jsonContent[$key]['pic']= $board->getPic();
             //$jsonContent[$key]['nbr_vue']= $board->getnb();
         }
+        return new JsonResponse($jsonContent);
+    }
+    /**
+     * @Route("/Api/Board/AfficherAllBoardsMobile/", name="AfficherAllBoardsMobile")
+     */
+    public function afficherAllBoardsMobile(): Response
+    {
+        $boards = $this->getDoctrine()->getRepository(Board::class)->findAll();
+        $jsonContent= Array();
+        foreach ($boards as $key=>$board){
+
+                $jsonContent[$key]['id'] = $board->getId();
+                $jsonContent[$key]['categorie_id'] = $board->getId();
+            if(!is_null($board->getSociete())) {
+                $jsonContent[$key]['societe_id'] = $board->getSociete()->getId();
+            }else{
+                $jsonContent[$key]['societe_id'] = 0;
+
+            }
+                $jsonContent[$key]['titre'] = $board->getTitre();
+                $jsonContent[$key]['pic'] = $board->getPic();
+
+        }
+
         return new JsonResponse($jsonContent);
     }
     /**

@@ -15,6 +15,9 @@ public class Board {
     public String titre;
     public String pic;
     public int nbr_vue; 
+    private int societe_id;
+
+    
 
     public Board(int id, int categorie_id, String titre, String pic, int nbr_vue) {
         this.id = id;
@@ -76,12 +79,20 @@ public class Board {
     public void setPic(String pic) {
         this.pic = pic;
     }
+     public int getSociete_id() {
+        return societe_id;
+    }
+
+    public void setSociete_id(int societe_id) {
+        this.societe_id = societe_id;
+    }
 
     @Override
     public String toString() {
-        return "Board{" + "id=" + id + ", categorie_id=" + categorie_id + ", titre=" + titre + ", pic=" + pic + ", nbr_vue=" + nbr_vue + '}';
+        return "Board{" + "id=" + id + ", categorie_id=" + categorie_id + ", titre=" + titre + ", pic=" + pic + ", nbr_vue=" + nbr_vue + ", societe_id=" + societe_id + '}';
     }
-
+    
+   
     
     
 }

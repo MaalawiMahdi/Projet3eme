@@ -69,7 +69,17 @@ public class FormBoard extends Form{
                 InscriptionSociete.show();
             });
         } else {
-            //5alaha lya 
+              BoardService SB = new BoardService();
+           if(SB.haveAboard(Session.getSession().getSessionSociete().getId())){
+           Session.getSession().setConnectedBoard(SB.GetBoardByIdSociete(Session.getSession().getSessionSociete().getId()));
+             getToolbar().addMaterialCommandToSideMenu("Consulter Votre Board",FontImage.MATERIAL_BUSINESS, (event) -> {
+                new HomePageSocieteForm().show();
+
+            });
+           }else{
+             getToolbar().addMaterialCommandToSideMenu("Creér Votre Board ",FontImage.MATERIAL_BUSINESS, (event) -> {
+               new AjouterBoardForm("Creér Votre Board ",theme).show();
+            });}
         }
 
 
@@ -109,7 +119,7 @@ this.add(btn);
     private Container item(Board s) {
         Container global = new Container(BoxLayout.y());
         EncodedImage placeholder = EncodedImage.createFromImage(theme.getImage("placeholder-image.png"), false);
-        String url = "http://localhost/public/"+ s.getPic();
+        String url = "http://127.0.0.1:8000/"+ s.getPic();
         Image image = URLImage.createToStorage(placeholder, url, url, URLImage.RESIZE_SCALE);
         ImageViewer img = new ImageViewer(image);
         Label titre = new Label();
@@ -117,6 +127,7 @@ this.add(btn);
         Button btn = new Button("Get More Info ");
         
         btn.addActionListener((evt)->{
+            new SujetsForm(theme,s.getId()).show();
 
         
         });

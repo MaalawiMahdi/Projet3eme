@@ -65,7 +65,7 @@ public class FormCatBoard extends Form {
         //ArrayList<Sujet> ls = new ArrayList<Sujet>();
         //ls.addAll(ss.getSujetParBoard(boardid));
         EncodedImage placeholder=EncodedImage.createFromImage(theme.getImage("placeholder-image.png"), false);
-        String url="http://localhost/public/3ac009dd-e930-457f-bff5-f0b53007986f.png";
+        String url="http://127.0.0.1:8000/3ac009dd-e930-457f-bff5-f0b53007986f.png";
         Image image=URLImage.createToStorage(placeholder, url, url,URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer img=new ImageViewer(image);
         Label choix = new Label("Veillier choisir une categorie");

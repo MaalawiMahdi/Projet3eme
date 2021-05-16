@@ -22,6 +22,7 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.Layout;
 import com.codename1.ui.util.Resources;
 import HolidaysHiatus.MyApplication;
+import HolidaysHiatus.services.BoardService;
 
 /**
  *
@@ -123,7 +124,17 @@ public class ProfilForm extends Form {
                 InscriptionSociete.show();
             });
         } else {
-            //5alaha lya 
+             BoardService SB = new BoardService();
+           if(SB.haveAboard(Session.getSession().getSessionSociete().getId())){
+           Session.getSession().setConnectedBoard(SB.GetBoardByIdSociete(Session.getSession().getSessionSociete().getId()));
+             getToolbar().addMaterialCommandToSideMenu("Consulter Votre Board",FontImage.MATERIAL_BUSINESS, (event) -> {
+               new HomePageSocieteForm().show();
+
+            });
+           }else{
+             getToolbar().addMaterialCommandToSideMenu("Creér Votre Board ",FontImage.MATERIAL_BUSINESS, (event) -> {
+               new AjouterBoardForm("Creér Votre Board ",theme).show();
+            });}
         }
 
 

@@ -5,6 +5,7 @@
  */
 package HolidaysHiatus.tools;
 
+import HolidaysHiatus.entities.Board;
 import HolidaysHiatus.entities.InformationsSupplementaires;
 import HolidaysHiatus.entities.Societe;
 import HolidaysHiatus.entities.User;
@@ -19,6 +20,8 @@ public final class Session {
      private Societe SessionSociete;
      private User FacebookInscription = new User("");
      private InformationsSupplementaires FacebookData = new InformationsSupplementaires();
+     private Board ConnectedBoard;
+     
 
     public InformationsSupplementaires getFacebookData() {
         return FacebookData;
@@ -80,6 +83,14 @@ public final class Session {
 
     public void setFacebookInscription(User FacebookInscription) {
         this.FacebookInscription = FacebookInscription;
+    }
+
+    public Board getConnectedBoard() {
+        return ConnectedBoard;
+    }
+
+    public void setConnectedBoard(Board ConnectedBoard) {
+        this.ConnectedBoard = ConnectedBoard;
     }
       
       

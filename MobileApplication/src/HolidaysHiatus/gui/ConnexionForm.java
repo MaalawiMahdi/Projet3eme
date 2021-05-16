@@ -75,15 +75,24 @@ public class ConnexionForm extends Form {
                     Dialog.show("Vous avez été banni", "", "ok", null);
 
                 } else {
+                    SocieteService S_Service = new SocieteService();
+                    
                     Dialog.show("Welcome", "", "ok", null);
                     Session.StartSession();
                     Session.getSession().SetSessionUser(us.getUser(Email.getText()));
                     System.out.print(Session.getSession().getSessionUser());
-                    if (Session.getSession().getSessionUser().getType().compareTo("client") == 0 || Session.getSession().getSessionUser().getType().compareTo("societe") == 0) {
+                    
+                    if (Session.getSession().getSessionUser().getType().compareTo("client") == 0) {
                       new HomePageFrontForm(theme).show();
-                    } else {//cnx admin
+                    } else if(Session.getSession().getSessionUser().getType().compareTo("societe") == 0) {
+                    Session.getSession().setSessionSociete(S_Service.getSocieteByUserId(Session.getSession().getSessionUser().getId()));
+                      new HomePageFrontForm(theme).show();
+                    
+                    }else{
+                    //cnx admin
                                   new HomePageBackForm(theme).show();
 
+                    
                     }
 
                 }

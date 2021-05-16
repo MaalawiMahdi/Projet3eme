@@ -13,6 +13,7 @@ import com.codename1.ui.util.Resources;
 
 import HolidaysHiatus.entities.Board;
 import HolidaysHiatus.services.BoardService;
+import HolidaysHiatus.tools.Session;
 
 public class AjouterBoardForm extends Form  {
 	private Resources theme;
@@ -46,8 +47,11 @@ public class AjouterBoardForm extends Form  {
 	    	b.setTitre(t.getText());
 	    	b.setCategorie_id((int)Integer.parseInt(p.getText()));
 	    	b.setPic(d.getText());
+                b.setSociete_id(Session.getSession().getSessionSociete().getId());
 ss.AjouterBoard(b);
 Dialog.show("Succees", "Votre Board a ete Ajouter avec succees ", "OK", null);
+  Session.getSession().setConnectedBoard(BoardService.getInstance().GetBoardByIdSociete(Session.getSession().getSessionSociete().getId()));
+new HomePageSocieteForm().show();
 notification();
 	    });
 	}

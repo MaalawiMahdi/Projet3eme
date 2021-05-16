@@ -35,7 +35,8 @@ public class UserService {
             Users = new ArrayList<>();
             JSONParser j = new JSONParser();
             Map<String, Object> tasksListJson = j.parseJSON(new CharArrayReader(jsonText.toCharArray()));
-
+             
+             
             List<Map<String, Object>> list = (List<Map<String, Object>>) tasksListJson.get("root");
             for (Map<String, Object> obj : list) {
                 User udata = new User();
@@ -169,7 +170,7 @@ public class UserService {
 
     public void update(int id, String mail, String password) {
         String url = Statics.BASE_URL_User + "/UpdateUserMobile/" + id + "/" + mail + "/" + password;
-        System.out.print(url);
+        
         ConnectionRequest req = new ConnectionRequest();
         req.setUrl(url);
 
